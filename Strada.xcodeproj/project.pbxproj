@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		803BDD6B2774D0EC00ACF6FC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803BDD6A2774D0EC00ACF6FC /* ProfileView.swift */; };
 		808E6B8E274A6A1B00DF24D7 /* StradaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6B8D274A6A1B00DF24D7 /* StradaApp.swift */; };
 		808E6B90274A6A1B00DF24D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6B8F274A6A1B00DF24D7 /* ContentView.swift */; };
 		808E6B92274A6A1E00DF24D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 808E6B91274A6A1E00DF24D7 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 		808E6BBC274A7B3300DF24D7 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6BBB274A7B3300DF24D7 /* SplashView.swift */; };
 		808E6BBE274A7F0100DF24D7 /* BannerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6BBD274A7F0100DF24D7 /* BannerItemView.swift */; };
 		808E6BC0274A94A500DF24D7 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6BBF274A94A500DF24D7 /* BannerView.swift */; };
+		80B7526B275396B90008495D /* SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7526A275396B90008495D /* SignView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		803BDD6A2774D0EC00ACF6FC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		808E6B8A274A6A1B00DF24D7 /* Strada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Strada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		808E6B8D274A6A1B00DF24D7 /* StradaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StradaApp.swift; sourceTree = "<group>"; };
 		808E6B8F274A6A1B00DF24D7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 		808E6BBB274A7B3300DF24D7 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		808E6BBD274A7F0100DF24D7 /* BannerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerItemView.swift; sourceTree = "<group>"; };
 		808E6BBF274A94A500DF24D7 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		80B7526A275396B90008495D /* SignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,7 @@
 		808E6B8C274A6A1B00DF24D7 /* Strada */ = {
 			isa = PBXGroup;
 			children = (
+				80B75269275396A40008495D /* Sign */,
 				808E6BBA274A7B1D00DF24D7 /* Splash */,
 				808E6BB7274A6A5700DF24D7 /* Home */,
 				808E6B8D274A6A1B00DF24D7 /* StradaApp.swift */,
@@ -143,7 +148,7 @@
 				808E6BB8274A6A7000DF24D7 /* HomeView.swift */,
 				808E6BBD274A7F0100DF24D7 /* BannerItemView.swift */,
 				808E6BBF274A94A500DF24D7 /* BannerView.swift */,
-				808E6BC1274A9ACE00DF24D7 /* BannerPageView.swift */,
+				803BDD6A2774D0EC00ACF6FC /* ProfileView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -154,6 +159,14 @@
 				808E6BBB274A7B3300DF24D7 /* SplashView.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		80B75269275396A40008495D /* Sign */ = {
+			isa = PBXGroup;
+			children = (
+				80B7526A275396B90008495D /* SignView.swift */,
+			);
+			path = Sign;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,12 +300,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				808E6BB9274A6A7100DF24D7 /* HomeView.swift in Sources */,
-				808E6BC2274A9ACE00DF24D7 /* BannerPageView.swift in Sources */,
 				808E6BBC274A7B3300DF24D7 /* SplashView.swift in Sources */,
+				80B7526B275396B90008495D /* SignView.swift in Sources */,
 				808E6BC0274A94A500DF24D7 /* BannerView.swift in Sources */,
 				808E6B90274A6A1B00DF24D7 /* ContentView.swift in Sources */,
 				808E6B8E274A6A1B00DF24D7 /* StradaApp.swift in Sources */,
 				808E6BBE274A7F0100DF24D7 /* BannerItemView.swift in Sources */,
+				803BDD6B2774D0EC00ACF6FC /* ProfileView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
