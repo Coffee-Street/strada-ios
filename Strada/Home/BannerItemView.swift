@@ -47,9 +47,12 @@ struct BannerItemView : View {
                     .foregroundColor(Color.white)
                     .font(.subheadline)
                 HStack {
-                    Text("#1piece").foregroundColor(Color.white)
+                    Text("#1piece")
+                        .foregroundColor(Color.white)
                         .font(.caption)
-                    Text("#4,000원").foregroundColor(Color.white)     .font(.caption)
+                    Text("#4,000원")
+                        .foregroundColor(Color.white)
+                        .font(.caption)
                 }
             }
             .padding(.leading, 20)
@@ -59,5 +62,12 @@ struct BannerItemView : View {
         .cornerRadius(40, corners: .bottomLeft)
         .cornerRadius(40, corners: .topLeft)
         .padding(.leading, 30)
+    }
+}
+
+struct BannerItemView_Previews : PreviewProvider
+{
+    static var previews: some View {
+        BannerItemView(symbolName:  "cup.and.saucer")
     }
 }

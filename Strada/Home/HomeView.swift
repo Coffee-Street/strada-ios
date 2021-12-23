@@ -12,44 +12,39 @@ struct HomeView : View {
         ZStack {
             VStack {
                 HStack {
-                    Text("홈").foregroundColor(Color.blue)
+                    Text("홈")
+                        .font(.system(size: 20))
+                        .foregroundColor(Color.blue)
+                        .padding(.leading, 10)
+
                     Spacer()
-                    Image(systemName: "questionmark").foregroundColor(Color.blue)
+                    Image(systemName: "questionmark")
+                        .font(.system(size: 20))
+                        .foregroundColor(Color.blue)
                         .padding(.trailing, 20)
                     Image(systemName: "bell")
+                        .font(.system(size: 20))
                         .foregroundColor(Color.blue)
+                        .padding(.trailing, 10)
                 }
                 .padding(.horizontal, 20)
                 
-                HStack {
-                    VStack(alignment: .leading, spacing: 0) {
-                        VStack(alignment: .leading, spacing: 0) {
-                            Text("어서오세요").foregroundColor(Color.gray).font(.subheadline)
-                            Text("010-7702-3730").foregroundColor(Color.gray).font(.subheadline)
-                        }
-                        .padding(.bottom, 20)
-                        
-                        HStack {
-                            Text("3,950P").foregroundColor(Color.blue)
-                                .font(.title)
-                            Image(systemName:"greaterthan").foregroundColor(Color.blue)
-                                .font(.title)
-                        }
-                    }
-                    Spacer()
-                } // HStack
+                ProfileView()
                 .padding()
             
                 BannerView()
+                    .frame(height: 380)
                 
-                Text("주문하기")
-                    .font(.title)
-                    .foregroundColor(Color.blue)
-                    .padding(.bottom, 20)
-                Image(systemName:"chevron.down")
-                    .font(.title)
-                    .foregroundColor(Color.blue)
-                Spacer()
+                VStack {
+                    Text("주문하기")
+                        .font(.title)
+                        .foregroundColor(Color.blue)
+                        .padding(.bottom, 20)
+                    Image(systemName:"chevron.down")
+                        .font(.title)
+                        .foregroundColor(Color.blue)
+                }
+                .padding(.bottom, 30)
             }
             
             VStack {
@@ -60,16 +55,18 @@ struct HomeView : View {
                         
                     }) {
                         Image(systemName: "bag")
-                            .frame(width: 80, height: 73)
+                            .frame(width: 70, height: 63)
+                            .font(.system(size: 20, weight: .bold))
                             .foregroundColor(Color.white)
                             .padding(.bottom, 7)
                     }
                     .background(Color.blue)
-                    .cornerRadius(40)
+                    .cornerRadius(35)
                     .padding()
                 }
             } // VStack
-        }
+        } // ZStack
+//        .edgesIgnoringSafeArea(.all)
     }
 }
 

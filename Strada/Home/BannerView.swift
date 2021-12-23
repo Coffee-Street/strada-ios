@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BannerView : View {
     func setupAppearance() {
-        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor.blue
+        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor.systemBlue
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.gray
         
         
