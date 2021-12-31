@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		803BDD6B2774D0EC00ACF6FC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803BDD6A2774D0EC00ACF6FC /* ProfileView.swift */; };
+		803BDD6D2774D75A00ACF6FC /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803BDD6C2774D75A00ACF6FC /* MenuItemView.swift */; };
+		804A095D2753AD5A00BF3F41 /* FavoriteMenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A095C2753AD5A00BF3F41 /* FavoriteMenuItemView.swift */; };
+		804A09602753AFE300BF3F41 /* FavoriteMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A095F2753AFE300BF3F41 /* FavoriteMenuView.swift */; };
+		804A09632753B52900BF3F41 /* MenuCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A09622753B52900BF3F41 /* MenuCountView.swift */; };
+		804A09652753C0B200BF3F41 /* MenuSoldoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A09642753C0B200BF3F41 /* MenuSoldoutView.swift */; };
 		808E6B8E274A6A1B00DF24D7 /* StradaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6B8D274A6A1B00DF24D7 /* StradaApp.swift */; };
 		808E6B90274A6A1B00DF24D7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6B8F274A6A1B00DF24D7 /* ContentView.swift */; };
 		808E6B92274A6A1E00DF24D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 808E6B91274A6A1E00DF24D7 /* Assets.xcassets */; };
@@ -20,6 +25,7 @@
 		808E6BBE274A7F0100DF24D7 /* BannerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6BBD274A7F0100DF24D7 /* BannerItemView.swift */; };
 		808E6BC0274A94A500DF24D7 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6BBF274A94A500DF24D7 /* BannerView.swift */; };
 		80B7526B275396B90008495D /* SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7526A275396B90008495D /* SignView.swift */; };
+		80D3E1D42774DC0D00749503 /* MenuComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3E1D32774DC0D00749503 /* MenuComingSoonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +47,11 @@
 
 /* Begin PBXFileReference section */
 		803BDD6A2774D0EC00ACF6FC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		803BDD6C2774D75A00ACF6FC /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		804A095C2753AD5A00BF3F41 /* FavoriteMenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMenuItemView.swift; sourceTree = "<group>"; };
+		804A095F2753AFE300BF3F41 /* FavoriteMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMenuView.swift; sourceTree = "<group>"; };
+		804A09622753B52900BF3F41 /* MenuCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCountView.swift; sourceTree = "<group>"; };
+		804A09642753C0B200BF3F41 /* MenuSoldoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSoldoutView.swift; sourceTree = "<group>"; };
 		808E6B8A274A6A1B00DF24D7 /* Strada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Strada.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		808E6B8D274A6A1B00DF24D7 /* StradaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StradaApp.swift; sourceTree = "<group>"; };
 		808E6B8F274A6A1B00DF24D7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +67,7 @@
 		808E6BBD274A7F0100DF24D7 /* BannerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerItemView.swift; sourceTree = "<group>"; };
 		808E6BBF274A94A500DF24D7 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		80B7526A275396B90008495D /* SignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignView.swift; sourceTree = "<group>"; };
+		80D3E1D32774DC0D00749503 /* MenuComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuComingSoonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +95,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		804A095E2753AFD600BF3F41 /* Favorite */ = {
+			isa = PBXGroup;
+			children = (
+				804A095C2753AD5A00BF3F41 /* FavoriteMenuItemView.swift */,
+				804A095F2753AFE300BF3F41 /* FavoriteMenuView.swift */,
+				804A09622753B52900BF3F41 /* MenuCountView.swift */,
+				804A09642753C0B200BF3F41 /* MenuSoldoutView.swift */,
+				803BDD6C2774D75A00ACF6FC /* MenuItemView.swift */,
+				80D3E1D32774DC0D00749503 /* MenuComingSoonView.swift */,
+			);
+			path = Favorite;
+			sourceTree = "<group>";
+		};
 		808E6B81274A6A1B00DF24D7 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +131,7 @@
 		808E6B8C274A6A1B00DF24D7 /* Strada */ = {
 			isa = PBXGroup;
 			children = (
+				804A095E2753AFD600BF3F41 /* Favorite */,
 				80B75269275396A40008495D /* Sign */,
 				808E6BBA274A7B1D00DF24D7 /* Splash */,
 				808E6BB7274A6A5700DF24D7 /* Home */,
@@ -299,14 +325,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80D3E1D42774DC0D00749503 /* MenuComingSoonView.swift in Sources */,
 				808E6BB9274A6A7100DF24D7 /* HomeView.swift in Sources */,
 				808E6BBC274A7B3300DF24D7 /* SplashView.swift in Sources */,
+				803BDD6D2774D75A00ACF6FC /* MenuItemView.swift in Sources */,
 				80B7526B275396B90008495D /* SignView.swift in Sources */,
 				808E6BC0274A94A500DF24D7 /* BannerView.swift in Sources */,
 				808E6B90274A6A1B00DF24D7 /* ContentView.swift in Sources */,
+				804A09652753C0B200BF3F41 /* MenuSoldoutView.swift in Sources */,
 				808E6B8E274A6A1B00DF24D7 /* StradaApp.swift in Sources */,
 				808E6BBE274A7F0100DF24D7 /* BannerItemView.swift in Sources */,
+				804A09602753AFE300BF3F41 /* FavoriteMenuView.swift in Sources */,
+				804A09632753B52900BF3F41 /* MenuCountView.swift in Sources */,
 				803BDD6B2774D0EC00ACF6FC /* ProfileView.swift in Sources */,
+				804A095D2753AD5A00BF3F41 /* FavoriteMenuItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
