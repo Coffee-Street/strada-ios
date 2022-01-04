@@ -21,7 +21,7 @@ struct SignView : View {
             Spacer()
             HStack {
                 Spacer()
-                Image("14")
+                Image("logo")
                     .padding(.bottom, 50)
                 Spacer()
             }
