@@ -8,19 +8,27 @@
 import SwiftUI
 
 struct OrderDetailOptionGroupView : View {
+    let options: [OrderDetailOption]
     
-    let orderDetailOptions: [OrderDetailOption]
+    @State private var selectedOption: Int = -1
     
     var body: some View {
         HStack {
-            ForEach(orderOptions, id: \.self) { orderOption in
+            ForEach(options.indices) { index in
+                
+                Button(action: {
+
+                    selectedOption = index
+                }) {
+                    OrderDetailOptionView(option: options[index])
+                }
             }
         }
     }
 }
 
-struct OrderOptionIconButtonGroupView_Previews : PreviewProvider {
+struct OrderDetailOptionGroupView_Previews : PreviewProvider {
     static var previews: some View {
-        OrderOptionIconButtonGroupView()
+        OrderDetailOptionGroupView(options: [OrderDetailOption(imageName: "cold", title: "차갑게"), OrderDetailOption(imageName: "hot", title: "뜨겁게")])
     }
 }

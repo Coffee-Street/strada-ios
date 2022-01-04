@@ -8,28 +8,25 @@
 import SwiftUI
 
 struct OrderDetailOptionView : View {
-    
     let option: OrderDetailOption
     
-    let myColor = Color(red: 207/255, green: 207/255, blue: 207/255)
+    @State var isActive: Bool = false
     
     var body: some View {
-        VStack {
-            Image(option.imageName)
+        VStack(alignment: .center, spacing: 0) {
+            Image(isActive ? "\(option.imageName).active" : option.imageName)
                 .font(.system(size: 20))
-                .foregroundColor(myColor)
                 .padding(.horizontal)
             Text(option.title)
-                .font(.system(size: 13))
-                .foregroundColor(myColor)
+                .font(.system(size: 13, weight: .bold))
+                .foregroundColor(isActive ? .appBlue : .appLightGray)
                 .padding(.horizontal)
         }
-        .padding()
     }
 }
 
 struct OrderOptionIconButtonView_Previews : PreviewProvider {
     static var previews: some View {
-        OrderDetailOptionView(OrderDetailOption(imageName: "regular", title: "레귤러"))
+        OrderDetailOptionView(option: OrderDetailOption(imageName: "regular", title: "레귤러"))
     }
 }
