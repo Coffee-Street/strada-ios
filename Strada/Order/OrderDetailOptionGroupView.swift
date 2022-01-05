@@ -8,19 +8,17 @@
 import SwiftUI
 
 struct OrderDetailOptionGroupView : View {
-    let options: [OrderDetailOption]
-    
-    @State private var selectedOption: Int = -1
+    @State var options: [OrderDetailOption]
     
     var body: some View {
         HStack {
             ForEach(options.indices) { index in
-                
                 Button(action: {
-
-                    selectedOption = index
+                    for action_index in options.indices {
+                        options[action_index].isSelected = action_index == index
+                    }
                 }) {
-                    OrderDetailOptionView(option: options[index])
+                    OrderDetailOptionView(option: $options[index])
                 }
             }
         }

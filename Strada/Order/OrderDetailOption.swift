@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OrderDetailOption {
-    let imageName: String
+    var isSelected: Bool = false
+    var imageName: String
     let title: String
 }
