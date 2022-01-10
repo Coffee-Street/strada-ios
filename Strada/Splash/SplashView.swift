@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SplashView : View {
     var body: some View {
-        Image("14")
+        Image("logo")
     }
 }
 

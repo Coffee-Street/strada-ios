@@ -58,7 +58,7 @@ struct BannerItemView : View {
             .padding(.leading, 20)
         }
         .frame(height: 300)
-        .background(Color.blue)
+        .background(Color.appBlue)
         .cornerRadius(40, corners: .bottomLeft)
         .cornerRadius(40, corners: .topLeft)
         .padding(.leading, 30)

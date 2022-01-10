@@ -21,7 +21,7 @@ struct SignView : View {
             Spacer()
             HStack {
                 Spacer()
-                Image("14")
+                Image("logo")
                     .padding(.bottom, 50)
                 Spacer()
             }
@@ -51,7 +51,7 @@ struct SignView : View {
                 Spacer()
             }
             .frame(height: 40)
-            .background(isValidPhoneNumber() ? Color.blue : Color.gray)
+            .background(isValidPhoneNumber() ? Color.appBlue : Color.appBrownGray)
             
             HStack {
                 Button(action: {
@@ -60,7 +60,7 @@ struct SignView : View {
                     HStack {
                         Text("자동 로그인")
                             .font(.system(size: 10))
-                            .foregroundColor(self.isAutoLogin ? Color.blue : Color.gray)
+                            .foregroundColor(self.isAutoLogin ? .appBlue : .appBrownGray)
                         Image(systemName: self.isAutoLogin ? "checkmark" : "")
                             .font(.system(size: 10))
                             .padding(.leading, 5)
@@ -70,7 +70,7 @@ struct SignView : View {
                             .overlay(
                                 Circle()
                                     .stroke(lineWidth: 2)
-                                    .foregroundColor(self.isAutoLogin ? Color.blue : Color.gray))
+                                    .foregroundColor(self.isAutoLogin ? .appBlue : .appBrownGray))
                         Spacer()
                     }
                 }
