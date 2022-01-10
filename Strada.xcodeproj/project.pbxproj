@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		801A5BAD277F66B800BA3B7A /* OrderBeanOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801A5BAC277F66B800BA3B7A /* OrderBeanOptionView.swift */; };
 		801A5BB0277F6C1500BA3B7A /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801A5BAF277F6C1500BA3B7A /* CountView.swift */; };
-		801A5BB2277F6F2800BA3B7A /* OrderNamedCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801A5BB1277F6F2800BA3B7A /* OrderNamedCountView.swift */; };
 		803BDD6B2774D0EC00ACF6FC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803BDD6A2774D0EC00ACF6FC /* ProfileView.swift */; };
 		803BDD6D2774D75A00ACF6FC /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803BDD6C2774D75A00ACF6FC /* MenuItemView.swift */; };
 		804A095B2753ACA000BF3F41 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A095A2753ACA000BF3F41 /* OrderView.swift */; };
@@ -60,7 +59,6 @@
 /* Begin PBXFileReference section */
 		801A5BAC277F66B800BA3B7A /* OrderBeanOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBeanOptionView.swift; sourceTree = "<group>"; };
 		801A5BAF277F6C1500BA3B7A /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
-		801A5BB1277F6F2800BA3B7A /* OrderNamedCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderNamedCountView.swift; sourceTree = "<group>"; };
 		803BDD6A2774D0EC00ACF6FC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		803BDD6C2774D75A00ACF6FC /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		804A095A2753ACA000BF3F41 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
@@ -137,7 +135,6 @@
 				80799489277F353B00187407 /* OrderDetailOptionView.swift */,
 				8079948B277F396A00187407 /* OrderDetailOptionGroupView.swift */,
 				8079948D277F3A3700187407 /* OrderDetailOption.swift */,
-				801A5BB1277F6F2800BA3B7A /* OrderNamedCountView.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -402,7 +399,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				80D3E1D42774DC0D00749503 /* MenuComingSoonView.swift in Sources */,
-				801A5BB2277F6F2800BA3B7A /* OrderNamedCountView.swift in Sources */,
 				80B02F562780503C0093B532 /* AppColor.swift in Sources */,
 				8079948C277F396A00187407 /* OrderDetailOptionGroupView.swift in Sources */,
 				808E6BB9274A6A7100DF24D7 /* HomeView.swift in Sources */,

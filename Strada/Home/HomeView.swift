@@ -14,17 +14,17 @@ struct HomeView : View {
                 HStack {
                     Text("홈")
                         .font(.system(size: 20))
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(.appBlue)
                         .padding(.leading, 10)
 
                     Spacer()
                     Image(systemName: "questionmark")
                         .font(.system(size: 20))
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(.appBlue)
                         .padding(.trailing, 20)
                     Image(systemName: "bell")
                         .font(.system(size: 20))
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(.appBlue)
                         .padding(.trailing, 10)
                 }
                 .padding(.horizontal, 20)
@@ -38,11 +38,11 @@ struct HomeView : View {
                 VStack {
                     Text("주문하기")
                         .font(.title)
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(.appBlue)
                         .padding(.bottom, 20)
                     Image(systemName:"chevron.down")
                         .font(.title)
-                        .foregroundColor(Color.blue)
+                        .foregroundColor(.appBlue)
                 }
                 .padding(.bottom, 30)
             }
@@ -60,7 +60,7 @@ struct HomeView : View {
                             .foregroundColor(Color.white)
                             .padding(.bottom, 7)
                     }
-                    .background(Color.blue)
+                    .background(Color.appBlue)
                     .cornerRadius(35)
                     .padding()
                 }

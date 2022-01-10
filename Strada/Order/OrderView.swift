@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct OrderView : View {
-    let myColor = Color(red: 207/255, green: 207/255, blue: 207/255)
-    let myBackgroundColor = Color(red: 238/255, green: 238/255, blue: 238/255)
+    let menuNameKr = "아메리카노"
+    let menuNameEn = "Americano"
+    
+    let hashTags = ["산미", "브라질", "단맛"]
     
     let detailContent = "합리적 가격에 단맛과 산미가 조화롭습니다.\n생산지 : 브라질 세하도 모지아나\n등급 : 없음 | 품종 : 옐로우카투아이\n가공 : Natural | 로스팅 : 시티"
     
@@ -22,18 +24,19 @@ struct OrderView : View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     VStack(alignment: .center, spacing: 0) {
-                        Image(systemName: "cup.and.saucer.fill")
-                            .font(.system(size: 250))
+                        Image("drinkHeader")
+//                        Image(systemName: "cup.and.saucer.fill")
+//                            .font(.system(size: 250))
     //                        .frame(minWidth: 0, maxWidth: 100, minHeight: 0, maxHeight: 100)
                     }
                     .frame(minWidth: 0, maxWidth: .infinity)
-                    .background(myBackgroundColor)
+                    .background(Color.appVeryLightGray)
                     
                     HStack {
                         HStack {
-                            Text("아메리카노")
+                            Text(menuNameKr)
                                 .fontWeight(.medium)
-                            Text("Americano")
+                            Text(menuNameEn)
                                 .fontWeight(.thin)
                         }
                         
@@ -44,6 +47,7 @@ struct OrderView : View {
                         }) {
                             Image(systemName: isFavorite ? "heart.fill" : "heart")
                                 .font(.system(size: 20, weight: .medium))
+                                .foregroundColor(.appBlue)
                         }
                     }
                     .padding(.horizontal)
@@ -51,7 +55,7 @@ struct OrderView : View {
                     .padding(.bottom, 10)
                     
                     HStack {
-                        ForEach(["산미", "브라질", "단맛"], id: \.self) { hashtag in
+                        ForEach(hashTags, id: \.self) { hashtag in
                             Text("#\(hashtag)")
                         }
                         
@@ -60,7 +64,7 @@ struct OrderView : View {
                         }) {
                             if self.isDetail == false {
                                 Text("자세히")
-                                    .foregroundColor(.secondary)
+                                    .foregroundColor(.appLightGray)
                             }
                         }
                     }
@@ -80,7 +84,7 @@ struct OrderView : View {
                                         self.isDetail = false
                                     }) {
                                         Text("접기")
-                                            .foregroundColor(.secondary)
+                                            .foregroundColor(.appLightGray)
                                     }
                                 }
                             } else {
@@ -105,7 +109,7 @@ struct OrderView : View {
                         
                     }){
                         Text("장바구니")
-                            .foregroundColor(.secondary)
+                            .foregroundColor(.appBrownGray)
                     }
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .frame(height: 96)
@@ -114,13 +118,13 @@ struct OrderView : View {
                         
                     }){
                         Text("바로주문")
-                            .foregroundColor(.secondary)
+                            .foregroundColor(.appBrownGray)
                     }
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .frame(height: 96)
                 }
     //            .padding(.bottom, 14)
-                .background(myBackgroundColor)
+                .background(Color.appVeryLightGray)
             }
             .edgesIgnoringSafeArea(.bottom)
             

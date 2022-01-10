@@ -12,16 +12,16 @@ struct ProfileView : View {
         HStack {
             VStack(alignment: .leading, spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text("어서오세요").foregroundColor(Color.gray).font(.subheadline)
+                    Text("어서오세요").foregroundColor(.appBrownGray).font(.subheadline)
                         .padding(.vertical, 5)
-                    Text("010-7702-3730").foregroundColor(Color.gray).font(.subheadline)
+                    Text("010-7702-3730").foregroundColor(.appBrownGray).font(.subheadline)
                 }
                 .padding(.bottom, 10)
                 
                 HStack {
-                    Text("3,950P").foregroundColor(Color.blue)
+                    Text("3,950P").foregroundColor(.appBlue)
                         .font(.title)
-                    Image(systemName:"greaterthan").foregroundColor(Color.blue)
+                    Image(systemName:"greaterthan").foregroundColor(.appBlue)
                         .font(.title)
                 }
             }
