@@ -19,18 +19,16 @@ struct OrderView : View {
     
     @State private var isDetail = false
     
+    @State private var isComplete = false
+    
     var body: some View {
         ZStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     VStack(alignment: .center, spacing: 0) {
                         Image("drinkHeader")
-//                        Image(systemName: "cup.and.saucer.fill")
-//                            .font(.system(size: 250))
-    //                        .frame(minWidth: 0, maxWidth: 100, minHeight: 0, maxHeight: 100)
                     }
                     .frame(minWidth: 0, maxWidth: .infinity)
-                    .background(Color.appVeryLightGray)
                     
                     HStack {
                         HStack {
@@ -97,7 +95,7 @@ struct OrderView : View {
                     .padding(.horizontal)
                     .padding(.bottom)
                     
-                    OrderDrinkOptionView()
+                    OrderDrinkOptionView(isComplete: $isComplete)
                 }
             }
             .padding(.bottom, 80)
@@ -109,22 +107,24 @@ struct OrderView : View {
                         
                     }){
                         Text("장바구니")
-                            .foregroundColor(.appBrownGray)
+                            .foregroundColor(self.isComplete ? .white : .appBrownGray)
                     }
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .frame(height: 96)
+                    .background(self.isComplete ? Color.appBlue : Color.appVeryLightGray)
                 
                     Button(action: {
                         
                     }){
                         Text("바로주문")
-                            .foregroundColor(.appBrownGray)
+                            .foregroundColor(self.isComplete ? .white : .appBrownGray)
                     }
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .frame(height: 96)
+                    .background(self.isComplete ? Color.appLightBlue : Color.appVeryLightGray)
                 }
     //            .padding(.bottom, 14)
-                .background(Color.appVeryLightGray)
+//                .background(Color.appVeryLightGray)
             }
             .edgesIgnoringSafeArea(.bottom)
             
@@ -137,6 +137,6 @@ struct OrderView_Previews : PreviewProvider {
         OrderView()
         
         OrderView()
-            .previewDevice("iPod touch (7th generation)")
+            .previewDevice("iPhone 8")
     }
 }

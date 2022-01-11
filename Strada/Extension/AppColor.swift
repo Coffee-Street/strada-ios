@@ -12,6 +12,8 @@ extension Color {
     static let appBlack = Color(hex: "#222222")
   
     static let appBlue = Color(hex: "#0047bb")
+    
+    static let appLightBlue = Color(hex: "#3270d6")
   
     static let appOrange = Color(hex: "#ff6600")
 

@@ -9,6 +9,8 @@ import SwiftUI
 
 struct OrderDrinkOptionView : View {
 
+    @Binding var isComplete: Bool
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 0) {
@@ -64,12 +66,11 @@ struct OrderDrinkOptionView : View {
     }
 }
 
-
 struct OrderDrinkOptionView_Previews : PreviewProvider {
     static var previews: some View {
-        OrderDrinkOptionView()
-        OrderDrinkOptionView()
-            .previewDevice("iPod touch (7th generation)")
+        OrderDrinkOptionView(isComplete: .constant(false))
+        OrderDrinkOptionView(isComplete: .constant(false))
+            .previewDevice("iPhone 8")
             
     }
 }
