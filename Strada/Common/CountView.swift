@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct CountView : View {
-    private var range: [String]
+    private let range: [String]
     @State private var index: Int = 0
     
     init(count: Int, index: Int = 0) {
-        range = Array(0...count).map({ String($0) })
-        self.index = index
+        self.range = Array(0...count).map({ String($0) })
+        _index = State(initialValue: 0 < index ? index < self.range.count ? index : self.range.count - 1 : 0)
     }
     
     init(range: [String], index: Int = 0) {
         self.range = range
-        self.index = index
+        _index = State(initialValue: 0 < index ? index < self.range.count ? index : self.range.count - 1 : 0)
     }
     
     init(range: [String], valueString: String) {
         self.range = range
-        self.index = self.range.firstIndex(of: valueString) ?? 0
+        _index = State(initialValue: self.range.firstIndex(of: valueString) ?? 0)
     }
     
     var body: some View {
@@ -31,20 +31,20 @@ struct CountView : View {
             Button(action: {
                 self.index -= 1
             }) {
-                Image(index == 0 ? "minus.disable" : "minus")
+                Image(self.index == 0 ? "minus.disable" : "minus")
             }
-            .disabled(index == 0)
+            .disabled(self.index == 0)
             
-            Text("\(range[index])")
+            Text("\(self.range[self.index])")
                 .font(.system(size: 18))
                 .foregroundColor(Color.white)
             
             Button(action: {
                 self.index += 1
             }) {
-                Image(index == range.count - 1 ? "plus.disable" : "plus")
+                Image(self.index == self.range.count - 1 ? "plus.disable" : "plus")
             }
-            .disabled(index == range.count - 1)
+            .disabled(self.index == self.range.count - 1)
         }
         .background(Capsule().fill(Color.appBlue))
     }
@@ -52,6 +52,6 @@ struct CountView : View {
 
 struct CountView_Previews : PreviewProvider {
     static var previews: some View {
-        CountView(range: Array(0..<10).map({ "\($0)" }))
+        CountView(range: Array(0..<10).map({ "\($0)" }), index: 3)
     }
 }

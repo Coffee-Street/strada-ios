@@ -13,6 +13,7 @@ struct OrderDrinkPersonalOptionCountView : View {
     let title: String
     let price: String
     let count: Int
+    var value: Int = 0
     
     var body: some View {
         HStack {
@@ -24,13 +25,13 @@ struct OrderDrinkPersonalOptionCountView : View {
                     .fontWeight(.bold)
             }
             Spacer()
-            CountView(count: count)
+            CountView(count: count, index: value)
         }
     }
 }
 
 struct OrderDrinkPersonalOptionCountView_Previews : PreviewProvider {
     static var previews: some View {
-        OrderDrinkPersonalOptionCountView(image: "shot.active", title: "샷", price: "300원", count: 4)
+        OrderDrinkPersonalOptionCountView(image: "shot.active", title: "샷", price: "300원", count: 4, value: 1)
     }
 }

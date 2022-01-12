@@ -11,28 +11,51 @@ struct OrderDrinkOptionView : View {
 
     @Binding var isComplete: Bool
     
+    @State private var orderDetailOptionsCategories: [[OrderDetailOption]] = [
+        [
+            OrderDetailOption(imageName: "cold", title: "차갑게"),
+            OrderDetailOption(imageName: "hot", title: "뜨겁게")
+        ],
+        [
+            OrderDetailOption(imageName: "regular", title: "레귤러"),
+            OrderDetailOption(imageName: "tall", title: "톨"),
+            OrderDetailOption(imageName: "grande", title: "그란데")
+        ],
+        [
+            OrderDetailOption(imageName: "disposable", title: "일회용컵"),
+            OrderDetailOption(imageName: "multiuse", title: "매장용컵"),
+            OrderDetailOption(imageName: "personal", title: "개인컵")
+        ]
+    ]
+    
+    func checkComplete() {
+        for orderDetailOptions in orderDetailOptionsCategories {
+            var isChecked = false
+            
+            for orderDetailOption in orderDetailOptions {
+                if orderDetailOption.isSelected == true {
+                    isChecked = true
+                    break
+                }
+            }
+            
+            if isChecked == false {
+                self.isComplete = false
+                break
+            }
+        }
+        
+        self.isComplete = true
+    }
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
-                    
                     VStack(alignment: .leading, spacing: 0) {
-                        OrderDetailOptionGroupView(options: [
-                            OrderDetailOption(imageName: "cold", title: "차갑게"),
-                            OrderDetailOption(imageName: "hot", title: "뜨겁게")
-                        ])
-                        
-                        OrderDetailOptionGroupView(options: [
-                            OrderDetailOption(imageName: "regular", title: "레귤러"),
-                            OrderDetailOption(imageName: "tall", title: "톨"),
-                            OrderDetailOption(imageName: "grande", title: "그란데")
-                        ])
-                        
-                        OrderDetailOptionGroupView(options: [
-                            OrderDetailOption(imageName: "disposable", title: "일회용컵"),
-                            OrderDetailOption(imageName: "multiuse", title: "매장용컵"),
-                            OrderDetailOption(imageName: "personal", title: "개인컵")
-                        ])
+                        ForEach(orderDetailOptionsCategories.indices) { index in
+                            OrderDetailOptionGroupView(options: orderDetailOptionsCategories[index])
+                        }
                     } // VStack
                     
                     Divider()
