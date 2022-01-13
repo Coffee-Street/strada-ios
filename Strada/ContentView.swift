@@ -8,9 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var controller = CurrentViewController("splash")
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        if controller.viewName == "splash" {
+            SplashView(controller: controller)
+        } else if controller.viewName == "sign" {
+            SignView(controller: controller)
+        } else if controller.viewName == "home" {
+            HomeView(controller: controller)
+        }
     }
 }
 

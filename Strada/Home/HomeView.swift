@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct HomeView : View {
+    
+    @ObservedObject var controller: CurrentViewController
+    
     var body: some View {
         ZStack {
             VStack {
@@ -72,6 +75,6 @@ struct HomeView : View {
 
 struct HomeView_Previews : PreviewProvider {
     static var previews : some View {
-        HomeView()
+        HomeView(controller: CurrentViewController("home"))
     }
 }
