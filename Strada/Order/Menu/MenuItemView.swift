@@ -28,8 +28,6 @@ struct MenuItemView : View {
         _menuState = menuState
     }
     
-    private let disableColor = Color(red: 207/255, green: 207/255, blue: 207/255)
-    
     private func menuTextColor() -> Color {
         switch self.menuState {
         case .AVAILABLE:
@@ -37,18 +35,18 @@ struct MenuItemView : View {
         case .SOLD_OUT:
             fallthrough
         case .COMING_SOON:
-            return disableColor
+            return Color.appLightGray
         }
     }
     
     private func menuImageColor() -> Color {
         switch self.menuState {
         case .AVAILABLE:
-            return disableColor
+            return Color.appVeryLightGray
         case .SOLD_OUT:
             fallthrough
         case .COMING_SOON:
-            return Color(red: 237/255, green: 237/255, blue: 237/255)
+            return Color.appVeryLightGray
         }
     }
     
@@ -69,13 +67,14 @@ struct MenuItemView : View {
 //                    .overlay(Circle().stroke())
                 Spacer()
                 
-                Image(systemName: "cup.and.saucer")
+                Image("") // systemName: "cup.and.saucer"
                     .foregroundColor(menuTextColor())
                     .font(.system(size: 30))
                     .frame(width: 50, height: 50)
                     .background(menuImageColor())
                     .clipShape(Circle())
-                    .overlay(Circle().stroke(menuImageColor(), lineWidth: 2))
+                    .overlay(Circle().stroke(Color.appLightGray, lineWidth: 2))
+                    .padding(.trailing, 1)
                     
             }
             
@@ -102,7 +101,7 @@ struct MenuItemView_Previews : PreviewProvider {
         MenuItemView(
             menuName: .constant("메뉴 이름"),
             menuPrice: .constant(4000),
-            menuState: .constant(MenuState.COMING_SOON)
+            menuState: .constant(.AVAILABLE)
         )
     }
 }

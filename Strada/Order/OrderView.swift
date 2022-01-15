@@ -9,7 +9,15 @@ import SwiftUI
 
 struct OrderView : View {
     var body: some View {
-        FavoriteMenuView()
+        NavigationView {
+            ScrollView {
+                FavoriteMenuView()
+                Divider()
+                MenuView()
+            } // ScrollView
+            .padding()
+            .navigationBarTitle(Text(""), displayMode: .inline)
+        } // NavigationView
     }
 }
 
