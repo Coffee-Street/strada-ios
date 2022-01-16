@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		801A5BAD277F66B800BA3B7A /* OrderBeanOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801A5BAC277F66B800BA3B7A /* OrderBeanOptionView.swift */; };
 		801A5BB0277F6C1500BA3B7A /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801A5BAF277F6C1500BA3B7A /* CountView.swift */; };
+		802EE51C279465360012DD1C /* MenuCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE51B279465360012DD1C /* MenuCategoryView.swift */; };
 		803BDD6B2774D0EC00ACF6FC /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803BDD6A2774D0EC00ACF6FC /* ProfileView.swift */; };
 		803BDD6D2774D75A00ACF6FC /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803BDD6C2774D75A00ACF6FC /* MenuItemView.swift */; };
 		804A095B2753ACA000BF3F41 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A095A2753ACA000BF3F41 /* OrderDetailView.swift */; };
@@ -62,6 +63,7 @@
 /* Begin PBXFileReference section */
 		801A5BAC277F66B800BA3B7A /* OrderBeanOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBeanOptionView.swift; sourceTree = "<group>"; };
 		801A5BAF277F6C1500BA3B7A /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
+		802EE51B279465360012DD1C /* MenuCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryView.swift; sourceTree = "<group>"; };
 		803BDD6A2774D0EC00ACF6FC /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		803BDD6C2774D75A00ACF6FC /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		804A095A2753ACA000BF3F41 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		802EE51A279465250012DD1C /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				802EE51B279465360012DD1C /* MenuCategoryView.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		804A09592753AC8D00BF3F41 /* Order */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +177,7 @@
 		808BE278279256C100C84987 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				802EE51A279465250012DD1C /* Category */,
 				804A095E2753AFD600BF3F41 /* Favorite */,
 				804A09622753B52900BF3F41 /* MenuCountView.swift */,
 				804A09642753C0B200BF3F41 /* MenuSoldoutView.swift */,
@@ -441,6 +452,7 @@
 				803BDD6D2774D75A00ACF6FC /* MenuItemView.swift in Sources */,
 				80B7526B275396B90008495D /* SignView.swift in Sources */,
 				801A5BB0277F6C1500BA3B7A /* CountView.swift in Sources */,
+				802EE51C279465360012DD1C /* MenuCategoryView.swift in Sources */,
 				8079948A277F353B00187407 /* OrderDetailOptionView.swift in Sources */,
 				808E6BC0274A94A500DF24D7 /* BannerView.swift in Sources */,
 				801A5BAD277F66B800BA3B7A /* OrderBeanOptionView.swift in Sources */,

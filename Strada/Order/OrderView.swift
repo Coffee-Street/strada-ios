@@ -12,8 +12,10 @@ struct OrderView : View {
         NavigationView {
             ScrollView {
                 FavoriteMenuView()
+                    .padding(.bottom)
                 Divider()
                 MenuView()
+                    .padding(.top)
             } // ScrollView
             .padding()
             .navigationBarTitle(Text(""), displayMode: .inline)

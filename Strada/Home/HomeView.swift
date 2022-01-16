@@ -38,7 +38,10 @@ struct HomeView : View {
                 BannerView()
                     .frame(height: 380)
                 
-                VStack {
+                Button(action: {
+                    
+                }) {
+                    VStack {
                     Text("주문하기")
                         .font(.title)
                         .foregroundColor(.appBlue)
@@ -46,8 +49,9 @@ struct HomeView : View {
                     Image(systemName:"chevron.down")
                         .font(.title)
                         .foregroundColor(.appBlue)
+                    }
+                    .padding(.bottom, 30)
                 }
-                .padding(.bottom, 30)
             }
             
             VStack {

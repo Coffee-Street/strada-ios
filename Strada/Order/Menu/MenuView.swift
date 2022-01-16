@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct MenuView : View {
+    
+    let menuCategories = ["커피", "차", "에이드", "디저트", "브런치"]
+    @State private var index = 0
+    
     var body: some View {
-        VStack {
-            HStack {
-                ForEach(["커피", "차", "에이드", "디저트", "브런치"], id: \.self) { category in
-                    Text(category)
-                }
-            }
+        VStack(alignment: .leading, spacing: 0) {
+            MenuCategoryView(categories: menuCategories)
+            .padding(.bottom, 35)
             
             VStack {
                 NavigationLink(destination: OrderDetailView()) {
