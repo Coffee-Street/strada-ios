@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct OrderView : View {
+    
+    @State private var viewModel = OrderViewModel()
+    
     var body: some View {
         NavigationView {
             ScrollView {
-                FavoriteMenuView()
+                FavoriteMenuView(favoriteMenus: $viewModel.favoriteMenus)
                     .padding(.bottom)
                 Divider()
-                MenuView()
+                MenuView(/*menus: $viewModel.menus*/)
                     .padding(.top)
             } // ScrollView
             .padding()

@@ -9,34 +9,25 @@ import SwiftUI
 
 struct FavoriteMenuItemView : View {
     
-    @Binding var menuName: String
-    @Binding var menuPrice: Int
-    @Binding var menuCount: Int
-    @Binding var isMenuSoldout: Bool
+    @Binding var favoriteMenu: FavoriteMenu
+    @State private var count: Int = 0
     
-    init(menuName: Binding<String>,
-         menuPrice: Binding<Int>,
-         menuCount: Binding<Int>,
-         isMenuSoldout: Binding<Bool>) {
-        _menuName = menuName
-        _menuPrice = menuPrice
-        _menuCount = menuCount
-        _isMenuSoldout = isMenuSoldout
+    init(favoriteMenu: Binding<FavoriteMenu>, count: Int = 0) {
+        self._favoriteMenu = favoriteMenu
+        _count = State(initialValue: count)
     }
-    
-    private let disableColor = Color(red: 207/255, green: 207/255, blue: 207/255)
     
     var body: some View {
         ZStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 0) {
-                Text(menuName)
-                    .foregroundColor(self.isMenuSoldout ? disableColor : .black)
+                Text(self.favoriteMenu.menu.name)
+                    .foregroundColor(self.favoriteMenu.menu.state == .SOLD_OUT ? .appLightGray : .black)
                     .padding(.bottom, 5)
                 Text("옵션 / 사이즈")
-                    .foregroundColor(self.isMenuSoldout ? disableColor : .black)
+                    .foregroundColor(self.favoriteMenu.menu.state == .SOLD_OUT ? .appLightGray : .black)
                     .padding(.bottom, 5)
-                Text("\(menuPrice)원")
-                    .foregroundColor(self.isMenuSoldout ? disableColor : .black)
+                Text("\(self.favoriteMenu.menu.price)원")
+                    .foregroundColor(self.favoriteMenu.menu.state == .SOLD_OUT ? .appLightGray : .black)
                     .fontWeight(.semibold)
 //                Text(menuPrice, format: .currency(code: "KRW"))
             }
@@ -45,11 +36,10 @@ struct FavoriteMenuItemView : View {
                 Spacer()
                 HStack {
                     Spacer()
-                    
-                    if self.isMenuSoldout {
-                        MenuSoldoutView()
-                    } else {
+                    if self.favoriteMenu.menu.state == .AVAILABLE {
                         MenuCountView()
+                    } else if self.favoriteMenu.menu.state == .SOLD_OUT {
+                        MenuSoldoutView()
                     }
                 }
                 .padding(.bottom, 10)
@@ -60,9 +50,8 @@ struct FavoriteMenuItemView : View {
 }
 
 struct FavoriteMenuItemView_Previews : PreviewProvider {
+    @State static var favoriteMenu = FavoriteMenu(menu: Menu(state: .AVAILABLE, name: "", price: 300), menuOption: DrinkMenuOption(menuType: .COFFEE, temperatureType: .COLD, cupSizeType: .GRANDE, cupType: .DISPOSBLE), menuPersonalOption: DrinkMenuPersonalOption(shotCount: 1, syrupCount: ["caramel": 1], iceCount: 1, milkCount: 2, whippedCreamCount: 0, drizzleCount: 0))
     static var previews: some View {
-        FavoriteMenuItemView(menuName: .constant("메뉴 이름"), menuPrice: .constant(4000),
-            menuCount: .constant(0),
-            isMenuSoldout: .constant(false))
+        FavoriteMenuItemView(favoriteMenu: $favoriteMenu)
     }
 }

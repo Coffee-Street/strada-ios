@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-enum MenuState : Int {
-    case AVAILABLE = 1
-    case SOLD_OUT
-    case COMING_SOON
-}
-
 struct MenuItemView : View {
     
     @Binding var menuName: String
