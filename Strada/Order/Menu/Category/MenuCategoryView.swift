@@ -8,19 +8,24 @@
 import SwiftUI
 
 struct MenuCategoryView : View {
-    let categories: [String]
+    @Binding var categories: [String]
     
-    @State var index = 0
+    @Binding var selected: String
+    
+    init(categories: Binding<[String]>, selected: Binding<String>) {
+        _categories = categories
+        _selected = selected
+    }
     
     var body: some View {
         HStack {
             ForEach(categories, id: \.self) { category in
                 Button(action: {
-                    self.index = categories.firstIndex(of: category) ?? 0
+                    self.selected = category
                 }) {
                     Text(category)
                         .padding(.trailing, 15)
-                        .foregroundColor(.appBrownGray)
+                        .foregroundColor(self.selected == category ? .appBlue : .appBrownGray)
                 }
             }
         }
@@ -28,8 +33,9 @@ struct MenuCategoryView : View {
 }
 
 struct MenuCategoryView_Previews : PreviewProvider {
-    static let categories = ["커피", "차", "에이드", "디저트", "브런치"]
+    @State static var categories = ["커피", "차", "에이드", "디저트", "브런치"]
+    @State static var selected = "커피"
     static var previews: some View {
-        MenuCategoryView(categories: categories)
+        MenuCategoryView(categories: $categories, selected: $selected)
     }
 }

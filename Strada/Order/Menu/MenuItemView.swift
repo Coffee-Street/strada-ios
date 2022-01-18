@@ -9,21 +9,10 @@ import SwiftUI
 
 struct MenuItemView : View {
     
-    @Binding var menuName: String
-    @Binding var menuPrice: Int
-    @Binding var menuState: MenuState
-    
-    init(menuName: Binding<String>,
-         menuPrice: Binding<Int>,
-         menuState: Binding<MenuState> = .constant(.AVAILABLE)
-    ) {
-        _menuName = menuName
-        _menuPrice = menuPrice
-        _menuState = menuState
-    }
+    let menu: Menu
     
     private func menuTextColor() -> Color {
-        switch self.menuState {
+        switch self.menu.state {
         case .AVAILABLE:
             return .black
         case .SOLD_OUT:
@@ -34,7 +23,7 @@ struct MenuItemView : View {
     }
     
     private func menuImageColor() -> Color {
-        switch self.menuState {
+        switch self.menu.state {
         case .AVAILABLE:
             return Color.appVeryLightGray
         case .SOLD_OUT:
@@ -48,10 +37,10 @@ struct MenuItemView : View {
         ZStack(alignment: .leading) {
             HStack {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text(menuName)
+                    Text(menu.name)
                         .foregroundColor(menuTextColor())
                         .padding(.bottom, 5)
-                    Text("\(menuPrice)원")
+                    Text("\(menu.price)원")
                         .foregroundColor(menuTextColor())
                         .fontWeight(.semibold)
     //                Text(menuPrice, format: .currency(code: "KRW"))
@@ -76,9 +65,9 @@ struct MenuItemView : View {
                 Spacer()
                 HStack {
                     Spacer()
-                    if self.menuState == .SOLD_OUT {
+                    if self.menu.state == .SOLD_OUT {
                         MenuSoldoutView()
-                    } else if self.menuState == .COMING_SOON {
+                    } else if self.menu.state == .COMING_SOON {
                         MenuComingSoonView()
                     }
                     Spacer()
@@ -92,10 +81,6 @@ struct MenuItemView : View {
 
 struct MenuItemView_Previews : PreviewProvider {
     static var previews: some View {
-        MenuItemView(
-            menuName: .constant("메뉴 이름"),
-            menuPrice: .constant(4000),
-            menuState: .constant(.AVAILABLE)
-        )
+        MenuItemView(menu: Menu(state: .AVAILABLE, name: "메뉴 이름", price: 4000))
     }
 }

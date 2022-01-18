@@ -17,7 +17,7 @@ struct OrderView : View {
                 FavoriteMenuView(favoriteMenus: $viewModel.favoriteMenus)
                     .padding(.bottom)
                 Divider()
-                MenuView(/*menus: $viewModel.menus*/)
+                MenuView(categories: $viewModel.categories, menus: $viewModel.menus)
                     .padding(.top)
             } // ScrollView
             .padding()
