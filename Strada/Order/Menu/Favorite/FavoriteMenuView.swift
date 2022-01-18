@@ -18,9 +18,6 @@ struct FavoriteMenuView : View {
                     .foregroundColor(.blue)
                     .font(.system(size: 18, weight: .bold))
                 Spacer()
-                Image(systemName: "multiply")
-                    .foregroundColor(.blue)
-                    .font(.system(size: 30))
             }
             
             VStack {

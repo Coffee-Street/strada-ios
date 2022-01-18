@@ -11,6 +11,8 @@ struct HomeView : View {
     
     @ObservedObject var controller: CurrentViewController
     
+    @State private var isOpened: Bool = false
+    
     var body: some View {
         ZStack {
             VStack {
@@ -39,7 +41,9 @@ struct HomeView : View {
                     .frame(height: 380)
                 
                 Button(action: {
-                    
+                    withAnimation {
+                        isOpened.toggle()
+                    }
                 }) {
                     VStack {
                     Text("주문하기")
@@ -51,6 +55,14 @@ struct HomeView : View {
                         .foregroundColor(.appBlue)
                     }
                     .padding(.bottom, 30)
+                }
+            }
+            
+            if self.isOpened {
+                VStack {
+                    OrderView(isOpened: $isOpened)
+                        .transition(.move(edge: .bottom))
+                        .transition(AnyTransition.opacity.animation(.easeInOut))
                 }
             }
             
