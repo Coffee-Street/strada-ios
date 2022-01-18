@@ -14,11 +14,14 @@ struct OrderView : View {
     var body: some View {
         NavigationView {
             ScrollView {
-                FavoriteMenuView(favoriteMenus: $viewModel.favoriteMenus)
-                    .padding(.bottom)
-                Divider()
-                MenuView(categories: $viewModel.categories, menus: $viewModel.menus)
-                    .padding(.top)
+                VStack(alignment: .leading) {
+                    FavoriteMenuView(favoriteMenus: $viewModel.favoriteMenus)
+                        .padding(.bottom)
+                    Divider()
+                        .background(Color.appBrownGray)
+                    MenuView(categories: $viewModel.categories, menus: $viewModel.menus)
+                        .padding(.top)
+                }
             } // ScrollView
             .padding()
             .navigationBarTitle(Text(""), displayMode: .inline)

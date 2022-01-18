@@ -7,13 +7,17 @@
 
 import Foundation
 
-struct OrderItem {
+struct OrderItem : Identifiable {
+    let id = UUID()
+    
     var menu: Menu
     var menuOption: MenuOption
     var menuPersonalOption: MenuPersonalOption
     var count: Int
 }
 
-struct Order {
+struct Order : Identifiable {
+    let id = UUID()
+    
     var orderItems: [OrderItem]
 }

@@ -46,8 +46,6 @@ struct MenuItemView : View {
     //                Text(menuPrice, format: .currency(code: "KRW"))
                 }
                 
-//                Circle().fill(Color(red: 237/255, green: 237/255, blue: 237/255))
-//                    .overlay(Circle().stroke())
                 Spacer()
                 
                 Image("") // systemName: "cup.and.saucer"

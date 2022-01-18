@@ -24,8 +24,9 @@ struct MenuCategoryView : View {
                     self.selected = category
                 }) {
                     Text(category)
-                        .padding(.trailing, 15)
+                        .padding(.trailing, 24)
                         .foregroundColor(self.selected == category ? .appBlue : .appBrownGray)
+                        .font(.system(size: 17, weight: self.selected == category ? .bold : .medium))
                 }
             }
         }

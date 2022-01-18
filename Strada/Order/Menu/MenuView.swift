@@ -26,10 +26,10 @@ struct MenuView : View {
             .padding(.bottom, 35)
             
             VStack {
-                ForEach(menus.map { $0.key }, id: \.self) { key in
-                    ForEach(menus[key]!.indices) { index in
+                if (menus[selectedCategory] != nil) {
+                    ForEach(menus[selectedCategory]!) { menu in
                         NavigationLink(destination: OrderDetailView()) {
-                            MenuItemView(menu: menus[key]![index])
+                            MenuItemView(menu: menu)
                         }
                     }
                 }

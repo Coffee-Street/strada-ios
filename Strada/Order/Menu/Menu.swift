@@ -20,10 +20,8 @@ enum MenuType {
     case BEAN
 }
 
-class Menu /*: Hashable*/ {
-//    static func == (lhs: Menu, rhs: Menu) -> Bool {
-//        return lhs.name == rhs.name && lhs.price == rhs.price
-//    }
+class Menu : Identifiable {
+    let id = UUID()
     
     var state: MenuState
     var name: String
