@@ -8,13 +8,21 @@
 import SwiftUI
 
 struct SplashView : View {
+    
+    @ObservedObject var controller: CurrentViewController
+    
     var body: some View {
         Image("logo")
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                    controller.viewName = "sign"
+                }
+            }
     }
 }
 
 struct SplashView_Previews : PreviewProvider {
     static var previews: some View {
-        SplashView()
+        SplashView(controller: CurrentViewController("splash"))
     }
 }

@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct HomeView : View {
+    
+    @ObservedObject var controller: CurrentViewController
+    
+    @State private var isOpened: Bool = false
+    
     var body: some View {
         ZStack {
             VStack {
@@ -35,7 +40,12 @@ struct HomeView : View {
                 BannerView()
                     .frame(height: 380)
                 
-                VStack {
+                Button(action: {
+                    withAnimation {
+                        isOpened.toggle()
+                    }
+                }) {
+                    VStack {
                     Text("주문하기")
                         .font(.title)
                         .foregroundColor(.appBlue)
@@ -43,8 +53,17 @@ struct HomeView : View {
                     Image(systemName:"chevron.down")
                         .font(.title)
                         .foregroundColor(.appBlue)
+                    }
+                    .padding(.bottom, 30)
                 }
-                .padding(.bottom, 30)
+            }
+            
+            if self.isOpened {
+                VStack {
+                    OrderView(isOpened: $isOpened)
+                        .transition(.move(edge: .bottom))
+                        .transition(AnyTransition.opacity.animation(.easeInOut))
+                }
             }
             
             VStack {
@@ -72,6 +91,6 @@ struct HomeView : View {
 
 struct HomeView_Previews : PreviewProvider {
     static var previews : some View {
-        HomeView()
+        HomeView(controller: CurrentViewController("home"))
     }
 }

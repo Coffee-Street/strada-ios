@@ -13,7 +13,7 @@ struct OrderDrinkPersonalOptionRangeView : View {
     let title: String
     let price: String
     let range: [String]
-    let index: Int
+    var index: Int = 0
     
     var body: some View {
         HStack {
@@ -32,6 +32,6 @@ struct OrderDrinkPersonalOptionRangeView : View {
 
 struct OrderDrinkPersonalOptionRangeView_Previews : PreviewProvider {
     static var previews: some View {
-        OrderDrinkPersonalOptionRangeView(image: "shot.active", title: "샷", price: "300원", range: ["안함","조금","보통","많이"], index: 0)
+        OrderDrinkPersonalOptionRangeView(image: "shot.active", title: "샷", price: "300원", range: ["안함","조금","보통","많이"], index: 3)
     }
 }

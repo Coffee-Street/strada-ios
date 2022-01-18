@@ -7,48 +7,29 @@
 
 import SwiftUI
 
-enum MenuState : Int {
-    case AVAILABLE = 1
-    case SOLD_OUT
-    case COMING_SOON
-}
-
 struct MenuItemView : View {
     
-    @Binding var menuName: String
-    @Binding var menuPrice: Int
-    @Binding var menuState: MenuState
-    
-    init(menuName: Binding<String>,
-         menuPrice: Binding<Int>,
-         menuState: Binding<MenuState> = .constant(.AVAILABLE)
-    ) {
-        _menuName = menuName
-        _menuPrice = menuPrice
-        _menuState = menuState
-    }
-    
-    private let disableColor = Color(red: 207/255, green: 207/255, blue: 207/255)
+    let menu: Menu
     
     private func menuTextColor() -> Color {
-        switch self.menuState {
+        switch self.menu.state {
         case .AVAILABLE:
             return .black
         case .SOLD_OUT:
             fallthrough
         case .COMING_SOON:
-            return disableColor
+            return Color.appLightGray
         }
     }
     
     private func menuImageColor() -> Color {
-        switch self.menuState {
+        switch self.menu.state {
         case .AVAILABLE:
-            return disableColor
+            return Color.appVeryLightGray
         case .SOLD_OUT:
             fallthrough
         case .COMING_SOON:
-            return Color(red: 237/255, green: 237/255, blue: 237/255)
+            return Color.appVeryLightGray
         }
     }
     
@@ -56,26 +37,25 @@ struct MenuItemView : View {
         ZStack(alignment: .leading) {
             HStack {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text(menuName)
+                    Text(menu.name)
                         .foregroundColor(menuTextColor())
                         .padding(.bottom, 5)
-                    Text("\(menuPrice)원")
+                    Text("\(menu.price)원")
                         .foregroundColor(menuTextColor())
                         .fontWeight(.semibold)
     //                Text(menuPrice, format: .currency(code: "KRW"))
                 }
                 
-//                Circle().fill(Color(red: 237/255, green: 237/255, blue: 237/255))
-//                    .overlay(Circle().stroke())
                 Spacer()
                 
-                Image(systemName: "cup.and.saucer")
+                Image("") // systemName: "cup.and.saucer"
                     .foregroundColor(menuTextColor())
                     .font(.system(size: 30))
                     .frame(width: 50, height: 50)
                     .background(menuImageColor())
                     .clipShape(Circle())
-                    .overlay(Circle().stroke(menuImageColor(), lineWidth: 2))
+                    .overlay(Circle().stroke(Color.appLightGray, lineWidth: 2))
+                    .padding(.trailing, 1)
                     
             }
             
@@ -83,9 +63,9 @@ struct MenuItemView : View {
                 Spacer()
                 HStack {
                     Spacer()
-                    if self.menuState == .SOLD_OUT {
+                    if self.menu.state == .SOLD_OUT {
                         MenuSoldoutView()
-                    } else if self.menuState == .COMING_SOON {
+                    } else if self.menu.state == .COMING_SOON {
                         MenuComingSoonView()
                     }
                     Spacer()
@@ -99,10 +79,6 @@ struct MenuItemView : View {
 
 struct MenuItemView_Previews : PreviewProvider {
     static var previews: some View {
-        MenuItemView(
-            menuName: .constant("메뉴 이름"),
-            menuPrice: .constant(4000),
-            menuState: .constant(MenuState.COMING_SOON)
-        )
+        MenuItemView(menu: Menu(state: .AVAILABLE, name: "메뉴 이름", price: 4000))
     }
 }

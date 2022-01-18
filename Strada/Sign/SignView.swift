@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SignView : View {
     
+    @ObservedObject var controller: CurrentViewController
+    
     @State var phoneNumber: String = ""
     @State var isAutoLogin: Bool = false
     
@@ -41,13 +43,14 @@ struct SignView : View {
             HStack {
                 Spacer()
                 Button(action: {
-                    
+                    // TODO: network access & validation check
+                    controller.goHome()
                 }) {
                     Text("시작하기")
                         .font(.system(size: 15))
                 }
                 .foregroundColor(isValidPhoneNumber() ? Color.white : Color.black)
-                .disabled(isValidPhoneNumber())
+                .disabled(isValidPhoneNumber() == false)
                 Spacer()
             }
             .frame(height: 40)
@@ -86,6 +89,6 @@ struct SignView : View {
 
 struct SignView_Previews : PreviewProvider {
     static var previews: some View {
-        SignView()
+        SignView(controller: CurrentViewController("sign"))
     }
 }
