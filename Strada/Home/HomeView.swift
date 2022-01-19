@@ -11,9 +11,10 @@ struct HomeView : View {
     
     @ObservedObject var controller: CurrentViewController
     
-    @State private var isOpenedOrder: Bool = false
     @State private var isOpenedVoc: Bool = false
     @State private var isOpenedNotice: Bool = false
+    @State private var isOpenedProfile: Bool = false
+    @State private var isOpenedOrder: Bool = false
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -43,8 +44,15 @@ struct HomeView : View {
                 }
                 .padding(.horizontal, 20)
                 
-                ProfileView()
-                .padding()
+                HStack {
+                    Button(action: {
+                        isOpenedProfile.toggle()
+                    }) {
+                        UserView()
+                    }
+                    Spacer()
+                }
+                .padding(.horizontal)
             
                 BannerView()
                     .frame(height: 380)
@@ -86,14 +94,18 @@ struct HomeView : View {
                 }
             } // VStack
             
+            if self.isOpenedVoc {
+                VoiceOfCustomerView(isOpened: $isOpenedVoc)
+            }
+            
+            if self.isOpenedProfile {
+                
+            }
+            
             if self.isOpenedOrder {
                 OrderView(isOpened: $isOpenedOrder)
                     .transition(.move(edge: .bottom))
                     .transition(AnyTransition.opacity.animation(.easeInOut))
-            }
-            
-            if self.isOpenedVoc {
-                VoiceOfCustomerView(isOpened: $isOpenedVoc)
             }
             
         } // ZStack
