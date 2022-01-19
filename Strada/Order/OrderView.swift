@@ -15,19 +15,18 @@ struct OrderView : View {
     
     var body: some View {
         NavigationView {
-            ZStack {
+            ZStack(alignment: .top) {
                 ScrollView {
-                    VStack(alignment: .leading) {
-                        FavoriteMenuView(favoriteMenus: $viewModel.favoriteMenus)
-                            .padding(.bottom)
-                        Divider()
-                            .background(Color.appBrownGray)
-                        MenuView(categories: $viewModel.categories, menus: $viewModel.menus)
-                            .padding(.top)
-                    }
+                    FavoriteMenuView(favoriteMenus: $viewModel.favoriteMenus)
+                        .padding(.bottom)
+                    Divider()
+                        .background(Color.appBrownGray)
+                    MenuView(categories: $viewModel.categories, menus: $viewModel.menus)
+                        .padding(.top)
                 } // ScrollView
                 .padding()
                 .navigationBarTitle(Text(""), displayMode: .inline)
+                .navigationBarHidden(true)
                 
                 VStack {
                     HStack {
@@ -36,7 +35,7 @@ struct OrderView : View {
                             isOpened = false
                         }) {
                             Image(systemName: "multiply")
-                                .foregroundColor(.blue)
+                                .foregroundColor(.appBlue)
                                 .font(.system(size: 30))
                         }
                     }
@@ -44,8 +43,7 @@ struct OrderView : View {
                 }
                 .padding(.top)
                 .padding(.trailing)
-            }
-            
+            } // ZStack
         } // NavigationView
     }
 }

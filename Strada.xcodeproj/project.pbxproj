@@ -39,6 +39,8 @@
 		808E6BC0274A94A500DF24D7 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6BBF274A94A500DF24D7 /* BannerView.swift */; };
 		80B02F562780503C0093B532 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B02F552780503C0093B532 /* AppColor.swift */; };
 		80B7526B275396B90008495D /* SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7526A275396B90008495D /* SignView.swift */; };
+		80C176BE2796A33200E042C6 /* VoiceOfCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176BD2796A33200E042C6 /* VoiceOfCustomerView.swift */; };
+		80C176C02796A46100E042C6 /* OneOnOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176BF2796A46100E042C6 /* OneOnOneView.swift */; };
 		80D3E1D42774DC0D00749503 /* MenuComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3E1D32774DC0D00749503 /* MenuComingSoonView.swift */; };
 		80D61D8F278F276F00279B00 /* CurrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D61D8E278F276F00279B00 /* CurrentViewController.swift */; };
 		80EAD935278198300000DDC8 /* NonCapsuleCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD934278198300000DDC8 /* NonCapsuleCountView.swift */; };
@@ -100,6 +102,8 @@
 		808E6BBF274A94A500DF24D7 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		80B02F552780503C0093B532 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		80B7526A275396B90008495D /* SignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignView.swift; sourceTree = "<group>"; };
+		80C176BD2796A33200E042C6 /* VoiceOfCustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceOfCustomerView.swift; sourceTree = "<group>"; };
+		80C176BF2796A46100E042C6 /* OneOnOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOnOneView.swift; sourceTree = "<group>"; };
 		80D3E1D32774DC0D00749503 /* MenuComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuComingSoonView.swift; sourceTree = "<group>"; };
 		80D61D8E278F276F00279B00 /* CurrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentViewController.swift; sourceTree = "<group>"; };
 		80EAD934278198300000DDC8 /* NonCapsuleCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonCapsuleCountView.swift; sourceTree = "<group>"; };
@@ -223,6 +227,7 @@
 		808E6B8C274A6A1B00DF24D7 /* Strada */ = {
 			isa = PBXGroup;
 			children = (
+				80C176BC2796A2EC00E042C6 /* Customer */,
 				80D61D8D278F266900279B00 /* Controller */,
 				80B02F57278050470093B532 /* Extension */,
 				801A5BAE277F6BFC00BA3B7A /* Common */,
@@ -296,6 +301,15 @@
 				80B7526A275396B90008495D /* SignView.swift */,
 			);
 			path = Sign;
+			sourceTree = "<group>";
+		};
+		80C176BC2796A2EC00E042C6 /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				80C176BD2796A33200E042C6 /* VoiceOfCustomerView.swift */,
+				80C176BF2796A46100E042C6 /* OneOnOneView.swift */,
+			);
+			path = Customer;
 			sourceTree = "<group>";
 		};
 		80D61D8D278F266900279B00 /* Controller */ = {
@@ -456,6 +470,7 @@
 			files = (
 				80D3E1D42774DC0D00749503 /* MenuComingSoonView.swift in Sources */,
 				80B02F562780503C0093B532 /* AppColor.swift in Sources */,
+				80C176BE2796A33200E042C6 /* VoiceOfCustomerView.swift in Sources */,
 				802EE52227952C8C0012DD1C /* FavoriteMenu.swift in Sources */,
 				8079948C277F396A00187407 /* OrderDetailOptionGroupView.swift in Sources */,
 				808E6BB9274A6A7100DF24D7 /* HomeView.swift in Sources */,
@@ -468,6 +483,7 @@
 				801A5BB0277F6C1500BA3B7A /* CountView.swift in Sources */,
 				802EE51C279465360012DD1C /* MenuCategoryView.swift in Sources */,
 				8079948A277F353B00187407 /* OrderDetailOptionView.swift in Sources */,
+				80C176C02796A46100E042C6 /* OneOnOneView.swift in Sources */,
 				808E6BC0274A94A500DF24D7 /* BannerView.swift in Sources */,
 				801A5BAD277F66B800BA3B7A /* OrderBeanOptionView.swift in Sources */,
 				808E6B90274A6A1B00DF24D7 /* ContentView.swift in Sources */,

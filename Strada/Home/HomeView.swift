@@ -11,10 +11,12 @@ struct HomeView : View {
     
     @ObservedObject var controller: CurrentViewController
     
-    @State private var isOpened: Bool = false
-    
+    @State private var isOpenedOrder: Bool = false
+    @State private var isOpenedVoc: Bool = false
+    @State private var isOpenedNotice: Bool = false
+
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             VStack {
                 HStack {
                     Text("홈")
@@ -23,14 +25,21 @@ struct HomeView : View {
                         .padding(.leading, 10)
 
                     Spacer()
-                    Image(systemName: "questionmark")
-                        .font(.system(size: 20))
-                        .foregroundColor(.appBlue)
-                        .padding(.trailing, 20)
-                    Image(systemName: "bell")
-                        .font(.system(size: 20))
-                        .foregroundColor(.appBlue)
-                        .padding(.trailing, 10)
+                    Button(action: {
+                        isOpenedVoc.toggle()
+                    }) {
+                        Image("voc")
+                            .font(.system(size: 20))
+                            .foregroundColor(.appBlue)
+                    }
+                    
+                    Button(action: {
+                        
+                    }) {
+                        Image("bell.active")
+                            .font(.system(size: 20))
+                            .foregroundColor(.appBlue)
+                    }
                 }
                 .padding(.horizontal, 20)
                 
@@ -42,7 +51,7 @@ struct HomeView : View {
                 
                 Button(action: {
                     withAnimation {
-                        isOpened.toggle()
+                        isOpenedOrder.toggle()
                     }
                 }) {
                     VStack {
@@ -55,14 +64,6 @@ struct HomeView : View {
                         .foregroundColor(.appBlue)
                     }
                     .padding(.bottom, 30)
-                }
-            }
-            
-            if self.isOpened {
-                VStack {
-                    OrderView(isOpened: $isOpened)
-                        .transition(.move(edge: .bottom))
-                        .transition(AnyTransition.opacity.animation(.easeInOut))
                 }
             }
             
@@ -84,6 +85,17 @@ struct HomeView : View {
                     .padding()
                 }
             } // VStack
+            
+            if self.isOpenedOrder {
+                OrderView(isOpened: $isOpenedOrder)
+                    .transition(.move(edge: .bottom))
+                    .transition(AnyTransition.opacity.animation(.easeInOut))
+            }
+            
+            if self.isOpenedVoc {
+                VoiceOfCustomerView(isOpened: $isOpenedVoc)
+            }
+            
         } // ZStack
 //        .edgesIgnoringSafeArea(.all)
     }
