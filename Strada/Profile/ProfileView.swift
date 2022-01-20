@@ -11,6 +11,8 @@ struct ProfileView : View {
     
     @Binding var isOpened: Bool
     
+    @State private var viewModel = ProfileViewModel()
+    
     var body: some View {
         ZStack(alignment: .leading) {
             VStack(alignment: .leading) {
@@ -29,8 +31,9 @@ struct ProfileView : View {
                 
                 Divider()
                     .background(Color.appBrownGray)
+                    .padding(.vertical)
                 
-                HistoryView()
+                HistoryView(categories: $viewModel.categories, histories: $viewModel.histories)
                 
                 Spacer()
             }
@@ -51,6 +54,7 @@ struct ProfileView : View {
             } // VStack
             .padding(.trailing)
         } // ZStack
+        .background(.white)
         
     }
 }

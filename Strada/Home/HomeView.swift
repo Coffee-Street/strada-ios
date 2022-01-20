@@ -21,7 +21,7 @@ struct HomeView : View {
             VStack {
                 HStack {
                     Text("홈")
-                        .font(.system(size: 20))
+                        .font(.system(size: 22, weight: .bold))
                         .foregroundColor(.appBlue)
                         .padding(.leading, 10)
 
@@ -35,7 +35,7 @@ struct HomeView : View {
                     }
                     
                     Button(action: {
-                        
+                        isOpenedProfile.toggle()
                     }) {
                         Image("bell.active")
                             .font(.system(size: 20))
@@ -99,7 +99,7 @@ struct HomeView : View {
             }
             
             if self.isOpenedProfile {
-                
+                ProfileView(isOpened: $isOpenedProfile)
             }
             
             if self.isOpenedOrder {

@@ -8,15 +8,17 @@
 import SwiftUI
 
 struct HistoryItemView : View {
+    let history: History
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("아메리카노 외 3개 메뉴")
+                Text(history.title)
                     .fontWeight(.medium)
-                Text("+\(500)P")
+                Text(history.point)
                     .foregroundColor(.appBlue)
                     .fontWeight(.regular)
-                Text("2020.10.17")
+                Text(history.date)
                     .foregroundColor(.appBrownGray)
                     .fontWeight(.medium)
             }

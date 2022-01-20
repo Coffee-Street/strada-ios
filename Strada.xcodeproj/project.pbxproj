@@ -44,6 +44,9 @@
 		80C176C32796CB4400E042C6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176C22796CB4400E042C6 /* ProfileView.swift */; };
 		80C176C72796D0F500E042C6 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176C62796D0F500E042C6 /* HistoryView.swift */; };
 		80C176C92796D0FF00E042C6 /* HistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176C82796D0FF00E042C6 /* HistoryItemView.swift */; };
+		80C176CB2798649700E042C6 /* HistoryCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176CA2798649700E042C6 /* HistoryCategoryView.swift */; };
+		80C176CD2798650B00E042C6 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176CC2798650B00E042C6 /* ProfileViewModel.swift */; };
+		80C176CF2798654600E042C6 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176CE2798654600E042C6 /* History.swift */; };
 		80D3E1D42774DC0D00749503 /* MenuComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3E1D32774DC0D00749503 /* MenuComingSoonView.swift */; };
 		80D61D8F278F276F00279B00 /* CurrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D61D8E278F276F00279B00 /* CurrentViewController.swift */; };
 		80EAD935278198300000DDC8 /* NonCapsuleCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD934278198300000DDC8 /* NonCapsuleCountView.swift */; };
@@ -110,6 +113,9 @@
 		80C176C22796CB4400E042C6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		80C176C62796D0F500E042C6 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		80C176C82796D0FF00E042C6 /* HistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemView.swift; sourceTree = "<group>"; };
+		80C176CA2798649700E042C6 /* HistoryCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCategoryView.swift; sourceTree = "<group>"; };
+		80C176CC2798650B00E042C6 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		80C176CE2798654600E042C6 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		80D3E1D32774DC0D00749503 /* MenuComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuComingSoonView.swift; sourceTree = "<group>"; };
 		80D61D8E278F276F00279B00 /* CurrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentViewController.swift; sourceTree = "<group>"; };
 		80EAD934278198300000DDC8 /* NonCapsuleCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonCapsuleCountView.swift; sourceTree = "<group>"; };
@@ -324,6 +330,9 @@
 				80C176C22796CB4400E042C6 /* ProfileView.swift */,
 				80C176C62796D0F500E042C6 /* HistoryView.swift */,
 				80C176C82796D0FF00E042C6 /* HistoryItemView.swift */,
+				80C176CA2798649700E042C6 /* HistoryCategoryView.swift */,
+				80C176CC2798650B00E042C6 /* ProfileViewModel.swift */,
+				80C176CE2798654600E042C6 /* History.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -507,6 +516,7 @@
 				808E6BBC274A7B3300DF24D7 /* SplashView.swift in Sources */,
 				803BDD6D2774D75A00ACF6FC /* MenuItemView.swift in Sources */,
 				80B7526B275396B90008495D /* SignView.swift in Sources */,
+				80C176CD2798650B00E042C6 /* ProfileViewModel.swift in Sources */,
 				801A5BB0277F6C1500BA3B7A /* CountView.swift in Sources */,
 				802EE51C279465360012DD1C /* MenuCategoryView.swift in Sources */,
 				8079948A277F353B00187407 /* OrderDetailOptionView.swift in Sources */,
@@ -523,12 +533,14 @@
 				80D61D8F278F276F00279B00 /* CurrentViewController.swift in Sources */,
 				808BE27A279256FF00C84987 /* MenuView.swift in Sources */,
 				8079948E277F3A3700187407 /* OrderDetailOption.swift in Sources */,
+				80C176CB2798649700E042C6 /* HistoryCategoryView.swift in Sources */,
 				80C176C32796CB4400E042C6 /* ProfileView.swift in Sources */,
 				804A09602753AFE300BF3F41 /* FavoriteMenuView.swift in Sources */,
 				804A09632753B52900BF3F41 /* MenuCountView.swift in Sources */,
 				808BE2762790736700C84987 /* OrderView.swift in Sources */,
 				802EE51E279526CA0012DD1C /* OrderViewModel.swift in Sources */,
 				803BDD6B2774D0EC00ACF6FC /* UserView.swift in Sources */,
+				80C176CF2798654600E042C6 /* History.swift in Sources */,
 				804A095D2753AD5A00BF3F41 /* FavoriteMenuItemView.swift in Sources */,
 				802EE526279531AD0012DD1C /* Order.swift in Sources */,
 			);

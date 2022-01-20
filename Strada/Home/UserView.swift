@@ -1,5 +1,5 @@
 //
-//  ProfileView.swift
+//  UserView.swift
 //  Strada
 //
 //  Created by 박종봉 on 2021/12/24.

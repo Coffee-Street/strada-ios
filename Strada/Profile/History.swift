@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct History : Identifiable {
+    let id = UUID()
+
+    let title: String
+    let point: String
+    let date: String
+    
+//    var order: Order
+}
