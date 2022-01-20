@@ -16,6 +16,9 @@ struct HomeView : View {
     @State private var isOpenedProfile: Bool = false
     @State private var isOpenedOrder: Bool = false
 
+    @State private var isNewNotice: Bool = false
+    @State private var bagCount: Int = 0
+    
     var body: some View {
         ZStack(alignment: .top) {
             VStack {
@@ -40,6 +43,7 @@ struct HomeView : View {
                         Image("bell.active")
                             .font(.system(size: 20))
                             .foregroundColor(.appBlue)
+                            .overlay(CircleBadgeView().position(x: 34, y: 13).opacity(self.isNewNotice ? 1 : 0))
                     }
                 }
                 .padding(.horizontal, 20)
@@ -82,7 +86,7 @@ struct HomeView : View {
                     Button(action: {
                         
                     }) {
-                        Image(systemName: "bag")
+                        Image("bag")
                             .frame(width: 70, height: 63)
                             .font(.system(size: 20, weight: .bold))
                             .foregroundColor(Color.white)
@@ -90,6 +94,7 @@ struct HomeView : View {
                     }
                     .background(Color.appBlue)
                     .cornerRadius(35)
+                    .overlay(CountCircleBadgeView(count: $bagCount).position(x: 62, y: 10).opacity(bagCount > 0 ? 1 : 0))
                     .padding()
                 }
             } // VStack
