@@ -12,18 +12,18 @@ struct MenuComingSoonView : View {
         HStack(spacing: 0) {
             Rectangle()
                 .frame(width: 30, height: 30)
-                .foregroundColor(Color.blue)
+                .foregroundColor(Color.appBlue)
                 .cornerRadius(15, corners: .topLeft)
                 .cornerRadius(15, corners: .bottomLeft)
             Text("COMING SOON")
                 .font(.system(size: 18))
                 .foregroundColor(Color.white)
                 .frame(height: 30)
-                .background(Color.blue)
+                .background(Color.appBlue)
                 
             Rectangle()
                 .frame(width: 30, height: 30)
-                .foregroundColor(Color.blue)
+                .foregroundColor(Color.appBlue)
                 .cornerRadius(15, corners: .topRight)
                 .cornerRadius(15, corners: .bottomRight)
         }

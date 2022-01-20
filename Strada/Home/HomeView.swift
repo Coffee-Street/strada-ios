@@ -11,38 +11,59 @@ struct HomeView : View {
     
     @ObservedObject var controller: CurrentViewController
     
-    @State private var isOpened: Bool = false
+    @State private var isOpenedVoc: Bool = false
+    @State private var isOpenedNotice: Bool = false
+    @State private var isOpenedProfile: Bool = false
+    @State private var isOpenedOrder: Bool = false
+
+    @State private var isNewNotice: Bool = false
+    @State private var bagCount: Int = 0
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .top) {
             VStack {
                 HStack {
                     Text("홈")
-                        .font(.system(size: 20))
+                        .font(.system(size: 22, weight: .bold))
                         .foregroundColor(.appBlue)
                         .padding(.leading, 10)
 
                     Spacer()
-                    Image(systemName: "questionmark")
-                        .font(.system(size: 20))
-                        .foregroundColor(.appBlue)
-                        .padding(.trailing, 20)
-                    Image(systemName: "bell")
-                        .font(.system(size: 20))
-                        .foregroundColor(.appBlue)
-                        .padding(.trailing, 10)
+                    Button(action: {
+                        isOpenedVoc.toggle()
+                    }) {
+                        Image("voc")
+                            .font(.system(size: 20))
+                            .foregroundColor(.appBlue)
+                    }
+                    
+                    Button(action: {
+                        isOpenedProfile.toggle()
+                    }) {
+                        Image("bell.active")
+                            .font(.system(size: 20))
+                            .foregroundColor(.appBlue)
+                            .overlay(CircleBadgeView().position(x: 34, y: 13).opacity(self.isNewNotice ? 1 : 0))
+                    }
                 }
                 .padding(.horizontal, 20)
                 
-                ProfileView()
-                .padding()
+                HStack {
+                    Button(action: {
+                        isOpenedProfile.toggle()
+                    }) {
+                        UserView()
+                    }
+                    Spacer()
+                }
+                .padding(.horizontal)
             
                 BannerView()
                     .frame(height: 380)
                 
                 Button(action: {
                     withAnimation {
-                        isOpened.toggle()
+                        isOpenedOrder.toggle()
                     }
                 }) {
                     VStack {
@@ -58,14 +79,6 @@ struct HomeView : View {
                 }
             }
             
-            if self.isOpened {
-                VStack {
-                    OrderView(isOpened: $isOpened)
-                        .transition(.move(edge: .bottom))
-                        .transition(AnyTransition.opacity.animation(.easeInOut))
-                }
-            }
-            
             VStack {
                 Spacer()
                 HStack {
@@ -73,7 +86,7 @@ struct HomeView : View {
                     Button(action: {
                         
                     }) {
-                        Image(systemName: "bag")
+                        Image("bag")
                             .frame(width: 70, height: 63)
                             .font(.system(size: 20, weight: .bold))
                             .foregroundColor(Color.white)
@@ -81,9 +94,25 @@ struct HomeView : View {
                     }
                     .background(Color.appBlue)
                     .cornerRadius(35)
+                    .overlay(CountCircleBadgeView(count: $bagCount).position(x: 62, y: 10).opacity(bagCount > 0 ? 1 : 0))
                     .padding()
                 }
             } // VStack
+            
+            if self.isOpenedVoc {
+                VoiceOfCustomerView(isOpened: $isOpenedVoc)
+            }
+            
+            if self.isOpenedProfile {
+                ProfileView(isOpened: $isOpenedProfile)
+            }
+            
+            if self.isOpenedOrder {
+                OrderView(isOpened: $isOpenedOrder)
+                    .transition(.move(edge: .bottom))
+                    .transition(AnyTransition.opacity.animation(.easeInOut))
+            }
+            
         } // ZStack
 //        .edgesIgnoringSafeArea(.all)
     }

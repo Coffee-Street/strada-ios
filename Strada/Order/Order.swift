@@ -20,4 +20,7 @@ struct Order : Identifiable {
     let id = UUID()
     
     var orderItems: [OrderItem]
+    
+    var createdAt: Date
+    var updatedAt: Date
 }

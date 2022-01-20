@@ -13,11 +13,12 @@ struct MenuView : View {
     
     @Binding var menus: [String:[Menu]]
     
-    @State private var selectedCategory = "커피"
+    @State private var selectedCategory: String
     
     init(categories: Binding<[String]>, menus: Binding<[String:[Menu]]>) {
         _categories = categories
         _menus = menus
+        _selectedCategory = State(initialValue: _categories.first?.wrappedValue ?? "")
     }
     
     var body: some View {

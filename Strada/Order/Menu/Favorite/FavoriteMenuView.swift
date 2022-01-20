@@ -15,7 +15,7 @@ struct FavoriteMenuView : View {
         VStack {
             HStack {
                 Text("즐겨찾는 메뉴")
-                    .foregroundColor(.blue)
+                    .foregroundColor(.appBlue)
                     .font(.system(size: 18, weight: .bold))
                 Spacer()
             }
