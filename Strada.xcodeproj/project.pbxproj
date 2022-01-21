@@ -49,6 +49,7 @@
 		80C176CF2798654600E042C6 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176CE2798654600E042C6 /* History.swift */; };
 		80C176D127998EEF00E042C6 /* CircleBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176D027998EEF00E042C6 /* CircleBadgeView.swift */; };
 		80C176D327998FF600E042C6 /* CountCircleBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176D227998FF600E042C6 /* CountCircleBadgeView.swift */; };
+		80C176D72799A63F00E042C6 /* ReceiptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176D62799A63F00E042C6 /* ReceiptView.swift */; };
 		80D3E1D42774DC0D00749503 /* MenuComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3E1D32774DC0D00749503 /* MenuComingSoonView.swift */; };
 		80D61D8F278F276F00279B00 /* CurrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D61D8E278F276F00279B00 /* CurrentViewController.swift */; };
 		80EAD935278198300000DDC8 /* NonCapsuleCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD934278198300000DDC8 /* NonCapsuleCountView.swift */; };
@@ -120,6 +121,7 @@
 		80C176CE2798654600E042C6 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		80C176D027998EEF00E042C6 /* CircleBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleBadgeView.swift; sourceTree = "<group>"; };
 		80C176D227998FF600E042C6 /* CountCircleBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountCircleBadgeView.swift; sourceTree = "<group>"; };
+		80C176D62799A63F00E042C6 /* ReceiptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptView.swift; sourceTree = "<group>"; };
 		80D3E1D32774DC0D00749503 /* MenuComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuComingSoonView.swift; sourceTree = "<group>"; };
 		80D61D8E278F276F00279B00 /* CurrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentViewController.swift; sourceTree = "<group>"; };
 		80EAD934278198300000DDC8 /* NonCapsuleCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonCapsuleCountView.swift; sourceTree = "<group>"; };
@@ -245,6 +247,8 @@
 		808E6B8C274A6A1B00DF24D7 /* Strada */ = {
 			isa = PBXGroup;
 			children = (
+				80C176D52799A63100E042C6 /* Payment */,
+				80C176D42799A62A00E042C6 /* Receipt */,
 				80C176C12796CB3B00E042C6 /* Profile */,
 				80C176BC2796A2EC00E042C6 /* Customer */,
 				80D61D8D278F266900279B00 /* Controller */,
@@ -350,6 +354,21 @@
 				808E6BBF274A94A500DF24D7 /* BannerView.swift */,
 			);
 			path = Banner;
+			sourceTree = "<group>";
+		};
+		80C176D42799A62A00E042C6 /* Receipt */ = {
+			isa = PBXGroup;
+			children = (
+				80C176D62799A63F00E042C6 /* ReceiptView.swift */,
+			);
+			path = Receipt;
+			sourceTree = "<group>";
+		};
+		80C176D52799A63100E042C6 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Payment;
 			sourceTree = "<group>";
 		};
 		80D61D8D278F266900279B00 /* Controller */ = {
@@ -523,6 +542,7 @@
 				808E6BBC274A7B3300DF24D7 /* SplashView.swift in Sources */,
 				803BDD6D2774D75A00ACF6FC /* MenuItemView.swift in Sources */,
 				80C176D327998FF600E042C6 /* CountCircleBadgeView.swift in Sources */,
+				80C176D72799A63F00E042C6 /* ReceiptView.swift in Sources */,
 				80B7526B275396B90008495D /* SignView.swift in Sources */,
 				80C176CD2798650B00E042C6 /* ProfileViewModel.swift in Sources */,
 				801A5BB0277F6C1500BA3B7A /* CountView.swift in Sources */,
