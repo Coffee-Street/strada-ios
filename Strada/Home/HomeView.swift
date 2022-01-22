@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct HomeView : View {
-    
     @ObservedObject var controller: CurrentViewController
     
     @State private var isOpenedVoc: Bool = false
@@ -108,7 +107,7 @@ struct HomeView : View {
             }
             
             if self.isOpenedOrder {
-                OrderView(isOpened: $isOpenedOrder)
+                OrderView(controller: controller, isOpened: $isOpenedOrder)
                     .transition(.move(edge: .bottom))
                     .transition(AnyTransition.opacity.animation(.easeInOut))
             }

@@ -18,6 +18,8 @@ struct ContentView: View {
             SignView(controller: controller)
         } else if controller.viewName == "home" {
             HomeView(controller: controller)
+        } else if controller.viewName == "paymentSuccess" {
+            PaymentSuccessView(controller: controller)
         }
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MenuView : View {
+    @ObservedObject var controller: CurrentViewController
     
     @Binding var categories: [String]
     
@@ -15,7 +16,8 @@ struct MenuView : View {
     
     @State private var selectedCategory: String
     
-    init(categories: Binding<[String]>, menus: Binding<[String:[Menu]]>) {
+    init(controller: CurrentViewController, categories: Binding<[String]>, menus: Binding<[String:[Menu]]>) {
+        self.controller = controller
         _categories = categories
         _menus = menus
         _selectedCategory = State(initialValue: _categories.first?.wrappedValue ?? "")
@@ -29,7 +31,7 @@ struct MenuView : View {
             VStack {
                 if (menus[selectedCategory] != nil) {
                     ForEach(menus[selectedCategory]!) { menu in
-                        NavigationLink(destination: OrderDetailView()) {
+                        NavigationLink(destination: OrderDetailView(controller: controller)) {
                             MenuItemView(menu: menu)
                         }
                     }
@@ -69,6 +71,6 @@ struct MenuView_Previews : PreviewProvider {
     ]
     
     static var previews: some View {
-        MenuView(categories: $categories, menus: $menus)
+        MenuView(controller: CurrentViewController("menu"), categories: $categories, menus: $menus)
     }
 }
