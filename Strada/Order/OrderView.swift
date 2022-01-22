@@ -26,8 +26,6 @@ struct OrderView : View {
                         .padding(.top)
                 } // ScrollView
                 .padding()
-                .navigationBarTitle(Text(""), displayMode: .inline)
-                .navigationBarHidden(true)
                 
                 VStack {
                     HStack {

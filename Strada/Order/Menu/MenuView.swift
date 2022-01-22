@@ -35,6 +35,8 @@ struct MenuView : View {
                             MenuItemView(menu: menu)
                         }
                     }
+                    .navigationBarTitle(Text(""))
+                    .navigationBarHidden(true)
                 }
             }
         }

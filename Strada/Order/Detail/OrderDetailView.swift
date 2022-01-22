@@ -24,114 +24,112 @@ struct OrderDetailView : View {
     @State private var isComplete = false
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 0) {
-                        VStack(alignment: .center, spacing: 0) {
-                            Image("drinkHeader")
-                        }
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        
-                        HStack {
-                            HStack {
-                                Text(menuNameKr)
-                                    .fontWeight(.medium)
-                                Text(menuNameEn)
-                                    .fontWeight(.thin)
-                            }
-                            
-                            Spacer()
-                            
-                            Button(action: {
-                                self.isFavorite.toggle()
-                            }) {
-                                Image(systemName: isFavorite ? "heart.fill" : "heart")
-                                    .font(.system(size: 20, weight: .medium))
-                                    .foregroundColor(.appBlue)
-                            }
-                        }
-                        .padding(.horizontal)
-                        .padding(.top, 20)
-                        .padding(.bottom, 10)
-                        
-                        HStack {
-                            ForEach(hashTags, id: \.self) { hashtag in
-                                Text("#\(hashtag)")
-                            }
-                            
-                            Button(action: {
-                                    self.isDetail = true
-                            }) {
-                                if self.isDetail == false {
-                                    Text("자세히")
-                                        .foregroundColor(.appLightGray)
-                                }
-                            }
-                        }
-                        .padding(.horizontal)
-                        
-                        
-                        VStack(alignment: .leading, spacing: 0) {
-                            if self.isDetail {
-                                if let lastIdx = detailContent.lastIndex(of:  "\n")  {
-                                    Text(detailContent[..<lastIdx])
-                                    
-                                    let lastRange = detailContent.index(after: lastIdx)..<detailContent.endIndex
-                                    
-                                    HStack {
-                                        Text(detailContent[lastRange])
-                                        Button(action: {
-                                            self.isDetail = false
-                                        }) {
-                                            Text("접기")
-                                                .foregroundColor(.appLightGray)
-                                        }
-                                    }
-                                } else {
-                                    
-                                }
-                                
-                                
-                            }
-                        }
-                        .padding(.horizontal)
-                        .padding(.bottom)
-                        
-                        OrderDrinkOptionView(isComplete: $isComplete)
+        ZStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    VStack(alignment: .center, spacing: 0) {
+                        Image("drinkHeader")
                     }
-                }
-                .padding(.bottom, 80)
-                .navigationBarTitle(Text(""), displayMode: .inline)
-                .navigationBarHidden(true)
-                
-                VStack {
-                    Spacer()
-                    HStack(alignment: .center, spacing: 0) {
-                        Button(action: {
-                            
-                        }){
-                            Text("장바구니")
-                                .foregroundColor(self.isComplete ? .white : .appBrownGray)
-                        }
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .frame(height: 96)
-                        .background(self.isComplete ? Color.appBlue : Color.appVeryLightGray)
+                    .frame(minWidth: 0, maxWidth: .infinity)
                     
-                        NavigationLink(destination: PaymentView(controller: controller)) {
-                            Text("바로주문")
-                                .foregroundColor(self.isComplete ? .white : .appBrownGray)
+                    HStack {
+                        HStack {
+                            Text(menuNameKr)
+                                .fontWeight(.medium)
+                            Text(menuNameEn)
+                                .fontWeight(.thin)
                         }
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .frame(height: 96)
-                        .background(self.isComplete ? Color.appLightBlue : Color.appVeryLightGray)
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            self.isFavorite.toggle()
+                        }) {
+                            Image(systemName: isFavorite ? "heart.fill" : "heart")
+                                .font(.system(size: 20, weight: .medium))
+                                .foregroundColor(.appBlue)
+                        }
                     }
-                    //.padding(.bottom, 14)
-                    //.background(Color.appVeryLightGray)
+                    .padding(.horizontal)
+                    .padding(.top, 20)
+                    .padding(.bottom, 10)
+                    
+                    HStack {
+                        ForEach(hashTags, id: \.self) { hashtag in
+                            Text("#\(hashtag)")
+                        }
+                        
+                        Button(action: {
+                                self.isDetail = true
+                        }) {
+                            if self.isDetail == false {
+                                Text("자세히")
+                                    .foregroundColor(.appLightGray)
+                            }
+                        }
+                    }
+                    .padding(.horizontal)
+                    
+                    
+                    VStack(alignment: .leading, spacing: 0) {
+                        if self.isDetail {
+                            if let lastIdx = detailContent.lastIndex(of:  "\n")  {
+                                Text(detailContent[..<lastIdx])
+                                
+                                let lastRange = detailContent.index(after: lastIdx)..<detailContent.endIndex
+                                
+                                HStack {
+                                    Text(detailContent[lastRange])
+                                    Button(action: {
+                                        self.isDetail = false
+                                    }) {
+                                        Text("접기")
+                                            .foregroundColor(.appLightGray)
+                                    }
+                                }
+                            } else {
+                                
+                            }
+                            
+                            
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                    
+                    OrderDrinkOptionView(isComplete: $isComplete)
                 }
-                .edgesIgnoringSafeArea(.bottom)
-            } // ZStack
-        }
+            }
+            .padding(.bottom, 80)
+            
+            VStack {
+                Spacer()
+                HStack(alignment: .center, spacing: 0) {
+                    Button(action: {
+                        
+                    }){
+                        Text("장바구니")
+                            .foregroundColor(self.isComplete ? .white : .appBrownGray)
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .frame(height: 96)
+                    .background(self.isComplete ? Color.appBlue : Color.appVeryLightGray)
+                
+                    NavigationLink(destination: PaymentView(controller: controller)) {
+                        Text("바로주문")
+                            .foregroundColor(self.isComplete ? .white : .appBrownGray)
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity)
+                    .frame(height: 96)
+                    .background(self.isComplete ? Color.appLightBlue : Color.appVeryLightGray)
+                }
+                .navigationBarTitle(Text(""), displayMode: .inline)
+                //.padding(.bottom, 14)
+                //.background(Color.appVeryLightGray)
+            }
+            .edgesIgnoringSafeArea(.bottom)
+        } // ZStack
+    
     }
 }
 
