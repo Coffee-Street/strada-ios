@@ -30,6 +30,7 @@ struct SignView : View {
             
             VStack {
                 TextField("전화번호를 입력해주세요", text: $phoneNumber)
+                    .foregroundColor(.appBlack)
                     .font(.system(size: 15))
                     .multilineTextAlignment(.center)
                     .lineLimit(1)
@@ -84,6 +85,7 @@ struct SignView : View {
             Spacer()
         }
         .padding()
+        .background(.white)
     }
 }
 

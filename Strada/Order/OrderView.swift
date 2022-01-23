@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct OrderView : View {
+    @ObservedObject var controller: CurrentViewController
     
     @Binding var isOpened: Bool
     
@@ -21,12 +22,10 @@ struct OrderView : View {
                         .padding(.bottom)
                     Divider()
                         .background(Color.appBrownGray)
-                    MenuView(categories: $viewModel.categories, menus: $viewModel.menus)
+                    MenuView(controller: controller, categories: $viewModel.categories, menus: $viewModel.menus)
                         .padding(.top)
                 } // ScrollView
                 .padding()
-                .navigationBarTitle(Text(""), displayMode: .inline)
-                .navigationBarHidden(true)
                 
                 VStack {
                     HStack {
@@ -44,12 +43,13 @@ struct OrderView : View {
                 .padding(.top)
                 .padding(.trailing)
             } // ZStack
+            .background(.white)
         } // NavigationView
     }
 }
 
 struct OrderView_Previews : PreviewProvider {
     static var previews: some View {
-        OrderView(isOpened: .constant(false))
+        OrderView(controller: CurrentViewController("order"), isOpened: .constant(false))
     }
 }

@@ -15,10 +15,14 @@ class CurrentViewController : ObservableObject {
     }
     
     func goSign() {
-        self.viewName = "Sign"
+        self.viewName = "sign"
     }
     
     func goHome() {
         self.viewName = "home"
+    }
+    
+    func goPaymentSuccess() {
+        self.viewName = "paymentSuccess"
     }
 }

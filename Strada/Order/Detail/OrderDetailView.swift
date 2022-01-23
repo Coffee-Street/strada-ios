@@ -15,6 +15,8 @@ struct OrderDetailView : View {
     
     let detailContent = "합리적 가격에 단맛과 산미가 조화롭습니다.\n생산지 : 브라질 세하도 모지아나\n등급 : 없음 | 품종 : 옐로우카투아이\n가공 : Natural | 로스팅 : 시티"
     
+    @ObservedObject var controller: CurrentViewController
+    
     @State private var isFavorite = false
     
     @State private var isDetail = false
@@ -113,9 +115,7 @@ struct OrderDetailView : View {
                     .frame(height: 96)
                     .background(self.isComplete ? Color.appBlue : Color.appVeryLightGray)
                 
-                    Button(action: {
-                        
-                    }){
+                    NavigationLink(destination: PaymentView(controller: controller)) {
                         Text("바로주문")
                             .foregroundColor(self.isComplete ? .white : .appBrownGray)
                     }
@@ -123,20 +123,21 @@ struct OrderDetailView : View {
                     .frame(height: 96)
                     .background(self.isComplete ? Color.appLightBlue : Color.appVeryLightGray)
                 }
-    //            .padding(.bottom, 14)
-//                .background(Color.appVeryLightGray)
+                .navigationBarTitle(Text(""), displayMode: .inline)
+                //.padding(.bottom, 14)
+                //.background(Color.appVeryLightGray)
             }
             .edgesIgnoringSafeArea(.bottom)
-            
         } // ZStack
+        .background(.white)
     }
 }
 
 struct OrderDetailView_Previews : PreviewProvider {
     static var previews: some View {
-        OrderDetailView()
+        OrderDetailView(controller: CurrentViewController("orderDetail"))
         
-        OrderDetailView()
+        OrderDetailView(controller: CurrentViewController("orderDetail"))
             .previewDevice("iPhone 8")
     }
 }
