@@ -43,6 +43,7 @@ struct OrderView : View {
                 .padding(.top)
                 .padding(.trailing)
             } // ZStack
+            .background(.white)
         } // NavigationView
     }
 }

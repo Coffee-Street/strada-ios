@@ -39,6 +39,7 @@ struct PaymentSuccessView : View {
             }
         }
         .edgesIgnoringSafeArea(.bottom)
+        .background(.white)
     }
 }
 

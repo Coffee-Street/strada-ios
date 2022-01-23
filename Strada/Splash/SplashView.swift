@@ -12,12 +12,23 @@ struct SplashView : View {
     @ObservedObject var controller: CurrentViewController
     
     var body: some View {
-        Image("logo")
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-                    controller.viewName = "sign"
-                }
+        VStack {
+            Spacer()
+            HStack {
+                Spacer()
+                Image("logo")
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                            controller.viewName = "sign"
+                        }
+                    }
+                Spacer()
             }
+            
+            Spacer()
+            
+        }
+        .background(.white)
     }
 }
 

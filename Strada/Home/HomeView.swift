@@ -113,6 +113,7 @@ struct HomeView : View {
             }
             
         } // ZStack
+        .background(.white)
 //        .edgesIgnoringSafeArea(.all)
     }
 }

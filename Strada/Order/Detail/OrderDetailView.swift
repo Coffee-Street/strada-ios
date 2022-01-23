@@ -129,7 +129,7 @@ struct OrderDetailView : View {
             }
             .edgesIgnoringSafeArea(.bottom)
         } // ZStack
-    
+        .background(.white)
     }
 }
 
