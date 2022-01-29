@@ -14,6 +14,9 @@
 		802EE520279527220012DD1C /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE51F279527220012DD1C /* Menu.swift */; };
 		802EE52227952C8C0012DD1C /* FavoriteMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE52127952C8C0012DD1C /* FavoriteMenu.swift */; };
 		802EE526279531AD0012DD1C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE525279531AD0012DD1C /* Order.swift */; };
+		803372D627A51320009BF89F /* SignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803372D527A51320009BF89F /* SignViewModel.swift */; };
+		803372D927A513D9009BF89F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803372D827A513D9009BF89F /* API.swift */; };
+		803372DB27A51D6D009BF89F /* SignAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803372DA27A51D6D009BF89F /* SignAPI.swift */; };
 		803BDD6B2774D0EC00ACF6FC /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803BDD6A2774D0EC00ACF6FC /* UserView.swift */; };
 		803BDD6D2774D75A00ACF6FC /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803BDD6C2774D75A00ACF6FC /* MenuItemView.swift */; };
 		804A095B2753ACA000BF3F41 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A095A2753ACA000BF3F41 /* OrderDetailView.swift */; };
@@ -86,6 +89,9 @@
 		802EE51F279527220012DD1C /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		802EE52127952C8C0012DD1C /* FavoriteMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMenu.swift; sourceTree = "<group>"; };
 		802EE525279531AD0012DD1C /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		803372D527A51320009BF89F /* SignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewModel.swift; sourceTree = "<group>"; };
+		803372D827A513D9009BF89F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		803372DA27A51D6D009BF89F /* SignAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignAPI.swift; sourceTree = "<group>"; };
 		803BDD6A2774D0EC00ACF6FC /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		803BDD6C2774D75A00ACF6FC /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		804A095A2753ACA000BF3F41 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
@@ -180,6 +186,14 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
+		803372D727A51360009BF89F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				803372D827A513D9009BF89F /* API.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		804A09592753AC8D00BF3F41 /* Order */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +267,7 @@
 		808E6B8C274A6A1B00DF24D7 /* Strada */ = {
 			isa = PBXGroup;
 			children = (
+				803372D727A51360009BF89F /* Network */,
 				80C176D52799A63100E042C6 /* Payment */,
 				80C176D42799A62A00E042C6 /* Receipt */,
 				80C176C12796CB3B00E042C6 /* Profile */,
@@ -327,6 +342,8 @@
 			isa = PBXGroup;
 			children = (
 				80B7526A275396B90008495D /* SignView.swift */,
+				803372D527A51320009BF89F /* SignViewModel.swift */,
+				803372DA27A51D6D009BF89F /* SignAPI.swift */,
 			);
 			path = Sign;
 			sourceTree = "<group>";
@@ -563,6 +580,7 @@
 				808E6BC0274A94A500DF24D7 /* BannerView.swift in Sources */,
 				801A5BAD277F66B800BA3B7A /* OrderBeanOptionView.swift in Sources */,
 				808E6B90274A6A1B00DF24D7 /* ContentView.swift in Sources */,
+				803372D627A51320009BF89F /* SignViewModel.swift in Sources */,
 				80EAD93B2781A1000000DDC8 /* OrderDrinkPersonalOptionRangeView.swift in Sources */,
 				804A09652753C0B200BF3F41 /* MenuSoldoutView.swift in Sources */,
 				80EAD935278198300000DDC8 /* NonCapsuleCountView.swift in Sources */,
@@ -576,6 +594,7 @@
 				80C176CB2798649700E042C6 /* HistoryCategoryView.swift in Sources */,
 				80C176C32796CB4400E042C6 /* ProfileView.swift in Sources */,
 				804A09602753AFE300BF3F41 /* FavoriteMenuView.swift in Sources */,
+				803372DB27A51D6D009BF89F /* SignAPI.swift in Sources */,
 				804A09632753B52900BF3F41 /* MenuCountView.swift in Sources */,
 				808BE2762790736700C84987 /* OrderView.swift in Sources */,
 				802EE51E279526CA0012DD1C /* OrderViewModel.swift in Sources */,
@@ -583,6 +602,7 @@
 				80C176CF2798654600E042C6 /* History.swift in Sources */,
 				804A095D2753AD5A00BF3F41 /* FavoriteMenuItemView.swift in Sources */,
 				802EE526279531AD0012DD1C /* Order.swift in Sources */,
+				803372D927A513D9009BF89F /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
