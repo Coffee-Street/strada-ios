@@ -17,7 +17,6 @@
 		803372D627A51320009BF89F /* SignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803372D527A51320009BF89F /* SignViewModel.swift */; };
 		803372D927A513D9009BF89F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803372D827A513D9009BF89F /* API.swift */; };
 		803372DB27A51D6D009BF89F /* SignAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803372DA27A51D6D009BF89F /* SignAPI.swift */; };
-		803BDD6B2774D0EC00ACF6FC /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803BDD6A2774D0EC00ACF6FC /* UserView.swift */; };
 		803BDD6D2774D75A00ACF6FC /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803BDD6C2774D75A00ACF6FC /* MenuItemView.swift */; };
 		804A095B2753ACA000BF3F41 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A095A2753ACA000BF3F41 /* OrderDetailView.swift */; };
 		804A095D2753AD5A00BF3F41 /* FavoriteMenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A095C2753AD5A00BF3F41 /* FavoriteMenuItemView.swift */; };
@@ -28,6 +27,8 @@
 		8079482227A54E9C00DA0230 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079482127A54E9C00DA0230 /* HomeAPI.swift */; };
 		8079482427A54EAB00DA0230 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079482327A54EAB00DA0230 /* HomeViewModel.swift */; };
 		8079482627A54F6000DA0230 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079482527A54F6000DA0230 /* Banner.swift */; };
+		8079482927A5A5DC00DA0230 /* ProfileSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079482827A5A5DC00DA0230 /* ProfileSummaryView.swift */; };
+		8079482B27A5A61A00DA0230 /* ProfileSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079482A27A5A61A00DA0230 /* ProfileSummary.swift */; };
 		8079948A277F353B00187407 /* OrderDetailOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80799489277F353B00187407 /* OrderDetailOptionView.swift */; };
 		8079948C277F396A00187407 /* OrderDetailOptionGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079948B277F396A00187407 /* OrderDetailOptionGroupView.swift */; };
 		8079948E277F3A3700187407 /* OrderDetailOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079948D277F3A3700187407 /* OrderDetailOption.swift */; };
@@ -95,7 +96,6 @@
 		803372D527A51320009BF89F /* SignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewModel.swift; sourceTree = "<group>"; };
 		803372D827A513D9009BF89F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		803372DA27A51D6D009BF89F /* SignAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignAPI.swift; sourceTree = "<group>"; };
-		803BDD6A2774D0EC00ACF6FC /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		803BDD6C2774D75A00ACF6FC /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		804A095A2753ACA000BF3F41 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
 		804A095C2753AD5A00BF3F41 /* FavoriteMenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMenuItemView.swift; sourceTree = "<group>"; };
@@ -106,6 +106,8 @@
 		8079482127A54E9C00DA0230 /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
 		8079482327A54EAB00DA0230 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8079482527A54F6000DA0230 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		8079482827A5A5DC00DA0230 /* ProfileSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummaryView.swift; sourceTree = "<group>"; };
+		8079482A27A5A61A00DA0230 /* ProfileSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSummary.swift; sourceTree = "<group>"; };
 		80799489277F353B00187407 /* OrderDetailOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailOptionView.swift; sourceTree = "<group>"; };
 		8079948B277F396A00187407 /* OrderDetailOptionGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailOptionGroupView.swift; sourceTree = "<group>"; };
 		8079948D277F3A3700187407 /* OrderDetailOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailOption.swift; sourceTree = "<group>"; };
@@ -222,6 +224,15 @@
 			path = Favorite;
 			sourceTree = "<group>";
 		};
+		8079482727A5A5C300DA0230 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				8079482827A5A5DC00DA0230 /* ProfileSummaryView.swift */,
+				8079482A27A5A61A00DA0230 /* ProfileSummary.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		808BE2772790740C00C84987 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,9 +332,9 @@
 		808E6BB7274A6A5700DF24D7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				8079482727A5A5C300DA0230 /* Profile */,
 				80C176C42796CD1800E042C6 /* Banner */,
 				808E6BB8274A6A7000DF24D7 /* HomeView.swift */,
-				803BDD6A2774D0EC00ACF6FC /* UserView.swift */,
 				8079482127A54E9C00DA0230 /* HomeAPI.swift */,
 				8079482327A54EAB00DA0230 /* HomeViewModel.swift */,
 			);
@@ -585,6 +596,7 @@
 				801A5BB0277F6C1500BA3B7A /* CountView.swift in Sources */,
 				802EE51C279465360012DD1C /* MenuCategoryView.swift in Sources */,
 				8079948A277F353B00187407 /* OrderDetailOptionView.swift in Sources */,
+				8079482927A5A5DC00DA0230 /* ProfileSummaryView.swift in Sources */,
 				80C176C02796A46100E042C6 /* OneOnOneView.swift in Sources */,
 				808E6BC0274A94A500DF24D7 /* BannerView.swift in Sources */,
 				801A5BAD277F66B800BA3B7A /* OrderBeanOptionView.swift in Sources */,
@@ -593,6 +605,7 @@
 				80EAD93B2781A1000000DDC8 /* OrderDrinkPersonalOptionRangeView.swift in Sources */,
 				804A09652753C0B200BF3F41 /* MenuSoldoutView.swift in Sources */,
 				80EAD935278198300000DDC8 /* NonCapsuleCountView.swift in Sources */,
+				8079482B27A5A61A00DA0230 /* ProfileSummary.swift in Sources */,
 				80C176D9279AF8AC00E042C6 /* PaymentView.swift in Sources */,
 				808E6B8E274A6A1B00DF24D7 /* StradaApp.swift in Sources */,
 				80EAD93727819A3B0000DDC8 /* OrderDrinkPersonalOptionCountView.swift in Sources */,
@@ -609,7 +622,6 @@
 				804A09632753B52900BF3F41 /* MenuCountView.swift in Sources */,
 				808BE2762790736700C84987 /* OrderView.swift in Sources */,
 				802EE51E279526CA0012DD1C /* OrderViewModel.swift in Sources */,
-				803BDD6B2774D0EC00ACF6FC /* UserView.swift in Sources */,
 				8079482427A54EAB00DA0230 /* HomeViewModel.swift in Sources */,
 				80C176CF2798654600E042C6 /* History.swift in Sources */,
 				804A095D2753AD5A00BF3F41 /* FavoriteMenuItemView.swift in Sources */,

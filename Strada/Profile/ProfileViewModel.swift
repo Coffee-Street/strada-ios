@@ -26,4 +26,8 @@ class ProfileViewModel : ObservableObject {
     init() {
         
     }
+    
+    func getProfile() {
+        
+    }
 }

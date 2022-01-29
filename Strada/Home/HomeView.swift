@@ -53,11 +53,14 @@ struct HomeView : View {
                     Button(action: {
                         isOpenedProfile.toggle()
                     }) {
-                        UserView()
+                        ProfileSummaryView(profileSummary: $viewModel.profileSummary)
                     }
                     Spacer()
                 }
                 .padding(.horizontal)
+                .onAppear {
+                    viewModel.getProfile()
+                }
             
                 BannerView(banners: $viewModel.banners)
                     .frame(height: 380)
