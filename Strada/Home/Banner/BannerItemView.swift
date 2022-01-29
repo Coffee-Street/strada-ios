@@ -26,33 +26,33 @@ struct RoundedCorner: Shape {
 }
 
 struct BannerItemView : View {
-    var symbolName: String
+    
+    @Binding var banner: Banner
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text("달콤한 케이크\n추천해요!")
+            Text(banner.title)
                 .foregroundColor(Color.white).font(.subheadline)
                 .padding(.leading, 20)
             
             HStack {
                 Spacer()
-                Image(systemName: self.symbolName)
+                Image(systemName: banner.image)
                     .font(.system(size: 150))
                     .foregroundColor(Color.white)
                     .padding(.trailing, 20)
             }
             
             VStack(alignment: .leading, spacing: 0) {
-                Text("초콜릿 케이크")
+                Text(banner.name)
                     .foregroundColor(Color.white)
                     .font(.subheadline)
                 HStack {
-                    Text("#1piece")
-                        .foregroundColor(Color.white)
-                        .font(.caption)
-                    Text("#4,000원")
-                        .foregroundColor(Color.white)
-                        .font(.caption)
+                    ForEach(banner.tags, id: \.self) { tag in
+                        Text("#\(tag)")
+                            .foregroundColor(Color.white)
+                            .font(.caption)
+                    }
                 }
             }
             .padding(.leading, 20)
@@ -67,7 +67,8 @@ struct BannerItemView : View {
 
 struct BannerItemView_Previews : PreviewProvider
 {
+    @State static var banner: Banner = Banner(title: "달콤한 케이크\n추천해요!", image: "cup.and.saucer", name: "초콜릿 케이크", tags: ["1piece","4,000원"])
     static var previews: some View {
-        BannerItemView(symbolName:  "cup.and.saucer")
+        BannerItemView(banner: $banner)
     }
 }

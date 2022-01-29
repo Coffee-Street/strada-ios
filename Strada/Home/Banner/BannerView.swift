@@ -8,17 +8,18 @@
 import SwiftUI
 
 struct BannerView : View {
+    
+    @Binding var banners: [Banner]
+    
     func setupAppearance() {
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(.appBlue)
         UIPageControl.appearance().pageIndicatorTintColor = UIColor(.appBrownGray)
-        
-        
     }
     
     var body: some View {
         TabView {
-            ForEach(["cup.and.saucer", "takeoutbag.and.cup.and.straw"], id: \.self) { symbolName in
-                BannerItemView(symbolName: symbolName)
+            ForEach($banners) { banner in
+                BannerItemView(banner: banner)
             }
         }
         .onAppear {
@@ -30,7 +31,11 @@ struct BannerView : View {
 }
 
 struct BannerView_Previews : PreviewProvider {
+    @State static var banners: [Banner] = [
+        Banner(title: "달콤한 케이크\n추천해요!", image: "cup.and.saucer", name: "초콜릿 케이크", tags: ["1piece","4,000원"]),
+        Banner(title: "달콤한 케이크\n추천해요!", image: "takeoutbag.and.cup.and.straw", name: "초콜릿 케이크", tags: ["1piece","4,000원"])
+    ]
     static var previews: some View {
-        BannerView()
+        BannerView(banners: $banners)
     }
 }

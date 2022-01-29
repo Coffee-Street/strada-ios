@@ -18,6 +18,8 @@ struct HomeView : View {
     @State private var isNewNotice: Bool = false
     @State private var bagCount: Int = 0
     
+    @StateObject private var viewModel = HomeViewModel()
+    
     var body: some View {
         ZStack(alignment: .top) {
             VStack {
@@ -57,8 +59,11 @@ struct HomeView : View {
                 }
                 .padding(.horizontal)
             
-                BannerView()
+                BannerView(banners: $viewModel.banners)
                     .frame(height: 380)
+                    .onAppear {
+//                        viewModel.getBanners()
+                    }
                 
                 Button(action: {
                     withAnimation {
