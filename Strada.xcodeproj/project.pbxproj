@@ -34,6 +34,7 @@
 		8079948E277F3A3700187407 /* OrderDetailOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079948D277F3A3700187407 /* OrderDetailOption.swift */; };
 		8079A86D27A7D1400058040B /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079A86C27A7D1400058040B /* ProfileAPI.swift */; };
 		8079A86F27A7D1900058040B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079A86E27A7D1900058040B /* Profile.swift */; };
+		8079A87127A7D2950058040B /* HistoryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079A87027A7D2950058040B /* HistoryAPI.swift */; };
 		808BE2762790736700C84987 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808BE2752790736700C84987 /* OrderView.swift */; };
 		808BE27A279256FF00C84987 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808BE279279256FF00C84987 /* MenuView.swift */; };
 		808E6B8E274A6A1B00DF24D7 /* StradaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6B8D274A6A1B00DF24D7 /* StradaApp.swift */; };
@@ -115,6 +116,7 @@
 		8079948D277F3A3700187407 /* OrderDetailOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailOption.swift; sourceTree = "<group>"; };
 		8079A86C27A7D1400058040B /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
 		8079A86E27A7D1900058040B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		8079A87027A7D2950058040B /* HistoryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryAPI.swift; sourceTree = "<group>"; };
 		808BE2752790736700C84987 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		808BE279279256FF00C84987 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		808E6B8A274A6A1B00DF24D7 /* Strada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Strada.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +237,18 @@
 				8079482A27A5A61A00DA0230 /* ProfileSummary.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		8079A87227A7D29B0058040B /* History */ = {
+			isa = PBXGroup;
+			children = (
+				80C176CE2798654600E042C6 /* History.swift */,
+				8079A87027A7D2950058040B /* HistoryAPI.swift */,
+				80C176C62796D0F500E042C6 /* HistoryView.swift */,
+				80C176C82796D0FF00E042C6 /* HistoryItemView.swift */,
+				80C176CA2798649700E042C6 /* HistoryCategoryView.swift */,
+			);
+			path = History;
 			sourceTree = "<group>";
 		};
 		808BE2772790740C00C84987 /* Detail */ = {
@@ -383,12 +397,9 @@
 		80C176C12796CB3B00E042C6 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				8079A87227A7D29B0058040B /* History */,
 				80C176C22796CB4400E042C6 /* ProfileView.swift */,
-				80C176C62796D0F500E042C6 /* HistoryView.swift */,
-				80C176C82796D0FF00E042C6 /* HistoryItemView.swift */,
-				80C176CA2798649700E042C6 /* HistoryCategoryView.swift */,
 				80C176CC2798650B00E042C6 /* ProfileViewModel.swift */,
-				80C176CE2798654600E042C6 /* History.swift */,
 				8079A86C27A7D1400058040B /* ProfileAPI.swift */,
 				8079A86E27A7D1900058040B /* Profile.swift */,
 			);
@@ -624,6 +635,7 @@
 				8079948E277F3A3700187407 /* OrderDetailOption.swift in Sources */,
 				80C176CB2798649700E042C6 /* HistoryCategoryView.swift in Sources */,
 				80C176C32796CB4400E042C6 /* ProfileView.swift in Sources */,
+				8079A87127A7D2950058040B /* HistoryAPI.swift in Sources */,
 				8079482627A54F6000DA0230 /* Banner.swift in Sources */,
 				804A09602753AFE300BF3F41 /* FavoriteMenuView.swift in Sources */,
 				803372DB27A51D6D009BF89F /* SignAPI.swift in Sources */,
