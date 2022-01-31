@@ -23,7 +23,8 @@ struct BannerResponse : Codable {
 }
 
 struct HomeAPI {
-    private var api = API()
+    
+    private let api = API()
     
     func getProfile(completion: @escaping (Result<ProfileSummary, APIError>) -> Void) {
         

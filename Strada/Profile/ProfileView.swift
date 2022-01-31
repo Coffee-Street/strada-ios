@@ -11,7 +11,7 @@ struct ProfileView : View {
     
     @Binding var isOpened: Bool
     
-    @State private var viewModel = ProfileViewModel()
+    @StateObject private var viewModel = ProfileViewModel()
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -21,7 +21,7 @@ struct ProfileView : View {
                     .font(.system(size: 22, weight: .bold))
                     .padding(.bottom)
                 
-                Text("\(3950)P")
+                Text("\(self.viewModel.profile.point)P")
                     .font(.system(size: 35))
                     .padding(.bottom, 5)
                 
@@ -55,7 +55,9 @@ struct ProfileView : View {
             .padding(.trailing)
         } // ZStack
         .background(.white)
-        
+        .onAppear {
+            viewModel.getProfile()
+        }
     }
 }
 

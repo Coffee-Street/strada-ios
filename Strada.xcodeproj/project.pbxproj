@@ -32,6 +32,8 @@
 		8079948A277F353B00187407 /* OrderDetailOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80799489277F353B00187407 /* OrderDetailOptionView.swift */; };
 		8079948C277F396A00187407 /* OrderDetailOptionGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079948B277F396A00187407 /* OrderDetailOptionGroupView.swift */; };
 		8079948E277F3A3700187407 /* OrderDetailOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079948D277F3A3700187407 /* OrderDetailOption.swift */; };
+		8079A86D27A7D1400058040B /* ProfileAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079A86C27A7D1400058040B /* ProfileAPI.swift */; };
+		8079A86F27A7D1900058040B /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079A86E27A7D1900058040B /* Profile.swift */; };
 		808BE2762790736700C84987 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808BE2752790736700C84987 /* OrderView.swift */; };
 		808BE27A279256FF00C84987 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808BE279279256FF00C84987 /* MenuView.swift */; };
 		808E6B8E274A6A1B00DF24D7 /* StradaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6B8D274A6A1B00DF24D7 /* StradaApp.swift */; };
@@ -111,6 +113,8 @@
 		80799489277F353B00187407 /* OrderDetailOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailOptionView.swift; sourceTree = "<group>"; };
 		8079948B277F396A00187407 /* OrderDetailOptionGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailOptionGroupView.swift; sourceTree = "<group>"; };
 		8079948D277F3A3700187407 /* OrderDetailOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailOption.swift; sourceTree = "<group>"; };
+		8079A86C27A7D1400058040B /* ProfileAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAPI.swift; sourceTree = "<group>"; };
+		8079A86E27A7D1900058040B /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		808BE2752790736700C84987 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		808BE279279256FF00C84987 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		808E6B8A274A6A1B00DF24D7 /* Strada.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Strada.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -385,6 +389,8 @@
 				80C176CA2798649700E042C6 /* HistoryCategoryView.swift */,
 				80C176CC2798650B00E042C6 /* ProfileViewModel.swift */,
 				80C176CE2798654600E042C6 /* History.swift */,
+				8079A86C27A7D1400058040B /* ProfileAPI.swift */,
+				8079A86E27A7D1900058040B /* Profile.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -590,6 +596,7 @@
 				808E6BBC274A7B3300DF24D7 /* SplashView.swift in Sources */,
 				803BDD6D2774D75A00ACF6FC /* MenuItemView.swift in Sources */,
 				80C176D327998FF600E042C6 /* CountCircleBadgeView.swift in Sources */,
+				8079A86F27A7D1900058040B /* Profile.swift in Sources */,
 				80C176D72799A63F00E042C6 /* ReceiptView.swift in Sources */,
 				80B7526B275396B90008495D /* SignView.swift in Sources */,
 				80C176CD2798650B00E042C6 /* ProfileViewModel.swift in Sources */,
@@ -600,6 +607,7 @@
 				80C176C02796A46100E042C6 /* OneOnOneView.swift in Sources */,
 				808E6BC0274A94A500DF24D7 /* BannerView.swift in Sources */,
 				801A5BAD277F66B800BA3B7A /* OrderBeanOptionView.swift in Sources */,
+				8079A86D27A7D1400058040B /* ProfileAPI.swift in Sources */,
 				808E6B90274A6A1B00DF24D7 /* ContentView.swift in Sources */,
 				803372D627A51320009BF89F /* SignViewModel.swift in Sources */,
 				80EAD93B2781A1000000DDC8 /* OrderDrinkPersonalOptionRangeView.swift in Sources */,
