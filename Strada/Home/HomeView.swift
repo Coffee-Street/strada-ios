@@ -111,7 +111,7 @@ struct HomeView : View {
             }
             
             if self.isOpenedProfile {
-                ProfileView(isOpened: $isOpenedProfile)
+                ProfileView(controller: controller, isOpened: $isOpenedProfile)
             }
             
             if self.isOpenedOrder {

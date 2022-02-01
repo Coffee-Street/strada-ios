@@ -8,6 +8,7 @@
 import Foundation
 
 struct HistoryResponse : Codable {
+    let id: Int
     let title: String
     let point: String
     let date: String
@@ -46,7 +47,7 @@ struct HistoryAPI {
             }
             
             let histories = result.map {
-                History(title: $0.title, point: $0.point, date: $0.date)
+                History(id: $0.id, title: $0.title, point: $0.point, date: $0.date)
             }
             
             completion(.success(histories))

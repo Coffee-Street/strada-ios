@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ProfileView : View {
     
+    @ObservedObject var controller: CurrentViewController
+    
     @Binding var isOpened: Bool
+    
+    @State private var isOpenedReceipt: Bool = false
     
     @StateObject private var viewModel = ProfileViewModel()
     
@@ -33,7 +37,7 @@ struct ProfileView : View {
                     .background(Color.appBrownGray)
                     .padding(.vertical)
                 
-                HistoryView(categories: $viewModel.categories, histories: $viewModel.histories)
+                HistoryView(categories: $viewModel.categories, histories: $viewModel.histories, isOpenedReceipt: $isOpenedReceipt)
                 
                 Spacer()
             }
@@ -53,6 +57,10 @@ struct ProfileView : View {
                 Spacer()
             } // VStack
             .padding(.trailing)
+            
+            if isOpenedReceipt {
+                ReceiptView(controller: controller, isOpened: $isOpenedReceipt)
+            }
         } // ZStack
         .background(.white)
         .onAppear {
@@ -63,6 +71,6 @@ struct ProfileView : View {
 
 struct ProfileView_Previews : PreviewProvider {
     static var previews: some View {
-        ProfileView(isOpened: .constant(false))
+        ProfileView(controller: CurrentViewController("profile"), isOpened: .constant(false))
     }
 }

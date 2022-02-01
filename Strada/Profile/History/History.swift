@@ -8,7 +8,7 @@
 import Foundation
 
 struct History : Identifiable {
-    let id = UUID()
+    let id: Int
 
     let title: String
     let point: String
