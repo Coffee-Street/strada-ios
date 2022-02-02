@@ -41,6 +41,7 @@ struct OrderItemView : View {
                 HStack {
                     Spacer()
                     CountView(count: 5, index: 1)
+                        .background(Capsule().stroke(.white, lineWidth: 2))
                 }
             }
         }
