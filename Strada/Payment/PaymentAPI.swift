@@ -1,34 +1,32 @@
 //
-//  ReceiptAPI.swift
+//  PaymentAPI.swift
 //  Strada
 //
-//  Created by 박종봉 on 2022/02/03.
+//  Created by 박종봉 on 2022/02/04.
 //
 
 import Foundation
 
-struct ReceiptRequest : Codable {
-    let id: Int
-}
-
-struct ReceiptResponse : Codable {
-    let id: Int
-    let status: Int
-    let orderItems: [String]
-}
-
-struct ReceiptAPI {
-    private var api = API()
+struct PaymentRequest : Codable {
     
-    func getReceipt(id: Int, completion: @escaping (Result<Receipt, APIError>) -> Void) {
+}
+
+struct PaymentResponse : Codable {
+    
+}
+
+struct PaymentAPI {
+    let api = API()
+    
+    func pay(completion: @escaping (Result<Payment, APIError>) -> Void) {
         
-        guard let receiptURL = URL(string: "\(api.v1URL)/receipt") else {
+        guard let paymentURL = URL(string: "\(api.v1URL)/receipt") else {
             return completion(.failure(.invalidURL))
         }
         
-        let body = try? JSONEncoder().encode(ReceiptRequest(id: id))
+        let body = try? JSONEncoder().encode(PaymentRequest())
         
-        var request = URLRequest(url: receiptURL)
+        var request = URLRequest(url: paymentURL)
         request.httpMethod = "POST"
         request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.httpBody = body
@@ -46,13 +44,11 @@ struct ReceiptAPI {
                 return completion(.failure(.invalidResponseData))
             }
             
-            guard let result = try? JSONDecoder().decode(ReceiptResponse.self, from: data) else {
+            guard let result = try? JSONDecoder().decode(PaymentResponse.self, from: data) else {
                 return completion(.failure(.decodingFailed))
             }
 
-            let receipt = Receipt(id: result.id, status: result.status, orderItems: result.orderItems)
-            
-            completion(.success(receipt))
+            completion(.success(Payment()))
         }
         .resume()
     }

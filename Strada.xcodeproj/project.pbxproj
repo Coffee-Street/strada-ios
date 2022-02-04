@@ -50,6 +50,8 @@
 		808E6BBC274A7B3300DF24D7 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6BBB274A7B3300DF24D7 /* SplashView.swift */; };
 		808E6BBE274A7F0100DF24D7 /* BannerItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6BBD274A7F0100DF24D7 /* BannerItemView.swift */; };
 		808E6BC0274A94A500DF24D7 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6BBF274A94A500DF24D7 /* BannerView.swift */; };
+		808FCDEF27AD6F08007F01AE /* PaymentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808FCDEE27AD6F08007F01AE /* PaymentAPI.swift */; };
+		808FCDF127AD73B5007F01AE /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808FCDF027AD73B5007F01AE /* Payment.swift */; };
 		80B02F562780503C0093B532 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B02F552780503C0093B532 /* AppColor.swift */; };
 		80B7526B275396B90008495D /* SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7526A275396B90008495D /* SignView.swift */; };
 		80C176BE2796A33200E042C6 /* VoiceOfCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176BD2796A33200E042C6 /* VoiceOfCustomerView.swift */; };
@@ -137,6 +139,8 @@
 		808E6BBB274A7B3300DF24D7 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		808E6BBD274A7F0100DF24D7 /* BannerItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerItemView.swift; sourceTree = "<group>"; };
 		808E6BBF274A94A500DF24D7 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
+		808FCDEE27AD6F08007F01AE /* PaymentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAPI.swift; sourceTree = "<group>"; };
+		808FCDF027AD73B5007F01AE /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		80B02F552780503C0093B532 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		80B7526A275396B90008495D /* SignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignView.swift; sourceTree = "<group>"; };
 		80C176BD2796A33200E042C6 /* VoiceOfCustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceOfCustomerView.swift; sourceTree = "<group>"; };
@@ -436,6 +440,8 @@
 				80C176D8279AF8AC00E042C6 /* PaymentView.swift */,
 				80C176DB279B003C00E042C6 /* OrderItemView.swift */,
 				80699752279B0EAC00A0C281 /* PaymentSuccessView.swift */,
+				808FCDEE27AD6F08007F01AE /* PaymentAPI.swift */,
+				808FCDF027AD73B5007F01AE /* Payment.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -631,11 +637,13 @@
 				80EAD93B2781A1000000DDC8 /* OrderDrinkPersonalOptionRangeView.swift in Sources */,
 				804A09652753C0B200BF3F41 /* MenuSoldoutView.swift in Sources */,
 				80EAD935278198300000DDC8 /* NonCapsuleCountView.swift in Sources */,
+				808FCDEF27AD6F08007F01AE /* PaymentAPI.swift in Sources */,
 				8079482B27A5A61A00DA0230 /* ProfileSummary.swift in Sources */,
 				80C176D9279AF8AC00E042C6 /* PaymentView.swift in Sources */,
 				808E6B8E274A6A1B00DF24D7 /* StradaApp.swift in Sources */,
 				80EAD93727819A3B0000DDC8 /* OrderDrinkPersonalOptionCountView.swift in Sources */,
 				808E6BBE274A7F0100DF24D7 /* BannerItemView.swift in Sources */,
+				808FCDF127AD73B5007F01AE /* Payment.swift in Sources */,
 				80D61D8F278F276F00279B00 /* CurrentViewController.swift in Sources */,
 				808BE27A279256FF00C84987 /* MenuView.swift in Sources */,
 				8079482227A54E9C00DA0230 /* HomeAPI.swift in Sources */,
