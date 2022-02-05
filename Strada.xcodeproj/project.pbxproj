@@ -52,6 +52,8 @@
 		808E6BC0274A94A500DF24D7 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E6BBF274A94A500DF24D7 /* BannerView.swift */; };
 		808FCDEF27AD6F08007F01AE /* PaymentAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808FCDEE27AD6F08007F01AE /* PaymentAPI.swift */; };
 		808FCDF127AD73B5007F01AE /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808FCDF027AD73B5007F01AE /* Payment.swift */; };
+		808FCDF327AEB910007F01AE /* CustomerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808FCDF227AEB910007F01AE /* CustomerAPI.swift */; };
+		808FCDF527AEB956007F01AE /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808FCDF427AEB956007F01AE /* FAQ.swift */; };
 		80B02F562780503C0093B532 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B02F552780503C0093B532 /* AppColor.swift */; };
 		80B7526B275396B90008495D /* SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7526A275396B90008495D /* SignView.swift */; };
 		80C176BE2796A33200E042C6 /* VoiceOfCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176BD2796A33200E042C6 /* VoiceOfCustomerView.swift */; };
@@ -141,6 +143,8 @@
 		808E6BBF274A94A500DF24D7 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		808FCDEE27AD6F08007F01AE /* PaymentAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentAPI.swift; sourceTree = "<group>"; };
 		808FCDF027AD73B5007F01AE /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
+		808FCDF227AEB910007F01AE /* CustomerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAPI.swift; sourceTree = "<group>"; };
+		808FCDF427AEB956007F01AE /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		80B02F552780503C0093B532 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		80B7526A275396B90008495D /* SignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignView.swift; sourceTree = "<group>"; };
 		80C176BD2796A33200E042C6 /* VoiceOfCustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceOfCustomerView.swift; sourceTree = "<group>"; };
@@ -398,6 +402,8 @@
 			children = (
 				80C176BD2796A33200E042C6 /* VoiceOfCustomerView.swift */,
 				80C176BF2796A46100E042C6 /* OneOnOneView.swift */,
+				808FCDF227AEB910007F01AE /* CustomerAPI.swift */,
+				808FCDF427AEB956007F01AE /* FAQ.swift */,
 			);
 			path = Customer;
 			sourceTree = "<group>";
@@ -630,6 +636,7 @@
 				8079482927A5A5DC00DA0230 /* ProfileSummaryView.swift in Sources */,
 				80C176C02796A46100E042C6 /* OneOnOneView.swift in Sources */,
 				808E6BC0274A94A500DF24D7 /* BannerView.swift in Sources */,
+				808FCDF327AEB910007F01AE /* CustomerAPI.swift in Sources */,
 				801A5BAD277F66B800BA3B7A /* OrderBeanOptionView.swift in Sources */,
 				8079A86D27A7D1400058040B /* ProfileAPI.swift in Sources */,
 				808E6B90274A6A1B00DF24D7 /* ContentView.swift in Sources */,
@@ -654,6 +661,7 @@
 				8079482627A54F6000DA0230 /* Banner.swift in Sources */,
 				804A09602753AFE300BF3F41 /* FavoriteMenuView.swift in Sources */,
 				803372DB27A51D6D009BF89F /* SignAPI.swift in Sources */,
+				808FCDF527AEB956007F01AE /* FAQ.swift in Sources */,
 				804A09632753B52900BF3F41 /* MenuCountView.swift in Sources */,
 				808BE2762790736700C84987 /* OrderView.swift in Sources */,
 				802EE51E279526CA0012DD1C /* OrderViewModel.swift in Sources */,
