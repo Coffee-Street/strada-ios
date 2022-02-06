@@ -189,6 +189,8 @@ struct ReceiptView : View {
                                 .font(.system(size: 30))
                         }
                     }
+                    .padding(.top)
+                    
                     Spacer()
                 } // VStack
                 .padding(.trailing)

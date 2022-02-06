@@ -14,7 +14,6 @@ struct VoiceOfCustomerView : View {
     @State private var isOpenedOneOnOne: Bool = false
     
     var body: some View {
-        
         ZStack(alignment: .leading) {
             VStack(alignment: .leading) {
                 Text("고객의 소리")
@@ -160,6 +159,7 @@ struct VoiceOfCustomerView : View {
             }
             
         } // ZStack
+        .padding(.top)
         .background(.white)
     }
 }
