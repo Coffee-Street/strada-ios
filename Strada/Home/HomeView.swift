@@ -37,7 +37,7 @@ struct HomeView : View {
                     }
                     
                     Button(action: {
-                        isOpenedProfile.toggle()
+                        isOpenedNotice.toggle()
                     }) {
                         Image("bell.active")
                             .font(.system(size: 20))
@@ -100,6 +100,10 @@ struct HomeView : View {
             
             if self.isOpenedVoc {
                 VoiceOfCustomerView(isOpened: $isOpenedVoc)
+            }
+            
+            if self.isOpenedNotice {
+                NoticeView(controller: controller, isOpened: $isOpenedNotice)
             }
             
             if self.isOpenedProfile {
