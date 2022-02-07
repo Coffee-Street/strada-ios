@@ -16,7 +16,7 @@ struct NoticeItemView : View {
             HStack {
                 VStack(alignment: .leading) {
                     Text(notice.title)
-                        .foregroundColor(getBlackFontColor())
+                        .foregroundColor(getTitleFontColor())
                         .fontWeight(.medium)
                         .overlay {
                             ZStack {
@@ -28,11 +28,11 @@ struct NoticeItemView : View {
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
                         }
                     Text(notice.excerpt)
-                        .foregroundColor(getBlackFontColor())
+                        .foregroundColor(getExcerptFontColor())
                         .fontWeight(.regular)
                         .padding(.bottom, 2)
                     Text(notice.date)
-                        .foregroundColor(getGrayFontColor())
+                        .foregroundColor(getDateFontColor())
                         .fontWeight(.medium)
                 }
                 
@@ -43,11 +43,15 @@ struct NoticeItemView : View {
         } // VStack
     }
     
-    func getBlackFontColor() -> Color {
+    func getTitleFontColor() -> Color {
         return notice.read ? .appBrownGray : .appBlack
     }
     
-    func getGrayFontColor() -> Color {
+    func getExcerptFontColor() -> Color {
+        return notice.read ? .appBrownGray : .appBlack
+    }
+    
+    func getDateFontColor() -> Color {
         return notice.read ? .appLightGray : .appBrownGray
     }
 }
