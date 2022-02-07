@@ -60,7 +60,7 @@ struct NoticeView : View {
             .padding()
             
             if isOpenedReceipt {
-                ReceiptView(/*controller: controller,*/ isOpened: $isOpenedReceipt)
+                ReceiptView(controller: controller, isOpened: $isOpenedReceipt)
             }
         } // ZStack
         .background(.white)
