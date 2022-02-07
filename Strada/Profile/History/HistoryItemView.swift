@@ -23,7 +23,6 @@ struct HistoryItemView : View {
                     .fontWeight(.medium)
             }
             
-            
             Spacer()
             
             Image("next.active")

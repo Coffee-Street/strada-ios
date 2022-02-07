@@ -75,6 +75,11 @@
 		80EAD93727819A3B0000DDC8 /* OrderDrinkPersonalOptionCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD93627819A3B0000DDC8 /* OrderDrinkPersonalOptionCountView.swift */; };
 		80EAD93B2781A1000000DDC8 /* OrderDrinkPersonalOptionRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD93A2781A1000000DDC8 /* OrderDrinkPersonalOptionRangeView.swift */; };
 		80EF49C0277377EF006EB149 /* OrderDrinkOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EF49BF277377EF006EB149 /* OrderDrinkOptionView.swift */; };
+		80F0A1F327B018D300BDF003 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0A1F227B018D300BDF003 /* NoticeView.swift */; };
+		80F0A1F527B01A6800BDF003 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0A1F427B01A6800BDF003 /* NoticeViewModel.swift */; };
+		80F0A1F727B01ACA00BDF003 /* NoticeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0A1F627B01ACA00BDF003 /* NoticeItemView.swift */; };
+		80F0A1F927B01C1E00BDF003 /* NoticeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0A1F827B01C1E00BDF003 /* NoticeCategoryView.swift */; };
+		80F0A1FB27B14D4100BDF003 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0A1FA27B14D4100BDF003 /* Notice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -166,6 +171,11 @@
 		80EAD93627819A3B0000DDC8 /* OrderDrinkPersonalOptionCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDrinkPersonalOptionCountView.swift; sourceTree = "<group>"; };
 		80EAD93A2781A1000000DDC8 /* OrderDrinkPersonalOptionRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDrinkPersonalOptionRangeView.swift; sourceTree = "<group>"; };
 		80EF49BF277377EF006EB149 /* OrderDrinkOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDrinkOptionView.swift; sourceTree = "<group>"; };
+		80F0A1F227B018D300BDF003 /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
+		80F0A1F427B01A6800BDF003 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
+		80F0A1F627B01ACA00BDF003 /* NoticeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeItemView.swift; sourceTree = "<group>"; };
+		80F0A1F827B01C1E00BDF003 /* NoticeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCategoryView.swift; sourceTree = "<group>"; };
+		80F0A1FA27B14D4100BDF003 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				803372D727A51360009BF89F /* Network */,
+				80F0A1F127B018C300BDF003 /* Notice */,
 				80C176D52799A63100E042C6 /* Payment */,
 				80C176D42799A62A00E042C6 /* Receipt */,
 				80C176C12796CB3B00E042C6 /* Profile */,
@@ -478,6 +489,18 @@
 			path = Bean;
 			sourceTree = "<group>";
 		};
+		80F0A1F127B018C300BDF003 /* Notice */ = {
+			isa = PBXGroup;
+			children = (
+				80F0A1F227B018D300BDF003 /* NoticeView.swift */,
+				80F0A1F427B01A6800BDF003 /* NoticeViewModel.swift */,
+				80F0A1F627B01ACA00BDF003 /* NoticeItemView.swift */,
+				80F0A1F827B01C1E00BDF003 /* NoticeCategoryView.swift */,
+				80F0A1FA27B14D4100BDF003 /* Notice.swift */,
+			);
+			path = Notice;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -624,13 +647,16 @@
 				80EF49C0277377EF006EB149 /* OrderDrinkOptionView.swift in Sources */,
 				808E6BBC274A7B3300DF24D7 /* SplashView.swift in Sources */,
 				803BDD6D2774D75A00ACF6FC /* MenuItemView.swift in Sources */,
+				80F0A1F727B01ACA00BDF003 /* NoticeItemView.swift in Sources */,
 				80C176D327998FF600E042C6 /* CountCircleBadgeView.swift in Sources */,
 				8079A86F27A7D1900058040B /* Profile.swift in Sources */,
 				80C176D72799A63F00E042C6 /* ReceiptView.swift in Sources */,
 				8079483127AC147A00DA0230 /* ReceiptAPI.swift in Sources */,
 				80B7526B275396B90008495D /* SignView.swift in Sources */,
+				80F0A1FB27B14D4100BDF003 /* Notice.swift in Sources */,
 				80C176CD2798650B00E042C6 /* ProfileViewModel.swift in Sources */,
 				801A5BB0277F6C1500BA3B7A /* CountView.swift in Sources */,
+				80F0A1F527B01A6800BDF003 /* NoticeViewModel.swift in Sources */,
 				802EE51C279465360012DD1C /* MenuCategoryView.swift in Sources */,
 				8079948A277F353B00187407 /* OrderDetailOptionView.swift in Sources */,
 				8079482927A5A5DC00DA0230 /* ProfileSummaryView.swift in Sources */,
@@ -662,8 +688,10 @@
 				804A09602753AFE300BF3F41 /* FavoriteMenuView.swift in Sources */,
 				803372DB27A51D6D009BF89F /* SignAPI.swift in Sources */,
 				808FCDF527AEB956007F01AE /* FAQ.swift in Sources */,
+				80F0A1F927B01C1E00BDF003 /* NoticeCategoryView.swift in Sources */,
 				804A09632753B52900BF3F41 /* MenuCountView.swift in Sources */,
 				808BE2762790736700C84987 /* OrderView.swift in Sources */,
+				80F0A1F327B018D300BDF003 /* NoticeView.swift in Sources */,
 				802EE51E279526CA0012DD1C /* OrderViewModel.swift in Sources */,
 				8079482427A54EAB00DA0230 /* HomeViewModel.swift in Sources */,
 				80C176CF2798654600E042C6 /* History.swift in Sources */,
