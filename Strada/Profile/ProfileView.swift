@@ -37,7 +37,7 @@ struct ProfileView : View {
                     .background(Color.appBrownGray)
                     .padding(.vertical)
                 
-                HistoryView(categories: $viewModel.categories, histories: $viewModel.histories, isOpenedReceipt: $isOpenedReceipt)
+                HistoryView(isOpenedReceipt: $isOpenedReceipt)
                 
                 Spacer()
             }

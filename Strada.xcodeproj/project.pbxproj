@@ -56,12 +56,12 @@
 		808FCDF527AEB956007F01AE /* FAQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808FCDF427AEB956007F01AE /* FAQ.swift */; };
 		80B02F562780503C0093B532 /* AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B02F552780503C0093B532 /* AppColor.swift */; };
 		80B7526B275396B90008495D /* SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7526A275396B90008495D /* SignView.swift */; };
+		80B852D227B16E1100FB9615 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B852D127B16E1100FB9615 /* HistoryViewModel.swift */; };
 		80C176BE2796A33200E042C6 /* VoiceOfCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176BD2796A33200E042C6 /* VoiceOfCustomerView.swift */; };
 		80C176C02796A46100E042C6 /* OneOnOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176BF2796A46100E042C6 /* OneOnOneView.swift */; };
 		80C176C32796CB4400E042C6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176C22796CB4400E042C6 /* ProfileView.swift */; };
 		80C176C72796D0F500E042C6 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176C62796D0F500E042C6 /* HistoryView.swift */; };
 		80C176C92796D0FF00E042C6 /* HistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176C82796D0FF00E042C6 /* HistoryItemView.swift */; };
-		80C176CB2798649700E042C6 /* HistoryCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176CA2798649700E042C6 /* HistoryCategoryView.swift */; };
 		80C176CD2798650B00E042C6 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176CC2798650B00E042C6 /* ProfileViewModel.swift */; };
 		80C176CF2798654600E042C6 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176CE2798654600E042C6 /* History.swift */; };
 		80C176D127998EEF00E042C6 /* CircleBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176D027998EEF00E042C6 /* CircleBadgeView.swift */; };
@@ -78,8 +78,8 @@
 		80F0A1F327B018D300BDF003 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0A1F227B018D300BDF003 /* NoticeView.swift */; };
 		80F0A1F527B01A6800BDF003 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0A1F427B01A6800BDF003 /* NoticeViewModel.swift */; };
 		80F0A1F727B01ACA00BDF003 /* NoticeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0A1F627B01ACA00BDF003 /* NoticeItemView.swift */; };
-		80F0A1F927B01C1E00BDF003 /* NoticeCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0A1F827B01C1E00BDF003 /* NoticeCategoryView.swift */; };
 		80F0A1FB27B14D4100BDF003 /* Notice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0A1FA27B14D4100BDF003 /* Notice.swift */; };
+		80F0A1FD27B15B4200BDF003 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0A1FC27B15B4200BDF003 /* CategoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,12 +152,12 @@
 		808FCDF427AEB956007F01AE /* FAQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQ.swift; sourceTree = "<group>"; };
 		80B02F552780503C0093B532 /* AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColor.swift; sourceTree = "<group>"; };
 		80B7526A275396B90008495D /* SignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignView.swift; sourceTree = "<group>"; };
+		80B852D127B16E1100FB9615 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		80C176BD2796A33200E042C6 /* VoiceOfCustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceOfCustomerView.swift; sourceTree = "<group>"; };
 		80C176BF2796A46100E042C6 /* OneOnOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOnOneView.swift; sourceTree = "<group>"; };
 		80C176C22796CB4400E042C6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		80C176C62796D0F500E042C6 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		80C176C82796D0FF00E042C6 /* HistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemView.swift; sourceTree = "<group>"; };
-		80C176CA2798649700E042C6 /* HistoryCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCategoryView.swift; sourceTree = "<group>"; };
 		80C176CC2798650B00E042C6 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		80C176CE2798654600E042C6 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		80C176D027998EEF00E042C6 /* CircleBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleBadgeView.swift; sourceTree = "<group>"; };
@@ -174,8 +174,8 @@
 		80F0A1F227B018D300BDF003 /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
 		80F0A1F427B01A6800BDF003 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
 		80F0A1F627B01ACA00BDF003 /* NoticeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeItemView.swift; sourceTree = "<group>"; };
-		80F0A1F827B01C1E00BDF003 /* NoticeCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCategoryView.swift; sourceTree = "<group>"; };
 		80F0A1FA27B14D4100BDF003 /* Notice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notice.swift; sourceTree = "<group>"; };
+		80F0A1FC27B15B4200BDF003 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +210,7 @@
 				80EAD934278198300000DDC8 /* NonCapsuleCountView.swift */,
 				80C176D027998EEF00E042C6 /* CircleBadgeView.swift */,
 				80C176D227998FF600E042C6 /* CountCircleBadgeView.swift */,
+				80F0A1FC27B15B4200BDF003 /* CategoryView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -268,7 +269,7 @@
 				8079A87027A7D2950058040B /* HistoryAPI.swift */,
 				80C176C62796D0F500E042C6 /* HistoryView.swift */,
 				80C176C82796D0FF00E042C6 /* HistoryItemView.swift */,
-				80C176CA2798649700E042C6 /* HistoryCategoryView.swift */,
+				80B852D127B16E1100FB9615 /* HistoryViewModel.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -495,7 +496,6 @@
 				80F0A1F227B018D300BDF003 /* NoticeView.swift */,
 				80F0A1F427B01A6800BDF003 /* NoticeViewModel.swift */,
 				80F0A1F627B01ACA00BDF003 /* NoticeItemView.swift */,
-				80F0A1F827B01C1E00BDF003 /* NoticeCategoryView.swift */,
 				80F0A1FA27B14D4100BDF003 /* Notice.swift */,
 			);
 			path = Notice;
@@ -672,6 +672,7 @@
 				80EAD935278198300000DDC8 /* NonCapsuleCountView.swift in Sources */,
 				808FCDEF27AD6F08007F01AE /* PaymentAPI.swift in Sources */,
 				8079482B27A5A61A00DA0230 /* ProfileSummary.swift in Sources */,
+				80F0A1FD27B15B4200BDF003 /* CategoryView.swift in Sources */,
 				80C176D9279AF8AC00E042C6 /* PaymentView.swift in Sources */,
 				808E6B8E274A6A1B00DF24D7 /* StradaApp.swift in Sources */,
 				80EAD93727819A3B0000DDC8 /* OrderDrinkPersonalOptionCountView.swift in Sources */,
@@ -681,14 +682,13 @@
 				808BE27A279256FF00C84987 /* MenuView.swift in Sources */,
 				8079482227A54E9C00DA0230 /* HomeAPI.swift in Sources */,
 				8079948E277F3A3700187407 /* OrderDetailOption.swift in Sources */,
-				80C176CB2798649700E042C6 /* HistoryCategoryView.swift in Sources */,
 				80C176C32796CB4400E042C6 /* ProfileView.swift in Sources */,
 				8079A87127A7D2950058040B /* HistoryAPI.swift in Sources */,
 				8079482627A54F6000DA0230 /* Banner.swift in Sources */,
 				804A09602753AFE300BF3F41 /* FavoriteMenuView.swift in Sources */,
+				80B852D227B16E1100FB9615 /* HistoryViewModel.swift in Sources */,
 				803372DB27A51D6D009BF89F /* SignAPI.swift in Sources */,
 				808FCDF527AEB956007F01AE /* FAQ.swift in Sources */,
-				80F0A1F927B01C1E00BDF003 /* NoticeCategoryView.swift in Sources */,
 				804A09632753B52900BF3F41 /* MenuCountView.swift in Sources */,
 				808BE2762790736700C84987 /* OrderView.swift in Sources */,
 				80F0A1F327B018D300BDF003 /* NoticeView.swift in Sources */,
