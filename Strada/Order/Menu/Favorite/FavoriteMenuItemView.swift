@@ -50,7 +50,7 @@ struct FavoriteMenuItemView : View {
 }
 
 struct FavoriteMenuItemView_Previews : PreviewProvider {
-    @State static var favoriteMenu = FavoriteMenu(menu: Menu(state: .AVAILABLE, name: "", price: 300), menuOption: DrinkMenuOption(menuType: .COFFEE, temperatureType: .COLD, cupSizeType: .GRANDE, cupType: .DISPOSBLE), menuPersonalOption: DrinkMenuPersonalOption(shotCount: 1, syrupCount: ["caramel": 1], iceCount: 1, milkCount: 2, whippedCreamCount: 0, drizzleCount: 0))
+    @State static var favoriteMenu = FavoriteMenu(menu: Menu(type: .COFFEE, state: .AVAILABLE, name: "", price: 300), menuOption: DrinkMenuOption(menuType: .COFFEE, temperatureType: .COLD, cupSizeType: .GRANDE, cupType: .DISPOSBLE), menuPersonalOption: DrinkMenuPersonalOption(shotCount: 1, syrupCount: ["caramel": 1], iceCount: 1, milkCount: 2, whippedCreamCount: 0, drizzleCount: 0))
     static var previews: some View {
         FavoriteMenuItemView(favoriteMenu: $favoriteMenu)
     }

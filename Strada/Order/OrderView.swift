@@ -18,33 +18,34 @@ struct OrderView : View {
         NavigationView {
             ZStack(alignment: .top) {
                 ScrollView {
-                    FavoriteMenuView(favoriteMenus: $viewModel.favoriteMenus)
-                        .padding(.bottom)
-                    Divider()
-                        .background(Color.appBrownGray)
-                    MenuView(controller: controller, categories: $viewModel.categories, menus: $viewModel.menus)
-                        .padding(.top)
+                    ZStack(alignment: .top) {
+                        VStack(alignment: .leading, spacing: 0) {
+                            MenuView(controller: controller)
+                        } // VStack
+                        .padding(.horizontal)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight:0, alignment: Alignment.topLeading)
+                        
+                        VStack(alignment: .leading, spacing: 0) {
+                            HStack {
+                                Spacer()
+                                Button(action: {
+                                    isOpened = false
+                                }) {
+                                    Image(systemName: "multiply")
+                                        .foregroundColor(.appBlue)
+                                        .font(.system(size: 30))
+                                }
+                                
+                            }
+                            .padding(.trailing)
+                            Spacer()
+                        } // VStack
+                    } // ZStack
+                    .background(.white)
                 } // ScrollView
-                .padding()
-                
-                VStack {
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            isOpened = false
-                        }) {
-                            Image(systemName: "multiply")
-                                .foregroundColor(.appBlue)
-                                .font(.system(size: 30))
-                        }
-                    }
-                    Spacer()
-                }
-                .padding(.top)
-                .padding(.trailing)
-            } // ZStack
-            .background(.white)
+            }
         } // NavigationView
+        
     }
 }
 

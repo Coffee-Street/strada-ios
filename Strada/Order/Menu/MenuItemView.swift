@@ -79,6 +79,6 @@ struct MenuItemView : View {
 
 struct MenuItemView_Previews : PreviewProvider {
     static var previews: some View {
-        MenuItemView(menu: Menu(state: .AVAILABLE, name: "메뉴 이름", price: 4000))
+        MenuItemView(menu: Menu(type: .COFFEE, state: .AVAILABLE, name: "메뉴 이름", price: 4000))
     }
 }

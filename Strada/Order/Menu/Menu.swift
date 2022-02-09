@@ -15,23 +15,20 @@ enum MenuState : Int {
 
 enum MenuType {
     case COFFEE
-    case NON_COFFEE
-    case BREAD
-    case BEAN
+    case TEA
+    case ADE
+    case DESSERT
+    case BRUNCH
 }
 
-class Menu : Identifiable {
+struct Menu : Identifiable {
     let id = UUID()
+    
+    let type: MenuType
     
     var state: MenuState
     var name: String
     var price: Int
-    
-    init(state: MenuState, name: String, price: Int) {
-        self.state = state
-        self.name = name
-        self.price = price
-    }
 }
 
 enum MenuTemperatureType {
