@@ -1,5 +1,5 @@
 //
-//  OrderOptionIconButtonView.swift
+//  OrderDetailOptionItemView.swift
 //  Strada
 //
 //  Created by 박종봉 on 2021/12/31.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct OrderDetailOptionView : View {
-    @Binding var option: OrderDetailOption
+struct OrderDetailOptionItemView : View {
+    @Binding var option: OrderDetailOptionItem
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
@@ -23,10 +23,10 @@ struct OrderDetailOptionView : View {
     }
 }
 
-struct OrderOptionIconButtonView_Previews : PreviewProvider {
-    @State static var option = OrderDetailOption(imageName: "regular", title: "레귤러")
+struct OrderOptionItemView_Previews : PreviewProvider {
+    @State static var option = OrderDetailOptionItem(imageName: "regular", title: "레귤러")
     
     static var previews: some View {
-        OrderDetailOptionView(option: $option)
+        OrderDetailOptionItemView(option: $option)
     }
 }
