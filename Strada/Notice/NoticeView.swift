@@ -32,7 +32,7 @@ struct NoticeView : View {
                     }
                 
                 ScrollView {
-                    ForEach(viewModel.getNotices(category: viewModel.selectedCategory)) { notice in
+                    ForEach(viewModel.getNoticesByCagetory(category: viewModel.selectedCategory)) { notice in
                         NoticeItemView(notice: notice)
                             .padding(.bottom)
                             .onTapGesture {

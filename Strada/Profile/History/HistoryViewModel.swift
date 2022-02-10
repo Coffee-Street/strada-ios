@@ -27,7 +27,7 @@ class HistoryViewModel : ObservableObject {
         History(id: 11, type: HistoryType.REWARD, title: "아메리카노 외 3개 메뉴", point: 500, date: "2020.10.17"),
     ]
     
-    func getHistories(category: String) -> [History] {
+    func getHistoriesByCategory(category: String) -> [History] {
         if category == "적립" {
             return self.histories.filter { notice in
                 notice.type == HistoryType.REWARD

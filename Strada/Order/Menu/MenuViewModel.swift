@@ -32,7 +32,7 @@ class MenuViewModel : ObservableObject {
         FavoriteMenu(menu: Menu(type: .COFFEE, state: .AVAILABLE, name: "메뉴 이름", price: 1000), menuOption: DrinkMenuOption(menuType: .COFFEE, temperatureType: .COLD, cupSizeType: .GRANDE, cupType: .DISPOSBLE), menuPersonalOption: DrinkMenuPersonalOption(shotCount: 1, syrupCount: [:], iceCount: 1, milkCount: 0, whippedCreamCount: 0, drizzleCount: 0)),
         FavoriteMenu(menu: Menu(type: .COFFEE, state: .AVAILABLE, name: "메뉴 이름", price: 2000), menuOption: DrinkMenuOption(menuType: .COFFEE, temperatureType: .COLD, cupSizeType: .GRANDE, cupType: .DISPOSBLE), menuPersonalOption: DrinkMenuPersonalOption(shotCount: 1, syrupCount: [:], iceCount: 1, milkCount: 0, whippedCreamCount: 0, drizzleCount: 0))]
     
-    func getMenus(selected: String) -> [Menu] {
+    func getMenusByCategory(selected: String) -> [Menu] {
         if selected == "커피" {
             return self.menus.filter { menu in
                 menu.type == MenuType.COFFEE
@@ -56,5 +56,9 @@ class MenuViewModel : ObservableObject {
         } else {
             return menus
         }
+    }
+    
+    func getMenus() {
+        // API request
     }
 }

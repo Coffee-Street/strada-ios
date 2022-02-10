@@ -30,9 +30,9 @@ struct MenuView : View {
                 
                 
                 VStack {
-                    if viewModel.getMenus(selected: viewModel.selectedCategory).count > 0 {
-                        ForEach(viewModel.getMenus(selected: viewModel.selectedCategory)) { menu in
-                            NavigationLink(destination: OrderDetailView(controller: controller)) {
+                    if viewModel.getMenusByCategory(selected: viewModel.selectedCategory).count > 0 {
+                        ForEach(viewModel.getMenusByCategory(selected: viewModel.selectedCategory)) { menu in
+                            NavigationLink(destination: OrderDetailView(controller: controller, menu_id: menu.id)) {
                                 MenuItemView(menu: menu)
                             }
                         }

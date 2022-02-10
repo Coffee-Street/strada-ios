@@ -25,7 +25,7 @@ struct HistoryView : View {
             }
             
             ScrollView {
-                ForEach(viewModel.getHistories(category: viewModel.selectedCategory)) { history in
+                ForEach(viewModel.getHistoriesByCategory(category: viewModel.selectedCategory)) { history in
                     HistoryItemView(history: history)
                         .padding(.bottom)
                         .onTapGesture {

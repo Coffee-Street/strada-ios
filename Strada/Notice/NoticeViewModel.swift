@@ -23,7 +23,7 @@ class NoticeViewModel : ObservableObject {
         Notice(type: NoticeType.ORDER, title: "주문이 성공적으로 처리되었습니다", excerpt: "아메리카노 외 3개 메뉴", date: "2020.10.17", read: true),
     ]
     
-    func getNotices(category: String) -> [Notice] {
+    func getNoticesByCagetory(category: String) -> [Notice] {
         if category == "이벤트" {
             return self.notices.filter { notice in
                 notice.type == NoticeType.EVENT
