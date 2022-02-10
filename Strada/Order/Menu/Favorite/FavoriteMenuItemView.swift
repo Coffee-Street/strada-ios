@@ -45,7 +45,7 @@ struct FavoriteMenuItemView : View {
                 .padding(.bottom, 10)
             }
         }
-        .frame(maxHeight: 96)
+        .frame(height: 96)
     }
 }
 
