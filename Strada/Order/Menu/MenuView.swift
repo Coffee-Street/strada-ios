@@ -39,26 +39,12 @@ struct MenuView : View {
                         .navigationBarTitle(Text(""))
                         
                     }
-                    else {
-                        VStack {
-                            Spacer()
-                            HStack {
-                                Spacer()
-                                Text("EMPTY MENUS")
-                                    .foregroundColor(.white)
-                                    .font(.system(size: 18, weight: .medium))
-                                    .frame(height: 30)
-                                    .padding(.horizontal, 30)
-                                    .background(Capsule().fill(Color.appBlue))
-                                Spacer()
-                            }
-                            Spacer()
-                        }
-//                        .frame(minHeight: 400)
-                    }
                 }
                 .navigationBarHidden(true)
             }
+        }
+        .onAppear {
+            viewModel.getMenus()
         }
     }
 }

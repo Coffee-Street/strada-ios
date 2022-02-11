@@ -35,7 +35,6 @@ struct OrderView : View {
                                         .foregroundColor(.appBlue)
                                         .font(.system(size: 30))
                                 }
-                                
                             }
                             .padding(.trailing)
                             Spacer()

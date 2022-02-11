@@ -173,8 +173,8 @@ struct ReceiptView : View {
                         .frame(height: 96)
                         .background(Color.appBlue)
                     }
-                    .navigationBarTitle(Text(""), displayMode: .inline)
                     .navigationBarHidden(true)
+                    .navigationBarTitle(Text(""), displayMode: .inline)
                 }
                 .edgesIgnoringSafeArea(.bottom)
                 
@@ -184,16 +184,16 @@ struct ReceiptView : View {
                         Button(action: {
                             isOpened = false
                         }) {
-                            Image(systemName: "multiply")
+                            Image("close.large.active")
                                 .foregroundColor(.appBlue)
                                 .font(.system(size: 30))
                         }
                     }
-                    .padding(.top)
+//                    .padding(.top)
                     
                     Spacer()
                 } // VStack
-                .padding(.trailing)
+                .padding(.trailing, 10)
             } // ZStack
             .background(.white)
         } // NavigationView

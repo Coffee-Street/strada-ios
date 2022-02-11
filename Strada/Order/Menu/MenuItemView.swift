@@ -48,7 +48,7 @@ struct MenuItemView : View {
         ZStack(alignment: .leading) {
             HStack {
                 VStack(alignment: .leading, spacing: 0) {
-                    Text(menu.name)
+                    Text(menu.name.kr)
                         .foregroundColor(menuTextColor())
                         .padding(.bottom, 5)
                     Text("\(menu.price)원")
@@ -90,6 +90,6 @@ struct MenuItemView : View {
 
 struct MenuItemView_Previews : PreviewProvider {
     static var previews: some View {
-        MenuItemView(menu: Menu(type: .COFFEE, state: .AVAILABLE, name: "메뉴 이름", price: 4000))
+        MenuItemView(menu: Menu(type: .COFFEE, state: .AVAILABLE, name: MenuName(kr: "메뉴 이름", en: "Menu Name"), price: 4000))
     }
 }

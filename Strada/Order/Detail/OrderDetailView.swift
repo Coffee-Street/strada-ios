@@ -8,20 +8,16 @@
 import SwiftUI
 
 struct OrderDetailView : View {
-    let menuNameKr = "아메리카노"
-    let menuNameEn = "Americano"
-    
-    let hashTags = ["산미", "브라질", "단맛"]
-    
-    let detailContent = "합리적 가격에 단맛과 산미가 조화롭습니다.\n생산지 : 브라질 세하도 모지아나\n등급 : 없음 | 품종 : 옐로우카투아이\n가공 : Natural | 로스팅 : 시티"
     
     @ObservedObject var controller: CurrentViewController
+    
+    @StateObject private var viewModel = OrderDetailViewModel()
     
     @State private var isFavorite = false
     
     @State private var isDetail = false
     
-    @State private var isComplete = false
+    let menu_id: UUID
     
     var body: some View {
         ZStack {
@@ -34,9 +30,9 @@ struct OrderDetailView : View {
                     
                     HStack {
                         HStack {
-                            Text(menuNameKr)
+                            Text(viewModel.menu.name.kr)
                                 .fontWeight(.medium)
-                            Text(menuNameEn)
+                            Text(viewModel.menu.name.en)
                                 .fontWeight(.thin)
                         }
                         
@@ -55,7 +51,7 @@ struct OrderDetailView : View {
                     .padding(.bottom, 10)
                     
                     HStack {
-                        ForEach(hashTags, id: \.self) { hashtag in
+                        ForEach(viewModel.hashTags, id: \.self) { hashtag in
                             Text("#\(hashtag)")
                         }
                         
@@ -70,16 +66,15 @@ struct OrderDetailView : View {
                     }
                     .padding(.horizontal)
                     
-                    
                     VStack(alignment: .leading, spacing: 0) {
                         if self.isDetail {
-                            if let lastIdx = detailContent.lastIndex(of:  "\n")  {
-                                Text(detailContent[..<lastIdx])
+                            if let lastIdx = viewModel.detailContent.lastIndex(of: "\n")  {
+                                Text(viewModel.detailContent[..<lastIdx])
                                 
-                                let lastRange = detailContent.index(after: lastIdx)..<detailContent.endIndex
+                                let lastRange = viewModel.detailContent.index(after: lastIdx)..<viewModel.detailContent.endIndex
                                 
                                 HStack {
-                                    Text(detailContent[lastRange])
+                                    Text(viewModel.detailContent[lastRange])
                                     Button(action: {
                                         self.isDetail = false
                                     }) {
@@ -90,14 +85,12 @@ struct OrderDetailView : View {
                             } else {
                                 
                             }
-                            
-                            
                         }
                     }
                     .padding(.horizontal)
                     .padding(.bottom)
                     
-                    OrderDrinkOptionView(isComplete: $isComplete)
+                    OrderDrinkOptionView(options: $viewModel.options)
                 }
             }
             .padding(.bottom, 80)
@@ -109,25 +102,27 @@ struct OrderDetailView : View {
                         
                     }){
                         Text("장바구니")
-                            .foregroundColor(self.isComplete ? .white : .appBrownGray)
+                            .foregroundColor(viewModel.isOrderable() ? .white : .appBrownGray)
                     }
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .frame(height: 96)
-                    .background(self.isComplete ? Color.appBlue : Color.appVeryLightGray)
+                    .disabled(viewModel.isOrderable() == false)
+                    .background(viewModel.isOrderable() ? Color.appBlue : Color.appVeryLightGray)
+                    
                 
                     NavigationLink(destination: PaymentView(controller: controller)) {
                         Text("바로주문")
-                            .foregroundColor(self.isComplete ? .white : .appBrownGray)
+                            .foregroundColor(viewModel.isOrderable() ? .white : .appBrownGray)
                     }
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .frame(height: 96)
-                    .background(self.isComplete ? Color.appLightBlue : Color.appVeryLightGray)
+                    .disabled(viewModel.isOrderable() == false)
+                    .background(viewModel.isOrderable() ? Color.appLightBlue : Color.appVeryLightGray)
+                    
                 }
                 .navigationBarTitle(Text(""), displayMode: .inline)
-                //.padding(.bottom, 14)
-                //.background(Color.appVeryLightGray)
             }
-            .edgesIgnoringSafeArea(.bottom)
+            .edgesIgnoringSafeArea(.all)
         } // ZStack
         .background(.white)
     }
@@ -135,9 +130,9 @@ struct OrderDetailView : View {
 
 struct OrderDetailView_Previews : PreviewProvider {
     static var previews: some View {
-        OrderDetailView(controller: CurrentViewController("orderDetail"))
+        OrderDetailView(controller: CurrentViewController("orderDetail"), menu_id: UUID())
         
-        OrderDetailView(controller: CurrentViewController("orderDetail"))
+        OrderDetailView(controller: CurrentViewController("orderDetail"), menu_id: UUID())
             .previewDevice("iPhone 8")
     }
 }

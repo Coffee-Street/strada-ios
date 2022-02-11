@@ -21,13 +21,18 @@ enum MenuType {
     case BRUNCH
 }
 
+struct MenuName {
+    let kr: String
+    let en: String
+}
+
 struct Menu : Identifiable {
     let id = UUID()
     
     let type: MenuType
     
     var state: MenuState
-    var name: String
+    var name: MenuName
     var price: Int
 }
 

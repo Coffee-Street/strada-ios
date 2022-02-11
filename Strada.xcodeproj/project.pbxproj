@@ -57,6 +57,7 @@
 		80B7526B275396B90008495D /* SignView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7526A275396B90008495D /* SignView.swift */; };
 		80B852D227B16E1100FB9615 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B852D127B16E1100FB9615 /* HistoryViewModel.swift */; };
 		80B852D427B1739700FB9615 /* MenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B852D327B1739700FB9615 /* MenuViewModel.swift */; };
+		80B852D627B5370300FB9615 /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B852D527B5370300FB9615 /* OrderDetailViewModel.swift */; };
 		80B852D927B547EA00FB9615 /* OrderDetailOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B852D827B547EA00FB9615 /* OrderDetailOption.swift */; };
 		80C176BE2796A33200E042C6 /* VoiceOfCustomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176BD2796A33200E042C6 /* VoiceOfCustomerView.swift */; };
 		80C176C02796A46100E042C6 /* OneOnOneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176BF2796A46100E042C6 /* OneOnOneView.swift */; };
@@ -154,6 +155,7 @@
 		80B7526A275396B90008495D /* SignView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignView.swift; sourceTree = "<group>"; };
 		80B852D127B16E1100FB9615 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		80B852D327B1739700FB9615 /* MenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewModel.swift; sourceTree = "<group>"; };
+		80B852D527B5370300FB9615 /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
 		80B852D827B547EA00FB9615 /* OrderDetailOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailOption.swift; sourceTree = "<group>"; };
 		80C176BD2796A33200E042C6 /* VoiceOfCustomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceOfCustomerView.swift; sourceTree = "<group>"; };
 		80C176BF2796A46100E042C6 /* OneOnOneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneOnOneView.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				80EAD93927819E1E0000DDC8 /* Bean */,
 				80EAD93827819E0A0000DDC8 /* Drink */,
 				804A095A2753ACA000BF3F41 /* OrderDetailView.swift */,
+				80B852D527B5370300FB9615 /* OrderDetailViewModel.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -687,6 +690,7 @@
 				8079948E277F3A3700187407 /* OrderDetailOptionItem.swift in Sources */,
 				80C176C32796CB4400E042C6 /* ProfileView.swift in Sources */,
 				8079A87127A7D2950058040B /* HistoryAPI.swift in Sources */,
+				80B852D627B5370300FB9615 /* OrderDetailViewModel.swift in Sources */,
 				8079482627A54F6000DA0230 /* Banner.swift in Sources */,
 				804A09602753AFE300BF3F41 /* FavoriteMenuView.swift in Sources */,
 				80B852D227B16E1100FB9615 /* HistoryViewModel.swift in Sources */,
