@@ -120,10 +120,9 @@ struct PaymentView : View {
                     .background(Color.appLightBlue)
                 }
             }
-                        
+            .edgesIgnoringSafeArea(.bottom)
         }
         .background(Color.appBlue)
-        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

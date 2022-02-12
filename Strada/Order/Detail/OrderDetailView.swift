@@ -94,6 +94,7 @@ struct OrderDetailView : View {
                 }
             }
             .padding(.bottom, 80)
+            .edgesIgnoringSafeArea(.top)
             
             VStack {
                 Spacer()
@@ -109,7 +110,6 @@ struct OrderDetailView : View {
                     .disabled(viewModel.isOrderable() == false)
                     .background(viewModel.isOrderable() ? Color.appBlue : Color.appVeryLightGray)
                     
-                
                     NavigationLink(destination: PaymentView(controller: controller)) {
                         Text("바로주문")
                             .foregroundColor(viewModel.isOrderable() ? .white : .appBrownGray)
@@ -118,11 +118,10 @@ struct OrderDetailView : View {
                     .frame(height: 96)
                     .disabled(viewModel.isOrderable() == false)
                     .background(viewModel.isOrderable() ? Color.appLightBlue : Color.appVeryLightGray)
-                    
                 }
                 .navigationBarTitle(Text(""), displayMode: .inline)
             }
-            .edgesIgnoringSafeArea(.all)
+            .edgesIgnoringSafeArea(.bottom)
         } // ZStack
         .background(.white)
     }
