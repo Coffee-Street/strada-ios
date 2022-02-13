@@ -15,8 +15,8 @@ struct HistoryItemView : View {
             VStack(alignment: .leading) {
                 Text(history.title)
                     .fontWeight(.medium)
-                Text(history.point)
-                    .foregroundColor(.appBlue)
+                Text("\(history.point > 0 ? "+" : "")\(history.point)P")
+                    .foregroundColor(getPointFontColor())
                     .fontWeight(.regular)
                 Text(history.date)
                     .foregroundColor(.appBrownGray)
@@ -27,5 +27,9 @@ struct HistoryItemView : View {
             
             Image("next.active")
         }
+    }
+    
+    func getPointFontColor() -> Color {
+        return history.point > 0 ? .appBlue : history.point < 0 ? .appOrange : .appBlack
     }
 }

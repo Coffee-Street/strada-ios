@@ -18,107 +18,116 @@ struct HomeView : View {
     @State private var isNewNotice: Bool = false
     @State private var bagCount: Int = 0
     
+    @StateObject private var viewModel = HomeViewModel()
+    
     var body: some View {
-        ZStack(alignment: .top) {
-            VStack {
-                HStack {
-                    Text("홈")
-                        .font(.system(size: 22, weight: .bold))
-                        .foregroundColor(.appBlue)
-                        .padding(.leading, 10)
-
-                    Spacer()
-                    Button(action: {
-                        isOpenedVoc.toggle()
-                    }) {
-                        Image("voc")
-                            .font(.system(size: 20))
+        NavigationView {
+            ZStack(alignment: .top) {
+                VStack {
+                    HStack {
+                        Text("홈")
+                            .font(.system(size: 22, weight: .bold))
                             .foregroundColor(.appBlue)
+                            .padding(.leading, 10)
+
+                        Spacer()
+                        Button(action: {
+                            isOpenedVoc.toggle()
+                        }) {
+                            Image("voc")
+                                .font(.system(size: 20))
+                                .foregroundColor(.appBlue)
+                        }
+                        
+                        Button(action: {
+                            isOpenedNotice.toggle()
+                        }) {
+                            Image("bell.active")
+                                .font(.system(size: 20))
+                                .foregroundColor(.appBlue)
+                                .overlay(CircleBadgeView().position(x: 34, y: 13).opacity(self.isNewNotice ? 1 : 0))
+                        }
                     }
+                    .padding(.horizontal, 20)
+                    
+                    HStack {
+                        Button(action: {
+                            isOpenedProfile.toggle()
+                        }) {
+                            ProfileSummaryView(profileSummary: $viewModel.profileSummary)
+                        }
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .onAppear {
+                        viewModel.getProfile()
+                    }
+                
+                    BannerView(banners: $viewModel.banners)
+                        .frame(height: 380)
+                        .onAppear {
+    //                        viewModel.getBanners()
+                        }
                     
                     Button(action: {
-                        isOpenedNotice.toggle()
+                        withAnimation {
+                            isOpenedOrder.toggle()
+                        }
                     }) {
-                        Image("bell.active")
-                            .font(.system(size: 20))
+                        VStack {
+                        Text("주문하기")
+                            .font(.title)
                             .foregroundColor(.appBlue)
-                            .overlay(CircleBadgeView().position(x: 34, y: 13).opacity(self.isNewNotice ? 1 : 0))
+                            .padding(.bottom, 20)
+                        Image(systemName:"chevron.down")
+                            .font(.title)
+                            .foregroundColor(.appBlue)
+                        }
+                        .padding(.bottom, 30)
                     }
                 }
-                .padding(.horizontal, 20)
                 
-                HStack {
-                    Button(action: {
-                        isOpenedProfile.toggle()
-                    }) {
-                        UserView()
-                    }
+                VStack {
                     Spacer()
-                }
-                .padding(.horizontal)
-            
-                BannerView()
-                    .frame(height: 380)
+                    HStack {
+                        Spacer()
+                        NavigationLink(destination: PaymentView(controller: controller)) {
+                            Image("bag")
+                                .frame(width: 70, height: 63)
+                                .font(.system(size: 20, weight: .bold))
+                                .foregroundColor(Color.white)
+                                .padding(.bottom, 7)
+                        }
+                        .background(Color.appBlue)
+                        .cornerRadius(35)
+                        .overlay(CountCircleBadgeView(count: $bagCount).position(x: 62, y: 10).opacity(bagCount > 0 ? 1 : 0))
+                        .padding()
+                    }
+                    .navigationBarTitle(Text(""), displayMode: .inline)
+                } // VStack
                 
-                Button(action: {
-                    withAnimation {
-                        isOpenedOrder.toggle()
-                    }
-                }) {
-                    VStack {
-                    Text("주문하기")
-                        .font(.title)
-                        .foregroundColor(.appBlue)
-                        .padding(.bottom, 20)
-                    Image(systemName:"chevron.down")
-                        .font(.title)
-                        .foregroundColor(.appBlue)
-                    }
-                    .padding(.bottom, 30)
+                if self.isOpenedVoc {
+                    VoiceOfCustomerView(isOpened: $isOpenedVoc)
                 }
-            }
-            
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        
-                    }) {
-                        Image("bag")
-                            .frame(width: 70, height: 63)
-                            .font(.system(size: 20, weight: .bold))
-                            .foregroundColor(Color.white)
-                            .padding(.bottom, 7)
-                    }
-                    .background(Color.appBlue)
-                    .cornerRadius(35)
-                    .overlay(CountCircleBadgeView(count: $bagCount).position(x: 62, y: 10).opacity(bagCount > 0 ? 1 : 0))
-                    .padding()
+                
+                if self.isOpenedNotice {
+                    NoticeView(controller: controller, isOpened: $isOpenedNotice)
                 }
-            } // VStack
-            
-            if self.isOpenedVoc {
-                VoiceOfCustomerView(isOpened: $isOpenedVoc)
-            }
-            
-            if self.isOpenedNotice {
-                NoticeView(controller: controller, isOpened: $isOpenedNotice)
-            }
-            
-            if self.isOpenedProfile {
-                ProfileView(isOpened: $isOpenedProfile)
-            }
-            
-            if self.isOpenedOrder {
-                OrderView(controller: controller, isOpened: $isOpenedOrder)
-                    .transition(.move(edge: .bottom))
-                    .transition(AnyTransition.opacity.animation(.easeInOut))
-            }
-            
-        } // ZStack
-        .background(.white)
-//        .edgesIgnoringSafeArea(.all)
+                
+                if self.isOpenedProfile {
+                    ProfileView(controller: controller, isOpened: $isOpenedProfile)
+                }
+                
+                if self.isOpenedOrder {
+                    OrderView(controller: controller, isOpened: $isOpenedOrder)
+                        .transition(.move(edge: .bottom))
+                        .transition(AnyTransition.opacity.animation(.easeInOut))
+                }
+                
+            } // ZStack
+            .background(.white)
+//            .edgesIgnoringSafeArea(.all)
+        } // NavigationView
     }
 }
 

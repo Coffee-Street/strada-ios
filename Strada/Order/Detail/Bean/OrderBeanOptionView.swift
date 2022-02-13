@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct OrderBeanOptionView : View {
+    
+    @Binding var option: OrderDetailOption
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack {
-                OrderDetailOptionGroupView(options: [
-                    OrderDetailOption(imageName: "bean", title: "원두"),
-                    OrderDetailOption(imageName: "coarsely", title: "굵게"),
-                    OrderDetailOption(imageName: "plain", title: "보통"),
-                    OrderDetailOption(imageName: "finely", title: "곱게")
-                ])
+                OrderDetailOptionView(option: $option)
             }
             
             Divider()
@@ -31,7 +29,14 @@ struct OrderBeanOptionView : View {
 }
 
 struct OrderBeaanOptionView_Previews : PreviewProvider {
+    @State static var option = OrderDetailOption(items: [
+        OrderDetailOptionItem(imageName: "bean", title: "원두"),
+        OrderDetailOptionItem(imageName: "coarsely", title: "굵게"),
+        OrderDetailOptionItem(imageName: "plain", title: "보통"),
+        OrderDetailOptionItem(imageName: "finely", title: "곱게")
+    ])
+    
     static var previews: some View {
-        OrderBeanOptionView()
+        OrderBeanOptionView(option: $option)
     }
 }

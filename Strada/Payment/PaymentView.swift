@@ -64,7 +64,7 @@ struct PaymentView : View {
                             
                             HStack(spacing: 0) {
                                 TextField("", text: Binding(
-                                    get: { String(usePoint) },
+                                    get: { "\(usePoint)" },
                                     set: { usePoint = Int($0) ?? 0 }
                                 ))
                                     .keyboardType(.numberPad)
@@ -120,10 +120,9 @@ struct PaymentView : View {
                     .background(Color.appLightBlue)
                 }
             }
-                        
+            .edgesIgnoringSafeArea(.bottom)
         }
         .background(Color.appBlue)
-        .edgesIgnoringSafeArea(.bottom)
     }
 }
 

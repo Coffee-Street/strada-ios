@@ -20,7 +20,7 @@ struct FavoriteMenuItemView : View {
     var body: some View {
         ZStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 0) {
-                Text(self.favoriteMenu.menu.name)
+                Text(self.favoriteMenu.menu.name.kr)
                     .foregroundColor(self.favoriteMenu.menu.state == .SOLD_OUT ? .appLightGray : .black)
                     .padding(.bottom, 5)
                 Text("옵션 / 사이즈")
@@ -45,12 +45,12 @@ struct FavoriteMenuItemView : View {
                 .padding(.bottom, 10)
             }
         }
-        .frame(maxHeight: 96)
+        .frame(height: 96)
     }
 }
 
 struct FavoriteMenuItemView_Previews : PreviewProvider {
-    @State static var favoriteMenu = FavoriteMenu(menu: Menu(state: .AVAILABLE, name: "", price: 300), menuOption: DrinkMenuOption(menuType: .COFFEE, temperatureType: .COLD, cupSizeType: .GRANDE, cupType: .DISPOSBLE), menuPersonalOption: DrinkMenuPersonalOption(shotCount: 1, syrupCount: ["caramel": 1], iceCount: 1, milkCount: 2, whippedCreamCount: 0, drizzleCount: 0))
+    @State static var favoriteMenu = FavoriteMenu(menu: Menu(type: .COFFEE, state: .AVAILABLE, name: MenuName(kr: "메뉴 이름", en: "Menu Name"), price: 300), menuOption: DrinkMenuOption(menuType: .COFFEE, temperatureType: .COLD, cupSizeType: .GRANDE, cupType: .DISPOSBLE), menuPersonalOption: DrinkMenuPersonalOption(shotCount: 1, syrupCount: ["caramel": 1], iceCount: 1, milkCount: 2, whippedCreamCount: 0, drizzleCount: 0))
     static var previews: some View {
         FavoriteMenuItemView(favoriteMenu: $favoriteMenu)
     }

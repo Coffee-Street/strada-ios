@@ -11,11 +11,12 @@ struct SignView : View {
     
     @ObservedObject var controller: CurrentViewController
     
-    @State var phoneNumber: String = ""
-    @State var isAutoLogin: Bool = false
+    @StateObject private var viewModel = SignViewModel()
+    
+    @State var showAlert: Bool = false
     
     func isValidPhoneNumber() -> Bool {
-        return phoneNumber.count > 0
+        return viewModel.phoneNumber.count > 0
     }
     
     var body: some View {
@@ -29,7 +30,7 @@ struct SignView : View {
             }
             
             VStack {
-                TextField("전화번호를 입력해주세요", text: $phoneNumber)
+                TextField("전화번호를 입력해주세요", text: $viewModel.phoneNumber)
                     .foregroundColor(.appBlack)
                     .font(.system(size: 15))
                     .multilineTextAlignment(.center)
@@ -45,13 +46,24 @@ struct SignView : View {
                 Spacer()
                 Button(action: {
                     // TODO: network access & validation check
-                    controller.goHome()
+                    
+                    self.viewModel.login() {
+                        if self.viewModel.isLoginSucceed {
+                            controller.goHome()
+                        }
+                        else {
+                            showAlert.toggle()
+                        }
+                    }
                 }) {
                     Text("시작하기")
                         .font(.system(size: 15))
                 }
                 .foregroundColor(isValidPhoneNumber() ? Color.white : Color.black)
                 .disabled(isValidPhoneNumber() == false)
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("로그인 실패"), message: Text(viewModel.getErrorMessage()), dismissButton: .default(Text("확인")))
+                }
                 Spacer()
             }
             .frame(height: 40)
@@ -59,13 +71,13 @@ struct SignView : View {
             
             HStack {
                 Button(action: {
-                    self.isAutoLogin.toggle()
+                    viewModel.isAutoLogin.toggle()
                 }) {
                     HStack {
                         Text("자동 로그인")
                             .font(.system(size: 10))
-                            .foregroundColor(self.isAutoLogin ? .appBlue : .appBrownGray)
-                        Image(systemName: self.isAutoLogin ? "checkmark" : "")
+                            .foregroundColor(viewModel.isAutoLogin ? .appBlue : .appBrownGray)
+                        Image(systemName: viewModel.isAutoLogin ? "checkmark" : "")
                             .font(.system(size: 10))
                             .padding(.leading, 5)
                             .padding(.bottom, 5)
@@ -74,7 +86,7 @@ struct SignView : View {
                             .overlay(
                                 Circle()
                                     .stroke(lineWidth: 2)
-                                    .foregroundColor(self.isAutoLogin ? .appBlue : .appBrownGray))
+                                    .foregroundColor(viewModel.isAutoLogin ? .appBlue : .appBrownGray))
                         Spacer()
                     }
                 }

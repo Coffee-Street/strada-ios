@@ -9,9 +9,13 @@ import SwiftUI
 
 struct ProfileView : View {
     
+    @ObservedObject var controller: CurrentViewController
+    
     @Binding var isOpened: Bool
     
-    @State private var viewModel = ProfileViewModel()
+    @State private var isOpenedReceipt: Bool = false
+    
+    @StateObject private var viewModel = ProfileViewModel()
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -21,7 +25,7 @@ struct ProfileView : View {
                     .font(.system(size: 22, weight: .bold))
                     .padding(.bottom)
                 
-                Text("\(3950)P")
+                Text("\(self.viewModel.profile.point)P")
                     .font(.system(size: 35))
                     .padding(.bottom, 5)
                 
@@ -33,7 +37,7 @@ struct ProfileView : View {
                     .background(Color.appBrownGray)
                     .padding(.vertical)
                 
-                HistoryView(categories: $viewModel.categories, histories: $viewModel.histories)
+                HistoryView(isOpenedReceipt: $isOpenedReceipt)
                 
                 Spacer()
             }
@@ -50,17 +54,25 @@ struct ProfileView : View {
                             .font(.system(size: 30))
                     }
                 }
+                .padding(.top)
+                
                 Spacer()
             } // VStack
             .padding(.trailing)
+            
+            if isOpenedReceipt {
+                ReceiptView(controller: controller, isOpened: $isOpenedReceipt)
+            }
         } // ZStack
         .background(.white)
-        
+        .onAppear {
+            viewModel.getProfile()
+        }
     }
 }
 
 struct ProfileView_Previews : PreviewProvider {
     static var previews: some View {
-        ProfileView(isOpened: .constant(false))
+        ProfileView(controller: CurrentViewController("profile"), isOpened: .constant(false))
     }
 }

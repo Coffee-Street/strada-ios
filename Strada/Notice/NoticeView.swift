@@ -13,13 +13,10 @@ struct NoticeView : View {
     
     @Binding var isOpened: Bool
     
-    @StateObject private var viewModel = NoticeViewModel()
-    
     @State private var isOpenedReceipt: Bool = false
     
-    @State private var selectedCategory: String = "전체"
-//    State(initialValue: viewModel.categories.first?.wrappedValue ?? "")
-    
+    @StateObject private var viewModel = NoticeViewModel()
+
     var body: some View {
         ZStack {
             VStack(alignment: .leading) {
@@ -28,11 +25,14 @@ struct NoticeView : View {
                     .font(.system(size: 22, weight: .bold))
                     .padding(.bottom)
                 
-                NoticeCategoryView(categories: $viewModel.categories, selected: $selectedCategory)
+                CategoryView(categories: viewModel.categories, selected: $viewModel.selectedCategory)
                     .padding(.vertical)
+                    .onAppear {
+                        viewModel.selectedCategory = viewModel.categories.first ?? ""
+                    }
                 
                 ScrollView {
-                    ForEach(viewModel.getNotifications(category: self.selectedCategory)) { notice in
+                    ForEach(viewModel.getNoticesByCagetory(category: viewModel.selectedCategory)) { notice in
                         NoticeItemView(notice: notice)
                             .padding(.bottom)
                             .onTapGesture {
@@ -60,7 +60,7 @@ struct NoticeView : View {
             .padding()
             
             if isOpenedReceipt {
-                ReceiptView(/*controller: controller,*/ isOpened: $isOpenedReceipt)
+                ReceiptView(controller: controller, isOpened: $isOpenedReceipt)
             }
         } // ZStack
         .background(.white)
