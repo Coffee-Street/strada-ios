@@ -22,6 +22,7 @@
 		804A09602753AFE300BF3F41 /* FavoriteMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A095F2753AFE300BF3F41 /* FavoriteMenuView.swift */; };
 		804A09632753B52900BF3F41 /* MenuCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A09622753B52900BF3F41 /* MenuCountView.swift */; };
 		804A09652753C0B200BF3F41 /* MenuSoldoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A09642753C0B200BF3F41 /* MenuSoldoutView.swift */; };
+		804A5C4B27BA7CA9004ABAB1 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A5C4A27BA7CA9004ABAB1 /* PaymentViewModel.swift */; };
 		80699753279B0EAC00A0C281 /* PaymentSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80699752279B0EAC00A0C281 /* PaymentSuccessView.swift */; };
 		8079482227A54E9C00DA0230 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079482127A54E9C00DA0230 /* HomeAPI.swift */; };
 		8079482427A54EAB00DA0230 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079482327A54EAB00DA0230 /* HomeViewModel.swift */; };
@@ -117,6 +118,7 @@
 		804A095F2753AFE300BF3F41 /* FavoriteMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMenuView.swift; sourceTree = "<group>"; };
 		804A09622753B52900BF3F41 /* MenuCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCountView.swift; sourceTree = "<group>"; };
 		804A09642753C0B200BF3F41 /* MenuSoldoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSoldoutView.swift; sourceTree = "<group>"; };
+		804A5C4A27BA7CA9004ABAB1 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		80699752279B0EAC00A0C281 /* PaymentSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessView.swift; sourceTree = "<group>"; };
 		8079482127A54E9C00DA0230 /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
 		8079482327A54EAB00DA0230 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 				80699752279B0EAC00A0C281 /* PaymentSuccessView.swift */,
 				808FCDEE27AD6F08007F01AE /* PaymentAPI.swift */,
 				808FCDF027AD73B5007F01AE /* Payment.swift */,
+				804A5C4A27BA7CA9004ABAB1 /* PaymentViewModel.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -706,6 +709,7 @@
 				804A095D2753AD5A00BF3F41 /* FavoriteMenuItemView.swift in Sources */,
 				802EE526279531AD0012DD1C /* Order.swift in Sources */,
 				8079483327AC14EE00DA0230 /* Receipt.swift in Sources */,
+				804A5C4B27BA7CA9004ABAB1 /* PaymentViewModel.swift in Sources */,
 				803372D927A513D9009BF89F /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
