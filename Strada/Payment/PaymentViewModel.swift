@@ -8,6 +8,8 @@
 import Foundation
 
 class PaymentViewModel : ObservableObject {
+    let id = UUID()
+    
     @Published var order: Order = Order(orderItems: [
         OrderItem(
             menu: Menu(type: MenuType.COFFEE, state: MenuState.AVAILABLE, name: MenuName(kr: "아메리카노", en: "Americano"), price: 4000),
@@ -23,11 +25,16 @@ class PaymentViewModel : ObservableObject {
     @Published var usePoint: Int = 0
     @Published var availablePoint: Int = 0
     
+    @Published var paymentItemViewModels: [PaymentItemViewModel] = [
+        PaymentItemViewModel(),
+        PaymentItemViewModel()
+    ]
+
     func getTotalCount() -> Int {
-        return order.orderItems.count
+        return paymentItemViewModels.count
     }
     
     func getTotalPrice() -> Int {
-        return order.orderItems.map { $0.menu.price * $0.count }.reduce(0, +)
+        return paymentItemViewModels.map { $0.orderItem.menu.price * $0.count }.reduce(0, +)
     }
 }
