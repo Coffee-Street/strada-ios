@@ -10,8 +10,6 @@ import SwiftUI
 struct PaymentItemView : View {
     @Binding var paymentItemViewModel: PaymentItemViewModel
     
-    @State private var isAvailableCancel: Bool = true
-    
     var body: some View {
         ZStack(alignment: .leading) {
             VStack(alignment: .leading) {
@@ -27,7 +25,7 @@ struct PaymentItemView : View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        self.isAvailableCancel = false
+                        paymentItemViewModel.isCancellable = false
                     }) {
                         Image("close.small")
                     }

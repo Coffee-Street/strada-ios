@@ -13,5 +13,8 @@ class PaymentItemViewModel : ObservableObject {
         menuOption: MenuOption(menuType: .COFFEE),
         menuPersonalOption: MenuPersonalOption(menuType: .COFFEE),
         count: 3)
+    
     @Published var count: Int = 1
+    
+    @Published var isCancellable: Bool = true
 }

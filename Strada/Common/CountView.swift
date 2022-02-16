@@ -30,25 +30,11 @@ struct CountView : View {
         _indexProxy = State(initialValue: 0 <= index.wrappedValue ? index.wrappedValue < self.range.count ? index.wrappedValue : self.range.count - 1 : 0)
     }
     
-//    init(range: [String], valueString: String) {
-//        self.range = range
-//        _index = .constant(self.range.firstIndex(of: valueString) ?? 0)
-//    }
-    
-    func up() {
-        indexProxy += 1
-        index = indexProxy
-    }
-    
-    func down() {
-        indexProxy -= 1
-        index = indexProxy
-    }
-    
     var body: some View {
         HStack {
             Button(action: {
-                down()
+                indexProxy -= 1
+                index = indexProxy
             }) {
                 Image(indexProxy == 0 ? "minus.disable" : "minus")
             }
@@ -59,7 +45,8 @@ struct CountView : View {
                 .foregroundColor(Color.white)
             
             Button(action: {
-                up()
+                indexProxy += 1
+                index = indexProxy
             }) {
                 Image(indexProxy == self.range.count - 1 ? "plus.disable" : "plus")
             }
