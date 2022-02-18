@@ -31,10 +31,10 @@ class PaymentViewModel : ObservableObject {
     ]
 
     func getTotalCount() -> Int {
-        return paymentItemViewModels.count
+        return paymentItemViewModels.filter { $0.isCancellable }.map { $0.count }.reduce(0, +)
     }
     
     func getTotalPrice() -> Int {
-        return paymentItemViewModels.map { $0.orderItem.menu.price * $0.count }.reduce(0, +)
+        return paymentItemViewModels.filter { $0.isCancellable }.map { $0.orderItem.menu.price * $0.count }.reduce(0, +)
     }
 }
