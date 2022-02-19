@@ -23,7 +23,8 @@ struct PaymentView : View {
                     
                     VStack {
                         ForEach($viewModel.paymentItemViewModels.filter { $0.isCancellable.wrappedValue }.indices) { index in
-                            PaymentItemView(paymentItemViewModel: $viewModel.paymentItemViewModels[index])
+                            PaymentItemView(viewModel: viewModel.paymentItemViewModels[index], onDelete: { viewModel.paymentItemViewModels.remove(at: index)}
+                            )
                         }
                     }
                     
@@ -38,8 +39,8 @@ struct PaymentView : View {
                             Text("\(viewModel.getTotalPrice())원")
                                 .foregroundColor(.white)
                                 .font(.system(size: 22, weight: .medium))
-                        }
-                    }
+                        } // HStack
+                    } // VStack
                     .padding(.vertical)
                     
                     Divider()
@@ -73,15 +74,12 @@ struct PaymentView : View {
                                 Text("P")
                                     .foregroundColor(.white)
                                     .font(.system(size: 17, weight: .medium))
-                            }
+                            } // HStack
                             .overlay(
                                 Rectangle().fill(.white).frame(height: 1).offset(y: 14)
                             )
-                            
-                        }
-                        
-                        
-                    }
+                        } // HStack
+                    } // HStack
                     .padding(.vertical)
                     
                     
@@ -98,8 +96,8 @@ struct PaymentView : View {
                         Text("\(viewModel.getTotalPrice() - viewModel.usePoint)원")
                             .foregroundColor(.white)
                             .font(.system(size: 22, weight: .medium))
-                    }
-                }
+                    } // HStack
+                } // VStack
                 .padding()
             }
             
@@ -118,13 +116,12 @@ struct PaymentView : View {
                     .frame(height: 96)
                     .background(Color.appLightBlue)
                 }
-            }
+            } // VStack
             .edgesIgnoringSafeArea(.bottom)
         }
         .background(Color.appBlue)
     }
 }
-
 
 struct PaymentView_Previews : PreviewProvider {
     static var previews: some View {

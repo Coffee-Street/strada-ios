@@ -8,25 +8,26 @@
 import SwiftUI
 
 struct PaymentItemView : View {
-    @Binding var paymentItemViewModel: PaymentItemViewModel
+//    @Binding var viewModel: PaymentItemViewModel
+    @ObservedObject var viewModel: PaymentItemViewModel
+    
+    let onDelete: () -> ()
     
     var body: some View {
         ZStack(alignment: .leading) {
             VStack(alignment: .leading) {
-                Text(paymentItemViewModel.orderItem.menu.name.kr)
+                Text(viewModel.orderItem.menu.name.kr)
                     .foregroundColor(.white)
                 Text("옵션 / 사이즈")
                     .foregroundColor(.white)
-                Text("\(paymentItemViewModel.orderItem.menu.price)원")
+                Text("\(viewModel.orderItem.menu.price)원")
                     .foregroundColor(.white)
             }
             
             VStack {
                 HStack {
                     Spacer()
-                    Button(action: {
-                        paymentItemViewModel.isCancellable = false
-                    }) {
+                    Button(action: onDelete) {
                         Image("close.small")
                     }
                 }
@@ -34,19 +35,19 @@ struct PaymentItemView : View {
                 Spacer()
                 HStack {
                     Spacer()
-                    CountView(count: 9, index: $paymentItemViewModel.count)
+                    CountView(count: 9, index: $viewModel.count)
                         .background(Capsule().stroke(.white, lineWidth: 2))
                 }
             }
         }
         .background(Color.appBlue)
     }
-    
 }
 struct OrderItemView_Previews : PreviewProvider {
-    @State static var paymentItemViewModel = PaymentItemViewModel()
-    
+//    @State static var viewModel = PaymentItemViewModel()
+    @StateObject static var viewModel = PaymentItemViewModel()
+
     static var previews: some View {
-        PaymentItemView(paymentItemViewModel: $paymentItemViewModel)
+        PaymentItemView(viewModel: viewModel, onDelete: {})
     }
 }
