@@ -8,50 +8,58 @@
 import SwiftUI
 
 struct CountView : View {
+    @Binding var index: Int
+    
+    @State private var indexProxy: Int
+    
     private let range: [String]
-    @State private var index: Int = 0
     
-    init(count: Int, index: Int = 0) {
+    init(count: Int, index: Binding<Int>) {
+        _index = index
+        
         self.range = Array(0...count).map({ String($0) })
-        _index = State(initialValue: 0 < index ? index < self.range.count ? index : self.range.count - 1 : 0)
+        
+        _indexProxy = State(initialValue: 0 <= index.wrappedValue ? index.wrappedValue < self.range.count ? index.wrappedValue : self.range.count - 1 : 0)
     }
     
-    init(range: [String], index: Int = 0) {
+    init(range: [String], index: Binding<Int>) {
+        _index = index
+        
         self.range = range
-        _index = State(initialValue: 0 < index ? index < self.range.count ? index : self.range.count - 1 : 0)
-    }
-    
-    init(range: [String], valueString: String) {
-        self.range = range
-        _index = State(initialValue: self.range.firstIndex(of: valueString) ?? 0)
+        
+        _indexProxy = State(initialValue: 0 <= index.wrappedValue ? index.wrappedValue < self.range.count ? index.wrappedValue : self.range.count - 1 : 0)
     }
     
     var body: some View {
         HStack {
             Button(action: {
-                self.index -= 1
+                indexProxy -= 1
+                index = indexProxy
             }) {
-                Image(self.index == 0 ? "minus.disable" : "minus")
+                Image(indexProxy == 0 ? "minus.disable" : "minus")
             }
-            .disabled(self.index == 0)
+            .disabled(indexProxy == 0)
             
-            Text("\(self.range[self.index])")
+            Text("\(self.range[indexProxy])")
                 .font(.system(size: 18))
                 .foregroundColor(Color.white)
             
             Button(action: {
-                self.index += 1
+                indexProxy += 1
+                index = indexProxy
             }) {
-                Image(self.index == self.range.count - 1 ? "plus.disable" : "plus")
+                Image(indexProxy == self.range.count - 1 ? "plus.disable" : "plus")
             }
-            .disabled(self.index == self.range.count - 1)
+            .disabled(indexProxy == self.range.count - 1)
         }
         .background(Capsule().fill(Color.appBlue))
     }
 }
 
 struct CountView_Previews : PreviewProvider {
+    @State static var index = 10
+    
     static var previews: some View {
-        CountView(range: Array(0..<10).map({ "\($0)" }), index: 3)
+        CountView(range: Array(0..<10).map({ "\($0)" }), index: $index)
     }
 }

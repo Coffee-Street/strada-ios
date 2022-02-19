@@ -10,8 +10,7 @@ import SwiftUI
 struct PaymentView : View {
     @ObservedObject var controller: CurrentViewController
     
-    @State private var point: Int = 3650
-    @State private var usePoint: Int = 0
+    @StateObject private var viewModel = PaymentViewModel()
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -23,31 +22,34 @@ struct PaymentView : View {
                         .padding(.bottom, 25)
                     
                     VStack {
-                        OrderItemView()
-                        OrderItemView()
-                        OrderItemView()
+                        ForEach($viewModel.paymentItemViewModels.filter { $0.isCancellable.wrappedValue }.indices, id: \.self) { index in
+                            PaymentItemView(viewModel: $viewModel.paymentItemViewModels[index], onDelete: {
+                                        viewModel.paymentItemViewModels.remove(at: index)
+                                }
+                            )
+                        }
                     }
                     
                     VStack {
                         HStack {
-                            Text("총 \(3)개")
+                            Text("총 \(viewModel.getTotalCount())개")
                                 .foregroundColor(.white)
                                 .font(.system(size: 22, weight: .medium))
                             
                             Spacer()
                             
-                            Text("\(12000)원")
+                            Text("\(viewModel.getTotalPrice())원")
                                 .foregroundColor(.white)
                                 .font(.system(size: 22, weight: .medium))
-                        }
-                    }
+                        } // HStack
+                    } // VStack
                     .padding(.vertical)
                     
                     Divider()
                         .background(.white)
                     
                     HStack {
-                        Text("\(point)P 보유")
+                        Text("\(viewModel.availablePoint)P 보유")
                             .foregroundColor(.white)
                         
                         Spacer()
@@ -64,8 +66,8 @@ struct PaymentView : View {
                             
                             HStack(spacing: 0) {
                                 TextField("", text: Binding(
-                                    get: { "\(usePoint)" },
-                                    set: { usePoint = Int($0) ?? 0 }
+                                    get: { "\(viewModel.usePoint)" },
+                                    set: { viewModel.usePoint = Int($0) ?? 0 }
                                 ))
                                     .keyboardType(.numberPad)
                                     .foregroundColor(.white)
@@ -74,15 +76,12 @@ struct PaymentView : View {
                                 Text("P")
                                     .foregroundColor(.white)
                                     .font(.system(size: 17, weight: .medium))
-                            }
+                            } // HStack
                             .overlay(
                                 Rectangle().fill(.white).frame(height: 1).offset(y: 14)
                             )
-                            
-                        }
-                        
-                        
-                    }
+                        } // HStack
+                    } // HStack
                     .padding(.vertical)
                     
                     
@@ -96,11 +95,11 @@ struct PaymentView : View {
                         
                         Spacer()
                         
-                        Text("\(12000)원")
+                        Text("\(viewModel.getTotalPrice() - viewModel.usePoint)원")
                             .foregroundColor(.white)
                             .font(.system(size: 22, weight: .medium))
-                    }
-                }
+                    } // HStack
+                } // VStack
                 .padding()
             }
             
@@ -119,13 +118,12 @@ struct PaymentView : View {
                     .frame(height: 96)
                     .background(Color.appLightBlue)
                 }
-            }
+            } // VStack
             .edgesIgnoringSafeArea(.bottom)
         }
         .background(Color.appBlue)
     }
 }
-
 
 struct PaymentView_Previews : PreviewProvider {
     static var previews: some View {

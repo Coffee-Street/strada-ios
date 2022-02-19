@@ -25,7 +25,7 @@ struct OrderDrinkPersonalOptionCountView : View {
                     .fontWeight(.bold)
             }
             Spacer()
-            CountView(count: count, index: value)
+            CountView(count: count, index: .constant(value))
         }
     }
 }

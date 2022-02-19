@@ -1,5 +1,5 @@
 //
-//  OrderItemView.swift
+//  PaymentItemView.swift
 //  Strada
 //
 //  Created by 박종봉 on 2022/01/21.
@@ -7,40 +7,34 @@
 
 import SwiftUI
 
-struct OrderItemView : View {
+struct PaymentItemView : View {
+    @Binding var viewModel: PaymentItemViewModel
     
-    @Binding var isAvailableCancel: Bool
-    
-    init(isAvailableCancel: Binding<Bool> = .constant(true)) {
-        _isAvailableCancel = isAvailableCancel
-    }
+    let onDelete: () -> ()
     
     var body: some View {
         ZStack(alignment: .leading) {
             VStack(alignment: .leading) {
-                Text("메뉴 이름")
+                Text(viewModel.orderItem.menu.name.kr)
                     .foregroundColor(.white)
                 Text("옵션 / 사이즈")
                     .foregroundColor(.white)
-                Text("\(4000)원")
+                Text("\(viewModel.orderItem.menu.price)원")
                     .foregroundColor(.white)
             }
             
             VStack {
                 HStack {
                     Spacer()
-                    Button(action: {
-                        self.isAvailableCancel = false
-                    }) {
+                    Button(action: onDelete) {
                         Image("close.small")
                     }
-                    
                 }
                 
                 Spacer()
                 HStack {
                     Spacer()
-                    CountView(count: 5, index: 1)
+                    CountView(count: 9, index: $viewModel.count)
                         .background(Capsule().stroke(.white, lineWidth: 2))
                 }
             }
@@ -48,9 +42,10 @@ struct OrderItemView : View {
         .background(Color.appBlue)
     }
 }
-
 struct OrderItemView_Previews : PreviewProvider {
+    @State static var viewModel = PaymentItemViewModel()
+
     static var previews: some View {
-        OrderItemView()
+        PaymentItemView(viewModel: $viewModel, onDelete: {})
     }
 }
