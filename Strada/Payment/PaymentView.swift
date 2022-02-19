@@ -22,8 +22,10 @@ struct PaymentView : View {
                         .padding(.bottom, 25)
                     
                     VStack {
-                        ForEach($viewModel.paymentItemViewModels.filter { $0.isCancellable.wrappedValue }.indices) { index in
-                            PaymentItemView(viewModel: viewModel.paymentItemViewModels[index], onDelete: { viewModel.paymentItemViewModels.remove(at: index)}
+                        ForEach($viewModel.paymentItemViewModels.filter { $0.isCancellable.wrappedValue }.indices, id: \.self) { index in
+                            PaymentItemView(viewModel: $viewModel.paymentItemViewModels[index], onDelete: {
+                                        viewModel.paymentItemViewModels.remove(at: index)
+                                }
                             )
                         }
                     }

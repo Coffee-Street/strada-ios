@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct PaymentItemView : View {
-//    @Binding var viewModel: PaymentItemViewModel
-    @ObservedObject var viewModel: PaymentItemViewModel
+    @Binding var viewModel: PaymentItemViewModel
     
     let onDelete: () -> ()
     
@@ -44,10 +43,9 @@ struct PaymentItemView : View {
     }
 }
 struct OrderItemView_Previews : PreviewProvider {
-//    @State static var viewModel = PaymentItemViewModel()
-    @StateObject static var viewModel = PaymentItemViewModel()
+    @State static var viewModel = PaymentItemViewModel()
 
     static var previews: some View {
-        PaymentItemView(viewModel: viewModel, onDelete: {})
+        PaymentItemView(viewModel: $viewModel, onDelete: {})
     }
 }
