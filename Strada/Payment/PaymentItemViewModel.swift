@@ -8,13 +8,11 @@
 import Foundation
 
 class PaymentItemViewModel : ObservableObject {
-    @Published var orderItem: OrderItem = OrderItem(
-        menu: Menu(type: MenuType.COFFEE, state: MenuState.AVAILABLE, name: MenuName(kr: "아메리카노", en: "Americano"), price: 4000),
-        menuOption: MenuOption(menuType: .COFFEE),
-        menuPersonalOption: MenuPersonalOption(menuType: .COFFEE),
-        count: 3)
+    @Published var orderItem: OrderItem
+    @Published var count: Int
     
-    @Published var count: Int = 1
-    
-    @Published var isCancellable: Bool = true
+    init(orderItem: OrderItem, count: Int) {
+        self.orderItem = orderItem
+        self.count = count
+    }
 }
