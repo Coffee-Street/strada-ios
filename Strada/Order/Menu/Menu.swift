@@ -91,7 +91,7 @@ class DrinkMenuPersonalOption : MenuPersonalOption {
     var whippedCreamCount: Int
     var drizzleCount: Int
     
-    init(shotCount: Int, syrupCount: [String:Int], iceCount: Int, milkCount: Int, whippedCreamCount: Int, drizzleCount: Int) {
+    init(menuType: MenuType, shotCount: Int, syrupCount: [String:Int], iceCount: Int, milkCount: Int, whippedCreamCount: Int, drizzleCount: Int) {
         self.shotCount = shotCount
         self.syrupCount = syrupCount
         self.iceCount = iceCount
@@ -99,6 +99,6 @@ class DrinkMenuPersonalOption : MenuPersonalOption {
         self.whippedCreamCount = whippedCreamCount
         self.drizzleCount = drizzleCount
         
-        super.init(menuType: .COFFEE)
+        super.init(menuType: menuType)
     }
 }
