@@ -25,10 +25,19 @@ class OrderDetailViewModel : ObservableObject {
             OrderDetailOptionItem(imageName: "personal", title: "개인컵")
         ])
     ]
+//   = [
+//        OrderDetailOption(items: [
+//            OrderDetailOptionItem(imageName: "bean", title: "원두"),
+//            OrderDetailOptionItem(imageName: "coarsely", title: "굵게"),
+//            OrderDetailOptionItem(imageName: "plain", title: "보통"),
+//            OrderDetailOptionItem(imageName: "finely", title: "곱게")
+//        ])
+//    ]
     
     @Published var hashTags: [String] = ["산미", "브라질", "단맛"]
     
     let detailContent = "합리적 가격에 단맛과 산미가 조화롭습니다.\n생산지 : 브라질 세하도 모지아나\n등급 : 없음 | 품종 : 옐로우카투아이\n가공 : Natural | 로스팅 : 시티"
+//    = "그라인딩 굵기 선택 TIP\n* 프렌치브레스 / 콜드브루 - 굵게\n* 드립 - 보통\n* 모카포트 / 사이폰 - 곱게"
     
     func isOrderable() -> Bool {
         

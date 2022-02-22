@@ -1,5 +1,5 @@
 //
-//  OrderOptionView.swift
+//  OrderDrinkPersonalOptionView.swift
 //  Strada
 //
 //  Created by 박종봉 on 2021/12/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OrderDrinkOptionView : View {
+struct OrderDrinkPersonalOptionView : View {
     
     @Binding var options: [OrderDetailOption]
     
@@ -52,7 +52,7 @@ struct OrderDrinkOptionView : View {
     }
 }
 
-struct OrderDrinkOptionView_Previews : PreviewProvider {
+struct OrderDrinkPersonalOptionView_Previews : PreviewProvider {
     @State static var options = [
         OrderDetailOption(items: []),
         OrderDetailOption(items: []),
@@ -60,8 +60,8 @@ struct OrderDrinkOptionView_Previews : PreviewProvider {
     ]
     
     static var previews: some View {
-        OrderDrinkOptionView(options: $options)
-        OrderDrinkOptionView(options: $options)
+        OrderDrinkPersonalOptionView(options: $options)
+        OrderDrinkPersonalOptionView(options: $options)
             .previewDevice("iPhone 8")
             
     }

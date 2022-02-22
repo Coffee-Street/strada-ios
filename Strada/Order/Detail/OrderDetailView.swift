@@ -90,7 +90,7 @@ struct OrderDetailView : View {
                     .padding(.horizontal)
                     .padding(.bottom)
                     
-                    OrderDrinkOptionView(options: $viewModel.options)
+                    OrderDrinkPersonalOptionView(options: $viewModel.options)
                 }
             }
             .padding(.bottom, 80)

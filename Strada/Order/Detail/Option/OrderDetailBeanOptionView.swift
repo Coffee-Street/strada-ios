@@ -1,5 +1,5 @@
 //
-//  OrderBeanOptionView.swift
+//  OrderDetailBeanOptionView.swift
 //  Strada
 //
 //  Created by 박종봉 on 2022/01/01.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct OrderBeanOptionView : View {
+struct OrderDetailBeanOptionView : View {
     
     @Binding var option: OrderDetailOption
     
@@ -28,7 +28,7 @@ struct OrderBeanOptionView : View {
     }
 }
 
-struct OrderBeaanOptionView_Previews : PreviewProvider {
+struct OrderDetailBeanOptionView_Previews : PreviewProvider {
     @State static var option = OrderDetailOption(items: [
         OrderDetailOptionItem(imageName: "bean", title: "원두"),
         OrderDetailOptionItem(imageName: "coarsely", title: "굵게"),
@@ -37,6 +37,6 @@ struct OrderBeaanOptionView_Previews : PreviewProvider {
     ])
     
     static var previews: some View {
-        OrderBeanOptionView(option: $option)
+        OrderDetailBeanOptionView(option: $option)
     }
 }
