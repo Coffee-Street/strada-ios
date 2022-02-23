@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		801A5BAD277F66B800BA3B7A /* OrderDetailBeanOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801A5BAC277F66B800BA3B7A /* OrderDetailBeanOptionView.swift */; };
 		801A5BB0277F6C1500BA3B7A /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801A5BAF277F6C1500BA3B7A /* CountView.swift */; };
 		802EE51E279526CA0012DD1C /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE51D279526CA0012DD1C /* OrderViewModel.swift */; };
 		802EE520279527220012DD1C /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE51F279527220012DD1C /* Menu.swift */; };
 		802EE52227952C8C0012DD1C /* FavoriteMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE52127952C8C0012DD1C /* FavoriteMenu.swift */; };
 		802EE526279531AD0012DD1C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE525279531AD0012DD1C /* Order.swift */; };
+		8032E7B027C66D0700B18980 /* OrderDetailBeanPersonalOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8032E7AF27C66D0700B18980 /* OrderDetailBeanPersonalOptionView.swift */; };
+		8032E7B227C66E8D00B18980 /* OrderDetailPersonalOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8032E7B127C66E8D00B18980 /* OrderDetailPersonalOption.swift */; };
 		803372D627A51320009BF89F /* SignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803372D527A51320009BF89F /* SignViewModel.swift */; };
 		803372D927A513D9009BF89F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803372D827A513D9009BF89F /* API.swift */; };
 		803372DB27A51D6D009BF89F /* SignAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803372DA27A51D6D009BF89F /* SignAPI.swift */; };
@@ -76,9 +77,9 @@
 		80D3E1D42774DC0D00749503 /* MenuComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3E1D32774DC0D00749503 /* MenuComingSoonView.swift */; };
 		80D61D8F278F276F00279B00 /* CurrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D61D8E278F276F00279B00 /* CurrentViewController.swift */; };
 		80EAD935278198300000DDC8 /* NonCapsuleCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD934278198300000DDC8 /* NonCapsuleCountView.swift */; };
-		80EAD93727819A3B0000DDC8 /* OrderDrinkPersonalOptionCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD93627819A3B0000DDC8 /* OrderDrinkPersonalOptionCountView.swift */; };
-		80EAD93B2781A1000000DDC8 /* OrderDrinkPersonalOptionRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD93A2781A1000000DDC8 /* OrderDrinkPersonalOptionRangeView.swift */; };
-		80EF49C0277377EF006EB149 /* OrderDrinkPersonalOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EF49BF277377EF006EB149 /* OrderDrinkPersonalOptionView.swift */; };
+		80EAD93727819A3B0000DDC8 /* OrderDetailDrinkPersonalOptionCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD93627819A3B0000DDC8 /* OrderDetailDrinkPersonalOptionCountView.swift */; };
+		80EAD93B2781A1000000DDC8 /* OrderDetailDrinkPersonalOptionRangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD93A2781A1000000DDC8 /* OrderDetailDrinkPersonalOptionRangeView.swift */; };
+		80EF49C0277377EF006EB149 /* OrderDetailDrinkPersonalOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EF49BF277377EF006EB149 /* OrderDetailDrinkPersonalOptionView.swift */; };
 		80F0A1F327B018D300BDF003 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0A1F227B018D300BDF003 /* NoticeView.swift */; };
 		80F0A1F527B01A6800BDF003 /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0A1F427B01A6800BDF003 /* NoticeViewModel.swift */; };
 		80F0A1F727B01ACA00BDF003 /* NoticeItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F0A1F627B01ACA00BDF003 /* NoticeItemView.swift */; };
@@ -104,12 +105,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		801A5BAC277F66B800BA3B7A /* OrderDetailBeanOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailBeanOptionView.swift; sourceTree = "<group>"; };
 		801A5BAF277F6C1500BA3B7A /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
 		802EE51D279526CA0012DD1C /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		802EE51F279527220012DD1C /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		802EE52127952C8C0012DD1C /* FavoriteMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMenu.swift; sourceTree = "<group>"; };
 		802EE525279531AD0012DD1C /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		8032E7AF27C66D0700B18980 /* OrderDetailBeanPersonalOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailBeanPersonalOptionView.swift; sourceTree = "<group>"; };
+		8032E7B127C66E8D00B18980 /* OrderDetailPersonalOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailPersonalOption.swift; sourceTree = "<group>"; };
 		803372D527A51320009BF89F /* SignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewModel.swift; sourceTree = "<group>"; };
 		803372D827A513D9009BF89F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		803372DA27A51D6D009BF89F /* SignAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignAPI.swift; sourceTree = "<group>"; };
@@ -176,9 +178,9 @@
 		80D3E1D32774DC0D00749503 /* MenuComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuComingSoonView.swift; sourceTree = "<group>"; };
 		80D61D8E278F276F00279B00 /* CurrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentViewController.swift; sourceTree = "<group>"; };
 		80EAD934278198300000DDC8 /* NonCapsuleCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonCapsuleCountView.swift; sourceTree = "<group>"; };
-		80EAD93627819A3B0000DDC8 /* OrderDrinkPersonalOptionCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDrinkPersonalOptionCountView.swift; sourceTree = "<group>"; };
-		80EAD93A2781A1000000DDC8 /* OrderDrinkPersonalOptionRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDrinkPersonalOptionRangeView.swift; sourceTree = "<group>"; };
-		80EF49BF277377EF006EB149 /* OrderDrinkPersonalOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDrinkPersonalOptionView.swift; sourceTree = "<group>"; };
+		80EAD93627819A3B0000DDC8 /* OrderDetailDrinkPersonalOptionCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailDrinkPersonalOptionCountView.swift; sourceTree = "<group>"; };
+		80EAD93A2781A1000000DDC8 /* OrderDetailDrinkPersonalOptionRangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailDrinkPersonalOptionRangeView.swift; sourceTree = "<group>"; };
+		80EF49BF277377EF006EB149 /* OrderDetailDrinkPersonalOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailDrinkPersonalOptionView.swift; sourceTree = "<group>"; };
 		80F0A1F227B018D300BDF003 /* NoticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeView.swift; sourceTree = "<group>"; };
 		80F0A1F427B01A6800BDF003 /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
 		80F0A1F627B01ACA00BDF003 /* NoticeItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeItemView.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			children = (
 				80EAD93927819E1E0000DDC8 /* Bean */,
 				80EAD93827819E0A0000DDC8 /* Drink */,
+				8032E7B127C66E8D00B18980 /* OrderDetailPersonalOption.swift */,
 			);
 			path = PersonalOption;
 			sourceTree = "<group>";
@@ -419,7 +422,6 @@
 		80B852D727B5412500FB9615 /* Option */ = {
 			isa = PBXGroup;
 			children = (
-				801A5BAC277F66B800BA3B7A /* OrderDetailBeanOptionView.swift */,
 				80799489277F353B00187407 /* OrderDetailOptionItemView.swift */,
 				8079948B277F396A00187407 /* OrderDetailOptionView.swift */,
 				8079948D277F3A3700187407 /* OrderDetailOptionItem.swift */,
@@ -496,9 +498,9 @@
 		80EAD93827819E0A0000DDC8 /* Drink */ = {
 			isa = PBXGroup;
 			children = (
-				80EF49BF277377EF006EB149 /* OrderDrinkPersonalOptionView.swift */,
-				80EAD93627819A3B0000DDC8 /* OrderDrinkPersonalOptionCountView.swift */,
-				80EAD93A2781A1000000DDC8 /* OrderDrinkPersonalOptionRangeView.swift */,
+				80EF49BF277377EF006EB149 /* OrderDetailDrinkPersonalOptionView.swift */,
+				80EAD93627819A3B0000DDC8 /* OrderDetailDrinkPersonalOptionCountView.swift */,
+				80EAD93A2781A1000000DDC8 /* OrderDetailDrinkPersonalOptionRangeView.swift */,
 			);
 			path = Drink;
 			sourceTree = "<group>";
@@ -506,6 +508,7 @@
 		80EAD93927819E1E0000DDC8 /* Bean */ = {
 			isa = PBXGroup;
 			children = (
+				8032E7AF27C66D0700B18980 /* OrderDetailBeanPersonalOptionView.swift */,
 			);
 			path = Bean;
 			sourceTree = "<group>";
@@ -664,7 +667,8 @@
 				802EE520279527220012DD1C /* Menu.swift in Sources */,
 				80C176C92796D0FF00E042C6 /* HistoryItemView.swift in Sources */,
 				804A095B2753ACA000BF3F41 /* OrderDetailView.swift in Sources */,
-				80EF49C0277377EF006EB149 /* OrderDrinkPersonalOptionView.swift in Sources */,
+				8032E7B027C66D0700B18980 /* OrderDetailBeanPersonalOptionView.swift in Sources */,
+				80EF49C0277377EF006EB149 /* OrderDetailDrinkPersonalOptionView.swift in Sources */,
 				808E6BBC274A7B3300DF24D7 /* SplashView.swift in Sources */,
 				803BDD6D2774D75A00ACF6FC /* MenuItemView.swift in Sources */,
 				80F0A1F727B01ACA00BDF003 /* NoticeItemView.swift in Sources */,
@@ -683,11 +687,11 @@
 				80C176C02796A46100E042C6 /* OneOnOneView.swift in Sources */,
 				808E6BC0274A94A500DF24D7 /* BannerView.swift in Sources */,
 				808FCDF327AEB910007F01AE /* CustomerAPI.swift in Sources */,
-				801A5BAD277F66B800BA3B7A /* OrderDetailBeanOptionView.swift in Sources */,
 				8079A86D27A7D1400058040B /* ProfileAPI.swift in Sources */,
 				808E6B90274A6A1B00DF24D7 /* ContentView.swift in Sources */,
 				803372D627A51320009BF89F /* SignViewModel.swift in Sources */,
-				80EAD93B2781A1000000DDC8 /* OrderDrinkPersonalOptionRangeView.swift in Sources */,
+				80EAD93B2781A1000000DDC8 /* OrderDetailDrinkPersonalOptionRangeView.swift in Sources */,
+				8032E7B227C66E8D00B18980 /* OrderDetailPersonalOption.swift in Sources */,
 				804A09652753C0B200BF3F41 /* MenuSoldoutView.swift in Sources */,
 				80EAD935278198300000DDC8 /* NonCapsuleCountView.swift in Sources */,
 				808FCDEF27AD6F08007F01AE /* PaymentAPI.swift in Sources */,
@@ -695,7 +699,7 @@
 				80F0A1FD27B15B4200BDF003 /* CategoryView.swift in Sources */,
 				80C176D9279AF8AC00E042C6 /* PaymentView.swift in Sources */,
 				808E6B8E274A6A1B00DF24D7 /* StradaApp.swift in Sources */,
-				80EAD93727819A3B0000DDC8 /* OrderDrinkPersonalOptionCountView.swift in Sources */,
+				80EAD93727819A3B0000DDC8 /* OrderDetailDrinkPersonalOptionCountView.swift in Sources */,
 				808E6BBE274A7F0100DF24D7 /* BannerItemView.swift in Sources */,
 				808FCDF127AD73B5007F01AE /* Payment.swift in Sources */,
 				80D61D8F278F276F00279B00 /* CurrentViewController.swift in Sources */,

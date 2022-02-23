@@ -9,7 +9,7 @@ import Foundation
 
 class HomeViewModel : ObservableObject {
     
-    @Published var profileSummary: ProfileSummary = ProfileSummary(phoneNumber: "010-7702-3730", point: 3950)
+    @Published var profileSummary: ProfileSummary = ProfileSummary(phoneNumber: "010-0000-0000", point: 100000000)
     
     @Published var banners: [Banner] = [
         Banner(title: "달콤한 케이크\n추천해요!", image: "cup.and.saucer", name: "초콜릿 케이크", tags: ["1piece","4,000원"]),

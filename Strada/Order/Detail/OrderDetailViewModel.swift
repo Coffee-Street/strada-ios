@@ -8,7 +8,16 @@
 import Foundation
 
 class OrderDetailViewModel : ObservableObject {
-    @Published var menu: Menu = Menu(type: .COFFEE, state: .AVAILABLE, name: MenuName(kr: "아메리카노", en: "Americano"), price: 4000)
+    @Published var menu: Menu = Menu(
+        type: .COFFEE,
+        state: .AVAILABLE,
+        name: MenuName(
+            kr: "아메리카노",
+            en: "Americano"
+        ),
+        price: 4000
+    )
+    
     @Published var options: [OrderDetailOption] = [
         OrderDetailOption(items: [
             OrderDetailOptionItem(imageName: "cold", title: "차갑게"),
@@ -34,10 +43,19 @@ class OrderDetailViewModel : ObservableObject {
 //        ])
 //    ]
     
+    @Published var personalOptions: [OrderDetailPersonalOption] = [
+        OrderDetailPersonalOption(image: "shot.active", title: "샷", price: 300, count: 4),
+        OrderDetailPersonalOption(image: "syrup.active", title: "헤이즐넛 시럽", price: 300, count: 4),
+        OrderDetailPersonalOption(image: "ice.active", title: "얼음", price: 0, range: ["안함","조금","보통","많이"], index: 0),
+        OrderDetailPersonalOption(image: "milk.active", title: "우유 추가", price: 300, range: ["안함","조금","보통","많이"], index: 0),
+        OrderDetailPersonalOption(image: "whipped.active", title: "휘핑크림", price: 300, range: ["안함","조금","보통","많이"], index: 0),
+        OrderDetailPersonalOption(image: "whipped.active", title: "휘핑크림", price: 300, range: ["안함","조금","보통","많이"], index: 0),
+    ]
+    
     @Published var hashTags: [String] = ["산미", "브라질", "단맛"]
+//    = ["풋사과", "신맛", "콜롬비아"]
     
     let detailContent = "합리적 가격에 단맛과 산미가 조화롭습니다.\n생산지 : 브라질 세하도 모지아나\n등급 : 없음 | 품종 : 옐로우카투아이\n가공 : Natural | 로스팅 : 시티"
-//    = "그라인딩 굵기 선택 TIP\n* 프렌치브레스 / 콜드브루 - 굵게\n* 드립 - 보통\n* 모카포트 / 사이폰 - 곱게"
     
     func isOrderable() -> Bool {
         

@@ -90,7 +90,18 @@ struct OrderDetailView : View {
                     .padding(.horizontal)
                     .padding(.bottom)
                     
-                    OrderDrinkPersonalOptionView(options: $viewModel.options)
+                    VStack(alignment: .leading, spacing: 0) {
+                        ForEach(viewModel.options.indices, id: \.self) { index in
+                            OrderDetailOptionView(option: $viewModel.options[index])
+                        }
+                    } // VStack
+                    
+                    Divider()
+                        .padding()
+                    
+                    OrderDetailDrinkPersonalOptionView(personalOptions: $viewModel.personalOptions)
+//                    OrderDetailBeanPersonalOptionView()
+                        .padding(.horizontal)
                 }
             }
             .padding(.bottom, 80)
