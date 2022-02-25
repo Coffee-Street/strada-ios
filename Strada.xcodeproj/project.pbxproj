@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		801A5BB0277F6C1500BA3B7A /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801A5BAF277F6C1500BA3B7A /* CountView.swift */; };
-		802EE51E279526CA0012DD1C /* OrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE51D279526CA0012DD1C /* OrderViewModel.swift */; };
 		802EE520279527220012DD1C /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE51F279527220012DD1C /* Menu.swift */; };
 		802EE52227952C8C0012DD1C /* FavoriteMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE52127952C8C0012DD1C /* FavoriteMenu.swift */; };
 		802EE526279531AD0012DD1C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE525279531AD0012DD1C /* Order.swift */; };
 		8032E7B027C66D0700B18980 /* OrderDetailBeanPersonalOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8032E7AF27C66D0700B18980 /* OrderDetailBeanPersonalOptionView.swift */; };
 		8032E7B227C66E8D00B18980 /* OrderDetailPersonalOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8032E7B127C66E8D00B18980 /* OrderDetailPersonalOption.swift */; };
+		8032E7B627C8E92300B18980 /* ReceiptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8032E7B527C8E92300B18980 /* ReceiptViewModel.swift */; };
 		803372D627A51320009BF89F /* SignViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803372D527A51320009BF89F /* SignViewModel.swift */; };
 		803372D927A513D9009BF89F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803372D827A513D9009BF89F /* API.swift */; };
 		803372DB27A51D6D009BF89F /* SignAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803372DA27A51D6D009BF89F /* SignAPI.swift */; };
@@ -106,12 +106,12 @@
 
 /* Begin PBXFileReference section */
 		801A5BAF277F6C1500BA3B7A /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
-		802EE51D279526CA0012DD1C /* OrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewModel.swift; sourceTree = "<group>"; };
 		802EE51F279527220012DD1C /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		802EE52127952C8C0012DD1C /* FavoriteMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMenu.swift; sourceTree = "<group>"; };
 		802EE525279531AD0012DD1C /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		8032E7AF27C66D0700B18980 /* OrderDetailBeanPersonalOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailBeanPersonalOptionView.swift; sourceTree = "<group>"; };
 		8032E7B127C66E8D00B18980 /* OrderDetailPersonalOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailPersonalOption.swift; sourceTree = "<group>"; };
+		8032E7B527C8E92300B18980 /* ReceiptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewModel.swift; sourceTree = "<group>"; };
 		803372D527A51320009BF89F /* SignViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignViewModel.swift; sourceTree = "<group>"; };
 		803372D827A513D9009BF89F /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		803372DA27A51D6D009BF89F /* SignAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignAPI.swift; sourceTree = "<group>"; };
@@ -249,7 +249,6 @@
 				808BE278279256C100C84987 /* Menu */,
 				808BE2772790740C00C84987 /* Detail */,
 				808BE2752790736700C84987 /* OrderView.swift */,
-				802EE51D279526CA0012DD1C /* OrderViewModel.swift */,
 				802EE525279531AD0012DD1C /* Order.swift */,
 			);
 			path = Order;
@@ -469,6 +468,7 @@
 				80C176D62799A63F00E042C6 /* ReceiptView.swift */,
 				8079483027AC147A00DA0230 /* ReceiptAPI.swift */,
 				8079483227AC14EE00DA0230 /* Receipt.swift */,
+				8032E7B527C8E92300B18980 /* ReceiptViewModel.swift */,
 			);
 			path = Receipt;
 			sourceTree = "<group>";
@@ -665,6 +665,7 @@
 				8079948C277F396A00187407 /* OrderDetailOptionView.swift in Sources */,
 				808E6BB9274A6A7100DF24D7 /* HomeView.swift in Sources */,
 				802EE520279527220012DD1C /* Menu.swift in Sources */,
+				8032E7B627C8E92300B18980 /* ReceiptViewModel.swift in Sources */,
 				80C176C92796D0FF00E042C6 /* HistoryItemView.swift in Sources */,
 				804A095B2753ACA000BF3F41 /* OrderDetailView.swift in Sources */,
 				8032E7B027C66D0700B18980 /* OrderDetailBeanPersonalOptionView.swift in Sources */,
@@ -719,7 +720,6 @@
 				804A09632753B52900BF3F41 /* MenuCountView.swift in Sources */,
 				808BE2762790736700C84987 /* OrderView.swift in Sources */,
 				80F0A1F327B018D300BDF003 /* NoticeView.swift in Sources */,
-				802EE51E279526CA0012DD1C /* OrderViewModel.swift in Sources */,
 				8079482427A54EAB00DA0230 /* HomeViewModel.swift in Sources */,
 				80C176CF2798654600E042C6 /* History.swift in Sources */,
 				804A095D2753AD5A00BF3F41 /* FavoriteMenuItemView.swift in Sources */,

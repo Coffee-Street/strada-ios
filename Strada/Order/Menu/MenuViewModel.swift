@@ -61,4 +61,8 @@ class MenuViewModel : ObservableObject {
     func getMenus() {
         // API request
     }
+    
+    func getFavoriteMenus() {
+        // API request
+    }
 }

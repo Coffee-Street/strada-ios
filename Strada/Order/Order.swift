@@ -16,8 +16,17 @@ struct OrderItem : Identifiable {
     var count: Int
 }
 
+enum OrderState {
+    case COMPLETE
+    case FAILURE
+}
+
 struct Order : Identifiable {
     let id = UUID()
+    
+    let name: String
+    
+    let state: OrderState
     
     var orderItems: [OrderItem]
     

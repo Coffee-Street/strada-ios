@@ -13,4 +13,5 @@ struct Receipt : Identifiable {
     let status: Int
     
     let orderItems: [String]
+//    let order: Order
 }
