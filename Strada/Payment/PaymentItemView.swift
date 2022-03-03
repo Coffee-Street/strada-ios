@@ -41,7 +41,6 @@ struct PaymentItemView : View {
         }
         .background(Color.appBlue)
     }
-    
 }
 struct OrderItemView_Previews : PreviewProvider {
     @State static var viewModel = PaymentItemViewModel(orderItem: OrderItem(
