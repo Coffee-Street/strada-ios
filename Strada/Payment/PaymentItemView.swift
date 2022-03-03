@@ -11,7 +11,7 @@ struct PaymentItemView : View {
     @Binding var viewModel: PaymentItemViewModel
     
     let onDelete: () -> ()
-    
+
     var body: some View {
         ZStack(alignment: .leading) {
             VStack(alignment: .leading) {
@@ -43,7 +43,11 @@ struct PaymentItemView : View {
     }
 }
 struct OrderItemView_Previews : PreviewProvider {
-    @State static var viewModel = PaymentItemViewModel()
+    @State static var viewModel = PaymentItemViewModel(orderItem: OrderItem(
+        menu: Menu(type: MenuType.COFFEE, state: MenuState.AVAILABLE, name: MenuName(kr: "아메리카노", en: "Americano"), price: 4000),
+        menuOption: MenuOption(menuType: .COFFEE),
+        menuPersonalOption: MenuPersonalOption(menuType: .COFFEE),
+        count: 3), count: 1)
 
     static var previews: some View {
         PaymentItemView(viewModel: $viewModel, onDelete: {})

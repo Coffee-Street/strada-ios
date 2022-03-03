@@ -34,7 +34,7 @@ struct ProfileSummaryView : View {
 }
 
 struct ProfileSummaryView_Previews : PreviewProvider {
-    @State static var profileSummary = ProfileSummary(phoneNumber: "010-7702-3730", point: 3950)
+    @State static var profileSummary = ProfileSummary(phoneNumber: "010-0000-0000", point: 100000000)
     static var previews: some View {
         ProfileSummaryView(profileSummary: $profileSummary)
     }

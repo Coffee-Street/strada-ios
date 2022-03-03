@@ -12,8 +12,6 @@ struct OrderView : View {
     
     @Binding var isOpened: Bool
     
-    @State private var viewModel = OrderViewModel()
-    
     var body: some View {
         ZStack(alignment: .top) {
             ScrollView {
