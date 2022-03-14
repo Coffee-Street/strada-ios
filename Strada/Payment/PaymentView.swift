@@ -99,6 +99,19 @@ struct PaymentView : View {
                             .foregroundColor(.white)
                             .font(.system(size: 22, weight: .medium))
                     } // HStack
+                    
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            viewModel.paymentByKakaopay()
+                        }) {
+                            Text("카카오페이 결제")
+                                .foregroundColor(Color.white)
+                                .font(.system(size: 20, weight: .bold))
+                        }
+                        Spacer()
+                    }.padding()
+                    
                 } // VStack
                 .padding()
             }

@@ -73,12 +73,37 @@ class PaymentViewModel : ObservableObject {
             count: 1
         ),
     ]
-
+    
+    private var api = PaymentAPI()
+    
     func getTotalCount() -> Int {
         return paymentItemViewModels.map { $0.count }.reduce(0, +)
     }
     
     func getTotalPrice() -> Int {
         return paymentItemViewModels.map { ( $0.orderItem.menu.price + 0 ) * $0.count }.reduce(0, +)
+    }
+    
+    func paymentByKakaopay() {
+        api.kakaoPayReady() { result in
+            switch(result) {
+            case .success(let ready):
+                DispatchQueue.main.async {
+                    
+                }
+            case .failure(let error):
+                switch(error) {
+                case .none:
+                    print("에러가 발생하지 않았습니다.")
+                case .invalidURL: fallthrough
+                case .invalidRequest: fallthrough
+                case .invalidResponse: fallthrough
+                case .invalidResponseData: fallthrough
+                case .decodingFailed: fallthrough
+                default:
+                    print("ready 할 수 없습니다. \(error)")
+                }
+            }
+        }
     }
 }

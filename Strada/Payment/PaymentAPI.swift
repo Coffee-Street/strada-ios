@@ -78,6 +78,64 @@ struct PaymentAPI {
         .resume()
     }
     
+    func kakaoPayReady(completion: @escaping (Result<KakaoPayment, APIError>) -> Void) {
+        
+        guard let kakaoPaymentURL = URL(string: "https://kapi.kakao.com/v1/payment/ready") else {
+            return completion(.failure(.invalidURL))
+        }
+        
+        let body = try? JSONEncoder().encode(
+            KakaoPaymentReadyRequest(
+                cid: "TC0ONETIME",
+                partner_order_id: "partner_order_id",
+                partner_user_id: "partner_user_id",
+                item_name: "초코파이",
+                quantity: 1,
+                total_amount: 2200,
+                vat_amount: 200,
+                tax_free_amount: 0,
+                approval_url: "http://localhost:3000/success",
+                fail_url: "http://localhost:3000/fail",
+                cancel_url: "http://localhost:3000/cancel"
+            )
+        )
+        
+        print(String(data: body ?? Data(), encoding: .utf8)!)
+        
+        let KAKAO_APP_KEY: String = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String ?? "KAKAO_APP_KEY is nil"
+
+        var request = URLRequest(url: kakaoPaymentURL)
+        request.httpMethod = "POST"
+        request.addValue("KakaoAK \(KAKAO_APP_KEY)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+//        request.addValue("application/x-www-form-urlencoded;charset=utf-8", forHTTPHeaderField: "Content-Type")
+//        request.addValue("*", forHTTPHeaderField: "Access-Control-Allow-Origin")
+        request.httpBody = body
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+//            guard error == nil else {
+//
+//            }
+            
+            let response = response as? HTTPURLResponse
+            
+            if (500 ..< 600) ~= response?.statusCode ?? 500 {
+                return completion(.failure(.invalidResponse))
+            }
+            
+            guard let data = data else {
+                return completion(.failure(.invalidResponseData))
+            }
+            
+            guard let result = try? JSONDecoder().decode(KakaoPaymentReadyResponse.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+
+            completion(.success(KakaoPayment(tid: result.tid)))
+        }
+        .resume()
+    }
+    
     func kakaoPayRequest() {
         //TODO: 결제 준비 이후 대기화면으로 이동하고 기다리기
         //      결제에 대한 3가지 상태에 따라 다른 곳으로 이동 가능함

@@ -74,6 +74,7 @@
 		80C176D72799A63F00E042C6 /* ReceiptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176D62799A63F00E042C6 /* ReceiptView.swift */; };
 		80C176D9279AF8AC00E042C6 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176D8279AF8AC00E042C6 /* PaymentView.swift */; };
 		80C176DC279B003C00E042C6 /* PaymentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176DB279B003C00E042C6 /* PaymentItemView.swift */; };
+		80CDF67F27DDE64A00EE7DBB /* KakaoPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CDF67E27DDE64A00EE7DBB /* KakaoPayment.swift */; };
 		80D3E1D42774DC0D00749503 /* MenuComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3E1D32774DC0D00749503 /* MenuComingSoonView.swift */; };
 		80D61D8F278F276F00279B00 /* CurrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D61D8E278F276F00279B00 /* CurrentViewController.swift */; };
 		80EAD935278198300000DDC8 /* NonCapsuleCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80EAD934278198300000DDC8 /* NonCapsuleCountView.swift */; };
@@ -175,6 +176,8 @@
 		80C176D62799A63F00E042C6 /* ReceiptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptView.swift; sourceTree = "<group>"; };
 		80C176D8279AF8AC00E042C6 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		80C176DB279B003C00E042C6 /* PaymentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentItemView.swift; sourceTree = "<group>"; };
+		80CDF67E27DDE64A00EE7DBB /* KakaoPayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoPayment.swift; sourceTree = "<group>"; };
+		80CDF68227DF93E600EE7DBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		80D3E1D32774DC0D00749503 /* MenuComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuComingSoonView.swift; sourceTree = "<group>"; };
 		80D61D8E278F276F00279B00 /* CurrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentViewController.swift; sourceTree = "<group>"; };
 		80EAD934278198300000DDC8 /* NonCapsuleCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonCapsuleCountView.swift; sourceTree = "<group>"; };
@@ -334,6 +337,7 @@
 		808E6B8C274A6A1B00DF24D7 /* Strada */ = {
 			isa = PBXGroup;
 			children = (
+				80CDF68227DF93E600EE7DBB /* Info.plist */,
 				803372D727A51360009BF89F /* Network */,
 				80F0A1F127B018C300BDF003 /* Notice */,
 				80C176D52799A63100E042C6 /* Payment */,
@@ -483,6 +487,7 @@
 				808FCDF027AD73B5007F01AE /* Payment.swift */,
 				804A5C4A27BA7CA9004ABAB1 /* PaymentViewModel.swift */,
 				804A5C4E27BBD59E004ABAB1 /* PaymentItemViewModel.swift */,
+				80CDF67E27DDE64A00EE7DBB /* KakaoPayment.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -720,6 +725,7 @@
 				804A09632753B52900BF3F41 /* MenuCountView.swift in Sources */,
 				808BE2762790736700C84987 /* OrderView.swift in Sources */,
 				80F0A1F327B018D300BDF003 /* NoticeView.swift in Sources */,
+				80CDF67F27DDE64A00EE7DBB /* KakaoPayment.swift in Sources */,
 				8079482427A54EAB00DA0230 /* HomeViewModel.swift in Sources */,
 				80C176CF2798654600E042C6 /* History.swift in Sources */,
 				804A095D2753AD5A00BF3F41 /* FavoriteMenuItemView.swift in Sources */,
@@ -887,8 +893,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Strada/Preview Content\"";
+				DEVELOPMENT_TEAM = 5RVPPZDBSZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Strada/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -915,8 +923,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Strada/Preview Content\"";
+				DEVELOPMENT_TEAM = 5RVPPZDBSZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Strada/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
