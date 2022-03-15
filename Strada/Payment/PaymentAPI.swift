@@ -28,6 +28,25 @@ struct KakaoPaymentReadyRequest : Codable {
     let approval_url: String
     let fail_url: String
     let cancel_url: String
+    
+    enum CodingKeys: String, CodingKey {
+        case cid, partner_order_id, partner_user_id, item_name, quantity, total_amount, vat_amount, tax_free_amount, approval_url, fail_url, cancel_url
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(cid, forKey: .cid)
+        try container.encode(partner_order_id, forKey: .partner_order_id)
+        try container.encode(partner_user_id, forKey: .partner_user_id)
+        try container.encode(item_name.addingPercentEncoding(withAllowedCharacters: .letters), forKey: .item_name)
+        try container.encode(quantity, forKey: .quantity)
+        try container.encode(total_amount, forKey: .total_amount)
+        try container.encode(vat_amount, forKey: .vat_amount)
+        try container.encode(tax_free_amount, forKey: .tax_free_amount)
+        try container.encode(approval_url.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), forKey: .approval_url)
+        try container.encode(fail_url.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), forKey: .fail_url)
+        try container.encode(cancel_url.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), forKey: .cancel_url)
+    }
 }
 
 struct KakaoPaymentReadyResponse : Codable {
