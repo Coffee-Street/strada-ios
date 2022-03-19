@@ -173,7 +173,7 @@ struct PaymentAPI {
                 return completion(.failure(.decodingFailed))
             }
 
-            completion(.success(KakaoPayment(tid: result.tid)))
+            completion(.success(KakaoPayment(tid: result.tid, appUrl: result.next_redirect_app_url, mobileUrl: result.next_redirect_mobile_url, appScheme: result.ios_app_scheme, createdAt: result.created_at)))
         }
         .resume()
     }

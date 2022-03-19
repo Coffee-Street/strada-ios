@@ -84,12 +84,12 @@ class PaymentViewModel : ObservableObject {
         return paymentItemViewModels.map { ( $0.orderItem.menu.price + 0 ) * $0.count }.reduce(0, +)
     }
     
-    func paymentByKakaopay() {
+    func paymentByKakaopay(callback: @escaping (KakaoPayment) -> Void) {
         api.kakaoPayReady() { result in
             switch(result) {
             case .success(let ready):
                 DispatchQueue.main.async {
-                    
+                    callback(ready)
                 }
             case .failure(let error):
                 switch(error) {
