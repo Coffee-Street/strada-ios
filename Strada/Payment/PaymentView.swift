@@ -12,6 +12,8 @@ struct PaymentView : View {
     
     @StateObject private var viewModel = PaymentViewModel()
     
+    @Environment(\.openURL) var openURL
+    
     var body: some View {
         ZStack(alignment: .leading) {
             ScrollView {
@@ -103,7 +105,9 @@ struct PaymentView : View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            viewModel.paymentByKakaopay()
+                            viewModel.paymentByKakaopay() { kakaoPayment in
+                                openURL(URL(string: kakaoPayment.appScheme)!)
+                            }
                         }) {
                             Text("카카오페이 결제")
                                 .foregroundColor(Color.white)
