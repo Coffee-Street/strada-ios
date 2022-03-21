@@ -59,27 +59,27 @@ struct KakaoPaymentReadyResponse : Codable {
     let created_at: Date
     
     enum CodingKeys: String, CodingKey {
-      case tid, next_redirect_app_url, next_redirect_mobile_url, next_redirect_pc_url, android_app_scheme, ios_app_scheme, created_at
+        case tid, next_redirect_app_url, next_redirect_mobile_url, next_redirect_pc_url, android_app_scheme, ios_app_scheme, created_at
     }
       
-      init(from decoder: Decoder) throws {
-          let container = try decoder.container(keyedBy: CodingKeys.self)
-          self.tid = try container.decode(String.self, forKey: .tid).removingPercentEncoding ?? ""
-          self.next_redirect_app_url = try container.decode(String.self, forKey: .next_redirect_app_url).removingPercentEncoding ?? ""
-          self.next_redirect_mobile_url = try container.decode(String.self, forKey: .next_redirect_mobile_url).removingPercentEncoding ?? ""
-          self.next_redirect_pc_url = try container.decode(String.self, forKey: .next_redirect_pc_url).removingPercentEncoding ?? ""
-          self.android_app_scheme = try container.decode(String.self, forKey: .android_app_scheme).removingPercentEncoding ?? ""
-          self.ios_app_scheme = try container.decode(String.self, forKey: .ios_app_scheme).removingPercentEncoding ?? ""
-          
-          let RFC3339DateFormatter = DateFormatter()
-          RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
-          RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-          RFC3339DateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.tid = try container.decode(String.self, forKey: .tid).removingPercentEncoding ?? ""
+        self.next_redirect_app_url = try container.decode(String.self, forKey: .next_redirect_app_url).removingPercentEncoding ?? ""
+        self.next_redirect_mobile_url = try container.decode(String.self, forKey: .next_redirect_mobile_url).removingPercentEncoding ?? ""
+        self.next_redirect_pc_url = try container.decode(String.self, forKey: .next_redirect_pc_url).removingPercentEncoding ?? ""
+        self.android_app_scheme = try container.decode(String.self, forKey: .android_app_scheme).removingPercentEncoding ?? ""
+        self.ios_app_scheme = try container.decode(String.self, forKey: .ios_app_scheme).removingPercentEncoding ?? ""
+        
+        let RFC3339DateFormatter = DateFormatter()
+        RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        RFC3339DateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
 
-          let date_string = try container.decode(String.self, forKey: .created_at)
+        let date_string = try container.decode(String.self, forKey: .created_at)
           
-          self.created_at = RFC3339DateFormatter.date(from: date_string) ?? Date()
-      }
+        self.created_at = RFC3339DateFormatter.date(from: date_string) ?? Date()
+    }
 }
 
 struct PaymentAPI {
