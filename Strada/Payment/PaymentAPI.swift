@@ -158,22 +158,23 @@ struct PaymentAPI {
 //            guard error == nil else {
 //
 //            }
-            
+
             let response = response as? HTTPURLResponse
-            
+
             if (500 ..< 600) ~= response?.statusCode ?? 500 {
                 return completion(.failure(.invalidResponse))
             }
-            
+
             guard let data = data else {
                 return completion(.failure(.invalidResponseData))
             }
-            
+
             guard let result = try? JSONDecoder().decode(KakaoPaymentReadyResponse.self, from: data) else {
                 return completion(.failure(.decodingFailed))
             }
 
-            completion(.success(KakaoPayment(tid: result.tid, appUrl: result.next_redirect_app_url, mobileUrl: result.next_redirect_mobile_url, appScheme: result.ios_app_scheme, createdAt: result.created_at)))
+            let kakao = KakaoPayment(tid: result.tid, appUrl: result.next_redirect_app_url, mobileUrl: result.next_redirect_mobile_url, appScheme: result.ios_app_scheme, createdAt: result.created_at)
+            completion(.success(kakao))
         }
         .resume()
     }
