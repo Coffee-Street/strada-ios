@@ -126,6 +126,22 @@ struct PaymentAPI {
             return completion(.failure(.invalidURL))
         }
         
+//        let kakao = Mirror(reflecting: KakaoPaymentReadyRequest(
+//            cid: "TC0ONETIME",
+//            partner_order_id: "partner_order_id",
+//            partner_user_id: "partner_user_id",
+//            item_name: "초코파이",
+//            quantity: 1,
+//            total_amount: 2200,
+//            vat_amount: 200,
+//            tax_free_amount: 0,
+//            approval_url: "http://localhost:3000/success",
+//            fail_url: "http://localhost:3000/fail",
+//            cancel_url: "http://localhost:3000/cancel"
+//        )).children.map { (k, v) in
+//            return "\(k != nil ? k! : "empty")=\(v)"
+//        }.joined(separator: "&")
+        
         let body = try? JSONEncoder().encode(
             KakaoPaymentReadyRequest(
                 cid: "TC0ONETIME",
@@ -141,9 +157,17 @@ struct PaymentAPI {
                 cancel_url: "http://localhost:3000/cancel"
             )
         )
+        let jsonDic = try? JSONSerialization.jsonObject(with: body ?? Data(), options: []) as? Dictionary<String, Any> ?? [:]
         
-        print(String(data: body ?? Data(), encoding: .utf8)!)
+//        let querystring = Mirror(reflecting: jsonDic ?? Data()).children.map{ (k, v) in
+//            return "\(k != nil ? k! : "empty")=\(v)"
+//        }.joined(separator: "&")
         
+//        print(Mirror(reflecting: String(data: body ?? Data(), encoding: .utf8)).children.map { (k, v) in
+//            return "\(k != nil ? k! : "empty")=\(v)"
+//        }.joined(separator: "&"))
+        
+//        print(String(data: body ?? Data(), encoding: .utf8)!)
         let KAKAO_APP_KEY: String = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String ?? "KAKAO_APP_KEY is nil"
 
         var request = URLRequest(url: kakaoPaymentURL)
