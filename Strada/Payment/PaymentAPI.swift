@@ -163,11 +163,17 @@ struct PaymentAPI {
 //            return "\(k != nil ? k! : "empty")=\(v)"
 //        }.joined(separator: "&")
         
+        let querystring = jsonDic?.map {
+            return "\($0.key)=\($0.value)"
+        }.joined(separator: "&")
+        print(querystring ?? "")
+
 //        print(Mirror(reflecting: String(data: body ?? Data(), encoding: .utf8)).children.map { (k, v) in
 //            return "\(k != nil ? k! : "empty")=\(v)"
 //        }.joined(separator: "&"))
         
 //        print(String(data: body ?? Data(), encoding: .utf8)!)
+        
         let KAKAO_APP_KEY: String = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String ?? "KAKAO_APP_KEY is nil"
 
         var request = URLRequest(url: kakaoPaymentURL)
@@ -176,7 +182,7 @@ struct PaymentAPI {
         request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 //        request.addValue("application/x-www-form-urlencoded;charset=utf-8", forHTTPHeaderField: "Content-Type")
 //        request.addValue("*", forHTTPHeaderField: "Access-Control-Allow-Origin")
-        request.httpBody = body
+        request.httpBody = (querystring ?? "").data(using: .utf8)
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
 //            guard error == nil else {
