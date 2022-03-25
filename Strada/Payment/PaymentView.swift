@@ -106,7 +106,7 @@ struct PaymentView : View {
                         Spacer()
                         Button(action: {
                             viewModel.paymentByKakaopay() { kakaoPayment in
-                                openURL(URL(string: kakaoPayment.appScheme)!)
+                                openURL(URL(string: kakaoPayment.appUrl)!)
                             }
                         }) {
                             Text("카카오페이 결제")
