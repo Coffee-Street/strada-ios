@@ -98,6 +98,9 @@ struct SignView : View {
         }
         .padding()
         .background(.white)
+        .onOpenURL { url in
+            print("SignView url scheme: \(String(describing: url.scheme)), url host: \(String(describing: url.host))")
+        }
     }
 }
 

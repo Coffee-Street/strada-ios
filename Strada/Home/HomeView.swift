@@ -128,6 +128,9 @@ struct HomeView : View {
             .background(.white)
 //            .edgesIgnoringSafeArea(.all)
         } // NavigationView
+        .onOpenURL { url in
+            print("HomView url scheme: \(String(describing: url.scheme)), url host: \(String(describing: url.host))")
+        }
     }
 }
 
