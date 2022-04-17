@@ -116,7 +116,10 @@ struct PaymentView : View {
                         // 모든 View라면 다 들고 있다는 onOpenURL인데.. 어떻게 쓰는건지 모르곘다
                         // 이거랑 딥링크 삽질했는데 딥링크는 전혀 다른거였다고 한다... URL Scheme도 생각한 것과 다른 것이었다
                         .onOpenURL { url in
-                            print(url)
+                            print("PaymentView url scheme: \(String(describing: url.scheme)), url host: \(String(describing: url.host)), path: \(String(describing: url.path))")
+                            
+                            if url.host == "payment" && url.path == "/succeed" {
+                            }
                         }
                         Spacer()
                     }.padding()
