@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct KakaoPayment : Identifiable {
+struct KakaoPayQuery : Identifiable {
+    let id = UUID()
+    
+}
+
+struct KakaoPayReady : Identifiable {
     let id = UUID()
     
     let tid: String
@@ -15,4 +20,10 @@ struct KakaoPayment : Identifiable {
     let mobileUrl: String
     let appScheme: String
     let createdAt: Date
+}
+
+struct KakaoPayApprove : Identifiable {
+    let id = UUID()
+    
+    
 }
