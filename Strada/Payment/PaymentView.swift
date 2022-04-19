@@ -105,7 +105,7 @@ struct PaymentView : View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            viewModel.paymentByKakaopay() { kakaoPayment in
+                            viewModel.kakaoPayReady() { kakaoPayment in
                                 openURL(URL(string: kakaoPayment.appUrl)!)
                             }
                         }) {

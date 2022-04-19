@@ -75,6 +75,7 @@ class PaymentViewModel : ObservableObject {
     ]
     
     private var api = PaymentAPI()
+    private var kakaoAPI = KakaoPayAPI()
     
     func getTotalCount() -> Int {
         return paymentItemViewModels.map { $0.count }.reduce(0, +)
@@ -84,8 +85,8 @@ class PaymentViewModel : ObservableObject {
         return paymentItemViewModels.map { ( $0.orderItem.menu.price + 0 ) * $0.count }.reduce(0, +)
     }
     
-    func paymentByKakaopay(callback: @escaping (KakaoPayment) -> Void) {
-        api.kakaoPayReady() { result in
+    func kakaoPayReady(callback: @escaping (KakaoPayReady) -> Void) {
+        kakaoAPI.ready() { result in
             switch(result) {
             case .success(let ready):
                 DispatchQueue.main.async {

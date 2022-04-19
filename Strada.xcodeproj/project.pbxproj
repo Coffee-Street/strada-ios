@@ -26,6 +26,7 @@
 		804A5C4B27BA7CA9004ABAB1 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A5C4A27BA7CA9004ABAB1 /* PaymentViewModel.swift */; };
 		804A5C4F27BBD59E004ABAB1 /* PaymentItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A5C4E27BBD59E004ABAB1 /* PaymentItemViewModel.swift */; };
 		80699753279B0EAC00A0C281 /* PaymentSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80699752279B0EAC00A0C281 /* PaymentSuccessView.swift */; };
+		806D421D2812D9890084906E /* KakaoPayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D421C2812D9890084906E /* KakaoPayAPI.swift */; };
 		8079482227A54E9C00DA0230 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079482127A54E9C00DA0230 /* HomeAPI.swift */; };
 		8079482427A54EAB00DA0230 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079482327A54EAB00DA0230 /* HomeViewModel.swift */; };
 		8079482627A54F6000DA0230 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079482527A54F6000DA0230 /* Banner.swift */; };
@@ -125,6 +126,7 @@
 		804A5C4A27BA7CA9004ABAB1 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		804A5C4E27BBD59E004ABAB1 /* PaymentItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentItemViewModel.swift; sourceTree = "<group>"; };
 		80699752279B0EAC00A0C281 /* PaymentSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessView.swift; sourceTree = "<group>"; };
+		806D421C2812D9890084906E /* KakaoPayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoPayAPI.swift; sourceTree = "<group>"; };
 		8079482127A54E9C00DA0230 /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
 		8079482327A54EAB00DA0230 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		8079482527A54F6000DA0230 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
@@ -488,6 +490,7 @@
 				804A5C4A27BA7CA9004ABAB1 /* PaymentViewModel.swift */,
 				804A5C4E27BBD59E004ABAB1 /* PaymentItemViewModel.swift */,
 				80CDF67E27DDE64A00EE7DBB /* KakaoPay.swift */,
+				806D421C2812D9890084906E /* KakaoPayAPI.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				80EAD93727819A3B0000DDC8 /* OrderDetailDrinkPersonalOptionCountView.swift in Sources */,
 				808E6BBE274A7F0100DF24D7 /* BannerItemView.swift in Sources */,
 				808FCDF127AD73B5007F01AE /* Payment.swift in Sources */,
+				806D421D2812D9890084906E /* KakaoPayAPI.swift in Sources */,
 				80D61D8F278F276F00279B00 /* CurrentViewController.swift in Sources */,
 				808BE27A279256FF00C84987 /* MenuView.swift in Sources */,
 				8079482227A54E9C00DA0230 /* HomeAPI.swift in Sources */,
