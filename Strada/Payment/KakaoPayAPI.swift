@@ -141,3 +141,6 @@ struct KakaoPayAPI {
         .resume()
     }
     
+    func approve(completion: @escaping (Result<KakaoPayApprove, APIError>) -> Void) {
+    }
+}

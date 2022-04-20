@@ -52,16 +52,4 @@ struct PaymentAPI {
         }
         .resume()
     }
-    func kakaoPayRequest() {
-        //TODO: 결제 준비 이후 대기화면으로 이동하고 기다리기
-        //      결제에 대한 3가지 상태에 따라 다른 곳으로 이동 가능함
-        //      성공 -> approval_url 로 이동
-        //      취소 -> cancel_url 로 이동
-        //      요청 15분 이상 경과 -> fail_url 로 이동
-        //      문제는 URL 방식이라서 App에서는 어떻게 돌려받을지 고민해봐야 할거 같음
-    }
-    
-    func kakaoPayApprove() {
-        //TODO: 결제 승인 후 pg_token을 받아오고 BE에 요청하기
-    }
 }
