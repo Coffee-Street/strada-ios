@@ -77,9 +77,176 @@ struct KakaoPayAPI {
         }
     }
     
+    struct ApproveRequest : Encodable {
+        let cid: String
+        let tid: String
+        let partnerOrderId: String
+        let partnerUserId: String
+        let pgToken: String
+        
+        enum CodingKeys: String, CodingKey {
+            case cid, tid, partner_order_id, partner_user_id, pg_token
+        }
+        
+        func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(cid, forKey: .cid)
+            try container.encode(tid, forKey: .tid)
+            try container.encode(partnerOrderId, forKey: .partner_order_id)
+            try container.encode(partnerUserId, forKey: .partner_user_id)
+            try container.encode(pgToken, forKey: .pg_token)
+        }
+    }
+    
+    struct ApproveResponse : Decodable {
+
+        struct CardInfo : Decodable {
+            let interestFreeInstall: String
+            let bin: String
+            let cardType: String
+            let cardMid: String
+            let approvedId: String
+            let installMonth: String
+            let purchaseCorp: String
+            let purchaseCorpCode: String
+            let issuerCorp: String
+            let issuerCorpCode: String
+            let kakaopayPurchaseCorp: String
+            let kakaopayPurchaseCorpCode: String
+            let kakaopayIssuerCorp: String
+            let kakaopayIssuerCorpCode: String
+            
+            enum CodingKeys: String, CodingKey {
+                case interest_free_install, bin, card_type, card_mid, approved_id, install_month, purchase_corp, purchase_corp_code, issuer_corp, issuer_corp_code, kakaopay_purchase_corp, kakaopay_purchase_corp_code, kakaopay_issuer_corp, kakaopay_issuer_corp_code
+            }
+            
+            init(from decoder: Decoder) throws {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                
+                self.interestFreeInstall = try container.decode(String.self, forKey: .interest_free_install).removingPercentEncoding ?? ""
+                
+                self.bin = try container.decode(String.self, forKey: .bin).removingPercentEncoding ?? ""
+                
+                self.cardType = try container.decode(String.self, forKey: .card_type).removingPercentEncoding ?? ""
+                
+                self.cardMid = try container.decode(String.self, forKey: .card_mid).removingPercentEncoding ?? ""
+                
+                self.approvedId = try container.decode(String.self, forKey: .approved_id).removingPercentEncoding ?? ""
+                
+                self.installMonth = try container.decode(String.self, forKey: .install_month).removingPercentEncoding ?? ""
+                
+                self.purchaseCorp = try container.decode(String.self, forKey: .purchase_corp).removingPercentEncoding ?? ""
+                
+                self.purchaseCorpCode = try container.decode(String.self, forKey: .purchase_corp_code).removingPercentEncoding ?? ""
+                
+                self.issuerCorp = try container.decode(String.self, forKey: .issuer_corp).removingPercentEncoding ?? ""
+                
+                self.issuerCorpCode = try container.decode(String.self, forKey: .issuer_corp_code).removingPercentEncoding ?? ""
+                
+                self.kakaopayPurchaseCorp = try container.decode(String.self, forKey: .kakaopay_purchase_corp).removingPercentEncoding ?? ""
+                
+                self.kakaopayPurchaseCorpCode = try container.decode(String.self, forKey: .kakaopay_purchase_corp_code).removingPercentEncoding ?? ""
+                
+                self.kakaopayIssuerCorp = try container.decode(String.self, forKey: .kakaopay_issuer_corp).removingPercentEncoding ?? ""
+                
+                self.kakaopayIssuerCorpCode = try container.decode(String.self, forKey: .kakaopay_issuer_corp_code).removingPercentEncoding ?? ""
+            }
+        }
+        
+        let aid: String
+        let tid: String
+        let cid: String
+        let partnerOrderId: String
+        let partnerUserId: String
+        let paymentMethodType: String
+        let itemName: String
+        let quantity: Int
+        
+        let amount: Amount
+        let cardInfo: CardInfo?
+        
+        let createdAt: Date
+        let approvedAt: Date
+        
+        enum CodingKeys: String, CodingKey {
+            case aid, tid, cid, partner_order_id, partner_user_id, payment_method_type, item_name, quantity, amount, card_info, created_at, approved_at
+        }
+          
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            self.aid = try container.decode(String.self, forKey: .aid).removingPercentEncoding ?? ""
+            self.tid = try container.decode(String.self, forKey: .tid).removingPercentEncoding ?? ""
+            self.cid = try container.decode(String.self, forKey: .cid).removingPercentEncoding ?? ""
+            
+            self.partnerOrderId = try container.decode(String.self, forKey: .partner_order_id).removingPercentEncoding ?? ""
+            
+            self.partnerUserId = try container.decode(String.self, forKey: .partner_user_id).removingPercentEncoding ?? ""
+            
+            self.paymentMethodType = try container.decode(String.self, forKey: .payment_method_type).removingPercentEncoding ?? ""
+            
+            self.itemName = try container.decode(String.self, forKey: .item_name).removingPercentEncoding ?? ""
+            
+            self.quantity = try container.decode(Int.self, forKey: .quantity)
+            
+            self.amount = try container.decode(Amount.self, forKey: .amount)
+            
+            self.cardInfo = try container.decode(CardInfo.self, forKey: .card_info)
+            
+            let RFC3339DateFormatter = DateFormatter()
+            RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            RFC3339DateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+
+            let createdAtString = try container.decode(String.self, forKey: .created_at)
+              
+            self.createdAt = RFC3339DateFormatter.date(from: createdAtString) ?? Date()
+            
+            let approveddAtString = try container.decode(String.self, forKey: .approved_at)
+              
+            self.approvedAt = RFC3339DateFormatter.date(from: approveddAtString) ?? Date()
+        }
+    }
+    
+    struct Amount : Decodable {
+        let total: Int
+        let taxFree: Int
+        let vat: Int
+        let point: Int
+        let discount: Int
+        
+        enum CodingKeys: String, CodingKey {
+            case total, tax_free, vat, point, discount
+        }
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            self.total = try container.decode(Int.self, forKey: .total)
+            
+            self.taxFree = try container.decode(Int.self, forKey: .tax_free)
+            
+            self.vat = try container.decode(Int.self, forKey: .vat)
+            
+            self.point = try container.decode(Int.self, forKey: .point)
+            
+            self.discount = try container.decode(Int.self, forKey: .discount)
+        }
+    }
+    
     let api = API()
     let baseURL = "https://kapi.kakao.com/v1/payment"
     
+    func query(completion: @escaping (Result<KakaoPayQuery, APIError>) -> Void) {
+        guard let queryURL = URL(string: "\(baseURL)/order") else {
+            return completion(.failure(.invalidURL))
+        }
+        
+        let queryJSON = try? JSONEncoder().encode(
+            QueryRequest(cid: "TC0ONETIME", tid: "T12345567890123456789")
+        )
+
+    }
     
     func ready(completion: @escaping (Result<KakaoPayReady, APIError>) -> Void) {
         guard let readyURL = URL(string: "\(baseURL)/ready") else {
@@ -142,5 +309,56 @@ struct KakaoPayAPI {
     }
     
     func approve(completion: @escaping (Result<KakaoPayApprove, APIError>) -> Void) {
+        guard let approveURL = URL(string: "\(baseURL)/approve") else {
+            return completion(.failure(.invalidURL))
+        }
+        
+        let queryJSON = try? JSONEncoder().encode(
+            ApproveRequest(
+                cid: "",
+                tid: "",
+                partnerOrderId: "",
+                partnerUserId: "",
+                pgToken: ""
+            )
+        )
+        
+        let queryDictionary = try? JSONSerialization.jsonObject(with: queryJSON ?? Data(), options: []) as? Dictionary<String, Any> ?? [:]
+        
+        let queryString = queryDictionary?.map {
+            return "\($0.key)=\($0.value)"
+        }.joined(separator: "&")
+        
+        let KAKAO_APP_KEY: String = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String ?? "KAKAO_APP_KEY is nil"
+
+        var request = URLRequest(url: approveURL)
+        request.httpMethod = "POST"
+        request.addValue("KakaoAK \(KAKAO_APP_KEY)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpBody = (queryString ?? "").data(using: .utf8)
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+//            guard error == nil else {
+//
+//            }
+
+            let response = response as? HTTPURLResponse
+
+            if (500 ..< 600) ~= response?.statusCode ?? 500 {
+                return completion(.failure(.invalidResponse))
+            }
+
+            guard let data = data else {
+                return completion(.failure(.invalidResponseData))
+            }
+
+            guard let result = try? JSONDecoder().decode(ApproveResponse.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+
+            let kakao = KakaoPayApprove()
+            completion(.success(kakao))
+        }
+        .resume()
     }
 }
