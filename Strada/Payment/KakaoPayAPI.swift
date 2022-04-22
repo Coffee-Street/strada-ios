@@ -9,6 +9,158 @@ import Foundation
 
 struct KakaoPayAPI {
     
+    struct QueryRequest : Encodable {
+        let cid: String
+        let tid: String
+        
+        enum CodingKeys: String, CodingKey {
+            case cid, tid
+        }
+        
+        func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            
+            try container.encode(cid, forKey: .cid)
+            try container.encode(tid, forKey: .tid)
+        }
+    }
+    
+    struct QueryResponse : Decodable {
+        
+        struct SelectedCardInfo : Decodable {
+            let cardBin: String
+            let installMonth: Int
+            let cardCorpName: String
+            let interestFreeInstall: String
+            
+            enum CodingKeys: String, CodingKey {
+                case card_bin, install_month, card_corp_name, interest_free_install
+            }
+            
+            init(from decoder: Decoder) throws {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                
+                self.cardBin = try container.decode(String.self, forKey: .card_bin).removingPercentEncoding ?? ""
+                
+                self.installMonth = try container.decode(Int.self, forKey: .install_month)
+                
+                self.cardCorpName = try container.decode(String.self, forKey: .card_corp_name).removingPercentEncoding ?? ""
+                
+                self.interestFreeInstall = try container.decode(String.self, forKey: .interest_free_install).removingPercentEncoding ?? ""
+            }
+        }
+        
+        struct PaymentActionDetail : Decodable {
+            let aid: String
+            let approvedAt: Date
+            let amount: Int
+            let pointAmount: Int
+            let discountAmount: Int
+            let paymentActionType: String
+            let payload: String
+            
+            enum CodingKeys: String, CodingKey {
+                case aid, approved_at, amount, point_amount, discount_amount, payment_action_type, payload
+            }
+              
+            init(from decoder: Decoder) throws {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                
+                self.aid = try container.decode(String.self, forKey: .aid).removingPercentEncoding ?? ""
+                
+                self.amount = try container.decode(Int.self, forKey: .amount)
+                
+                self.pointAmount = try container.decode(Int.self, forKey: .point_amount)
+                
+                self.discountAmount = try container.decode(Int.self, forKey: .discount_amount)
+                
+                self.paymentActionType = try container.decode(String.self, forKey: .payment_action_type).removingPercentEncoding ?? ""
+                
+                self.payload = try container.decode(String.self, forKey: .payload).removingPercentEncoding ?? ""
+                
+                let RFC3339DateFormatter = DateFormatter()
+                RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+                RFC3339DateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+
+                let approvedAtString = try container.decode(String.self, forKey: .approved_at)
+                  
+                self.approvedAt = RFC3339DateFormatter.date(from: approvedAtString) ?? Date()
+            }
+        }
+        
+        let tid: String
+        let cid: String
+        let status: String
+        let partnerOrderId: String
+        let partnerUserId: String
+        let paymentMethodType: String
+        let amount: Amount
+        let canceledAmount: CanceledAmount
+        let canceledAvailableAmount: CanceledAvailableAmount
+        let itemName: String
+        let itemCode: String
+        let quantity: Int
+        let createdAt: Date
+        let approvedAt: Date
+        let canceledAt: Date
+        let selectedCardInfo: SelectedCardInfo
+        let paymentActionDetails: [PaymentActionDetail]
+        
+        enum CodingKeys: String, CodingKey {
+            case tid, cid, status, partner_order_id, partner_user_id, payment_method_type, amount, canceled_amount, cancel_available_amount, item_name, item_code, quantity, created_at, approved_at, canceled_at, selected_card_info, payment_action_details
+        }
+          
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            self.tid = try container.decode(String.self, forKey: .tid).removingPercentEncoding ?? ""
+            
+            self.cid = try container.decode(String.self, forKey: .cid).removingPercentEncoding ?? ""
+            
+            self.status = try container.decode(String.self, forKey: .status).removingPercentEncoding ?? ""
+            
+            self.partnerOrderId = try container.decode(String.self, forKey: .partner_order_id).removingPercentEncoding ?? ""
+            
+            self.partnerUserId = try container.decode(String.self, forKey: .partner_user_id).removingPercentEncoding ?? ""
+            
+            self.paymentMethodType = try container.decode(String.self, forKey: .payment_method_type).removingPercentEncoding ?? ""
+            
+            self.amount = try container.decode(Amount.self, forKey: .amount)
+            
+            self.canceledAmount = try container.decode(CanceledAmount.self, forKey: .canceled_amount)
+            
+            self.canceledAvailableAmount = try container.decode(CanceledAvailableAmount.self, forKey: .cancel_available_amount)
+            
+            self.itemName = try container.decode(String.self, forKey: .item_name).removingPercentEncoding ?? ""
+            
+            self.itemCode = try container.decode(String.self, forKey: .item_code).removingPercentEncoding ?? ""
+            
+            self.quantity = try container.decode(Int.self, forKey: .quantity)
+            
+            let RFC3339DateFormatter = DateFormatter()
+            RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            RFC3339DateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+
+            let createdAtString = try container.decode(String.self, forKey: .created_at)
+              
+            self.createdAt = RFC3339DateFormatter.date(from: createdAtString) ?? Date()
+            
+            let approvedAtString = try container.decode(String.self, forKey: .approved_at)
+              
+            self.approvedAt = RFC3339DateFormatter.date(from: approvedAtString) ?? Date()
+            
+            let canceledAtString = try container.decode(String.self, forKey: .canceled_at)
+              
+            self.canceledAt = RFC3339DateFormatter.date(from: canceledAtString) ?? Date()
+            
+            self.selectedCardInfo = try container.decode(SelectedCardInfo.self, forKey: .selected_card_info)
+            
+            self.paymentActionDetails = try container.decode([PaymentActionDetail].self, forKey: .payment_action_details)
+        }
+    }
+    
     struct ReadyRequest : Encodable {
         let cid: String
         let partnerOrderId: String
@@ -209,6 +361,58 @@ struct KakaoPayAPI {
     }
     
     struct Amount : Decodable {
+        let total: Int
+        let taxFree: Int
+        let vat: Int
+        let point: Int
+        let discount: Int
+        
+        enum CodingKeys: String, CodingKey {
+            case total, tax_free, vat, point, discount
+        }
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            self.total = try container.decode(Int.self, forKey: .total)
+            
+            self.taxFree = try container.decode(Int.self, forKey: .tax_free)
+            
+            self.vat = try container.decode(Int.self, forKey: .vat)
+            
+            self.point = try container.decode(Int.self, forKey: .point)
+            
+            self.discount = try container.decode(Int.self, forKey: .discount)
+        }
+    }
+    
+    struct CanceledAmount : Decodable {
+        let total: Int
+        let taxFree: Int
+        let vat: Int
+        let point: Int
+        let discount: Int
+        
+        enum CodingKeys: String, CodingKey {
+            case total, tax_free, vat, point, discount
+        }
+        
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            
+            self.total = try container.decode(Int.self, forKey: .total)
+            
+            self.taxFree = try container.decode(Int.self, forKey: .tax_free)
+            
+            self.vat = try container.decode(Int.self, forKey: .vat)
+            
+            self.point = try container.decode(Int.self, forKey: .point)
+            
+            self.discount = try container.decode(Int.self, forKey: .discount)
+        }
+    }
+    
+    struct CanceledAvailableAmount : Decodable {
         let total: Int
         let taxFree: Int
         let vat: Int
