@@ -450,6 +450,43 @@ struct KakaoPayAPI {
             QueryRequest(cid: "TC0ONETIME", tid: "T12345567890123456789")
         )
 
+        let queryDictionary = try? JSONSerialization.jsonObject(with: queryJSON ?? Data(), options: []) as? Dictionary<String, Any> ?? [:]
+
+        let queryString = queryDictionary?.map {
+            return "\($0.key)=\($0.value)"
+        }.joined(separator: "&")
+        
+        let KAKAO_APP_KEY: String = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String ?? "KAKAO_APP_KEY is nil"
+
+        var request = URLRequest(url: queryURL)
+        request.httpMethod = "POST"
+        request.addValue("KakaoAK \(KAKAO_APP_KEY)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpBody = (queryString ?? "").data(using: .utf8)
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+//            guard error == nil else {
+//
+//            }
+
+            let response = response as? HTTPURLResponse
+
+            if (500 ..< 600) ~= response?.statusCode ?? 500 {
+                return completion(.failure(.invalidResponse))
+            }
+
+            guard let data = data else {
+                return completion(.failure(.invalidResponseData))
+            }
+
+            guard let result = try? JSONDecoder().decode(QueryResponse.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+
+            let kakao = KakaoPayQuery()
+            completion(.success(kakao))
+        }
+        .resume()
     }
     
     func ready(completion: @escaping (Result<KakaoPayReady, APIError>) -> Void) {

@@ -85,6 +85,29 @@ class PaymentViewModel : ObservableObject {
         return paymentItemViewModels.map { ( $0.orderItem.menu.price + 0 ) * $0.count }.reduce(0, +)
     }
     
+    func kakaoPayQuery() {
+        kakaoAPI.query() { result in
+            switch(result) {
+            case .success(let query):
+                DispatchQueue.main.async {
+                    print("success kakaopay query, \(query)")
+                }
+            case .failure(let error):
+                switch(error) {
+                case .none:
+                    print("에러가 발생하지 않았습니다.")
+                case .invalidURL: fallthrough
+                case .invalidRequest: fallthrough
+                case .invalidResponse: fallthrough
+                case .invalidResponseData: fallthrough
+                case .decodingFailed: fallthrough
+                default:
+                    print("query 할 수 없습니다. \(error)")
+                }
+            }
+        }
+    }
+    
     func kakaoPayReady(callback: @escaping (KakaoPayReady) -> Void) {
         kakaoAPI.ready() { result in
             switch(result) {
@@ -105,6 +128,31 @@ class PaymentViewModel : ObservableObject {
                     print("ready 할 수 없습니다. \(error)")
                 }
             }
+        }
+    }
+    
+    func kakaoPayApprove() {
+        kakaoAPI.approve() { result in
+            switch(result) {
+            case .success(let approve):
+                DispatchQueue.main.async {
+                    print("approve 할 수 있습니다. \(approve)")
+                }
+            case .failure(let error):
+                switch(error) {
+                case .none:
+                    print("에러가 발생하지 않았습니다.")
+                case .invalidURL: fallthrough
+                case .invalidRequest: fallthrough
+                case .invalidResponse: fallthrough
+                case .invalidResponseData: fallthrough
+                case .decodingFailed: fallthrough
+                default:
+                    print("approve 할 수 없습니다. \(error)")
+                }
+                
+            }
+            
         }
     }
 }
