@@ -119,6 +119,7 @@ struct PaymentView : View {
                             print("PaymentView url scheme: \(String(describing: url.scheme)), url host: \(String(describing: url.host)), path: \(String(describing: url.path))")
                             
                             if url.host == "payment" && url.path == "/succeed" {
+                                viewModel.kakaoPayApprove()
                             }
                         }
                         Spacer()
