@@ -549,7 +549,7 @@ struct KakaoPayAPI {
         .resume()
     }
     
-    func approve(completion: @escaping (Result<KakaoPayApprove, APIError>) -> Void) {
+    func approve(pgToken: String, completion: @escaping (Result<KakaoPayApprove, APIError>) -> Void) {
         guard let approveURL = URL(string: "\(baseURL)/approve") else {
             return completion(.failure(.invalidURL))
         }
@@ -560,7 +560,7 @@ struct KakaoPayAPI {
                 tid: "",
                 partnerOrderId: "",
                 partnerUserId: "",
-                pgToken: ""
+                pgToken: pgToken
             )
         )
         

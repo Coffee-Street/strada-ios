@@ -122,8 +122,10 @@ struct PaymentView : View {
                             if url.host == "payment" && url.path == "/succeed" {
                                 if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true) {
                                     for query in components.queryItems! {
-                                        print(query.name)
-                                        print(query.value!)
+                                        print("\(query.name): \(query.value!)")
+                                        if(query.name == "pg_token") {
+                                            viewModel.kakaoPayApprove(pgToken: query.value!)
+                                        }
                                     }
                                 }
                             }

@@ -131,8 +131,8 @@ class PaymentViewModel : ObservableObject {
         }
     }
     
-    func kakaoPayApprove() {
-        kakaoAPI.approve() { result in
+    func kakaoPayApprove(pgToken: String) {
+        kakaoAPI.approve(pgToken: pgToken) { result in
             switch(result) {
             case .success(let approve):
                 DispatchQueue.main.async {
