@@ -13,6 +13,7 @@ struct PaymentView : View {
     @StateObject private var viewModel = PaymentViewModel()
     
     @Environment(\.openURL) var openURL
+    @Environment(\.scenePhase) var scenePhase
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -119,7 +120,21 @@ struct PaymentView : View {
                             print("PaymentView url scheme: \(String(describing: url.scheme)), url host: \(String(describing: url.host)), path: \(String(describing: url.path))")
                             
                             if url.host == "payment" && url.path == "/succeed" {
-                                viewModel.kakaoPayApprove()
+                                if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true) {
+                                    for query in components.queryItems! {
+                                        print(query.name)
+                                        print(query.value!)
+                                    }
+                                }
+                            }
+                        }
+                        .onChange(of: scenePhase) { newPhase in
+                            if newPhase == .inactive {
+                                print("Inactive")
+                            } else if newPhase == .active {
+                                //TODO: 여기서 pg_token을 받아오는 query를 BE에 요청하거나 Deeplink로 pg_token을 받아와야 함
+                            } else if newPhase == .background {
+                                print("Background")
                             }
                         }
                         Spacer()
