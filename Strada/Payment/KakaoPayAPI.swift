@@ -343,7 +343,7 @@ struct KakaoPayAPI {
             
             self.amount = try container.decode(Amount.self, forKey: .amount)
             
-            self.cardInfo = try container.decode(CardInfo.self, forKey: .card_info)
+            self.cardInfo = try? container.decode(CardInfo.self, forKey: .card_info)
             
             let RFC3339DateFormatter = DateFormatter()
             RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
@@ -549,17 +549,17 @@ struct KakaoPayAPI {
         .resume()
     }
     
-    func approve(pgToken: String, completion: @escaping (Result<KakaoPayApprove, APIError>) -> Void) {
+    func approve(tid: String, pgToken: String, completion: @escaping (Result<KakaoPayApprove, APIError>) -> Void) {
         guard let approveURL = URL(string: "\(baseURL)/approve") else {
             return completion(.failure(.invalidURL))
         }
         
         let queryJSON = try? JSONEncoder().encode(
             ApproveRequest(
-                cid: "",
-                tid: "",
-                partnerOrderId: "",
-                partnerUserId: "",
+                cid: "TC0ONETIME",
+                tid: tid,
+                partnerOrderId: "partner_order_id",
+                partnerUserId: "partner_user_id",
                 pgToken: pgToken
             )
         )

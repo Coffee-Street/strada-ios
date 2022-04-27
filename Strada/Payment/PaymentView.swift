@@ -87,7 +87,6 @@ struct PaymentView : View {
                     } // HStack
                     .padding(.vertical)
                     
-                    
                     Divider()
                         .background(.white)
                     
@@ -106,8 +105,9 @@ struct PaymentView : View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            viewModel.kakaoPayReady() { kakaoPayment in
-                                openURL(URL(string: kakaoPayment.appUrl)!)
+                            viewModel.kakaoPayReady() { kakaoPayReady in
+                                print("tid: \(kakaoPayReady.tid)")
+                                openURL(URL(string: kakaoPayReady.appUrl)!)
                             }
                         }) {
                             Text("카카오페이 결제")
@@ -121,12 +121,21 @@ struct PaymentView : View {
                             
                             if url.host == "payment" && url.path == "/succeed" {
                                 if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true) {
+                                    
+                                    var tid: String = ""
+                                    var pgToken: String = ""
+                                    
                                     for query in components.queryItems! {
                                         print("\(query.name): \(query.value!)")
-                                        if(query.name == "pg_token") {
-                                            viewModel.kakaoPayApprove(pgToken: query.value!)
+                                        
+                                        if query.name == "tid" {
+                                            tid = query.value!
+                                        } else if query.name == "pg_token" {
+                                            pgToken = query.value!
                                         }
                                     }
+                                    
+                                    viewModel.kakaoPayApprove(tid: tid, pgToken: pgToken)
                                 }
                             }
                         }
