@@ -108,6 +108,7 @@ struct PaymentView : View {
                             viewModel.kakaoPayReady() { kakaoPayReady in
                                 print("tid: \(kakaoPayReady.tid)")
                                 openURL(URL(string: kakaoPayReady.appUrl)!)
+                                //openURL(URL(string: kakaoPayReady.mobileUrl)!)
                             }
                         }) {
                             Text("카카오페이 결제")
@@ -119,23 +120,40 @@ struct PaymentView : View {
                         .onOpenURL { url in
                             print("PaymentView url scheme: \(String(describing: url.scheme)), url host: \(String(describing: url.host)), path: \(String(describing: url.path))")
                             
-                            if url.host == "payment" && url.path == "/succeed" {
-                                if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true) {
-                                    
-                                    var tid: String = ""
-                                    var pgToken: String = ""
-                                    
-                                    for query in components.queryItems! {
-                                        print("\(query.name): \(query.value!)")
+                            if url.host == "payment" {
+                                if url.path == "/success" {
+                                    if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true) {
                                         
-                                        if query.name == "tid" {
-                                            tid = query.value!
-                                        } else if query.name == "pg_token" {
-                                            pgToken = query.value!
+                                        var tid: String = ""
+                                        var pgToken: String = ""
+                                        
+                                        for query in components.queryItems! {
+                                            print("\(query.name): \(query.value!)")
+                                            
+                                            if query.name == "tid" {
+                                                tid = query.value!
+                                            } else if query.name == "pg_token" {
+                                                pgToken = query.value!
+                                            }
+                                        }
+                                        
+                                        viewModel.kakaoPayApprove(tid: tid, pgToken: pgToken) { kakaoPayApprove in
+                                            
                                         }
                                     }
                                     
-                                    viewModel.kakaoPayApprove(tid: tid, pgToken: pgToken)
+                                    //TODO: Clear Basket
+                                    
+                                    //TODO: Move PaymentResultView -> Success
+                                    controller.goPaymentSuccess()
+                                } else if url.path == "/fail" {
+                                    //TODO: Move PaymentResultView -> Failed
+                                    //controller.goPaymentFail()
+                                } else if url.path == "/cancel" {
+                                    //TODO: Alert Cancel
+                                    viewModel.isCanceledPayment = true
+                                } else {
+                                    print("Invalid url path: \(url.path)")
                                 }
                             }
                         }
@@ -147,6 +165,9 @@ struct PaymentView : View {
                             } else if newPhase == .background {
                                 print("Background")
                             }
+                        }
+                        .alert(isPresented: $viewModel.isCanceledPayment) {
+                            Alert(title: Text("결제 취소"), message: Text("결제를 취소하셨습니다."), dismissButton: .default(Text("확인")))
                         }
                         Spacer()
                     }.padding()

@@ -8,6 +8,9 @@
 import Foundation
 
 class PaymentViewModel : ObservableObject {
+    
+    @Published var isCanceledPayment: Bool = false
+    
     @Published var usePoint: Int = 0
     @Published var availablePoint: Int = 0
     
@@ -90,7 +93,7 @@ class PaymentViewModel : ObservableObject {
             switch(result) {
             case .success(let query):
                 DispatchQueue.main.async {
-                    print("success kakaopay query, \(query)")
+                    print("query 되었습니다. \(query)")
                 }
             case .failure(let error):
                 switch(error) {
@@ -113,6 +116,7 @@ class PaymentViewModel : ObservableObject {
             switch(result) {
             case .success(let ready):
                 DispatchQueue.main.async {
+                    print("ready 되었습니다. \(ready)")
                     callback(ready)
                 }
             case .failure(let error):
@@ -131,12 +135,13 @@ class PaymentViewModel : ObservableObject {
         }
     }
     
-    func kakaoPayApprove(tid: String, pgToken: String) {
+    func kakaoPayApprove(tid: String, pgToken: String, callback: @escaping (KakaoPayApprove) -> Void) {
         kakaoAPI.approve(tid: tid, pgToken: pgToken) { result in
             switch(result) {
             case .success(let approve):
                 DispatchQueue.main.async {
-                    print("approve 할 수 있습니다. \(approve)")
+                    print("approve 되었습니다. \(approve)")
+                    callback(approve)
                 }
             case .failure(let error):
                 switch(error) {
