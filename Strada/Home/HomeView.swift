@@ -105,10 +105,10 @@ struct HomeView : View {
                     }
                     .navigationBarTitle(Text(""), displayMode: .inline)
                 } // VStack
-                
-                if self.isOpenedVoc {
-                    VoiceOfCustomerView(isOpened: $isOpenedVoc)
-                }
+
+//                if self.isOpenedVoc {
+//                    VoiceOfCustomerView(isOpened: $isOpenedVoc)
+//                }
                 
                 if self.isOpenedNotice {
                     NoticeView(controller: controller, isOpened: $isOpenedNotice)
@@ -118,16 +118,25 @@ struct HomeView : View {
                     ProfileView(controller: controller, isOpened: $isOpenedProfile)
                 }
                 
-                if self.isOpenedOrder {
-                    OrderView(controller: controller, isOpened: $isOpenedOrder)
-                        .transition(.move(edge: .bottom))
-                        .transition(AnyTransition.opacity.animation(.easeInOut))
-                }
-                
+//                if self.isOpenedOrder {
+//                    OrderView(controller: controller, isOpened: $isOpenedOrder)
+//                        .transition(.move(edge: .bottom))
+//                        .transition(AnyTransition.opacity.animation(.easeInOut))
+//                }
             } // ZStack
             .background(.white)
-//            .edgesIgnoringSafeArea(.all)
+            .padding(.top, 90)
+            .edgesIgnoringSafeArea(.all)
+            
         } // NavigationView
+        .fullScreenCover(isPresented: $isOpenedVoc) {
+            VoiceOfCustomerView(isOpened: $isOpenedVoc)
+        }
+        .fullScreenCover(isPresented: $isOpenedOrder) {
+            NavigationView {
+                OrderView(controller: controller, isOpened: $isOpenedOrder)
+            }
+        }
         .onOpenURL { url in
             print("HomView url scheme: \(String(describing: url.scheme)), url host: \(String(describing: url.host))")
         }

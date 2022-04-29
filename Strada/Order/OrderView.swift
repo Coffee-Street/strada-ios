@@ -12,6 +12,8 @@ struct OrderView : View {
     
     @Binding var isOpened: Bool
     
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         ZStack(alignment: .top) {
             ScrollView {
@@ -26,7 +28,8 @@ struct OrderView : View {
                         HStack {
                             Spacer()
                             Button(action: {
-                                isOpened = false
+//                                isOpened = false
+                                presentationMode.wrappedValue.dismiss()
                             }) {
                                 Image(systemName: "multiply")
                                     .foregroundColor(.appBlue)
@@ -37,14 +40,21 @@ struct OrderView : View {
                         Spacer()
                     } // VStack
                 } // ZStack
-                .background(.white)
+                .padding(.vertical, 80)
             } // ScrollView
-        } // ZStack    
+        } // ZStack
+        .background(.white)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 
 struct OrderView_Previews : PreviewProvider {
     static var previews: some View {
-        OrderView(controller: CurrentViewController("order"), isOpened: .constant(false))
+        Group {
+            OrderView(controller: CurrentViewController("order"), isOpened: .constant(false))
+            OrderView(controller: CurrentViewController("order"), isOpened: .constant(false))
+                .previewDevice("iPhone 8")
+        }
+        
     }
 }

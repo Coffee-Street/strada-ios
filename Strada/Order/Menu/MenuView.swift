@@ -28,7 +28,6 @@ struct MenuView : View {
                     viewModel.selectedCategory = viewModel.categories.first ?? ""
                 }
                 
-                
                 VStack {
                     if viewModel.getMenusByCategory(selected: viewModel.selectedCategory).count > 0 {
                         ForEach(viewModel.getMenusByCategory(selected: viewModel.selectedCategory)) { menu in
