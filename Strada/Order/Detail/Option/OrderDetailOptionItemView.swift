@@ -13,12 +13,9 @@ struct OrderDetailOptionItemView : View {
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             Image(option.isSelected ? "\(option.imageName).active" : option.imageName)
-                .font(.system(size: 20))
-                .padding(.horizontal)
             Text(option.title)
                 .font(.system(size: 13, weight: .bold))
                 .foregroundColor(option.isSelected ? .appBlue : .appLightGray)
-                .padding(.horizontal)
         }
     }
 }
