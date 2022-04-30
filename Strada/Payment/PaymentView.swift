@@ -49,6 +49,7 @@ struct PaymentView : View {
                     .padding(.vertical)
                     
                     Divider()
+                        .frame(height: 1)
                         .background(.white)
                     
                     HStack {
@@ -88,6 +89,7 @@ struct PaymentView : View {
                     .padding(.vertical)
                     
                     Divider()
+                        .frame(height: 1)
                         .background(.white)
                     
                     HStack {
