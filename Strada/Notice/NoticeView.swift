@@ -8,47 +8,46 @@
 import SwiftUI
 
 struct NoticeView : View {
-    
     @ObservedObject var controller: CurrentViewController
-    
-    @Binding var isOpened: Bool
     
     @State private var isOpenedReceipt: Bool = false
     
     @StateObject private var viewModel = NoticeViewModel()
-
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
-        ZStack {
-            VStack(alignment: .leading) {
-                Text("알림 센터")
+        ZStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
+                Text("알림센터")
                     .foregroundColor(.appBlue)
                     .font(.system(size: 22, weight: .bold))
-                    .padding(.bottom)
+                    .padding(.bottom, 36)
                 
                 CategoryView(categories: viewModel.categories, selected: $viewModel.selectedCategory)
-                    .padding(.vertical)
                     .onAppear {
                         viewModel.selectedCategory = viewModel.categories.first ?? ""
                     }
+                    .padding(.bottom, 34)
                 
                 ScrollView {
                     ForEach(viewModel.getNoticesByCagetory(category: viewModel.selectedCategory)) { notice in
                         NoticeItemView(notice: notice)
-                            .padding(.bottom)
+                            .padding(.bottom, 8)
                             .onTapGesture {
                                 isOpenedReceipt.toggle()
                             }
                     }
                 }
-                .padding(.vertical)
+                .padding(.trailing, 24)
             }
-            .padding()
+            .padding(.leading, 24)
             
             VStack {
                 HStack {
                     Spacer()
                     Button(action: {
-                        isOpened = false
+                        presentationMode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "multiply")
                             .foregroundColor(.appBlue)
