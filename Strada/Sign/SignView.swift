@@ -20,7 +20,7 @@ struct SignView : View {
     }
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             Spacer()
             HStack {
                 Spacer()
@@ -28,8 +28,9 @@ struct SignView : View {
                     .padding(.bottom, 50)
                 Spacer()
             }
+            .padding(.bottom, 24)
             
-            VStack {
+            VStack(spacing: 0) {
                 TextField("전화번호를 입력해주세요", text: $viewModel.phoneNumber)
                     .foregroundColor(.appBlack)
                     .font(.system(size: 15))
@@ -38,9 +39,12 @@ struct SignView : View {
                     .padding(.bottom, 20)
                     .overlay(VStack {
                         Divider()
-                            .offset(x: 0, y: 15)
+                            .frame(height: /*isFocused ? 2 : */1)
+                            .background(/*isFocused ? Color.appBlue :*/ Color.appVeryLightGray)
+                            .offset(x: 0, y: 9)
                     })
             }
+            .padding(.bottom, 25)
             
             HStack {
                 Spacer()
@@ -67,26 +71,31 @@ struct SignView : View {
                 Spacer()
             }
             .frame(height: 40)
-            .background(isValidPhoneNumber() ? Color.appBlue : Color.appBrownGray)
+            .background(isValidPhoneNumber() ? Color.appBlue : Color.appVeryLightGray)
+            .padding(.bottom, 8)
             
             HStack {
                 Button(action: {
                     viewModel.isAutoLogin.toggle()
                 }) {
-                    HStack {
+                    HStack(spacing: 0) {
                         Text("자동 로그인")
                             .font(.system(size: 10))
                             .foregroundColor(viewModel.isAutoLogin ? .appBlue : .appBrownGray)
-                        Image(systemName: viewModel.isAutoLogin ? "checkmark" : "")
-                            .font(.system(size: 10))
-                            .padding(.leading, 5)
-                            .padding(.bottom, 5)
-                            .frame(width: 14, height: 14)
-                            .clipShape(Circle())
+                            .padding(.trailing, 6)
+
+                        Circle()
+                            .stroke(lineWidth: 1)
+                            .foregroundColor(viewModel.isAutoLogin ? .appBlue : .appBrownGray)
+                            .frame(width: 17, height: 17)
                             .overlay(
-                                Circle()
-                                    .stroke(lineWidth: 2)
-                                    .foregroundColor(viewModel.isAutoLogin ? .appBlue : .appBrownGray))
+                                Image(systemName: viewModel.isAutoLogin ? "checkmark" : "")
+                                    .foregroundColor(.appBlue)
+                                    .font(.system(size: 15, weight: .semibold))
+                                    .padding(.leading, 3)
+                                    .padding(.bottom, 3)
+//                                    .clipShape(Circle())
+                                )
                         Spacer()
                     }
                 }
@@ -96,7 +105,7 @@ struct SignView : View {
             
             Spacer()
         }
-        .padding()
+        .padding(.horizontal, 24)
         .background(.white)
         .onOpenURL { url in
             print("SignView url scheme: \(String(describing: url.scheme)), url host: \(String(describing: url.host))")
