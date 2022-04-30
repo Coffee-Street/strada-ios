@@ -56,18 +56,19 @@ struct NoticeView : View {
                 }
                 Spacer()
             } // VStack
-            .padding()
+            .padding(.trailing, 24)
             
             if isOpenedReceipt {
                 ReceiptView(controller: controller, isOpened: $isOpenedReceipt)
             }
         } // ZStack
         .background(.white)
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
 struct NoticeView_Previews : PreviewProvider {
     static var previews: some View {
-        NoticeView(controller: CurrentViewController("notification"), isOpened: .constant(false))
+        NoticeView(controller: CurrentViewController("notification"))
     }
 }
