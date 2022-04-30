@@ -61,7 +61,6 @@ struct BannerItemView : View {
         .background(Color.appBlue)
         .cornerRadius(40, corners: .bottomLeft)
         .cornerRadius(40, corners: .topLeft)
-        .padding(.leading, 30)
     }
 }
 

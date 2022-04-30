@@ -12,6 +12,9 @@ struct PaymentView : View {
     
     @StateObject private var viewModel = PaymentViewModel()
     
+    @Environment(\.openURL) var openURL
+    @Environment(\.scenePhase) var scenePhase
+    
     var body: some View {
         ZStack(alignment: .leading) {
             ScrollView {
@@ -46,6 +49,7 @@ struct PaymentView : View {
                     .padding(.vertical)
                     
                     Divider()
+                        .frame(height: 1)
                         .background(.white)
                     
                     HStack {
@@ -84,8 +88,8 @@ struct PaymentView : View {
                     } // HStack
                     .padding(.vertical)
                     
-                    
                     Divider()
+                        .frame(height: 1)
                         .background(.white)
                     
                     HStack {
@@ -99,6 +103,77 @@ struct PaymentView : View {
                             .foregroundColor(.white)
                             .font(.system(size: 22, weight: .medium))
                     } // HStack
+                    
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            viewModel.kakaoPayReady() { kakaoPayReady in
+                                print("tid: \(kakaoPayReady.tid)")
+                                openURL(URL(string: kakaoPayReady.appUrl)!)
+                                //openURL(URL(string: kakaoPayReady.mobileUrl)!)
+                            }
+                        }) {
+                            Text("카카오페이 결제")
+                                .foregroundColor(Color.white)
+                                .font(.system(size: 20, weight: .bold))
+                        }
+                        // 모든 View라면 다 들고 있다는 onOpenURL인데.. 어떻게 쓰는건지 모르곘다
+                        // 이거랑 딥링크 삽질했는데 딥링크는 전혀 다른거였다고 한다... URL Scheme도 생각한 것과 다른 것이었다
+                        .onOpenURL { url in
+                            print("PaymentView url scheme: \(String(describing: url.scheme)), url host: \(String(describing: url.host)), path: \(String(describing: url.path))")
+                            
+                            if url.host == "payment" {
+                                if url.path == "/success" {
+                                    if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true) {
+                                        
+                                        var tid: String = ""
+                                        var pgToken: String = ""
+                                        
+                                        for query in components.queryItems! {
+                                            print("\(query.name): \(query.value!)")
+                                            
+                                            if query.name == "tid" {
+                                                tid = query.value!
+                                            } else if query.name == "pg_token" {
+                                                pgToken = query.value!
+                                            }
+                                        }
+                                        
+                                        viewModel.kakaoPayApprove(tid: tid, pgToken: pgToken) { kakaoPayApprove in
+                                            
+                                        }
+                                    }
+                                    
+                                    //TODO: Clear Basket
+                                    
+                                    //TODO: Move PaymentResultView -> Success
+                                    controller.goPaymentSuccess()
+                                } else if url.path == "/fail" {
+                                    //TODO: Move PaymentResultView -> Failed
+                                    //controller.goPaymentFail()
+                                } else if url.path == "/cancel" {
+                                    //TODO: Alert Cancel
+                                    viewModel.isCanceledPayment = true
+                                } else {
+                                    print("Invalid url path: \(url.path)")
+                                }
+                            }
+                        }
+                        .onChange(of: scenePhase) { newPhase in
+                            if newPhase == .inactive {
+                                print("Inactive")
+                            } else if newPhase == .active {
+                                //TODO: 여기서 pg_token을 받아오는 query를 BE에 요청하거나 Deeplink로 pg_token을 받아와야 함
+                            } else if newPhase == .background {
+                                print("Background")
+                            }
+                        }
+                        .alert(isPresented: $viewModel.isCanceledPayment) {
+                            Alert(title: Text("결제 취소"), message: Text("결제를 취소하셨습니다."), dismissButton: .default(Text("확인")))
+                        }
+                        Spacer()
+                    }.padding()
+                    
                 } // VStack
                 .padding()
             }

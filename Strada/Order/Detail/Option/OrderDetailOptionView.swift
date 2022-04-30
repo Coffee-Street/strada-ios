@@ -19,6 +19,7 @@ struct OrderDetailOptionView : View {
                     }
                 }) {
                     OrderDetailOptionItemView(option: $option.items[index])
+                        .padding(.trailing, 40)
                 }
             }
         }

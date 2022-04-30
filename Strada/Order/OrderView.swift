@@ -10,41 +10,48 @@ import SwiftUI
 struct OrderView : View {
     @ObservedObject var controller: CurrentViewController
     
-    @Binding var isOpened: Bool
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        ZStack(alignment: .top) {
+        NavigationView {
             ScrollView {
                 ZStack(alignment: .top) {
                     VStack(alignment: .leading, spacing: 0) {
                         MenuView(controller: controller)
                     } // VStack
-                    .padding(.horizontal)
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight:0, alignment: Alignment.topLeading)
+                    .padding(.leading, 24)
+                    .padding(.trailing, 24)
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, alignment: Alignment.topLeading)
                     
                     VStack(alignment: .leading, spacing: 0) {
                         HStack {
                             Spacer()
                             Button(action: {
-                                isOpened = false
+                                presentationMode.wrappedValue.dismiss()
                             }) {
                                 Image(systemName: "multiply")
                                     .foregroundColor(.appBlue)
                                     .font(.system(size: 30))
                             }
                         }
-                        .padding(.trailing)
                         Spacer()
                     } // VStack
+                    .padding(.trailing, 24)
                 } // ZStack
-                .background(.white)
             } // ScrollView
-        } // ZStack    
+            .background(.white)
+            .edgesIgnoringSafeArea(.bottom)
+        } //NavigationView
     }
 }
 
 struct OrderView_Previews : PreviewProvider {
     static var previews: some View {
-        OrderView(controller: CurrentViewController("order"), isOpened: .constant(false))
+        Group {
+            OrderView(controller: CurrentViewController("order"))
+            OrderView(controller: CurrentViewController("order"))
+                .previewDevice("iPhone 8")
+        }
+        
     }
 }

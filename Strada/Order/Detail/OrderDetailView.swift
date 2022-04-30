@@ -17,101 +17,115 @@ struct OrderDetailView : View {
     
     @State private var isDetail = false
     
+    @State private var askMoveBag = false
+    
+    @State private var isActive = false
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     let menu_id: UUID
     
     var body: some View {
         ZStack {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
-                    VStack(alignment: .center, spacing: 0) {
-                        Image("drinkHeader")
-                    }
+                    Image("drinkHeader")
                     .frame(minWidth: 0, maxWidth: .infinity)
                     
-                    HStack {
-                        HStack {
-                            Text(viewModel.menu.name.kr)
-                                .fontWeight(.medium)
-                            Text(viewModel.menu.name.en)
-                                .fontWeight(.thin)
-                        }
-                        
-                        Spacer()
-                        
-                        Button(action: {
-                            self.isFavorite.toggle()
-                        }) {
-                            Image(systemName: isFavorite ? "heart.fill" : "heart")
-                                .font(.system(size: 20, weight: .medium))
-                                .foregroundColor(.appBlue)
-                        }
-                    }
-                    .padding(.horizontal)
-                    .padding(.top, 20)
-                    .padding(.bottom, 10)
-                    
-                    HStack {
-                        ForEach(viewModel.hashTags, id: \.self) { hashtag in
-                            Text("#\(hashtag)")
-                        }
-                        
-                        Button(action: {
-                                self.isDetail = true
-                        }) {
-                            if self.isDetail == false {
-                                Text("자세히")
-                                    .foregroundColor(.appLightGray)
-                            }
-                        }
-                    }
-                    .padding(.horizontal)
-                    
                     VStack(alignment: .leading, spacing: 0) {
-                        if self.isDetail {
-                            if let lastIdx = viewModel.detailContent.lastIndex(of: "\n")  {
-                                Text(viewModel.detailContent[..<lastIdx])
-                                
-                                let lastRange = viewModel.detailContent.index(after: lastIdx)..<viewModel.detailContent.endIndex
-                                
-                                HStack {
-                                    Text(viewModel.detailContent[lastRange])
-                                    Button(action: {
-                                        self.isDetail = false
-                                    }) {
-                                        Text("접기")
-                                            .foregroundColor(.appLightGray)
-                                    }
-                                }
-                            } else {
-                                
+                        HStack {
+                            HStack {
+                                Text(viewModel.menu.name.kr)
+                                    .fontWeight(.medium)
+                                Text(viewModel.menu.name.en)
+                                    .fontWeight(.thin)
+                            }
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                isFavorite.toggle()
+                            }) {
+                                Image(isFavorite ? "heart.active" : "heart")
+                                    
                             }
                         }
-                    }
-                    .padding(.horizontal)
-                    .padding(.bottom)
+                        .padding(.top, 20)
+                        .padding(.bottom, 10)
+                        
+                        HStack {
+                            ForEach(viewModel.hashTags, id: \.self) { hashtag in
+                                Text("#\(hashtag)")
+                            }
+                            
+                            Button(action: {
+                                    self.isDetail = true
+                            }) {
+                                if self.isDetail == false {
+                                    Text("자세히")
+                                        .foregroundColor(.appLightGray)
+                                }
+                            }
+                        } // HStack
+                        
+                        VStack(alignment: .leading, spacing: 0) {
+                            if self.isDetail {
+                                if let lastIdx = viewModel.detailContent.lastIndex(of: "\n")  {
+                                    Text(viewModel.detailContent[..<lastIdx])
+                                    
+                                    let lastRange = viewModel.detailContent.index(after: lastIdx)..<viewModel.detailContent.endIndex
+                                    
+                                    HStack {
+                                        Text(viewModel.detailContent[lastRange])
+                                        Button(action: {
+                                            self.isDetail = false
+                                        }) {
+                                            Text("접기")
+                                                .foregroundColor(.appLightGray)
+                                        }
+                                    }
+                                } else {
+                                    
+                                }
+                            }
+                        } // VStack
+                    } // VStack
+                    .padding(.leading, 24)
+                    .padding(.trailing, 16)
+                    .padding(.bottom, 24)
                     
                     VStack(alignment: .leading, spacing: 0) {
                         ForEach(viewModel.options.indices, id: \.self) { index in
                             OrderDetailOptionView(option: $viewModel.options[index])
                         }
                     } // VStack
+                    .padding(.leading, 24)
                     
                     Divider()
-                        .padding()
+                        .frame(height: 1)
+                        .background(Color.appVeryLightGray)
+                        .padding(.top, 24)
+                        .padding(.bottom, 16)
+                        .padding(.leading, 24)
+                        
                     
                     OrderDetailDrinkPersonalOptionView(personalOptions: $viewModel.personalOptions)
-//                    OrderDetailBeanPersonalOptionView()
-                        .padding(.horizontal)
-                }
-            }
+                        .padding(.leading, 24)
+                        .padding(.trailing, 24)
+                } // VStack
+                .padding(.bottom, 80)
+            } // ScrollView
             .padding(.bottom, 80)
-            .edgesIgnoringSafeArea(.top)
             
             VStack {
                 Spacer()
                 HStack(alignment: .center, spacing: 0) {
+                    NavigationLink(destination: PaymentView(controller: controller), isActive: $isActive) {
+                        EmptyView()
+                    }
+                    
                     Button(action: {
-                        
+                        askMoveBag.toggle()
                     }){
                         Text("장바구니")
                             .foregroundColor(viewModel.isOrderable() ? .white : .appBrownGray)
@@ -120,6 +134,15 @@ struct OrderDetailView : View {
                     .frame(height: 96)
                     .disabled(viewModel.isOrderable() == false)
                     .background(viewModel.isOrderable() ? Color.appBlue : Color.appVeryLightGray)
+                    .alert(isPresented: $askMoveBag) {
+                        Alert(title: Text("장바구니에 담겼습니다"), message: Text("장바구니로 이동하시겠습니까?"), primaryButton: .default(Text("이동")) {
+                                isActive.toggle()
+                            },
+                            secondaryButton: .default(Text("돌아가기")) {
+                                presentationMode.wrappedValue.dismiss()
+                            }
+                        )
+                    }
                     
                     NavigationLink(destination: PaymentView(controller: controller)) {
                         Text("바로주문")
@@ -132,9 +155,9 @@ struct OrderDetailView : View {
                 }
                 .navigationBarTitle(Text(""), displayMode: .inline)
             }
-            .edgesIgnoringSafeArea(.bottom)
         } // ZStack
         .background(.white)
+        .edgesIgnoringSafeArea(.all)
     }
 }
 

@@ -18,6 +18,7 @@ struct HistoryItemView : View {
                 Text("\(history.point > 0 ? "+" : "")\(history.point)P")
                     .foregroundColor(getPointFontColor())
                     .fontWeight(.regular)
+                    .padding(.bottom, 4)
                 Text(history.date)
                     .foregroundColor(.appBrownGray)
                     .fontWeight(.medium)
@@ -31,5 +32,11 @@ struct HistoryItemView : View {
     
     func getPointFontColor() -> Color {
         return history.point > 0 ? .appBlue : history.point < 0 ? .appOrange : .appBlack
+    }
+}
+
+struct HistoryItemView_Previews : PreviewProvider {
+    static var previews: some View {
+        HistoryItemView(history: History(id: 1, type: HistoryType.REWARD, title: "hello", point: 100000000, date: "2022.04.29"))
     }
 }

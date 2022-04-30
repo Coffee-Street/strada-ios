@@ -14,20 +14,20 @@ struct HistoryView : View {
     @StateObject var viewModel = HistoryViewModel()
     
     var body: some View {
-        VStack(alignment: .leading) {
-            HStack {
+        VStack(alignment: .leading, spacing: 0) {
+            HStack() {
                 CategoryView(categories: viewModel.categories, selected: $viewModel.selectedCategory)
-                    .padding(.bottom)
                     .onAppear {
                         viewModel.selectedCategory = viewModel.categories.first ?? ""
                     }
                 Spacer()
             }
+            .padding(.bottom, 32)
             
             ScrollView {
                 ForEach(viewModel.getHistoriesByCategory(category: viewModel.selectedCategory)) { history in
                     HistoryItemView(history: history)
-                        .padding(.bottom)
+                        .padding(.bottom, 8)
                         .onTapGesture {
                             isOpenedReceipt.toggle()
                         }

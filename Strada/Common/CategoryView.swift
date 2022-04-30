@@ -20,7 +20,7 @@ struct CategoryView : View {
                     self.selected = category
                 }) {
                     Text(category)
-                        .padding(.trailing, 20)
+                        .padding(.trailing, 24)
                         .foregroundColor(getFontColor(selected: category))
                         .font(.system(size: 17, weight: getFontWeight(selected: category)))
                 }
