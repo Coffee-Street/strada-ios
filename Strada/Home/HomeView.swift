@@ -23,71 +23,72 @@ struct HomeView : View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .top) {
-                VStack {
-                    HStack {
-                        Text("홈")
-                            .font(.system(size: 22, weight: .bold))
-                            .foregroundColor(.appBlue)
-                            .padding(.leading, 10)
+                VStack(spacing: 0) {
+                    VStack(spacing: 0) {
+                        HStack(spacing: 0) {
+                            Text("홈")
+                                .font(.system(size: 22, weight: .bold))
+                                .foregroundColor(.appBlue)
 
-                        Spacer()
-                        Button(action: {
-                            isOpenedVoc.toggle()
-                        }) {
-                            Image("voc")
-                                .font(.system(size: 20))
-                                .foregroundColor(.appBlue)
+                            Spacer()
+                            
+                            Button(action: {
+                                isOpenedVoc.toggle()
+                            }) {
+                                Image("voc")
+                            }
+                            
+                            Button(action: {
+                                isOpenedNotice.toggle()
+                            }) {
+                                Image("bell.active")
+                                    .overlay(
+                                        CircleBadgeView()
+                                            .position(x: 34, y: 13)
+                                            .opacity(self.isNewNotice ? 1 : 0)
+                                    )
+                            }
+                        } // HStack
+                        .padding(.trailing, 16)
+
+                        HStack(spacing: 0) {
+                            Button(action: {
+                                isOpenedProfile.toggle()
+                            }) {
+                                ProfileSummaryView(profileSummary: $viewModel.profileSummary)
+                            }
+                            Spacer()
                         }
-                        
-                        Button(action: {
-                            isOpenedNotice.toggle()
-                        }) {
-                            Image("bell.active")
-                                .font(.system(size: 20))
-                                .foregroundColor(.appBlue)
-                                .overlay(CircleBadgeView().position(x: 34, y: 13).opacity(self.isNewNotice ? 1 : 0))
-                        }
-                    }
-                    .padding(.horizontal, 20)
-                    
-                    HStack {
-                        Button(action: {
-                            isOpenedProfile.toggle()
-                        }) {
-                            ProfileSummaryView(profileSummary: $viewModel.profileSummary)
-                        }
-                        Spacer()
-                    }
-                    .padding(.horizontal)
-                    .onAppear {
-                        viewModel.getProfile()
-                    }
-                
-                    BannerView(banners: $viewModel.banners)
-                        .frame(height: 380)
                         .onAppear {
-    //                        viewModel.getBanners()
-                        }
+                            viewModel.getProfile()
+                        } // HStack
                     
+                        BannerView(banners: $viewModel.banners)
+                            .frame(height: 380)
+                            .onAppear {
+                                //viewModel.getBanners()
+                            }
+                    } // VStack
+                    .padding(.leading, 24)
+
                     Button(action: {
-                        withAnimation {
-                            isOpenedOrder.toggle()
-                        }
+                        isOpenedOrder.toggle()
                     }) {
-                        VStack {
-                        Text("주문하기")
-                            .font(.title)
-                            .foregroundColor(.appBlue)
-                            .padding(.bottom, 20)
-                        Image(systemName:"chevron.down")
-                            .font(.title)
-                            .foregroundColor(.appBlue)
+                        VStack(spacing: 0) {
+                            Text("주문하기")
+                                .font(.title)
+                                .foregroundColor(.appBlue)
+                                
+                            Image(systemName: "chevron.down")
+                                .font(.title)
+                                .foregroundColor(.appBlue)
+                                .frame(width: 48, height: 48)
                         }
-                        .padding(.bottom, 30)
+                        .padding(.top, 106)
                     }
-                }
+                } // VStack
                 
-                VStack {
+                VStack(spacing: 0) {
                     Spacer()
                     HStack {
                         Spacer()
@@ -100,42 +101,30 @@ struct HomeView : View {
                         }
                         .background(Color.appBlue)
                         .cornerRadius(35)
-                        .overlay(CountCircleBadgeView(count: $bagCount).position(x: 62, y: 10).opacity(bagCount > 0 ? 1 : 0))
-                        .padding()
+                        .overlay(
+                            CountCircleBadgeView(count: $bagCount)
+                                .position(x: 62, y: 10)
+                                .opacity(bagCount > 0 ? 1 : 0))
+                        .padding(.trailing, 16)
+                        .padding(.bottom, 45)
                     }
                     .navigationBarTitle(Text(""), displayMode: .inline)
                 } // VStack
-
-//                if self.isOpenedVoc {
-//                    VoiceOfCustomerView(isOpened: $isOpenedVoc)
-//                }
-                
-                if self.isOpenedNotice {
-                    NoticeView(controller: controller, isOpened: $isOpenedNotice)
-                }
-                
-                if self.isOpenedProfile {
-                    ProfileView(controller: controller, isOpened: $isOpenedProfile)
-                }
-                
-//                if self.isOpenedOrder {
-//                    OrderView(controller: controller, isOpened: $isOpenedOrder)
-//                        .transition(.move(edge: .bottom))
-//                        .transition(AnyTransition.opacity.animation(.easeInOut))
-//                }
             } // ZStack
+            .navigationBarHidden(true)
             .background(.white)
-            .padding(.top, 90)
-            .edgesIgnoringSafeArea(.all)
-            
         } // NavigationView
+        .fullScreenCover(isPresented: $isOpenedNotice) {
+            NoticeView(controller: controller)
+        }
+        .fullScreenCover(isPresented: $isOpenedProfile) {
+            ProfileView(controller: controller)
+        }
         .fullScreenCover(isPresented: $isOpenedVoc) {
-            VoiceOfCustomerView(isOpened: $isOpenedVoc)
+            VoiceOfCustomerView()
         }
         .fullScreenCover(isPresented: $isOpenedOrder) {
-            NavigationView {
-                OrderView(controller: controller, isOpened: $isOpenedOrder)
-            }
+            OrderView(controller: controller)
         }
         .onOpenURL { url in
             print("HomView url scheme: \(String(describing: url.scheme)), url host: \(String(describing: url.host))")

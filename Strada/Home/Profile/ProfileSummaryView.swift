@@ -16,20 +16,28 @@ struct ProfileSummaryView : View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
-                Text(saluteMessage).foregroundColor(.appBrownGray).font(.subheadline)
-                    .padding(.vertical, 5)
-                Text(profileSummary.phoneNumber).foregroundColor(.appBrownGray).font(.subheadline)
+                Text(saluteMessage)
+                    .foregroundColor(.appBrownGray)
+                    .font(.subheadline)
+//                    .padding(.vertical, 5)
+                Spacer()
+                Text(profileSummary.phoneNumber)
+                    .foregroundColor(.appBrownGray)
+                    .font(.subheadline)
             }
+            .frame(height: 46)
             .padding(.bottom, 10)
             
             HStack {
-                Text("\(profileSummary.point)P").foregroundColor(.appBlue)
+                Text("\(profileSummary.point)P")
+                    .foregroundColor(.appBlue)
                     .font(.title)
-                Image(systemName:"greaterthan").foregroundColor(.appBlue)
+                Image(systemName: "greaterthan")
+                    .foregroundColor(.appBlue)
                     .font(.title)
+                    .frame(width: 36, height: 36)
             }
         }
-        .padding(.leading, 15)
     }
 }
 
