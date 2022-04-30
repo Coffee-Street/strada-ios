@@ -15,77 +15,78 @@ struct OneOnOneView : View {
     
     var body: some View {
         ZStack(alignment: .leading) {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 0) {
                 Text("1:1 문의")
                     .foregroundColor(.appBlue)
                     .font(.system(size: 22, weight: .bold))
-                    .padding(.leading)
+                    .padding(.bottom, 44)
 
-                VStack(alignment: .trailing, spacing: 0) {
-                    HStack {
-                        VStack(alignment: .trailing) {
-                            Text("제가 아닌 다른 사람이 포인트를 사용한것 같아요. 어떻게 처리되는지 답변 부탁드립니다!")
-                                .font(.system(size: 15))
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 0) {
+                        HStack(spacing: 0) {
+                            Spacer()
+                            VStack(alignment: .trailing, spacing: 0) {
+                                Text("제가 아닌 다른 사람이 포인트를 사용한것 같아요. 어떻게 처리되는지 답변 부탁드립니다!")
+                                    .font(.system(size: 15))
+                            }
+                            .padding(15)
+                            Spacer()
                         }
-                        .padding(15)
-                    }
-                    .foregroundColor(.white)
-                    .frame(minWidth: 100, minHeight: 30)
-                    .background(Color.appBlue)
-                    .cornerRadius(15, corners: .bottomLeft)
-                    .cornerRadius(15, corners: .topLeft)
-                    .cornerRadius(15, corners: .topRight)
-                    .padding(.bottom, 8)
-                    
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("다른 사람이 포인트를 도용해 사용한 경우에는 \n사실 확인 후 바로 포인트를 환불해드립니다. \n확인을 위해서 카드 내역과 이것저것 부탁드려요!")
-                                .font(.system(size: 15))
-                                
-                            HStack {
-                                Text("답변이 도움이 되셨나요?")
-                                    .foregroundColor(.appBrownGray)
-                                    .font(.system(size: 13))
-                                Spacer()
-                                Button(action: {}) {
-                                    Image("thumbsup")
+                        .foregroundColor(.white)
+                        .background(Color.appBlue)
+                        .cornerRadius(15, corners: .bottomLeft)
+                        .cornerRadius(15, corners: .topLeft)
+                        .cornerRadius(15, corners: .topRight)
+                        .padding(.bottom, 8)
+                        
+                        HStack(spacing: 0) {
+                            Spacer()
+                            VStack(alignment: .leading, spacing: 0) {
+                                Text("다른 사람이 포인트를 도용해 사용한 경우에는 \n사실 확인 후 바로 포인트를 환불해드립니다. \n확인을 위해서 카드 내역과 이것저것 부탁드려요!")
+                                    .font(.system(size: 15))
+                                    .padding(.bottom, 12)
+                                    
+                                HStack(spacing: 0) {
+                                    Text("답변이 도움이 되셨나요?")
+                                        .foregroundColor(.appBrownGray)
+                                        .font(.system(size: 13))
+                                    Spacer()
+                                    Button(action: {}) {
+                                        Image("thumbsup")
+                                    }
                                 }
                             }
+                            .padding(16)
+                            Spacer()
                         }
-                        .padding(15)
+                        .border(Color.appBrownGray)
+                        .cornerRadius(15, corners: .topLeft)
+                        .cornerRadius(15, corners: .topRight)
+                        .cornerRadius(15, corners: .bottomRight)
+                        .padding(.bottom, 8)
                     }
-                    .frame(minWidth: 100, minHeight: 30)
-                    .border(Color.appBrownGray)
-//                    .overlay(Rectangle().stroke(Color.appBrownGray, lineWidth: 3))
-//                    .background(Color.appBrownGray)
-                    .cornerRadius(15, corners: .topLeft)
-                    .cornerRadius(15, corners: .topRight)
-                    .cornerRadius(15, corners: .bottomRight)
-                    .padding(.bottom, 8)
-                }
-                .padding()
-                
-                
+                } // ScrollView
+            } // VStack
+            .padding(.horizontal, 24)
+            
+            VStack(spacing: 0) {
                 Spacer()
-                
-                HStack {
+                HStack(spacing: 0) {
                     Image("plus.active")
                         .padding(.leading, 10)
                     TextField("", text: $message)
                         .frame(height: 48)
-                    Button(action: {
-                        
-                    }) {
+                    Button(action: {}) {
                         Text("전송")
                             .foregroundColor(message.trimmingCharacters(in: .whitespaces).count > 0 ? .appBlue : .appLightGray)
                             .font(.system(size: 17))
                     }
                     .padding(.trailing)
-                }
+                } // HStack
                 .background(Capsule().stroke(Color.appBrownGray, lineWidth: 2))
-                .padding()
-                
-            }
+            } // VStack
+            .padding(.horizontal, 17)
+            .padding(.bottom, 49)
             
             VStack {
                 HStack {
@@ -96,13 +97,14 @@ struct OneOnOneView : View {
                         Image(systemName: "multiply")
                             .foregroundColor(.appBlue)
                             .font(.system(size: 30))
-                            .padding(.trailing)
                     }
                 }
                 Spacer()
-            }
+            } // VStack
+            .padding(.trailing, 24)
         }
         .background(.white)
+        .edgesIgnoringSafeArea(.bottom)
     }
 }
 
