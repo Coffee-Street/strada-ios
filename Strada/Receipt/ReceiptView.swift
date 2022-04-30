@@ -18,22 +18,24 @@ struct ReceiptView : View {
     var body: some View {
         NavigationView {
             ZStack(alignment: .leading) {
-                VStack(alignment: .leading) {
-                    HStack(alignment: .firstTextBaseline) {
+                VStack(alignment: .leading, spacing: 0) {
+                    HStack(spacing: 0) {
                         Text("영수증")
                             .foregroundColor(.appBlue)
                             .font(.system(size: 22, weight: .bold))
-                            .padding(.bottom)
+                            .padding(.trailing, 10)
                         
                         Text("A-99")
                             .foregroundColor(.appBrownGray)
                             .font(.system(size: 17, weight: .medium))
                     }
+                    .frame(height: 34)
+                    .padding(.bottom, 36)
                     
-                    VStack {
-                        HStack {
+                    VStack(spacing: 0) {
+                        HStack(spacing: 0) {
                             Text("접수")
-                                .padding(.trailing, 20)
+                                .padding(.trailing, 31)
                             Text("완료")
                                 .foregroundColor(.appBlue)
                                 .fontWeight(.bold)
@@ -41,120 +43,142 @@ struct ReceiptView : View {
                             Text("2020.10.12 18:22")
                                 .foregroundColor(.appBrownGray)
                         }
-                        .padding(1)
+                        .frame(height: 26)
+                        .padding(.bottom, 4)
                         
-                        HStack {
+                        HStack(spacing: 0) {
                             Text("제조")
-                                .padding(.trailing, 20)
+                                .padding(.trailing, 31)
                             Text("대기")
                             Spacer()
                             Text("2020.10.12 18:22")
                                 .foregroundColor(.appBrownGray)
                         }
-                        .padding(1)
+                        .frame(height: 26)
+                        .padding(.bottom, 4)
                         
-                        HStack {
+                        HStack(spacing: 0) {
                             Text("픽업")
-                                .padding(.trailing, 20)
+                                .padding(.trailing, 31)
                             Text("")
                             Spacer()
                             Text("-")
                                 .foregroundColor(.appBrownGray)
                         }
+                        .frame(height: 26)
                     }
+                    .padding(.trailing, 24)
                     
                     Divider()
-                        .background(Color.appBrownGray).padding(.vertical)
+                        .frame(height: 1)
+                        .background(Color.appVeryLightGray)
+                        .padding(.top, 16)
+                        .padding(.bottom, 24)
                     
-                    VStack {
-                        VStack {
-                            HStack {
+                    VStack(spacing: 0) {
+                        VStack(spacing: 0) {
+                            HStack(spacing: 0) {
                                 Text("메뉴 이름")
                                 Spacer()
                                 Text("2개")
                                     .font(.system(size: 17, weight: .bold))
                             }
-                            HStack {
+                            .frame(height: 26)
+                            .padding(.bottom, 2)
+                            HStack(spacing: 0) {
                                 Text("옵션 / 사이즈")
                                 Spacer()
                                 Text("\(4000)원")
                                     .font(.system(size: 17, weight: .bold))
                             }
+                            .frame(height: 26)
                         }
-                        .padding(.bottom)
+                        .padding(.bottom, 16)
                         
-                        VStack {
-                            HStack {
+                        VStack(spacing: 0) {
+                            HStack(spacing: 0) {
                                 Text("메뉴 이름")
                                 Spacer()
                                 Text("")
                                     .font(.system(size: 17, weight: .bold))
                             }
-                            HStack {
+                            .frame(height: 26)
+                            .padding(.bottom, 2)
+                            HStack(spacing: 0) {
                                 Text("옵션 / 사이즈")
                                 Spacer()
                                 Text("\(4000)원")
                                     .font(.system(size: 17, weight: .bold))
                             }
+                            .frame(height: 26)
                         }
-                        .padding(.bottom)
+                        .padding(.bottom, 16)
                         
-                        VStack {
-                            HStack {
+                        VStack(spacing: 0) {
+                            HStack(spacing: 0) {
                                 Text("메뉴 이름")
                                 Spacer()
                                 Text("")
                                     .font(.system(size: 17, weight: .bold))
                             }
-                            HStack {
+                            .frame(height: 26)
+                            .padding(.bottom, 2)
+                            HStack(spacing: 0) {
                                 Text("옵션 / 사이즈")
                                 Spacer()
                                 Text("\(4000)원")
                                     .font(.system(size: 17, weight: .bold))
                             }
-                        }
-                        .padding(.bottom)
-                    }
-                    
-                    Divider()
-                        .background(Color.appBrownGray)
-                        .padding(.bottom)
-                    
-                    VStack {
-                        VStack {
-                            HStack {
-                                Text("총 금액")
-                                Spacer()
-                                Text("\(12000)원")
-                                    .font(.system(size: 17, weight: .bold))
-                            }
-                            HStack {
-                                Text("사용한 포인트")
-                                Spacer()
-                                Text("\(0)P")
-                                    .font(.system(size: 17, weight: .bold))
-                            }
+                            .frame(height: 26)
                         }
                     }
-                    .padding(.bottom)
+                    .padding(.trailing, 24)
                     
                     Divider()
-                        .background(Color.appBrownGray)
-                        .padding(.bottom)
+                        .frame(height: 1)
+                        .background(Color.appVeryLightGray)
+                        .padding(.top, 26)
+                        .padding(.bottom, 16)
                     
-                    HStack {
+                    VStack(spacing: 0) {
+                        HStack(spacing: 0) {
+                            Text("총 금액")
+                            Spacer()
+                            Text("\(12000)원")
+                                .font(.system(size: 17, weight: .bold))
+                        }
+                        .frame(height: 26)
+                        .padding(.bottom, 8)
+                        HStack(spacing: 0) {
+                            Text("사용한 포인트")
+                            Spacer()
+                            Text("\(0)P")
+                                .font(.system(size: 17, weight: .bold))
+                        }
+                        .frame(height: 26)
+                    }
+                    .padding(.trailing, 24)
+                    
+                    Divider()
+                        .frame(height: 1)
+                        .background(Color.appVeryLightGray)
+                        .padding(.vertical, 16)
+                    
+                    HStack(spacing: 0) {
                         Text("결제 금액")
                             .font(.system(size: 22))
                         Spacer()
                         Text("\(12000)원")
                             .font(.system(size: 22))
                     }
+                    .frame(height: 34)
+                    .padding(.trailing, 24)
                     
                     Spacer()
-                }
-                .padding()
+                } // VStack
+                .padding(.leading, 24)
                 
-                VStack {
+                VStack(spacing: 0) {
                     Spacer()
                     HStack(spacing: 0) {
                         Button(action: {}) {
@@ -173,10 +197,7 @@ struct ReceiptView : View {
                         .frame(height: 96)
                         .background(Color.appBlue)
                     }
-                    .navigationBarHidden(true)
-                    .navigationBarTitle(Text(""), displayMode: .inline)
-                }
-                .edgesIgnoringSafeArea(.bottom)
+                } // VStack
                 
                 VStack {
                     HStack {
@@ -184,18 +205,20 @@ struct ReceiptView : View {
                         Button(action: {
                             isOpened = false
                         }) {
-                            Image("close.large.active")
+//                            Image("close.large.active")
+                            Image(systemName: "multiply")
                                 .foregroundColor(.appBlue)
                                 .font(.system(size: 30))
+                                .frame(width: 36, height: 36)
                         }
-                    }
-//                    .padding(.top)
-                    
+                    } // HStack
                     Spacer()
                 } // VStack
-                .padding(.trailing, 10)
+                .padding(.trailing, 24)
             } // ZStack
+            .navigationBarHidden(true)
             .background(.white)
+            .edgesIgnoringSafeArea(.bottom)
         } // NavigationView
     }
 }
