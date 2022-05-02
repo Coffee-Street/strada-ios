@@ -14,15 +14,17 @@ struct CategoryView : View {
     @Binding var selected: String
     
     var body: some View {
-        HStack {
-            ForEach(categories, id: \.self) { category in
-                Button(action: {
-                    self.selected = category
-                }) {
-                    Text(category)
-                        .padding(.trailing, 24)
-                        .foregroundColor(getFontColor(selected: category))
-                        .font(.system(size: 17, weight: getFontWeight(selected: category)))
+        ScrollView(.horizontal) {
+            HStack {
+                ForEach(categories, id: \.self) { category in
+                    Button(action: {
+                        self.selected = category
+                    }) {
+                        Text(category)
+                            .padding(.trailing, 24)
+                            .foregroundColor(getFontColor(selected: category))
+                            .font(.system(size: 17, weight: getFontWeight(selected: category)))
+                    }
                 }
             }
         }
