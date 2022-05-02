@@ -25,4 +25,8 @@ class CurrentViewController : ObservableObject {
     func goPaymentSuccess() {
         self.viewName = "paymentSuccess"
     }
+    
+    func goPaymentFail() {
+        self.viewName = "paymentFail"
+    }
 }

@@ -146,11 +146,9 @@ struct BagView : View {
                                     
                                     //TODO: Clear Basket
                                     
-                                    //TODO: Move PaymentResultView -> Success
                                     controller.goPaymentSuccess()
                                 } else if url.path == "/fail" {
-                                    //TODO: Move PaymentResultView -> Failed
-                                    //controller.goPaymentFail()
+                                    controller.goPaymentFail()
                                 } else if url.path == "/cancel" {
                                     //TODO: Alert Cancel
                                     viewModel.isCanceledPayment = true

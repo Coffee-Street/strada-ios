@@ -20,6 +20,8 @@ struct ContentView: View {
             HomeView(controller: controller)
         } else if controller.viewName == "paymentSuccess" {
             PaymentSuccessView(controller: controller)
+        } else if controller.viewName == "paymentFail" {
+            PaymentFailView(controller: controller)
         }
     }
 }
