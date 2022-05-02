@@ -189,7 +189,7 @@ struct ReceiptView : View {
                         .frame(height: 96)
                         .background(self.isAvailableCancel ? Color.appOrange : Color.appBrownGray)
 
-                        NavigationLink(destination: PaymentView(controller: controller)) {
+                        NavigationLink(destination: BagView(controller: controller)) {
                             Text("이대로 주문")
                                 .foregroundColor(.white)
                         }

@@ -1,5 +1,5 @@
 //
-//  PaymentItemViewModel.swift
+//  BagItemViewModel.swift
 //  Strada
 //
 //  Created by 박종봉 on 2022/02/15.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class PaymentItemViewModel : ObservableObject {
+class BagItemViewModel : ObservableObject {
     @Published var orderItem: OrderItem
     @Published var count: Int
     

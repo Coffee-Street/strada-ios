@@ -1,5 +1,5 @@
 //
-//  PaymentViewModel.swift
+//  BagViewModel.swift
 //  Strada
 //
 //  Created by 박종봉 on 2022/02/14.
@@ -7,15 +7,15 @@
 
 import Foundation
 
-class PaymentViewModel : ObservableObject {
+class BagViewModel : ObservableObject {
     
     @Published var isCanceledPayment: Bool = false
     
     @Published var usePoint: Int = 0
     @Published var availablePoint: Int = 0
     
-    @Published var paymentItemViewModels: [PaymentItemViewModel] = [
-        PaymentItemViewModel(
+    @Published var bagItemViewModels: [BagItemViewModel] = [
+        BagItemViewModel(
             orderItem: OrderItem(
                 menu: Menu(
                     type: MenuType.COFFEE,
@@ -45,7 +45,7 @@ class PaymentViewModel : ObservableObject {
             ),
             count: 1
         ),
-        PaymentItemViewModel(
+        BagItemViewModel(
             orderItem: OrderItem(
                 menu: Menu(
                     type: MenuType.COFFEE,
@@ -81,11 +81,11 @@ class PaymentViewModel : ObservableObject {
     private var kakaoAPI = KakaoPayAPI()
     
     func getTotalCount() -> Int {
-        return paymentItemViewModels.map { $0.count }.reduce(0, +)
+        return bagItemViewModels.map { $0.count }.reduce(0, +)
     }
     
     func getTotalPrice() -> Int {
-        return paymentItemViewModels.map { ( $0.orderItem.menu.price + 0 ) * $0.count }.reduce(0, +)
+        return bagItemViewModels.map { ( $0.orderItem.menu.price + 0 ) * $0.count }.reduce(0, +)
     }
     
     func kakaoPayQuery() {
