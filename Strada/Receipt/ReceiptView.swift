@@ -13,7 +13,7 @@ struct ReceiptView : View {
     
     @Binding var isOpened: Bool
     
-    @State private var isAvailableCancel: Bool = true
+    @State private var isAvailableCancel: Bool = false
     
     var body: some View {
         NavigationView {
@@ -188,6 +188,7 @@ struct ReceiptView : View {
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(height: 96)
                         .background(self.isAvailableCancel ? Color.appOrange : Color.appBrownGray)
+                        .disabled(isAvailableCancel == false)
 
                         NavigationLink(destination: BagView(controller: controller)) {
                             Text("이대로 주문")
