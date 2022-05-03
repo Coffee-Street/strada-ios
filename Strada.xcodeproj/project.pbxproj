@@ -11,6 +11,7 @@
 		802EE520279527220012DD1C /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE51F279527220012DD1C /* Menu.swift */; };
 		802EE52227952C8C0012DD1C /* FavoriteMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE52127952C8C0012DD1C /* FavoriteMenu.swift */; };
 		802EE526279531AD0012DD1C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE525279531AD0012DD1C /* Order.swift */; };
+		802F0F44282010CB0088B953 /* PaymentFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802F0F43282010CB0088B953 /* PaymentFailView.swift */; };
 		8032E7B027C66D0700B18980 /* OrderDetailBeanPersonalOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8032E7AF27C66D0700B18980 /* OrderDetailBeanPersonalOptionView.swift */; };
 		8032E7B227C66E8D00B18980 /* OrderDetailPersonalOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8032E7B127C66E8D00B18980 /* OrderDetailPersonalOption.swift */; };
 		8032E7B627C8E92300B18980 /* ReceiptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8032E7B527C8E92300B18980 /* ReceiptViewModel.swift */; };
@@ -23,8 +24,8 @@
 		804A09602753AFE300BF3F41 /* FavoriteMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A095F2753AFE300BF3F41 /* FavoriteMenuView.swift */; };
 		804A09632753B52900BF3F41 /* MenuCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A09622753B52900BF3F41 /* MenuCountView.swift */; };
 		804A09652753C0B200BF3F41 /* MenuSoldoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A09642753C0B200BF3F41 /* MenuSoldoutView.swift */; };
-		804A5C4B27BA7CA9004ABAB1 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A5C4A27BA7CA9004ABAB1 /* PaymentViewModel.swift */; };
-		804A5C4F27BBD59E004ABAB1 /* PaymentItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A5C4E27BBD59E004ABAB1 /* PaymentItemViewModel.swift */; };
+		804A5C4B27BA7CA9004ABAB1 /* BagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A5C4A27BA7CA9004ABAB1 /* BagViewModel.swift */; };
+		804A5C4F27BBD59E004ABAB1 /* BagItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804A5C4E27BBD59E004ABAB1 /* BagItemViewModel.swift */; };
 		80699753279B0EAC00A0C281 /* PaymentSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80699752279B0EAC00A0C281 /* PaymentSuccessView.swift */; };
 		806D421D2812D9890084906E /* KakaoPayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806D421C2812D9890084906E /* KakaoPayAPI.swift */; };
 		8079482227A54E9C00DA0230 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8079482127A54E9C00DA0230 /* HomeAPI.swift */; };
@@ -73,8 +74,8 @@
 		80C176D127998EEF00E042C6 /* CircleBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176D027998EEF00E042C6 /* CircleBadgeView.swift */; };
 		80C176D327998FF600E042C6 /* CountCircleBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176D227998FF600E042C6 /* CountCircleBadgeView.swift */; };
 		80C176D72799A63F00E042C6 /* ReceiptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176D62799A63F00E042C6 /* ReceiptView.swift */; };
-		80C176D9279AF8AC00E042C6 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176D8279AF8AC00E042C6 /* PaymentView.swift */; };
-		80C176DC279B003C00E042C6 /* PaymentItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176DB279B003C00E042C6 /* PaymentItemView.swift */; };
+		80C176D9279AF8AC00E042C6 /* BagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176D8279AF8AC00E042C6 /* BagView.swift */; };
+		80C176DC279B003C00E042C6 /* BagItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C176DB279B003C00E042C6 /* BagItemView.swift */; };
 		80CDF67F27DDE64A00EE7DBB /* KakaoPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CDF67E27DDE64A00EE7DBB /* KakaoPay.swift */; };
 		80D3E1D42774DC0D00749503 /* MenuComingSoonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D3E1D32774DC0D00749503 /* MenuComingSoonView.swift */; };
 		80D61D8F278F276F00279B00 /* CurrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D61D8E278F276F00279B00 /* CurrentViewController.swift */; };
@@ -111,6 +112,7 @@
 		802EE51F279527220012DD1C /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		802EE52127952C8C0012DD1C /* FavoriteMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMenu.swift; sourceTree = "<group>"; };
 		802EE525279531AD0012DD1C /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		802F0F43282010CB0088B953 /* PaymentFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentFailView.swift; sourceTree = "<group>"; };
 		8032E7AF27C66D0700B18980 /* OrderDetailBeanPersonalOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailBeanPersonalOptionView.swift; sourceTree = "<group>"; };
 		8032E7B127C66E8D00B18980 /* OrderDetailPersonalOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailPersonalOption.swift; sourceTree = "<group>"; };
 		8032E7B527C8E92300B18980 /* ReceiptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewModel.swift; sourceTree = "<group>"; };
@@ -123,8 +125,8 @@
 		804A095F2753AFE300BF3F41 /* FavoriteMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMenuView.swift; sourceTree = "<group>"; };
 		804A09622753B52900BF3F41 /* MenuCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCountView.swift; sourceTree = "<group>"; };
 		804A09642753C0B200BF3F41 /* MenuSoldoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSoldoutView.swift; sourceTree = "<group>"; };
-		804A5C4A27BA7CA9004ABAB1 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
-		804A5C4E27BBD59E004ABAB1 /* PaymentItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentItemViewModel.swift; sourceTree = "<group>"; };
+		804A5C4A27BA7CA9004ABAB1 /* BagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagViewModel.swift; sourceTree = "<group>"; };
+		804A5C4E27BBD59E004ABAB1 /* BagItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagItemViewModel.swift; sourceTree = "<group>"; };
 		80699752279B0EAC00A0C281 /* PaymentSuccessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSuccessView.swift; sourceTree = "<group>"; };
 		806D421C2812D9890084906E /* KakaoPayAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoPayAPI.swift; sourceTree = "<group>"; };
 		8079482127A54E9C00DA0230 /* HomeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
@@ -176,8 +178,8 @@
 		80C176D027998EEF00E042C6 /* CircleBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleBadgeView.swift; sourceTree = "<group>"; };
 		80C176D227998FF600E042C6 /* CountCircleBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountCircleBadgeView.swift; sourceTree = "<group>"; };
 		80C176D62799A63F00E042C6 /* ReceiptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptView.swift; sourceTree = "<group>"; };
-		80C176D8279AF8AC00E042C6 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
-		80C176DB279B003C00E042C6 /* PaymentItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentItemView.swift; sourceTree = "<group>"; };
+		80C176D8279AF8AC00E042C6 /* BagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagView.swift; sourceTree = "<group>"; };
+		80C176DB279B003C00E042C6 /* BagItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagItemView.swift; sourceTree = "<group>"; };
 		80CDF67E27DDE64A00EE7DBB /* KakaoPay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoPay.swift; sourceTree = "<group>"; };
 		80CDF68227DF93E600EE7DBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		80D3E1D32774DC0D00749503 /* MenuComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuComingSoonView.swift; sourceTree = "<group>"; };
@@ -228,6 +230,17 @@
 				80F0A1FC27B15B4200BDF003 /* CategoryView.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		802F0F4228200F600088B953 /* Bag */ = {
+			isa = PBXGroup;
+			children = (
+				80C176D8279AF8AC00E042C6 /* BagView.swift */,
+				80C176DB279B003C00E042C6 /* BagItemView.swift */,
+				804A5C4A27BA7CA9004ABAB1 /* BagViewModel.swift */,
+				804A5C4E27BBD59E004ABAB1 /* BagItemViewModel.swift */,
+			);
+			path = Bag;
 			sourceTree = "<group>";
 		};
 		8032E7AA27C52FF000B18980 /* PersonalOption */ = {
@@ -482,13 +495,10 @@
 		80C176D52799A63100E042C6 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
-				80C176D8279AF8AC00E042C6 /* PaymentView.swift */,
-				80C176DB279B003C00E042C6 /* PaymentItemView.swift */,
 				80699752279B0EAC00A0C281 /* PaymentSuccessView.swift */,
+				802F0F43282010CB0088B953 /* PaymentFailView.swift */,
 				808FCDEE27AD6F08007F01AE /* PaymentAPI.swift */,
 				808FCDF027AD73B5007F01AE /* Payment.swift */,
-				804A5C4A27BA7CA9004ABAB1 /* PaymentViewModel.swift */,
-				804A5C4E27BBD59E004ABAB1 /* PaymentItemViewModel.swift */,
 				80CDF67E27DDE64A00EE7DBB /* KakaoPay.swift */,
 				806D421C2812D9890084906E /* KakaoPayAPI.swift */,
 			);
@@ -669,7 +679,7 @@
 				80C176C72796D0F500E042C6 /* HistoryView.swift in Sources */,
 				80C176D127998EEF00E042C6 /* CircleBadgeView.swift in Sources */,
 				802EE52227952C8C0012DD1C /* FavoriteMenu.swift in Sources */,
-				80C176DC279B003C00E042C6 /* PaymentItemView.swift in Sources */,
+				80C176DC279B003C00E042C6 /* BagItemView.swift in Sources */,
 				8079948C277F396A00187407 /* OrderDetailOptionView.swift in Sources */,
 				808E6BB9274A6A7100DF24D7 /* HomeView.swift in Sources */,
 				802EE520279527220012DD1C /* Menu.swift in Sources */,
@@ -691,6 +701,7 @@
 				80C176CD2798650B00E042C6 /* ProfileViewModel.swift in Sources */,
 				801A5BB0277F6C1500BA3B7A /* CountView.swift in Sources */,
 				80F0A1F527B01A6800BDF003 /* NoticeViewModel.swift in Sources */,
+				802F0F44282010CB0088B953 /* PaymentFailView.swift in Sources */,
 				8079948A277F353B00187407 /* OrderDetailOptionItemView.swift in Sources */,
 				8079482927A5A5DC00DA0230 /* ProfileSummaryView.swift in Sources */,
 				80C176C02796A46100E042C6 /* OneOnOneView.swift in Sources */,
@@ -706,7 +717,7 @@
 				808FCDEF27AD6F08007F01AE /* PaymentAPI.swift in Sources */,
 				8079482B27A5A61A00DA0230 /* ProfileSummary.swift in Sources */,
 				80F0A1FD27B15B4200BDF003 /* CategoryView.swift in Sources */,
-				80C176D9279AF8AC00E042C6 /* PaymentView.swift in Sources */,
+				80C176D9279AF8AC00E042C6 /* BagView.swift in Sources */,
 				808E6B8E274A6A1B00DF24D7 /* StradaApp.swift in Sources */,
 				80EAD93727819A3B0000DDC8 /* OrderDetailDrinkPersonalOptionCountView.swift in Sources */,
 				808E6BBE274A7F0100DF24D7 /* BannerItemView.swift in Sources */,
@@ -719,7 +730,7 @@
 				80C176C32796CB4400E042C6 /* ProfileView.swift in Sources */,
 				8079A87127A7D2950058040B /* HistoryAPI.swift in Sources */,
 				80B852D627B5370300FB9615 /* OrderDetailViewModel.swift in Sources */,
-				804A5C4F27BBD59E004ABAB1 /* PaymentItemViewModel.swift in Sources */,
+				804A5C4F27BBD59E004ABAB1 /* BagItemViewModel.swift in Sources */,
 				8079482627A54F6000DA0230 /* Banner.swift in Sources */,
 				804A09602753AFE300BF3F41 /* FavoriteMenuView.swift in Sources */,
 				80B852D227B16E1100FB9615 /* HistoryViewModel.swift in Sources */,
@@ -735,7 +746,7 @@
 				804A095D2753AD5A00BF3F41 /* FavoriteMenuItemView.swift in Sources */,
 				802EE526279531AD0012DD1C /* Order.swift in Sources */,
 				8079483327AC14EE00DA0230 /* Receipt.swift in Sources */,
-				804A5C4B27BA7CA9004ABAB1 /* PaymentViewModel.swift in Sources */,
+				804A5C4B27BA7CA9004ABAB1 /* BagViewModel.swift in Sources */,
 				803372D927A513D9009BF89F /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
