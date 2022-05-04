@@ -12,6 +12,7 @@
 		802EE52227952C8C0012DD1C /* FavoriteMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE52127952C8C0012DD1C /* FavoriteMenu.swift */; };
 		802EE526279531AD0012DD1C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802EE525279531AD0012DD1C /* Order.swift */; };
 		802F0F44282010CB0088B953 /* PaymentFailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802F0F43282010CB0088B953 /* PaymentFailView.swift */; };
+		802F642C2822CC12002F56BD /* ReceiptItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802F642B2822CC12002F56BD /* ReceiptItemView.swift */; };
 		8032E7B027C66D0700B18980 /* OrderDetailBeanPersonalOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8032E7AF27C66D0700B18980 /* OrderDetailBeanPersonalOptionView.swift */; };
 		8032E7B227C66E8D00B18980 /* OrderDetailPersonalOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8032E7B127C66E8D00B18980 /* OrderDetailPersonalOption.swift */; };
 		8032E7B627C8E92300B18980 /* ReceiptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8032E7B527C8E92300B18980 /* ReceiptViewModel.swift */; };
@@ -113,6 +114,7 @@
 		802EE52127952C8C0012DD1C /* FavoriteMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMenu.swift; sourceTree = "<group>"; };
 		802EE525279531AD0012DD1C /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		802F0F43282010CB0088B953 /* PaymentFailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentFailView.swift; sourceTree = "<group>"; };
+		802F642B2822CC12002F56BD /* ReceiptItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptItemView.swift; sourceTree = "<group>"; };
 		8032E7AF27C66D0700B18980 /* OrderDetailBeanPersonalOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailBeanPersonalOptionView.swift; sourceTree = "<group>"; };
 		8032E7B127C66E8D00B18980 /* OrderDetailPersonalOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailPersonalOption.swift; sourceTree = "<group>"; };
 		8032E7B527C8E92300B18980 /* ReceiptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewModel.swift; sourceTree = "<group>"; };
@@ -488,6 +490,7 @@
 				8079483027AC147A00DA0230 /* ReceiptAPI.swift */,
 				8079483227AC14EE00DA0230 /* Receipt.swift */,
 				8032E7B527C8E92300B18980 /* ReceiptViewModel.swift */,
+				802F642B2822CC12002F56BD /* ReceiptItemView.swift */,
 			);
 			path = Receipt;
 			sourceTree = "<group>";
@@ -717,6 +720,7 @@
 				808FCDEF27AD6F08007F01AE /* PaymentAPI.swift in Sources */,
 				8079482B27A5A61A00DA0230 /* ProfileSummary.swift in Sources */,
 				80F0A1FD27B15B4200BDF003 /* CategoryView.swift in Sources */,
+				802F642C2822CC12002F56BD /* ReceiptItemView.swift in Sources */,
 				80C176D9279AF8AC00E042C6 /* BagView.swift in Sources */,
 				808E6B8E274A6A1B00DF24D7 /* StradaApp.swift in Sources */,
 				80EAD93727819A3B0000DDC8 /* OrderDetailDrinkPersonalOptionCountView.swift in Sources */,
