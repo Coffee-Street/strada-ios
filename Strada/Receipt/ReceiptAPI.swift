@@ -12,8 +12,13 @@ struct ReceiptRequest : Codable {
 }
 
 struct ReceiptResponse : Codable {
-    let id: Int
+    let id: String
     let status: Int
+    
+    let createdAt: Date
+    let respondTo: Date
+    let doneOn: Date
+    
     let orderItems: [String]
 }
 
@@ -50,7 +55,7 @@ struct ReceiptAPI {
                 return completion(.failure(.decodingFailed))
             }
 
-            let receipt = Receipt(id: result.id, status: result.status, orderItems: result.orderItems)
+            let receipt = Receipt(id: result.id, status: ReceiptStatus(rawValue: result.status) ?? ReceiptStatus.UNACCEPTED, createdAt: result.createdAt, respondTo: result.respondTo, doneOn: result.doneOn, orderItems: result.orderItems)
             
             completion(.success(receipt))
         }
