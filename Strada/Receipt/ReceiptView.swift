@@ -13,6 +13,8 @@ struct ReceiptView : View {
     
     @Binding var isOpened: Bool
     
+    @StateObject private var viewModel = ReceiptViewModel()
+    
     @State private var isAvailableCancel: Bool = false
     
     var body: some View {
@@ -25,7 +27,7 @@ struct ReceiptView : View {
                             .font(.system(size: 22, weight: .bold))
                             .padding(.trailing, 10)
                         
-                        Text("A-99")
+                        Text(viewModel.receipt.id)
                             .foregroundColor(.appBrownGray)
                             .font(.system(size: 17, weight: .medium))
                     }
@@ -36,11 +38,11 @@ struct ReceiptView : View {
                         HStack(spacing: 0) {
                             Text("접수")
                                 .padding(.trailing, 31)
-                            Text("완료")
+                            Text(viewModel.getReceptionStatus())
                                 .foregroundColor(.appBlue)
                                 .fontWeight(.bold)
                             Spacer()
-                            Text("2020.10.12 18:22")
+                            Text(viewModel.getReceiptionDate())
                                 .foregroundColor(.appBrownGray)
                         }
                         .frame(height: 26)
@@ -49,9 +51,9 @@ struct ReceiptView : View {
                         HStack(spacing: 0) {
                             Text("제조")
                                 .padding(.trailing, 31)
-                            Text("대기")
+                            Text(viewModel.getManufactureStatus())
                             Spacer()
-                            Text("2020.10.12 18:22")
+                            Text(viewModel.getManufactureDate())
                                 .foregroundColor(.appBrownGray)
                         }
                         .frame(height: 26)
@@ -60,9 +62,9 @@ struct ReceiptView : View {
                         HStack(spacing: 0) {
                             Text("픽업")
                                 .padding(.trailing, 31)
-                            Text("")
+                            Text(viewModel.getPickUpStatus())
                             Spacer()
-                            Text("-")
+                            Text(viewModel.getPickUpDate())
                                 .foregroundColor(.appBrownGray)
                         }
                         .frame(height: 26)
