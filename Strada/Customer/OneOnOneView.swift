@@ -9,9 +9,9 @@ import SwiftUI
 
 struct OneOnOneView : View {
     
-    @Binding var isOpened: Bool
-    
     @State private var message: String = ""
+    
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -99,7 +99,7 @@ struct OneOnOneView : View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        isOpened = false
+                        presentationMode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "multiply")
                             .foregroundColor(.appBlue)
@@ -117,6 +117,6 @@ struct OneOnOneView : View {
 
 struct OneOnOneView_Previews : PreviewProvider {
     static var previews: some View {
-        OneOnOneView(isOpened: .constant(false))
+        OneOnOneView()
     }
 }

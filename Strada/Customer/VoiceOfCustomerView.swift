@@ -110,14 +110,12 @@ struct VoiceOfCustomerView : View {
                 Spacer()
             } // VStack
             .padding(.trailing, 24)
-            
-            if isOpenedOneOnOne {
-                OneOnOneView(isOpened: $isOpenedOneOnOne)
-            }
-            
         } // ZStack
         .background(.white)
         .edgesIgnoringSafeArea(.bottom)
+        .fullScreenCover(isPresented: $isOpenedOneOnOne) {
+            OneOnOneView()
+        }
     }
 }
 
