@@ -14,7 +14,7 @@ struct PaymentSuccessView : View {
         ZStack {
             VStack(alignment: .center) {
                 Spacer()
-                Text("주문이 성공적으로\n완료되었습니다")
+                Text("주문이 성공적으로\n완료되었습니다.")
                     .font(.system(size: 24, weight: .medium))
                     .multilineTextAlignment(.center)
                 Spacer()
