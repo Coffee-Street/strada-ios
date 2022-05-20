@@ -52,7 +52,7 @@ struct CountView : View {
             }
             .disabled(indexProxy == self.range.count - 1)
         }
-        .background(Capsule().fill(Color.appBlue))
+        .background(Capsule().fill(Color.appPrimary))
     }
 }
 

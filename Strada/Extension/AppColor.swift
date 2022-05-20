@@ -9,6 +9,8 @@ import SwiftUI
 
 extension Color {
     
+    static let appBackground = Color("AppBackground")
+    
     static let appTextPrimary = Color("AppPrimaryText")
     static let appTextSecondary = Color("AppSecondaryText")
     
@@ -16,7 +18,8 @@ extension Color {
     static let appSecondary = Color("AppLightBlue")
     static let appAlert = Color("AppOrange")
     static let appDominant = Color("AppBeige")
-    static let appSemiHighlight = Color("AppBrownGray")
+    static let appDarkHighlight = Color("AppBrownGray")
+    static let appSemiHighlight = Color("AppLightGray")
     static let appHighlight = Color("AppVeryLightGray")
     
     static let appDisable = Color("AppLightGray")

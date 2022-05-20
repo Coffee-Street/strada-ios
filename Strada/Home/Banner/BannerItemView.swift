@@ -32,25 +32,25 @@ struct BannerItemView : View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text(banner.title)
-                .foregroundColor(Color.white).font(.subheadline)
+                .foregroundColor(Color.appBackground).font(.subheadline)
                 .padding(.leading, 20)
             
             HStack {
                 Spacer()
                 Image(systemName: banner.image)
                     .font(.system(size: 150))
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.appBackground)
                     .padding(.trailing, 20)
             }
             
             VStack(alignment: .leading, spacing: 0) {
                 Text(banner.name)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.appBackground)
                     .font(.subheadline)
                 HStack {
                     ForEach(banner.tags, id: \.self) { tag in
                         Text("#\(tag)")
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color.appBackground)
                             .font(.caption)
                     }
                 }
@@ -58,7 +58,7 @@ struct BannerItemView : View {
             .padding(.leading, 20)
         }
         .frame(height: 300)
-        .background(Color.appBlue)
+        .background(Color.appPrimary)
         .cornerRadius(40, corners: .bottomLeft)
         .cornerRadius(40, corners: .topLeft)
     }

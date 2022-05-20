@@ -44,15 +44,15 @@ struct NoticeItemView : View {
     }
     
     func getTitleFontColor() -> Color {
-        return notice.read ? .appBrownGray : .appBlack
+        return notice.read ? .appSemiHighlight : .appTextPrimary
     }
     
     func getExcerptFontColor() -> Color {
-        return notice.read ? .appBrownGray : .appBlack
+        return notice.read ? .appSemiHighlight : .appTextPrimary
     }
     
     func getDateFontColor() -> Color {
-        return notice.read ? .appLightGray : .appBrownGray
+        return notice.read ? .appSemiHighlight : .appSemiHighlight
     }
 }
 

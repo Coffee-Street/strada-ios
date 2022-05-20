@@ -28,7 +28,7 @@ struct HomeView : View {
                         HStack(spacing: 0) {
                             Text("홈")
                                 .font(.system(size: 22, weight: .bold))
-                                .foregroundColor(.appBlue)
+                                .foregroundColor(.appPrimary)
 
                             Spacer()
                             
@@ -77,11 +77,11 @@ struct HomeView : View {
                         VStack(spacing: 0) {
                             Text("주문하기")
                                 .font(.title)
-                                .foregroundColor(.appBlue)
+                                .foregroundColor(.appPrimary)
                                 
                             Image(systemName: "chevron.down")
                                 .font(.title)
-                                .foregroundColor(.appBlue)
+                                .foregroundColor(.appPrimary)
                                 .frame(width: 48, height: 48)
                         }
                         .padding(.top, 106)
@@ -96,10 +96,10 @@ struct HomeView : View {
                             Image("bag")
                                 .frame(width: 70, height: 63)
                                 .font(.system(size: 20, weight: .bold))
-                                .foregroundColor(Color.white)
+                                .foregroundColor(Color.appBackground)
                                 .padding(.bottom, 7)
                         }
-                        .background(Color.appBlue)
+                        .background(Color.appPrimary)
                         .cornerRadius(35)
                         .overlay(
                             CountCircleBadgeView(count: $bagCount)
@@ -112,7 +112,6 @@ struct HomeView : View {
                 } // VStack
             } // ZStack
             .navigationBarHidden(true)
-            .background(.white)
         } // NavigationView
         .fullScreenCover(isPresented: $isOpenedNotice) {
             NoticeView(controller: controller)
@@ -135,5 +134,8 @@ struct HomeView : View {
 struct HomeView_Previews : PreviewProvider {
     static var previews : some View {
         HomeView(controller: CurrentViewController("home"))
+        
+        HomeView(controller: CurrentViewController("home"))
+            .preferredColorScheme(.dark)
     }
 }

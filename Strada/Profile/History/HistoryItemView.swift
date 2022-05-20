@@ -20,7 +20,7 @@ struct HistoryItemView : View {
                     .fontWeight(.regular)
                     .padding(.bottom, 4)
                 Text(history.date)
-                    .foregroundColor(.appBrownGray)
+                    .foregroundColor(.appSemiHighlight)
                     .fontWeight(.medium)
             }
             
@@ -31,7 +31,7 @@ struct HistoryItemView : View {
     }
     
     func getPointFontColor() -> Color {
-        return history.point > 0 ? .appBlue : history.point < 0 ? .appOrange : .appBlack
+        return history.point > 0 ? .appPrimary : history.point < 0 ? .appAlert : .appTextPrimary
     }
 }
 

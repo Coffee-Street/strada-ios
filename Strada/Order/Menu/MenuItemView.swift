@@ -18,29 +18,29 @@ struct MenuItemView : View {
         case .SOLD_OUT:
             fallthrough
         case .COMING_SOON:
-            return Color.appLightGray
+            return Color.appSemiHighlight
         }
     }
     
     private func menuImageBackgroundColor() -> Color {
         switch self.menu.state {
         case .AVAILABLE:
-            return Color.appVeryLightGray
+            return Color.appHighlight
         case .SOLD_OUT:
             fallthrough
         case .COMING_SOON:
-            return Color.appVeryLightGray.opacity(0.2)
+            return Color.appHighlight.opacity(0.2)
         }
     }
     
     private func menuImageOverlayColor() -> Color {
         switch self.menu.state {
         case .AVAILABLE:
-            return Color.appLightGray
+            return Color.appSemiHighlight
         case .SOLD_OUT:
             fallthrough
         case .COMING_SOON:
-            return Color.appLightGray.opacity(0.2)
+            return Color.appSemiHighlight.opacity(0.2)
         }
     }
     

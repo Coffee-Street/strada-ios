@@ -19,7 +19,7 @@ struct MenuView : View {
             
             Divider()
                 .frame(height: 1)
-                .background(Color.appVeryLightGray)
+                .background(Color.appHighlight)
                 .padding(.vertical)
             
             VStack(alignment: .leading, spacing: 0) {

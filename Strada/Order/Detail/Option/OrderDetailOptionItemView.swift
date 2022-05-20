@@ -15,7 +15,7 @@ struct OrderDetailOptionItemView : View {
             Image(option.isSelected ? "\(option.imageName).active" : option.imageName)
             Text(option.title)
                 .font(.system(size: 13, weight: .bold))
-                .foregroundColor(option.isSelected ? .appBlue : .appLightGray)
+                .foregroundColor(option.isSelected ? .appPrimary : .appSemiHighlight)
         }
     }
 }

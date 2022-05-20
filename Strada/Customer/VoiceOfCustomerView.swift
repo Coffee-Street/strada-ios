@@ -18,12 +18,12 @@ struct VoiceOfCustomerView : View {
             VStack(alignment: .leading, spacing: 0) {
                 VStack(alignment: .leading, spacing: 0) {
                     Text("고객의 소리")
-                        .foregroundColor(.appBlue)
+                        .foregroundColor(.appPrimary)
                         .font(.system(size: 22, weight: .bold))
                         .padding(.bottom, 28)
                     
                     Text("카페를 이용하면서 불편한 점이 있으셨나요?\n스트라다는 고객님들의 의견을 적극 수용합니다.")
-                        .foregroundColor(.appBrownGray)
+                        .foregroundColor(.appSemiHighlight)
                         .font(.system(size: 13))
                         .padding(.bottom, 24)
                                  
@@ -49,7 +49,7 @@ struct VoiceOfCustomerView : View {
                             Spacer()
                         }
                         .frame(height: 88)
-                        .background(Color.appBlue)
+                        .background(Color.appPrimary)
                         .cornerRadius(25, corners: .bottomLeft)
                         .cornerRadius(25, corners: .topLeft)
                     }
@@ -62,12 +62,12 @@ struct VoiceOfCustomerView : View {
                         HStack(spacing: 0) {
                             VStack(alignment: .leading, spacing: 0) {
                                 Text("자주 묻는 질문")
-                                    .foregroundColor(.appBrownGray)
+                                    .foregroundColor(.appSemiHighlight)
                                     .font(.system(size: 13))
                                     .padding(.top, 11)
                                     .padding(.bottom, 4)
                                 Text("타인이 포인트를 사용한 경우")
-                                    .foregroundColor(.appBlack)
+                                    .foregroundColor(.appTextPrimary)
                                     .font(.system(size: 17))
                                     .padding(.bottom, 11)
                             }
@@ -86,7 +86,7 @@ struct VoiceOfCustomerView : View {
                     HStack(alignment: .center, spacing: 0) {
                         Image("plus.active")
                         Text("더 보기")
-                            .foregroundColor(.appBlue)
+                            .foregroundColor(.appPrimary)
                             .font(.system(size: 15))
                     }
                     .padding(.vertical, 24)
@@ -103,7 +103,7 @@ struct VoiceOfCustomerView : View {
                         presentationMode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "multiply")
-                            .foregroundColor(.appBlue)
+                            .foregroundColor(.appPrimary)
                             .font(.system(size: 30))
                     }
                 }

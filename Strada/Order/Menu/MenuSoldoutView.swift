@@ -12,18 +12,18 @@ struct MenuSoldoutView : View {
         HStack(spacing: 0) {
             Rectangle()
                 .frame(width: 30, height: 30)
-                .foregroundColor(Color.appOrange)
+                .foregroundColor(Color.appAlert)
                 .cornerRadius(15, corners: .topLeft)
                 .cornerRadius(15, corners: .bottomLeft)
             Text("SOLD OUT")
                 .font(.system(size: 18))
                 .foregroundColor(Color.white)
                 .frame(height: 30)
-                .background(Color.appOrange)
+                .background(Color.appAlert)
                 
             Rectangle()
                 .frame(width: 30, height: 30)
-                .foregroundColor(Color.appOrange)
+                .foregroundColor(Color.appAlert)
                 .cornerRadius(15, corners: .topRight)
                 .cornerRadius(15, corners: .bottomRight)
         }

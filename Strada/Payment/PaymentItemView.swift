@@ -39,7 +39,7 @@ struct PaymentItemView : View {
                 }
             }
         }
-        .background(Color.appBlue)
+        .background(Color.appPrimary)
     }
 }
 struct OrderItemView_Previews : PreviewProvider {

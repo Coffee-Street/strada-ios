@@ -191,12 +191,12 @@ struct PaymentView : View {
                     }
                     .foregroundColor(.white)
                     .frame(height: 96)
-                    .background(Color.appLightBlue)
+                    .background(Color.appSecondary)
                 }
             } // VStack
             .edgesIgnoringSafeArea(.bottom)
         }
-        .background(Color.appBlue)
+        .background(Color.appPrimary)
     }
 }
 

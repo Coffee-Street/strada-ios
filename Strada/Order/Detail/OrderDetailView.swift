@@ -63,7 +63,7 @@ struct OrderDetailView : View {
                             }) {
                                 if self.isDetail == false {
                                     Text("자세히")
-                                        .foregroundColor(.appLightGray)
+                                        .foregroundColor(.appSemiHighlight)
                                 }
                             }
                         } // HStack
@@ -81,7 +81,7 @@ struct OrderDetailView : View {
                                             self.isDetail = false
                                         }) {
                                             Text("접기")
-                                                .foregroundColor(.appLightGray)
+                                                .foregroundColor(.appSemiHighlight)
                                         }
                                     }
                                 } else {
@@ -103,7 +103,7 @@ struct OrderDetailView : View {
                     
                     Divider()
                         .frame(height: 1)
-                        .background(Color.appVeryLightGray)
+                        .background(Color.appHighlight)
                         .padding(.top, 24)
                         .padding(.bottom, 16)
                         .padding(.leading, 24)
@@ -128,12 +128,12 @@ struct OrderDetailView : View {
                         askMoveBag.toggle()
                     }){
                         Text("장바구니")
-                            .foregroundColor(viewModel.isOrderable() ? .white : .appBrownGray)
+                            .foregroundColor(viewModel.isOrderable() ? .white : .appSemiHighlight)
                     }
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .frame(height: 96)
                     .disabled(viewModel.isOrderable() == false)
-                    .background(viewModel.isOrderable() ? Color.appBlue : Color.appVeryLightGray)
+                    .background(viewModel.isOrderable() ? Color.appPrimary : Color.appHighlight)
                     .alert(isPresented: $askMoveBag) {
                         Alert(title: Text("장바구니에 담겼습니다"), message: Text("장바구니로 이동하시겠습니까?"), primaryButton: .default(Text("이동")) {
                                 isActive.toggle()
@@ -146,12 +146,12 @@ struct OrderDetailView : View {
                     
                     NavigationLink(destination: PaymentView(controller: controller)) {
                         Text("바로주문")
-                            .foregroundColor(viewModel.isOrderable() ? .white : .appBrownGray)
+                            .foregroundColor(viewModel.isOrderable() ? .white : .appSemiHighlight)
                     }
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .frame(height: 96)
                     .disabled(viewModel.isOrderable() == false)
-                    .background(viewModel.isOrderable() ? Color.appLightBlue : Color.appVeryLightGray)
+                    .background(viewModel.isOrderable() ? Color.appSecondary : Color.appHighlight)
                 }
                 .navigationBarTitle(Text(""), displayMode: .inline)
             }

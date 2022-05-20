@@ -17,7 +17,7 @@ struct OneOnOneView : View {
         ZStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 0) {
                 Text("1:1 문의")
-                    .foregroundColor(.appBlue)
+                    .foregroundColor(.appPrimary)
                     .font(.system(size: 22, weight: .bold))
                     .padding(.bottom, 44)
 
@@ -33,7 +33,7 @@ struct OneOnOneView : View {
                             Spacer()
                         }
                         .foregroundColor(.white)
-                        .background(Color.appBlue)
+                        .background(Color.appPrimary)
                         .cornerRadius(15, corners: .bottomLeft)
                         .cornerRadius(15, corners: .topLeft)
                         .cornerRadius(15, corners: .topRight)
@@ -48,7 +48,7 @@ struct OneOnOneView : View {
                                     
                                 HStack(spacing: 0) {
                                     Text("답변이 도움이 되셨나요?")
-                                        .foregroundColor(.appBrownGray)
+                                        .foregroundColor(.appSemiHighlight)
                                         .font(.system(size: 13))
                                     Spacer()
                                     Button(action: {}) {
@@ -59,7 +59,7 @@ struct OneOnOneView : View {
                             .padding(16)
                             Spacer()
                         }
-                        .border(Color.appBrownGray)
+                        .border(Color.appSemiHighlight)
                         .cornerRadius(15, corners: .topLeft)
                         .cornerRadius(15, corners: .topRight)
                         .cornerRadius(15, corners: .bottomRight)
@@ -78,12 +78,12 @@ struct OneOnOneView : View {
                         .frame(height: 48)
                     Button(action: {}) {
                         Text("전송")
-                            .foregroundColor(message.trimmingCharacters(in: .whitespaces).count > 0 ? .appBlue : .appLightGray)
+                            .foregroundColor(message.trimmingCharacters(in: .whitespaces).count > 0 ? .appPrimary : .appSemiHighlight)
                             .font(.system(size: 17))
                     }
                     .padding(.trailing)
                 } // HStack
-                .background(Capsule().stroke(Color.appBrownGray, lineWidth: 2))
+                .background(Capsule().stroke(Color.appSemiHighlight, lineWidth: 2))
             } // VStack
             .padding(.horizontal, 17)
             .padding(.bottom, 49)
@@ -95,7 +95,7 @@ struct OneOnOneView : View {
                         isOpened = false
                     }) {
                         Image(systemName: "multiply")
-                            .foregroundColor(.appBlue)
+                            .foregroundColor(.appPrimary)
                             .font(.system(size: 30))
                     }
                 }

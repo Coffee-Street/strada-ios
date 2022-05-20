@@ -21,12 +21,12 @@ struct ReceiptView : View {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(spacing: 0) {
                         Text("영수증")
-                            .foregroundColor(.appBlue)
+                            .foregroundColor(.appPrimary)
                             .font(.system(size: 22, weight: .bold))
                             .padding(.trailing, 10)
                         
                         Text("A-99")
-                            .foregroundColor(.appBrownGray)
+                            .foregroundColor(.appSemiHighlight)
                             .font(.system(size: 17, weight: .medium))
                     }
                     .frame(height: 34)
@@ -37,11 +37,11 @@ struct ReceiptView : View {
                             Text("접수")
                                 .padding(.trailing, 31)
                             Text("완료")
-                                .foregroundColor(.appBlue)
+                                .foregroundColor(.appPrimary)
                                 .fontWeight(.bold)
                             Spacer()
                             Text("2020.10.12 18:22")
-                                .foregroundColor(.appBrownGray)
+                                .foregroundColor(.appSemiHighlight)
                         }
                         .frame(height: 26)
                         .padding(.bottom, 4)
@@ -52,7 +52,7 @@ struct ReceiptView : View {
                             Text("대기")
                             Spacer()
                             Text("2020.10.12 18:22")
-                                .foregroundColor(.appBrownGray)
+                                .foregroundColor(.appSemiHighlight)
                         }
                         .frame(height: 26)
                         .padding(.bottom, 4)
@@ -63,7 +63,7 @@ struct ReceiptView : View {
                             Text("")
                             Spacer()
                             Text("-")
-                                .foregroundColor(.appBrownGray)
+                                .foregroundColor(.appSemiHighlight)
                         }
                         .frame(height: 26)
                     }
@@ -71,7 +71,7 @@ struct ReceiptView : View {
                     
                     Divider()
                         .frame(height: 1)
-                        .background(Color.appVeryLightGray)
+                        .background(Color.appHighlight)
                         .padding(.top, 16)
                         .padding(.bottom, 24)
                     
@@ -136,7 +136,7 @@ struct ReceiptView : View {
                     
                     Divider()
                         .frame(height: 1)
-                        .background(Color.appVeryLightGray)
+                        .background(Color.appHighlight)
                         .padding(.top, 26)
                         .padding(.bottom, 16)
                     
@@ -161,7 +161,7 @@ struct ReceiptView : View {
                     
                     Divider()
                         .frame(height: 1)
-                        .background(Color.appVeryLightGray)
+                        .background(Color.appHighlight)
                         .padding(.vertical, 16)
                     
                     HStack(spacing: 0) {
@@ -187,7 +187,7 @@ struct ReceiptView : View {
                         }
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(height: 96)
-                        .background(self.isAvailableCancel ? Color.appOrange : Color.appBrownGray)
+                        .background(self.isAvailableCancel ? Color.appAlert : Color.appSemiHighlight)
 
                         NavigationLink(destination: PaymentView(controller: controller)) {
                             Text("이대로 주문")
@@ -195,7 +195,7 @@ struct ReceiptView : View {
                         }
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(height: 96)
-                        .background(Color.appBlue)
+                        .background(Color.appPrimary)
                     }
                 } // VStack
                 
@@ -207,7 +207,7 @@ struct ReceiptView : View {
                         }) {
 //                            Image("close.large.active")
                             Image(systemName: "multiply")
-                                .foregroundColor(.appBlue)
+                                .foregroundColor(.appPrimary)
                                 .font(.system(size: 30))
                                 .frame(width: 36, height: 36)
                         }

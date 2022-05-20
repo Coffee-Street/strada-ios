@@ -34,7 +34,7 @@ struct PaymentSuccessView : View {
                         Spacer()
                     }
                     .frame(height: 96)
-                    .background(Color.appBlue)
+                    .background(Color.appPrimary)
                 }
             }
         }
