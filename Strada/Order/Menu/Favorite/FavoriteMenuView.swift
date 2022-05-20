@@ -39,6 +39,6 @@ struct FavoriteMenuView_Previews : PreviewProvider {
         FavoriteMenuView(favoriteMenus: $favoriteMenus)
         
         FavoriteMenuView(favoriteMenus: $favoriteMenus)
-            .previewDevice("iPod touch (7th generation)")
+            .preferredColorScheme(.dark)
     }
 }

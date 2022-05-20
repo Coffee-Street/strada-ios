@@ -47,7 +47,7 @@ struct OrderDetailDrinkPersonalOptionView_Previews : PreviewProvider {
     static var previews: some View {
         OrderDetailDrinkPersonalOptionView(personalOptions: $personalOptions)
         OrderDetailDrinkPersonalOptionView(personalOptions: $personalOptions)
-            .previewDevice("iPhone 8")
+            .preferredColorScheme(.dark)
             
     }
 }

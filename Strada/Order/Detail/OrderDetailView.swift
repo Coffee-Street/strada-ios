@@ -156,7 +156,6 @@ struct OrderDetailView : View {
                 .navigationBarTitle(Text(""), displayMode: .inline)
             }
         } // ZStack
-        .background(.white)
         .edgesIgnoringSafeArea(.all)
     }
 }
@@ -166,6 +165,6 @@ struct OrderDetailView_Previews : PreviewProvider {
         OrderDetailView(controller: CurrentViewController("orderDetail"), menu_id: UUID())
         
         OrderDetailView(controller: CurrentViewController("orderDetail"), menu_id: UUID())
-            .previewDevice("iPhone 8")
+            .preferredColorScheme(.dark)
     }
 }

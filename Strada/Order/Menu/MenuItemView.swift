@@ -14,7 +14,7 @@ struct MenuItemView : View {
     private func menuTextColor() -> Color {
         switch self.menu.state {
         case .AVAILABLE:
-            return .black
+            return .appTextPrimary
         case .SOLD_OUT:
             fallthrough
         case .COMING_SOON:
