@@ -217,7 +217,6 @@ struct ReceiptView : View {
                 .padding(.trailing, 24)
             } // ZStack
             .navigationBarHidden(true)
-            .background(.white)
             .edgesIgnoringSafeArea(.bottom)
         } // NavigationView
     }

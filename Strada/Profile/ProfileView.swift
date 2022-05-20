@@ -80,7 +80,6 @@ struct ProfileView : View {
                 ReceiptView(controller: controller, isOpened: $isOpenedReceipt)
             }
         } // ZStack
-        .background(.white)
         .edgesIgnoringSafeArea(.bottom)
         .onAppear {
             viewModel.getProfile()

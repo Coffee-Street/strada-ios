@@ -103,7 +103,6 @@ struct OneOnOneView : View {
             } // VStack
             .padding(.trailing, 24)
         }
-        .background(.white)
         .edgesIgnoringSafeArea(.bottom)
     }
 }

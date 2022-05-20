@@ -62,7 +62,6 @@ struct NoticeView : View {
                 ReceiptView(controller: controller, isOpened: $isOpenedReceipt)
             }
         } // ZStack
-        .background(.white)
         .edgesIgnoringSafeArea(.bottom)
     }
 }

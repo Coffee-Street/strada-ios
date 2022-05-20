@@ -116,7 +116,6 @@ struct VoiceOfCustomerView : View {
             }
             
         } // ZStack
-        .background(.white)
         .edgesIgnoringSafeArea(.bottom)
     }
 }
