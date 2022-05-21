@@ -1,20 +1,20 @@
 //
-//  PaymentSuccessView.swift
+//  PaymentFailView.swift
 //  Strada
 //
-//  Created by 박종봉 on 2022/01/22.
+//  Created by 박종봉 on 2022/05/02.
 //
 
 import SwiftUI
 
-struct PaymentSuccessView : View {
+struct PaymentFailView : View {
     @ObservedObject var controller: CurrentViewController
     
     var body: some View {
         ZStack {
             VStack(alignment: .center) {
                 Spacer()
-                Text("주문이 성공적으로\n완료되었습니다.")
+                Text("주문이 실패하었습니다.")
                     .font(.system(size: 24, weight: .medium))
                     .multilineTextAlignment(.center)
                 Spacer()
@@ -25,11 +25,11 @@ struct PaymentSuccessView : View {
                 Spacer()
                 
                 Button(action: {
-                    controller.goHome()
+                    controller.goPaymentFail()
                 }) {
                     HStack {
                         Spacer()
-                        Text("홈으로")
+                        Text("돌아가기")
                             .foregroundColor(.white)
                         Spacer()
                     }
@@ -43,8 +43,8 @@ struct PaymentSuccessView : View {
     }
 }
 
-struct PaymentSuccessView_Previews : PreviewProvider {
+struct PaymentFailView_Previews : PreviewProvider {
     static var previews: some View {
-        PaymentSuccessView(controller: CurrentViewController("paymentSuccess"))
+        PaymentFailView(controller: CurrentViewController("paymentFail"))
     }
 }

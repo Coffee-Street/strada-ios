@@ -28,18 +28,27 @@ struct VoiceOfCustomerView : View {
                         .padding(.bottom, 24)
                                  
                     HStack {
-                        Image("phone")
-                            .padding(.trailing, 8)
-                        Image("instagram")
-                            .padding(.trailing, 8)
-                        Image("facebook")
+                        Button(action: {}) {
+                            Image("phone")
+                                .padding(.trailing, 8)
+                        }
+                        
+                        Button(action: {}) {
+                            Image("instagram")
+                                .padding(.trailing, 8)
+                        }
+                        
+                        Button(action: {}) {
+                            Image("facebook")
+                                .padding(.trailing, 8)
+                        }
                     }
                     .padding(.bottom, 24)
                     
                     Button(action: {
                         isOpenedOneOnOne.toggle()
                     }) {
-                        HStack {
+                        HStack(spacing: 0) {
                             VStack(alignment: .leading, spacing: 0) {
                                 Text("1:1 문의하기")
                                     .foregroundColor(Color.white)
@@ -71,7 +80,6 @@ struct VoiceOfCustomerView : View {
                                     .font(.system(size: 17))
                                     .padding(.bottom, 11)
                             }
-                            
                             Spacer()
                             Image("next.active")
                         }
@@ -110,14 +118,12 @@ struct VoiceOfCustomerView : View {
                 Spacer()
             } // VStack
             .padding(.trailing, 24)
-            
-            if isOpenedOneOnOne {
-                OneOnOneView(isOpened: $isOpenedOneOnOne)
-            }
-            
         } // ZStack
         .background(.white)
         .edgesIgnoringSafeArea(.bottom)
+        .fullScreenCover(isPresented: $isOpenedOneOnOne) {
+            OneOnOneView()
+        }
     }
 }
 

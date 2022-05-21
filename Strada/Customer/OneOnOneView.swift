@@ -9,9 +9,9 @@ import SwiftUI
 
 struct OneOnOneView : View {
     
-    @Binding var isOpened: Bool
-    
     @State private var message: String = ""
+    
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -39,32 +39,39 @@ struct OneOnOneView : View {
                         .cornerRadius(15, corners: .topRight)
                         .padding(.bottom, 8)
                         
-                        HStack(spacing: 0) {
-                            Spacer()
-                            VStack(alignment: .leading, spacing: 0) {
-                                Text("다른 사람이 포인트를 도용해 사용한 경우에는 \n사실 확인 후 바로 포인트를 환불해드립니다. \n확인을 위해서 카드 내역과 이것저것 부탁드려요!")
-                                    .font(.system(size: 15))
-                                    .padding(.bottom, 12)
-                                    
-                                HStack(spacing: 0) {
-                                    Text("답변이 도움이 되셨나요?")
-                                        .foregroundColor(.appBrownGray)
-                                        .font(.system(size: 13))
-                                    Spacer()
-                                    Button(action: {}) {
-                                        Image("thumbsup")
+                        VStack {
+                            HStack(spacing: 0) {
+                                Spacer()
+                                VStack(alignment: .leading, spacing: 0) {
+                                    Text("다른 사람이 포인트를 도용해 사용한 경우에는 \n사실 확인 후 바로 포인트를 환불해드립니다. \n확인을 위해서 카드 내역과 이것저것 부탁드려요!")
+                                        .font(.system(size: 15))
+                                        .padding(.bottom, 12)
+                                        
+                                    HStack(spacing: 0) {
+                                        Text("답변이 도움이 되셨나요?")
+                                            .foregroundColor(.appBrownGray)
+                                            .font(.system(size: 13))
+                                        Spacer()
+                                        Button(action: {}) {
+                                            Image("thumbsup")
+                                        }
                                     }
                                 }
+                                .padding(16)
+                                Spacer()
                             }
-                            .padding(16)
-                            Spacer()
-                        }
-                        .border(Color.appBrownGray)
+                            .background(.white)
+                            .cornerRadius(14, corners: .topLeft)
+                            .cornerRadius(14, corners: .topRight)
+                            .cornerRadius(14, corners: .bottomRight)
+                            .padding(0.8)
+                        } // HStack
+                        .background(Color.appBrownGray)
                         .cornerRadius(15, corners: .topLeft)
                         .cornerRadius(15, corners: .topRight)
                         .cornerRadius(15, corners: .bottomRight)
                         .padding(.bottom, 8)
-                    }
+                    } // VStack
                 } // ScrollView
             } // VStack
             .padding(.horizontal, 24)
@@ -92,7 +99,7 @@ struct OneOnOneView : View {
                 HStack {
                     Spacer()
                     Button(action: {
-                        isOpened = false
+                        presentationMode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "multiply")
                             .foregroundColor(.appBlue)
@@ -110,6 +117,6 @@ struct OneOnOneView : View {
 
 struct OneOnOneView_Previews : PreviewProvider {
     static var previews: some View {
-        OneOnOneView(isOpened: .constant(false))
+        OneOnOneView()
     }
 }

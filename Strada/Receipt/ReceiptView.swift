@@ -13,7 +13,9 @@ struct ReceiptView : View {
     
     @Binding var isOpened: Bool
     
-    @State private var isAvailableCancel: Bool = true
+    @StateObject private var viewModel = ReceiptViewModel()
+    
+    @State private var isAvailableCancel: Bool = false
     
     var body: some View {
         NavigationView {
@@ -25,7 +27,7 @@ struct ReceiptView : View {
                             .font(.system(size: 22, weight: .bold))
                             .padding(.trailing, 10)
                         
-                        Text("A-99")
+                        Text(viewModel.receipt.id)
                             .foregroundColor(.appBrownGray)
                             .font(.system(size: 17, weight: .medium))
                     }
@@ -36,11 +38,11 @@ struct ReceiptView : View {
                         HStack(spacing: 0) {
                             Text("접수")
                                 .padding(.trailing, 31)
-                            Text("완료")
+                            Text(viewModel.getReceptionStatus())
                                 .foregroundColor(.appBlue)
                                 .fontWeight(.bold)
                             Spacer()
-                            Text("2020.10.12 18:22")
+                            Text(viewModel.getReceiptionDate())
                                 .foregroundColor(.appBrownGray)
                         }
                         .frame(height: 26)
@@ -49,9 +51,9 @@ struct ReceiptView : View {
                         HStack(spacing: 0) {
                             Text("제조")
                                 .padding(.trailing, 31)
-                            Text("대기")
+                            Text(viewModel.getManufactureStatus())
                             Spacer()
-                            Text("2020.10.12 18:22")
+                            Text(viewModel.getManufactureDate())
                                 .foregroundColor(.appBrownGray)
                         }
                         .frame(height: 26)
@@ -60,9 +62,9 @@ struct ReceiptView : View {
                         HStack(spacing: 0) {
                             Text("픽업")
                                 .padding(.trailing, 31)
-                            Text("")
+                            Text(viewModel.getPickUpStatus())
                             Spacer()
-                            Text("-")
+                            Text(viewModel.getPickUpDate())
                                 .foregroundColor(.appBrownGray)
                         }
                         .frame(height: 26)
@@ -76,60 +78,9 @@ struct ReceiptView : View {
                         .padding(.bottom, 24)
                     
                     VStack(spacing: 0) {
-                        VStack(spacing: 0) {
-                            HStack(spacing: 0) {
-                                Text("메뉴 이름")
-                                Spacer()
-                                Text("2개")
-                                    .font(.system(size: 17, weight: .bold))
-                            }
-                            .frame(height: 26)
-                            .padding(.bottom, 2)
-                            HStack(spacing: 0) {
-                                Text("옵션 / 사이즈")
-                                Spacer()
-                                Text("\(4000)원")
-                                    .font(.system(size: 17, weight: .bold))
-                            }
-                            .frame(height: 26)
-                        }
-                        .padding(.bottom, 16)
-                        
-                        VStack(spacing: 0) {
-                            HStack(spacing: 0) {
-                                Text("메뉴 이름")
-                                Spacer()
-                                Text("")
-                                    .font(.system(size: 17, weight: .bold))
-                            }
-                            .frame(height: 26)
-                            .padding(.bottom, 2)
-                            HStack(spacing: 0) {
-                                Text("옵션 / 사이즈")
-                                Spacer()
-                                Text("\(4000)원")
-                                    .font(.system(size: 17, weight: .bold))
-                            }
-                            .frame(height: 26)
-                        }
-                        .padding(.bottom, 16)
-                        
-                        VStack(spacing: 0) {
-                            HStack(spacing: 0) {
-                                Text("메뉴 이름")
-                                Spacer()
-                                Text("")
-                                    .font(.system(size: 17, weight: .bold))
-                            }
-                            .frame(height: 26)
-                            .padding(.bottom, 2)
-                            HStack(spacing: 0) {
-                                Text("옵션 / 사이즈")
-                                Spacer()
-                                Text("\(4000)원")
-                                    .font(.system(size: 17, weight: .bold))
-                            }
-                            .frame(height: 26)
+                        ForEach(1..<4) { idx in
+                            ReceiptItemView()
+                                .padding(.bottom, idx == 4-1 ? 0 : 16)
                         }
                     }
                     .padding(.trailing, 24)
@@ -181,15 +132,18 @@ struct ReceiptView : View {
                 VStack(spacing: 0) {
                     Spacer()
                     HStack(spacing: 0) {
-                        Button(action: {}) {
+                        Button(action: {
+                            //TODO: 취소 요청하기
+                        }) {
                             Text("취소하기")
                                 .foregroundColor(.white)
                         }
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .frame(height: 96)
                         .background(self.isAvailableCancel ? Color.appOrange : Color.appBrownGray)
+                        .disabled(isAvailableCancel == false)
 
-                        NavigationLink(destination: PaymentView(controller: controller)) {
+                        NavigationLink(destination: BagView(controller: controller)) {
                             Text("이대로 주문")
                                 .foregroundColor(.white)
                         }

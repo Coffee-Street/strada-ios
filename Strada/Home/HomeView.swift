@@ -92,7 +92,7 @@ struct HomeView : View {
                     Spacer()
                     HStack {
                         Spacer()
-                        NavigationLink(destination: PaymentView(controller: controller)) {
+                        NavigationLink(destination: BagView(controller: controller)) {
                             Image("bag")
                                 .frame(width: 70, height: 63)
                                 .font(.system(size: 20, weight: .bold))

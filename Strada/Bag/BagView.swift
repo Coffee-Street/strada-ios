@@ -1,5 +1,5 @@
 //
-//  PaymentView.swift
+//  BagView.swift
 //  Strada
 //
 //  Created by 박종봉 on 2022/01/21.
@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct PaymentView : View {
+struct BagView : View {
     @ObservedObject var controller: CurrentViewController
     
-    @StateObject private var viewModel = PaymentViewModel()
+    @StateObject private var viewModel = BagViewModel()
     
     @Environment(\.openURL) var openURL
     @Environment(\.scenePhase) var scenePhase
@@ -25,9 +25,9 @@ struct PaymentView : View {
                         .padding(.bottom, 25)
                     
                     VStack {
-                        ForEach(viewModel.paymentItemViewModels.indices, id: \.self) { index in
-                            PaymentItemView(viewModel: $viewModel.paymentItemViewModels[index], onDelete: {
-                                        viewModel.paymentItemViewModels.remove(at: index)
+                        ForEach(viewModel.bagItemViewModels.indices, id: \.self) { index in
+                            PaymentItemView(viewModel: $viewModel.bagItemViewModels[index], onDelete: {
+                                        viewModel.bagItemViewModels.remove(at: index)
                                 }
                             )
                         }
@@ -146,11 +146,9 @@ struct PaymentView : View {
                                     
                                     //TODO: Clear Basket
                                     
-                                    //TODO: Move PaymentResultView -> Success
                                     controller.goPaymentSuccess()
                                 } else if url.path == "/fail" {
-                                    //TODO: Move PaymentResultView -> Failed
-                                    //controller.goPaymentFail()
+                                    controller.goPaymentFail()
                                 } else if url.path == "/cancel" {
                                     //TODO: Alert Cancel
                                     viewModel.isCanceledPayment = true
@@ -202,6 +200,6 @@ struct PaymentView : View {
 
 struct PaymentView_Previews : PreviewProvider {
     static var previews: some View {
-        PaymentView(controller: CurrentViewController("payment"))
+        BagView(controller: CurrentViewController("payment"))
     }
 }

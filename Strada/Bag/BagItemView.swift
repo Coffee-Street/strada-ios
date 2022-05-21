@@ -1,5 +1,5 @@
 //
-//  PaymentItemView.swift
+//  BagItemView.swift
 //  Strada
 //
 //  Created by 박종봉 on 2022/01/21.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PaymentItemView : View {
-    @Binding var viewModel: PaymentItemViewModel
+    @Binding var viewModel: BagItemViewModel
     
     let onDelete: () -> ()
 
@@ -43,7 +43,7 @@ struct PaymentItemView : View {
     }
 }
 struct OrderItemView_Previews : PreviewProvider {
-    @State static var viewModel = PaymentItemViewModel(orderItem: OrderItem(
+    @State static var viewModel = BagItemViewModel(orderItem: OrderItem(
         menu: Menu(type: MenuType.COFFEE, state: MenuState.AVAILABLE, name: MenuName(kr: "아메리카노", en: "Americano"), price: 4000),
         menuOption: MenuOption(menuType: .COFFEE),
         menuPersonalOption: MenuPersonalOption(menuType: .COFFEE),
