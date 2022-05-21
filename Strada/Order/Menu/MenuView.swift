@@ -19,7 +19,7 @@ struct MenuView : View {
             
             Divider()
                 .frame(height: 1)
-                .background(Color.appVeryLightGray)
+                .background(Color.appHighlight)
                 .padding(.vertical)
             
             VStack(alignment: .leading, spacing: 0) {
@@ -53,5 +53,8 @@ struct MenuView : View {
 struct MenuView_Previews : PreviewProvider {
     static var previews: some View {
         MenuView(controller: CurrentViewController("menu"))
+        
+        MenuView(controller: CurrentViewController("menu"))
+            .preferredColorScheme(.dark)
     }
 }

@@ -21,7 +21,7 @@ struct ProfileView : View {
         ZStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 0) {
                 Text("내 정보")
-                    .foregroundColor(.appBlue)
+                    .foregroundColor(.appPrimary)
                     .font(.system(size: 22, weight: .bold))
                     .padding(.bottom, 28)
                 
@@ -30,12 +30,12 @@ struct ProfileView : View {
                     .padding(.bottom, 8)
                 
                 Text("포인트 관련 공지를 작성합니다.\n포인트는 어떠어떠할 때 사용하실 수 없습니다.")
-                    .foregroundColor(.appBrownGray)
+                    .foregroundColor(.appSemiHighlight)
                     .font(.system(size: 13))
                 
                 Divider()
                     .frame(height: 1)
-                    .background(Color.appVeryLightGray)
+                    .background(Color.appHighlight)
                     .padding(.vertical, 24)
                 
                 HistoryView(isOpenedReceipt: $isOpenedReceipt)
@@ -54,7 +54,7 @@ struct ProfileView : View {
                             presentationMode.wrappedValue.dismiss()
                         }) {
                             Image(systemName: "multiply")
-                                .foregroundColor(.appBlue)
+                                .foregroundColor(.appPrimary)
                                 .font(.system(size: 30))
                         }
                     }
@@ -67,7 +67,7 @@ struct ProfileView : View {
                             controller.goSign()
                         }) {
                             Text("로그아웃")
-                                .foregroundColor(.appOrange)
+                                .foregroundColor(.appAlert)
                                 .font(.system(size: 15))
                         }
                     }
@@ -80,7 +80,6 @@ struct ProfileView : View {
                 ReceiptView(controller: controller, isOpened: $isOpenedReceipt)
             }
         } // ZStack
-        .background(.white)
         .edgesIgnoringSafeArea(.bottom)
         .onAppear {
             viewModel.getProfile()

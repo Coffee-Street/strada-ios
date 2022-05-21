@@ -21,13 +21,13 @@ struct FavoriteMenuItemView : View {
         ZStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 0) {
                 Text(self.favoriteMenu.menu.name.kr)
-                    .foregroundColor(self.favoriteMenu.menu.state == .SOLD_OUT ? .appLightGray : .black)
+                    .foregroundColor(self.favoriteMenu.menu.state == .SOLD_OUT ? .appSemiHighlight : .appTextPrimary)
                     .padding(.bottom, 5)
                 Text("옵션 / 사이즈")
-                    .foregroundColor(self.favoriteMenu.menu.state == .SOLD_OUT ? .appLightGray : .black)
+                    .foregroundColor(self.favoriteMenu.menu.state == .SOLD_OUT ? .appSemiHighlight : .appTextPrimary)
                     .padding(.bottom, 5)
                 Text("\(self.favoriteMenu.menu.price)원")
-                    .foregroundColor(self.favoriteMenu.menu.state == .SOLD_OUT ? .appLightGray : .black)
+                    .foregroundColor(self.favoriteMenu.menu.state == .SOLD_OUT ? .appSemiHighlight : .appTextPrimary)
                     .fontWeight(.semibold)
 //                Text(menuPrice, format: .currency(code: "KRW"))
             }

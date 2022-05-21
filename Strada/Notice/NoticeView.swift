@@ -20,7 +20,7 @@ struct NoticeView : View {
         ZStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 0) {
                 Text("알림센터")
-                    .foregroundColor(.appBlue)
+                    .foregroundColor(.appPrimary)
                     .font(.system(size: 22, weight: .bold))
                     .padding(.bottom, 36)
                 
@@ -50,7 +50,7 @@ struct NoticeView : View {
                         presentationMode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "multiply")
-                            .foregroundColor(.appBlue)
+                            .foregroundColor(.appPrimary)
                             .font(.system(size: 30))
                     }
                 }
@@ -62,7 +62,6 @@ struct NoticeView : View {
                 ReceiptView(controller: controller, isOpened: $isOpenedReceipt)
             }
         } // ZStack
-        .background(.white)
         .edgesIgnoringSafeArea(.bottom)
     }
 }

@@ -17,7 +17,7 @@ struct OneOnOneView : View {
         ZStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 0) {
                 Text("1:1 문의")
-                    .foregroundColor(.appBlue)
+                    .foregroundColor(.appPrimary)
                     .font(.system(size: 22, weight: .bold))
                     .padding(.bottom, 44)
 
@@ -33,7 +33,7 @@ struct OneOnOneView : View {
                             Spacer()
                         }
                         .foregroundColor(.white)
-                        .background(Color.appBlue)
+                        .background(Color.appPrimary)
                         .cornerRadius(15, corners: .bottomLeft)
                         .cornerRadius(15, corners: .topLeft)
                         .cornerRadius(15, corners: .topRight)
@@ -44,6 +44,7 @@ struct OneOnOneView : View {
                                 Spacer()
                                 VStack(alignment: .leading, spacing: 0) {
                                     Text("다른 사람이 포인트를 도용해 사용한 경우에는 \n사실 확인 후 바로 포인트를 환불해드립니다. \n확인을 위해서 카드 내역과 이것저것 부탁드려요!")
+                                        .foregroundColor(.appBlack)
                                         .font(.system(size: 15))
                                         .padding(.bottom, 12)
                                         
@@ -66,7 +67,7 @@ struct OneOnOneView : View {
                             .cornerRadius(14, corners: .bottomRight)
                             .padding(0.8)
                         } // HStack
-                        .background(Color.appBrownGray)
+                        .background(Color.appDarkHighlight)
                         .cornerRadius(15, corners: .topLeft)
                         .cornerRadius(15, corners: .topRight)
                         .cornerRadius(15, corners: .bottomRight)
@@ -85,12 +86,12 @@ struct OneOnOneView : View {
                         .frame(height: 48)
                     Button(action: {}) {
                         Text("전송")
-                            .foregroundColor(message.trimmingCharacters(in: .whitespaces).count > 0 ? .appBlue : .appLightGray)
+                            .foregroundColor(message.trimmingCharacters(in: .whitespaces).count > 0 ? .appPrimary : .appSemiHighlight)
                             .font(.system(size: 17))
                     }
                     .padding(.trailing)
                 } // HStack
-                .background(Capsule().stroke(Color.appBrownGray, lineWidth: 2))
+                .background(Capsule().stroke(Color.appSemiHighlight, lineWidth: 2))
             } // VStack
             .padding(.horizontal, 17)
             .padding(.bottom, 49)
@@ -102,7 +103,7 @@ struct OneOnOneView : View {
                         presentationMode.wrappedValue.dismiss()
                     }) {
                         Image(systemName: "multiply")
-                            .foregroundColor(.appBlue)
+                            .foregroundColor(.appPrimary)
                             .font(.system(size: 30))
                     }
                 }
@@ -110,7 +111,6 @@ struct OneOnOneView : View {
             } // VStack
             .padding(.trailing, 24)
         }
-        .background(.white)
         .edgesIgnoringSafeArea(.bottom)
     }
 }

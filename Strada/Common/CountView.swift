@@ -42,7 +42,7 @@ struct CountView : View {
             
             Text("\(self.range[indexProxy])")
                 .font(.system(size: 18))
-                .foregroundColor(Color.white)
+                .foregroundColor(.white)
             
             Button(action: {
                 indexProxy += 1
@@ -52,7 +52,7 @@ struct CountView : View {
             }
             .disabled(indexProxy == self.range.count - 1)
         }
-        .background(Capsule().fill(Color.appBlue))
+        .background(Capsule().fill(Color.appPrimary))
     }
 }
 

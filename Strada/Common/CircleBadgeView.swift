@@ -10,7 +10,7 @@ import SwiftUI
 struct CircleBadgeView : View {
     var body: some View {
         ZStack {
-            Circle().fill(Color.appOrange)
+            Circle().fill(Color.appAlert)
                 .frame(width: 7, height: 7)
         }
     }

@@ -32,7 +32,7 @@ struct SignView : View {
             
             VStack(spacing: 0) {
                 TextField("전화번호를 입력해주세요", text: $viewModel.phoneNumber)
-                    .foregroundColor(.appBlack)
+                    .foregroundColor(.appTextSecondary)
                     .font(.system(size: 15))
                     .multilineTextAlignment(.center)
                     .lineLimit(1)
@@ -40,7 +40,7 @@ struct SignView : View {
                     .overlay(VStack {
                         Divider()
                             .frame(height: /*isFocused ? 2 : */1)
-                            .background(/*isFocused ? Color.appBlue :*/ Color.appVeryLightGray)
+                            .background(/*isFocused ? Color.appPrimary :*/ Color.appHighlight)
                             .offset(x: 0, y: 9)
                     })
             }
@@ -71,7 +71,7 @@ struct SignView : View {
                 Spacer()
             }
             .frame(height: 40)
-            .background(isValidPhoneNumber() ? Color.appBlue : Color.appVeryLightGray)
+            .background(isValidPhoneNumber() ? Color.appPrimary : Color.appDisable)
             .padding(.bottom, 8)
             
             HStack {
@@ -81,16 +81,16 @@ struct SignView : View {
                     HStack(spacing: 0) {
                         Text("자동 로그인")
                             .font(.system(size: 10))
-                            .foregroundColor(viewModel.isAutoLogin ? .appBlue : .appBrownGray)
+                            .foregroundColor(viewModel.isAutoLogin ? .appPrimary : .appSemiHighlight)
                             .padding(.trailing, 6)
 
                         Circle()
                             .stroke(lineWidth: 1)
-                            .foregroundColor(viewModel.isAutoLogin ? .appBlue : .appBrownGray)
+                            .foregroundColor(viewModel.isAutoLogin ? .appPrimary : .appSemiHighlight)
                             .frame(width: 17, height: 17)
                             .overlay(
                                 Image(systemName: viewModel.isAutoLogin ? "checkmark" : "")
-                                    .foregroundColor(.appBlue)
+                                    .foregroundColor(.appPrimary)
                                     .font(.system(size: 15, weight: .semibold))
                                     .padding(.leading, 3)
                                     .padding(.bottom, 3)
@@ -106,7 +106,6 @@ struct SignView : View {
             Spacer()
         }
         .padding(.horizontal, 24)
-        .background(.white)
         .onOpenURL { url in
             print("SignView url scheme: \(String(describing: url.scheme)), url host: \(String(describing: url.host))")
         }
@@ -116,5 +115,9 @@ struct SignView : View {
 struct SignView_Previews : PreviewProvider {
     static var previews: some View {
         SignView(controller: CurrentViewController("sign"))
+            .preferredColorScheme(.light)
+        
+        SignView(controller: CurrentViewController("sign"))
+            .preferredColorScheme(.dark)
     }
 }

@@ -15,7 +15,7 @@ struct FavoriteMenuView : View {
         VStack {
             HStack {
                 Text("즐겨찾는 메뉴")
-                    .foregroundColor(.appBlue)
+                    .foregroundColor(.appPrimary)
                     .font(.system(size: 18, weight: .bold))
                 Spacer()
             }
@@ -39,6 +39,6 @@ struct FavoriteMenuView_Previews : PreviewProvider {
         FavoriteMenuView(favoriteMenus: $favoriteMenus)
         
         FavoriteMenuView(favoriteMenus: $favoriteMenus)
-            .previewDevice("iPod touch (7th generation)")
+            .preferredColorScheme(.dark)
     }
 }

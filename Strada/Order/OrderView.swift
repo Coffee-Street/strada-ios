@@ -30,7 +30,7 @@ struct OrderView : View {
                                 presentationMode.wrappedValue.dismiss()
                             }) {
                                 Image(systemName: "multiply")
-                                    .foregroundColor(.appBlue)
+                                    .foregroundColor(.appPrimary)
                                     .font(.system(size: 30))
                             }
                         }
@@ -39,7 +39,7 @@ struct OrderView : View {
                     .padding(.trailing, 24)
                 } // ZStack
             } // ScrollView
-            .background(.white)
+//            .background(.white)
             .edgesIgnoringSafeArea(.bottom)
         } //NavigationView
     }
@@ -49,8 +49,11 @@ struct OrderView_Previews : PreviewProvider {
     static var previews: some View {
         Group {
             OrderView(controller: CurrentViewController("order"))
+            
             OrderView(controller: CurrentViewController("order"))
-                .previewDevice("iPhone 8")
+                .preferredColorScheme(.dark)
+//            OrderView(controller: CurrentViewController("order"))
+//                .previewDevice("iPhone 8")
         }
         
     }

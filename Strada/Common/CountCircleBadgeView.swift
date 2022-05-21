@@ -13,7 +13,7 @@ struct CountCircleBadgeView : View {
     
     var body: some View {
         ZStack {
-            Capsule().fill(Color.appOrange).frame(width: 26, height: 26)
+            Capsule().fill(Color.appAlert).frame(width: 26, height: 26)
             
             Text("\(count)")
                 .foregroundColor(.white)

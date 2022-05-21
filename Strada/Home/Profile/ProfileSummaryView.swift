@@ -17,12 +17,12 @@ struct ProfileSummaryView : View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: 0) {
                 Text(saluteMessage)
-                    .foregroundColor(.appBrownGray)
+                    .foregroundColor(.appSemiHighlight)
                     .font(.subheadline)
 //                    .padding(.vertical, 5)
                 Spacer()
                 Text(profileSummary.phoneNumber)
-                    .foregroundColor(.appBrownGray)
+                    .foregroundColor(.appSemiHighlight)
                     .font(.subheadline)
             }
             .frame(height: 46)
@@ -30,10 +30,10 @@ struct ProfileSummaryView : View {
             
             HStack {
                 Text("\(profileSummary.point)P")
-                    .foregroundColor(.appBlue)
+                    .foregroundColor(.appPrimary)
                     .font(.title)
                 Image(systemName: "greaterthan")
-                    .foregroundColor(.appBlue)
+                    .foregroundColor(.appPrimary)
                     .font(.title)
                     .frame(width: 36, height: 36)
             }

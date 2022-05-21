@@ -23,7 +23,7 @@ struct MenuCountView : View {
                     .foregroundColor(Color.white)
             }
             .frame(width: 30, height: 30)
-            .background(Color.appBlue)
+            .background(Color.appPrimary)
             .cornerRadius(15, corners: .topLeft)
             .cornerRadius(15, corners: .bottomLeft)
             .disabled(self.count < 1)
@@ -31,9 +31,9 @@ struct MenuCountView : View {
             Text("\(self.count)")
                 .font(.system(size: 18))
                 .foregroundColor(Color.white)
-                .background(Color.appBlue)
+                .background(Color.appPrimary)
                 .frame(width: 30, height: 30)
-                .background(Color.appBlue)
+                .background(Color.appPrimary)
             
             Button(action: {
                 self.count += 1
@@ -43,7 +43,7 @@ struct MenuCountView : View {
                     .foregroundColor(Color.white)
             }
             .frame(width: 30, height: 30)
-            .background(Color.appBlue)
+            .background(Color.appPrimary)
             .cornerRadius(15, corners: .topRight)
             .cornerRadius(15, corners: .bottomRight)
         }

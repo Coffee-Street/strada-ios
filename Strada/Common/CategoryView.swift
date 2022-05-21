@@ -31,7 +31,7 @@ struct CategoryView : View {
     }
     
     func getFontColor(selected: String) -> Color {
-        return self.selected == selected ? .appBlue : .appBrownGray
+        return self.selected == selected ? .appPrimary : .appSemiHighlight
     }
     
     func getFontWeight(selected: String) -> Font.Weight {

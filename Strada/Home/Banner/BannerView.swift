@@ -12,8 +12,8 @@ struct BannerView : View {
     @Binding var banners: [Banner]
     
     func setupAppearance() {
-        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(.appBlue)
-        UIPageControl.appearance().pageIndicatorTintColor = UIColor(.appBrownGray)
+        UIPageControl.appearance().currentPageIndicatorTintColor = UIColor(.appPrimary)
+        UIPageControl.appearance().pageIndicatorTintColor = UIColor(.appSemiHighlight)
     }
     
     var body: some View {
