@@ -44,6 +44,7 @@ struct OneOnOneView : View {
                                 Spacer()
                                 VStack(alignment: .leading, spacing: 0) {
                                     Text("다른 사람이 포인트를 도용해 사용한 경우에는 \n사실 확인 후 바로 포인트를 환불해드립니다. \n확인을 위해서 카드 내역과 이것저것 부탁드려요!")
+                                        .foregroundColor(.appBlack)
                                         .font(.system(size: 15))
                                         .padding(.bottom, 12)
                                         
@@ -66,7 +67,7 @@ struct OneOnOneView : View {
                             .cornerRadius(14, corners: .bottomRight)
                             .padding(0.8)
                         } // HStack
-                        .background(Color.appBrownGray)
+                        .background(Color.appDarkHighlight)
                         .cornerRadius(15, corners: .topLeft)
                         .cornerRadius(15, corners: .topRight)
                         .cornerRadius(15, corners: .bottomRight)

@@ -28,7 +28,7 @@ struct ReceiptView : View {
                             .padding(.trailing, 10)
                         
                         Text(viewModel.receipt.id)
-                            .foregroundColor(.appBrownGray)
+                            .foregroundColor(.appDarkHighlight)
                             .font(.system(size: 17, weight: .medium))
                     }
                     .frame(height: 34)

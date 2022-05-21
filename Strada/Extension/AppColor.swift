@@ -18,10 +18,15 @@ extension Color {
     static let appSecondary = Color("AppLightBlue")
     static let appAlert = Color("AppOrange")
     static let appDominant = Color("AppBeige")
-    static let appDarkHighlight = Color("AppBrownGray")
-    static let appSemiHighlight = Color("AppLightGray")
-    static let appHighlight = Color("AppVeryLightGray")
+    static let appDarkHighlight = Color("AppDarkHighlight")
+    static let appSemiHighlight = Color("AppSemiHighlight")
+    static let appHighlight = Color("AppHighlight")
     
     static let appDisable = Color("AppLightGray")
+    
+    static let appBlack = Color("AppBlack")
+    static let appBrownGray = Color("AppBrownGray")
+    static let appLightGray = Color("AppLightGray")
+    static let appVeryLightGray = Color("AppVeryLightGray")
 
 }
