@@ -184,18 +184,23 @@ struct KakaoPayAPI {
             try container.encode(cid, forKey: .cid)
             try container.encode(partnerOrderId, forKey: .partner_order_id)
             try container.encode(partnerUserId, forKey: .partner_user_id)
-            try container.encode(itemName.addingPercentEncoding(withAllowedCharacters: .letters), forKey: .item_name)
+            try container.encode(itemName, forKey: .item_name)
+//            try container.encode(itemName.addingPercentEncoding(withAllowedCharacters: .letters), forKey: .item_name)
             try container.encode(quantity, forKey: .quantity)
             try container.encode(totalAmount, forKey: .total_amount)
             try container.encode(vatAmount, forKey: .vat_amount)
             try container.encode(taxFreeAmount, forKey: .tax_free_amount)
-            try container.encode(approvalUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), forKey: .approval_url)
-            try container.encode(failUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), forKey: .fail_url)
-            try container.encode(cancelUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), forKey: .cancel_url)
+            try container.encode(approvalUrl, forKey: .approval_url)
+            try container.encode(failUrl, forKey: .fail_url)
+            try container.encode(cancelUrl, forKey: .cancel_url)
+//            try container.encode(approvalUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), forKey: .approval_url)
+//            try container.encode(failUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), forKey: .fail_url)
+//            try container.encode(cancelUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), forKey: .cancel_url)
         }
     }
     
     struct ReadyResponse : Decodable {
+        let id: Int
         let tid: String
         let redirectAppUrl: String
         let redirectMobileUrl: String
@@ -205,12 +210,13 @@ struct KakaoPayAPI {
         let createdAt: Date
         
         enum CodingKeys: String, CodingKey {
-            case tid, next_redirect_app_url, next_redirect_mobile_url, next_redirect_pc_url, android_app_scheme, ios_app_scheme, created_at
+            case id, tid, next_redirect_app_url, next_redirect_mobile_url, next_redirect_pc_url, android_app_scheme, ios_app_scheme, created_at
         }
           
         init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             
+            self.id = try container.decode(Int.self, forKey: .id)
             self.tid = try container.decode(String.self, forKey: .tid).removingPercentEncoding ?? ""
             self.redirectAppUrl = try container.decode(String.self, forKey: .next_redirect_app_url).removingPercentEncoding ?? ""
             self.redirectMobileUrl = try container.decode(String.self, forKey: .next_redirect_mobile_url).removingPercentEncoding ?? ""
@@ -218,14 +224,16 @@ struct KakaoPayAPI {
             self.androidAppScheme = try container.decode(String.self, forKey: .android_app_scheme).removingPercentEncoding ?? ""
             self.iosAppScheme = try container.decode(String.self, forKey: .ios_app_scheme).removingPercentEncoding ?? ""
             
-            let RFC3339DateFormatter = DateFormatter()
-            RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-            RFC3339DateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-
-            let date_string = try container.decode(String.self, forKey: .created_at)
+//            let RFC3339DateFormatter = DateFormatter()
+//            RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
+//            RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+//            RFC3339DateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+//
+//            let date_string = try container.decode(String.self, forKey: .created_at)
               
-            self.createdAt = RFC3339DateFormatter.date(from: date_string) ?? Date()
+//            self.createdAt = RFC3339DateFormatter.date(from: date_string) ?? Date()
+            let timestemp = try container.decode(Double.self, forKey: .created_at)
+            self.createdAt = Date(timeIntervalSince1970: timestemp)
         }
     }
     
@@ -490,7 +498,8 @@ struct KakaoPayAPI {
     }
     
     func ready(completion: @escaping (Result<KakaoPayReady, APIError>) -> Void) {
-        guard let readyURL = URL(string: "\(baseURL)/ready") else {
+//        guard let readyURL = URL(string: "\(baseURL)/ready") else {
+        guard let readyURL = URL(string: "\(api.v1URL)/payment/readyPayment") else {
             return completion(.failure(.invalidURL))
         }
         
@@ -504,28 +513,34 @@ struct KakaoPayAPI {
                 totalAmount: 2200,
                 vatAmount: 200,
                 taxFreeAmount: 0,
-                approvalUrl: "http://localhost:3000/success",
-                failUrl: "http://localhost:3000/fail",
-                cancelUrl: "http://localhost:3000/cancel"
+                approvalUrl: "\(api.v1URL)/payment/success",
+                failUrl: "\(api.v1URL)/payment/fail",
+                cancelUrl: "\(api.v1URL)/payment/cancel"
+//                approvalUrl: "http://localhost:3000/success",
+//                failUrl: "http://localhost:3000/fail",
+//                cancelUrl: "http://localhost:3000/cancel"
             )
         )
-        
-        let queryDictionary = try? JSONSerialization.jsonObject(with: queryJSON ?? Data(), options: []) as? Dictionary<String, Any> ?? [:]
-        
-        let queryString = queryDictionary?.map {
-            return "\($0.key)=\($0.value)"
-        }.joined(separator: "&")
-        
-        let KAKAO_APP_KEY: String = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String ?? "KAKAO_APP_KEY is nil"
+
+//        let queryDictionary = try? JSONSerialization.jsonObject(with: queryJSON ?? Data(), options: []) as? Dictionary<String, Any> ?? [:]
+//
+//        let queryString = queryDictionary?.map {
+//            return "\($0.key)=\($0.value)"
+//        }.joined(separator: "&")
+//
+//        let KAKAO_APP_KEY: String = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String ?? "KAKAO_APP_KEY is nil"
 
         var request = URLRequest(url: readyURL)
         request.httpMethod = "POST"
-        request.addValue("KakaoAK \(KAKAO_APP_KEY)", forHTTPHeaderField: "Authorization")
-        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.httpBody = (queryString ?? "").data(using: .utf8)
+        request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(UserDefaults.standard.string(forKey: "access_token") ?? "")", forHTTPHeaderField: "Authorization")
+//        request.addValue("KakaoAK \(KAKAO_APP_KEY)", forHTTPHeaderField: "Authorization")
+//        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpBody = queryJSON
+//        request.httpBody = (queryString ?? "").data(using: .utf8)
 
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-//            guard error == nil else {
+//            guard error == nil else {VO
 //
 //            }
 
@@ -550,7 +565,8 @@ struct KakaoPayAPI {
     }
     
     func approve(tid: String, pgToken: String, completion: @escaping (Result<KakaoPayApprove, APIError>) -> Void) {
-        guard let approveURL = URL(string: "\(baseURL)/approve") else {
+//        guard let approveURL = URL(string: "\(baseURL)/approve") else {
+        guard let approveURL = URL(string: "\(api.v1URL)/payment/approvePayment") else {
             return completion(.failure(.invalidURL))
         }
         
@@ -564,19 +580,20 @@ struct KakaoPayAPI {
             )
         )
         
-        let queryDictionary = try? JSONSerialization.jsonObject(with: queryJSON ?? Data(), options: []) as? Dictionary<String, Any> ?? [:]
-        
-        let queryString = queryDictionary?.map {
-            return "\($0.key)=\($0.value)"
-        }.joined(separator: "&")
-        
-        let KAKAO_APP_KEY: String = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String ?? "KAKAO_APP_KEY is nil"
+//        let queryDictionary = try? JSONSerialization.jsonObject(with: queryJSON ?? Data(), options: []) as? Dictionary<String, Any> ?? [:]
+//
+//        let queryString = queryDictionary?.map {
+//            return "\($0.key)=\($0.value)"
+//        }.joined(separator: "&")
+//
+//        let KAKAO_APP_KEY: String = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String ?? "KAKAO_APP_KEY is nil"
 
         var request = URLRequest(url: approveURL)
         request.httpMethod = "POST"
-        request.addValue("KakaoAK \(KAKAO_APP_KEY)", forHTTPHeaderField: "Authorization")
-        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.httpBody = (queryString ?? "").data(using: .utf8)
+//        request.addValue("KakaoAK \(KAKAO_APP_KEY)", forHTTPHeaderField: "Authorization")
+//        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.httpBody = queryJSON
+//        request.httpBody = (queryString ?? "").data(using: .utf8)
 
         URLSession.shared.dataTask(with: request) { (data, response, error) in
 //            guard error == nil else {

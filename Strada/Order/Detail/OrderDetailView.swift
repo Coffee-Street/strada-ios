@@ -120,7 +120,7 @@ struct OrderDetailView : View {
             VStack {
                 Spacer()
                 HStack(alignment: .center, spacing: 0) {
-                    NavigationLink(destination: PaymentView(controller: controller), isActive: $isActive) {
+                    NavigationLink(destination: BagView(controller: controller), isActive: $isActive) {
                         EmptyView()
                     }
                     
@@ -144,7 +144,7 @@ struct OrderDetailView : View {
                         )
                     }
                     
-                    NavigationLink(destination: PaymentView(controller: controller)) {
+                    NavigationLink(destination: BagView(controller: controller)) {
                         Text("바로주문")
                             .foregroundColor(viewModel.isOrderable() ? .white : .appSemiHighlight)
                     }

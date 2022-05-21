@@ -35,6 +35,7 @@ struct MenuView : View {
                             NavigationLink(destination: OrderDetailView(controller: controller, menu_id: menu.id)) {
                                 MenuItemView(menu: menu)
                             }
+                            .disabled(menu.state != MenuState.AVAILABLE)
                         }
                         .navigationBarTitle(Text(""))
                         
