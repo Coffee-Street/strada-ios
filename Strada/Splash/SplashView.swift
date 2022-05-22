@@ -23,12 +23,9 @@ struct SplashView : View {
                         }
                     }
                 Spacer()
-            }
-            
+            } //HStack
             Spacer()
-            
-        }
-        .background(.white)
+        } //VStack
     }
 }
 
