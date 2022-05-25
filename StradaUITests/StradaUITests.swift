@@ -31,6 +31,19 @@ class StradaUITests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
+    func testLogin() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let phoneNumber = app.textFields["phoneNumber"]
+        let loginButton = app.buttons["login"]
+        
+        phoneNumber.tap()
+        phoneNumber.typeText("010-0000-0000")
+        
+        loginButton.tap()
+    }
+    
     func testLaunchPerformance() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
             // This measures how long it takes to launch your application.

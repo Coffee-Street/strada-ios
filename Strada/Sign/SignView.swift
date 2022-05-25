@@ -43,6 +43,7 @@ struct SignView : View {
                             .background(/*isFocused ? Color.appPrimary :*/ Color.appHighlight)
                             .offset(x: 0, y: 9)
                     })
+                    .accessibilityIdentifier("phoneNumber")
             }
             .padding(.bottom, 25)
             
@@ -68,6 +69,7 @@ struct SignView : View {
                 .alert(isPresented: $showAlert) {
                     Alert(title: Text("로그인 실패"), message: Text(viewModel.getErrorMessage()), dismissButton: .default(Text("확인")))
                 }
+                .accessibilityIdentifier("login")
                 Spacer()
             }
             .frame(height: 40)
