@@ -109,8 +109,8 @@ struct BagView : View {
                         Button(action: {
                             viewModel.kakaoPayReady() { kakaoPayReady in
                                 print("tid: \(kakaoPayReady.tid)")
+                                viewModel.tid = kakaoPayReady.tid
                                 openURL(URL(string: kakaoPayReady.appUrl)!)
-                                //openURL(URL(string: kakaoPayReady.mobileUrl)!)
                             }
                         }) {
                             Text("카카오페이 결제")
@@ -126,27 +126,26 @@ struct BagView : View {
                                 if url.path == "/success" {
                                     if let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true) {
                                         
-                                        var tid: String = ""
+                                        var tid: String = viewModel.tid
                                         var pgToken: String = ""
                                         
                                         for query in components.queryItems! {
                                             print("\(query.name): \(query.value!)")
                                             
-                                            if query.name == "tid" {
-                                                tid = query.value!
-                                            } else if query.name == "pg_token" {
+                                            if query.name == "pg_token" {
                                                 pgToken = query.value!
                                             }
                                         }
                                         
                                         viewModel.kakaoPayApprove(tid: tid, pgToken: pgToken) { kakaoPayApprove in
+                                            print(kakaoPayApprove)
                                             
+                                            //TODO: Clear Basket
+                                            viewModel.tid.removeAll()
+                                            
+                                            controller.goPaymentSuccess()
                                         }
                                     }
-                                    
-                                    //TODO: Clear Basket
-                                    
-                                    controller.goPaymentSuccess()
                                 } else if url.path == "/fail" {
                                     controller.goPaymentFail()
                                 } else if url.path == "/cancel" {

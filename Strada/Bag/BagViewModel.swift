@@ -9,6 +9,8 @@ import Foundation
 
 class BagViewModel : ObservableObject {
     
+    @Published var tid = ""
+    
     @Published var isCanceledPayment: Bool = false
     
     @Published var usePoint: Int = 0
