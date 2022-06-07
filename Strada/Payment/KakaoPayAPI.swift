@@ -525,7 +525,6 @@ struct KakaoPayAPI {
     }
     
     func ready(completion: @escaping (Result<KakaoPayReady, APIError>) -> Void) {
-//        guard let readyURL = URL(string: "\(baseURL)/ready") else {
         guard let readyURL = URL(string: "\(api.v1URL)/payments/ready") else {
             return completion(.failure(.invalidURL))
         }
@@ -543,34 +542,16 @@ struct KakaoPayAPI {
                 approvalUrl: "\(api.v1URL)/payments/success",
                 failUrl: "\(api.v1URL)/payments/fail",
                 cancelUrl: "\(api.v1URL)/payments/cancel"
-//                approvalUrl: "http://localhost:3000/success",
-//                failUrl: "http://localhost:3000/fail",
-//                cancelUrl: "http://localhost:3000/cancel"
             )
         )
-
-//        let queryDictionary = try? JSONSerialization.jsonObject(with: queryJSON ?? Data(), options: []) as? Dictionary<String, Any> ?? [:]
-//
-//        let queryString = queryDictionary?.map {
-//            return "\($0.key)=\($0.value)"
-//        }.joined(separator: "&")
-//
-//        let KAKAO_APP_KEY: String = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String ?? "KAKAO_APP_KEY is nil"
 
         var request = URLRequest(url: readyURL)
         request.httpMethod = "POST"
         request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer \(UserDefaults.standard.string(forKey: "access_token") ?? "")", forHTTPHeaderField: "Authorization")
-//        request.addValue("KakaoAK \(KAKAO_APP_KEY)", forHTTPHeaderField: "Authorization")
-//        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpBody = queryJSON
-//        request.httpBody = (queryString ?? "").data(using: .utf8)
 
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-//            guard error == nil else {VO
-//
-//            }
-
             let response = response as? HTTPURLResponse
 
             if (500 ..< 600) ~= response?.statusCode ?? 500 {
@@ -592,43 +573,24 @@ struct KakaoPayAPI {
     }
     
     func approve(tid: String, pgToken: String, completion: @escaping (Result<KakaoPayApprove, APIError>) -> Void) {
-//        guard let approveURL = URL(string: "\(baseURL)/approve") else {
         guard let approveURL = URL(string: "\(api.v1URL)/payments/approve") else {
             return completion(.failure(.invalidURL))
         }
         
         let queryJSON = try? JSONEncoder().encode(
             ApproveRequest(
-//                cid: "TC0ONETIME",
                 tid: tid,
-//                partnerOrderId: "partner_order_id",
-//                partnerUserId: "partner_user_id",
                 pgToken: pgToken
             )
         )
         
-//        let queryDictionary = try? JSONSerialization.jsonObject(with: queryJSON ?? Data(), options: []) as? Dictionary<String, Any> ?? [:]
-//
-//        let queryString = queryDictionary?.map {
-//            return "\($0.key)=\($0.value)"
-//        }.joined(separator: "&")
-//
-//        let KAKAO_APP_KEY: String = Bundle.main.infoDictionary?["KAKAO_APP_KEY"] as? String ?? "KAKAO_APP_KEY is nil"
-
         var request = URLRequest(url: approveURL)
         request.httpMethod = "POST"
         request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         request.addValue("Bearer \(UserDefaults.standard.string(forKey: "access_token") ?? "")", forHTTPHeaderField: "Authorization")
-//        request.addValue("KakaoAK \(KAKAO_APP_KEY)", forHTTPHeaderField: "Authorization")
-//        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpBody = queryJSON
-//        request.httpBody = (queryString ?? "").data(using: .utf8)
 
         URLSession.shared.dataTask(with: request) { (data, response, error) in
-//            guard error == nil else {
-//
-//            }
-
             let response = response as? HTTPURLResponse
 
             if (500 ..< 600) ~= response?.statusCode ?? 500 {
