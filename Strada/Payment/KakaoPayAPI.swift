@@ -176,26 +176,22 @@ struct KakaoPayAPI {
         let cancelUrl: String
         
         enum CodingKeys: String, CodingKey {
-            case cid, partner_order_id, partner_user_id, item_name, quantity, total_amount, vat_amount, tax_free_amount, approval_url, fail_url, cancel_url
+            case cid, partnerOrderId, partnerUserId, itemName, quantity, totalAmount, vatAmount, taxFreeAmount, approvalUrl, failUrl, cancelUrl
         }
         
         func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
             try container.encode(cid, forKey: .cid)
-            try container.encode(partnerOrderId, forKey: .partner_order_id)
-            try container.encode(partnerUserId, forKey: .partner_user_id)
-            try container.encode(itemName, forKey: .item_name)
-//            try container.encode(itemName.addingPercentEncoding(withAllowedCharacters: .letters), forKey: .item_name)
+            try container.encode(partnerOrderId, forKey: .partnerOrderId)
+            try container.encode(partnerUserId, forKey: .partnerUserId)
+            try container.encode(itemName, forKey: .itemName)
             try container.encode(quantity, forKey: .quantity)
-            try container.encode(totalAmount, forKey: .total_amount)
-            try container.encode(vatAmount, forKey: .vat_amount)
-            try container.encode(taxFreeAmount, forKey: .tax_free_amount)
-            try container.encode(approvalUrl, forKey: .approval_url)
-            try container.encode(failUrl, forKey: .fail_url)
-            try container.encode(cancelUrl, forKey: .cancel_url)
-//            try container.encode(approvalUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), forKey: .approval_url)
-//            try container.encode(failUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), forKey: .fail_url)
-//            try container.encode(cancelUrl.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed), forKey: .cancel_url)
+            try container.encode(totalAmount, forKey: .totalAmount)
+            try container.encode(vatAmount, forKey: .vatAmount)
+            try container.encode(taxFreeAmount, forKey: .taxFreeAmount)
+            try container.encode(approvalUrl, forKey: .approvalUrl)
+            try container.encode(failUrl, forKey: .failUrl)
+            try container.encode(cancelUrl, forKey: .cancelUrl)
         }
     }
     
@@ -209,50 +205,36 @@ struct KakaoPayAPI {
         let createdAt: Date
         
         enum CodingKeys: String, CodingKey {
-            case tid, next_redirect_app_url, next_redirect_mobile_url, next_redirect_pc_url, android_app_scheme, ios_app_scheme, created_at
+            case tid, nextRedirectAppUrl, nextRedirectMobileUrl, nextRedirectPcUrl, androidAppScheme, iosAppScheme, createdAt
         }
           
         init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             
             self.tid = try container.decode(String.self, forKey: .tid).removingPercentEncoding ?? ""
-            self.redirectAppUrl = try container.decode(String.self, forKey: .next_redirect_app_url).removingPercentEncoding ?? ""
-            self.redirectMobileUrl = try container.decode(String.self, forKey: .next_redirect_mobile_url).removingPercentEncoding ?? ""
-            self.redirectPcUrl = try container.decode(String.self, forKey: .next_redirect_pc_url).removingPercentEncoding ?? ""
-            self.androidAppScheme = try container.decode(String.self, forKey: .android_app_scheme).removingPercentEncoding ?? ""
-            self.iosAppScheme = try container.decode(String.self, forKey: .ios_app_scheme).removingPercentEncoding ?? ""
-            
-//            let RFC3339DateFormatter = DateFormatter()
-//            RFC3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
-//            RFC3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-//            RFC3339DateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-//
-//            let date_string = try container.decode(String.self, forKey: .created_at)
-              
-//            self.createdAt = RFC3339DateFormatter.date(from: date_string) ?? Date()
-            let timestemp = try container.decode(Double.self, forKey: .created_at)
+            self.redirectAppUrl = try container.decode(String.self, forKey: .nextRedirectAppUrl).removingPercentEncoding ?? ""
+            self.redirectMobileUrl = try container.decode(String.self, forKey: .nextRedirectMobileUrl).removingPercentEncoding ?? ""
+            self.redirectPcUrl = try container.decode(String.self, forKey: .nextRedirectPcUrl).removingPercentEncoding ?? ""
+            self.androidAppScheme = try container.decode(String.self, forKey: .androidAppScheme).removingPercentEncoding ?? ""
+            self.iosAppScheme = try container.decode(String.self, forKey: .iosAppScheme).removingPercentEncoding ?? ""
+
+            let timestemp = try container.decode(Double.self, forKey: .createdAt)
             self.createdAt = Date(timeIntervalSince1970: timestemp)
         }
     }
     
     struct ApproveRequest : Encodable {
-//        let cid: String
         let tid: String
-//        let partnerOrderId: String
-//        let partnerUserId: String
         let pgToken: String
         
         enum CodingKeys: String, CodingKey {
-            case cid, tid, partner_order_id, partner_user_id, pg_token
+            case tid, pgToken
         }
         
         func encode(to encoder: Encoder) throws {
             var container = encoder.container(keyedBy: CodingKeys.self)
-//            try container.encode(cid, forKey: .cid)
             try container.encode(tid, forKey: .tid)
-//            try container.encode(partnerOrderId, forKey: .partner_order_id)
-//            try container.encode(partnerUserId, forKey: .partner_user_id)
-            try container.encode(pgToken, forKey: .pg_token)
+            try container.encode(pgToken, forKey: .pgToken)
         }
     }
     
@@ -275,7 +257,7 @@ struct KakaoPayAPI {
         let payload: String?
 
         enum CodingKeys: String, CodingKey {
-            case aid, tid, cid, sid, partner_order_id, partner_user_id, payment_method_type, amount, item_name, item_code, quantity, created_at, approved_at, payload
+            case aid, tid, cid, sid, partnerOrderId, partnerUserId, paymentMethodType, amount, itemName, itemCode, quantity, createdAt, approvedAt, payload
         }
         
         init(from decoder: Decoder) throws {
@@ -286,20 +268,20 @@ struct KakaoPayAPI {
             self.cid = try container.decode(String.self, forKey: .cid).removingPercentEncoding ?? ""
             self.sid = try container.decodeIfPresent(String.self, forKey: .sid)?.removingPercentEncoding
             
-            self.partnerOrderId = try container.decode(String.self, forKey: .partner_order_id).removingPercentEncoding ?? ""
-            self.partnerUserId = try container.decode(String.self, forKey: .partner_user_id).removingPercentEncoding ?? ""
-            self.paymentMethodType = try container.decode(String.self, forKey: .payment_method_type).removingPercentEncoding ?? ""
+            self.partnerOrderId = try container.decode(String.self, forKey: .partnerOrderId).removingPercentEncoding ?? ""
+            self.partnerUserId = try container.decode(String.self, forKey: .partnerUserId).removingPercentEncoding ?? ""
+            self.paymentMethodType = try container.decode(String.self, forKey: .paymentMethodType).removingPercentEncoding ?? ""
             
-            self.itemName = try container.decode(String.self, forKey: .item_name).removingPercentEncoding ?? ""
-            self.itemCode = try container.decodeIfPresent(String.self, forKey: .item_code)?.removingPercentEncoding
+            self.itemName = try container.decode(String.self, forKey: .itemName).removingPercentEncoding ?? ""
+            self.itemCode = try container.decodeIfPresent(String.self, forKey: .itemCode)?.removingPercentEncoding
             self.quantity = try container.decode(Int.self, forKey: .quantity)
 
             self.amount = try container.decode(Amount.self, forKey: .amount)
-            
-            let createdAtTimestemp = try container.decode(Double.self, forKey: .created_at)
+
+            let createdAtTimestemp = try container.decode(Double.self, forKey: .createdAt)
             self.createdAt = Date(timeIntervalSince1970: createdAtTimestemp)
-            
-            let approvedAtTimestemp = try container.decode(Double.self, forKey: .approved_at)
+
+            let approvedAtTimestemp = try container.decode(Double.self, forKey: .approvedAt)
             self.approvedAt = Date(timeIntervalSince1970: approvedAtTimestemp)
             
             self.payload = try container.decodeIfPresent(String.self, forKey: .payload)?.removingPercentEncoding
@@ -414,7 +396,6 @@ struct KakaoPayAPI {
     }
     
     struct Amount : Decodable {
-        let id: Int?
         let total: Int
         let taxFree: Int
         let vat: Int
@@ -422,17 +403,15 @@ struct KakaoPayAPI {
         let discount: Int
         
         enum CodingKeys: String, CodingKey {
-            case id, total, tax_free="taxFree", vat, point, discount
+            case total, taxFree, vat, point, discount
         }
         
         init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             
-            self.id = try container.decodeIfPresent(Int.self, forKey: .id)
-            
             self.total = try container.decode(Int.self, forKey: .total)
             
-            self.taxFree = try container.decode(Int.self, forKey: .tax_free)
+            self.taxFree = try container.decode(Int.self, forKey: .taxFree)
             
             self.vat = try container.decode(Int.self, forKey: .vat)
             
