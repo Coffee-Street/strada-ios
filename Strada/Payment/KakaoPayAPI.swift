@@ -395,6 +395,40 @@ struct KakaoPayAPI {
 //        }
     }
     
+    struct FailRequest : Encodable {
+        let tid: String
+        
+        enum CodingKeys: String, CodingKey {
+            case tid
+        }
+        
+        func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(tid, forKey: .tid)
+        }
+    }
+    
+    struct FailResponse : Decodable {
+        
+    }
+    
+    struct CancelRequest : Encodable {
+        let tid: String
+        
+        enum CodingKeys: String, CodingKey {
+            case tid
+        }
+        
+        func encode(to encoder: Encoder) throws {
+            var container = encoder.container(keyedBy: CodingKeys.self)
+            try container.encode(tid, forKey: .tid)
+        }
+    }
+    
+    struct CancelResponse : Decodable {
+        
+    }
+    
     struct Amount : Decodable {
         let total: Int
         let taxFree: Int
@@ -606,6 +640,82 @@ struct KakaoPayAPI {
             }
 
             let kakao = KakaoPayApprove()
+            completion(.success(kakao))
+        }
+        .resume()
+    }
+    
+    func fail(tid: String, completion: @escaping (Result<KakaoPayFail, APIError>) -> Void) {
+        guard let failURL = URL(string: "\(api.v1URL)/payments/fail") else {
+            return completion(.failure(.invalidURL))
+        }
+        
+        let queryJSON = try? JSONEncoder().encode(
+            FailRequest(
+                tid: tid
+            )
+        )
+        
+        var request = URLRequest(url: failURL)
+        request.httpMethod = "POST"
+        request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(UserDefaults.standard.string(forKey: "access_token") ?? "")", forHTTPHeaderField: "Authorization")
+        request.httpBody = queryJSON
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            let response = response as? HTTPURLResponse
+
+            if (500 ..< 600) ~= response?.statusCode ?? 500 {
+                return completion(.failure(.invalidResponse))
+            }
+
+            guard let data = data else {
+                return completion(.failure(.invalidResponseData))
+            }
+
+            guard let result = try? JSONDecoder().decode(FailResponse.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+
+            let kakao = KakaoPayFail()
+            completion(.success(kakao))
+        }
+        .resume()
+    }
+    
+    func cancel(tid: String, completion: @escaping (Result<KakaoPayCancel, APIError>) -> Void) {
+        guard let cancelURL = URL(string: "\(api.v1URL)/payments/cancel") else {
+            return completion(.failure(.invalidURL))
+        }
+        
+        let queryJSON = try? JSONEncoder().encode(
+            CancelRequest(
+                tid: tid
+            )
+        )
+        
+        var request = URLRequest(url: cancelURL)
+        request.httpMethod = "POST"
+        request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.addValue("Bearer \(UserDefaults.standard.string(forKey: "access_token") ?? "")", forHTTPHeaderField: "Authorization")
+        request.httpBody = queryJSON
+
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            let response = response as? HTTPURLResponse
+
+            if (500 ..< 600) ~= response?.statusCode ?? 500 {
+                return completion(.failure(.invalidResponse))
+            }
+
+            guard let data = data else {
+                return completion(.failure(.invalidResponseData))
+            }
+
+            guard let result = try? JSONDecoder().decode(CancelResponse.self, from: data) else {
+                return completion(.failure(.decodingFailed))
+            }
+
+            let kakao = KakaoPayCancel()
             completion(.success(kakao))
         }
         .resume()
