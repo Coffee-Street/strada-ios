@@ -6,26 +6,32 @@
 
 ## Architecture
 - MVVM Pattern
-- callback process
 
 ## Preview
-### Splash & Login
-![splash & login](https://github.com/Coffee-Street/Document/raw/master/assets/Image/ios/splash-and-login.gif)
+| Splash & Login | description |
+|---|---|
+|![splash & login](https://github.com/Coffee-Street/Document/raw/master/assets/Image/ios/splash-and-login.gif) | call login api |
 
-### Profile
-![profile](https://github.com/Coffee-Street/Document/raw/master/assets/Image/ios/profile.gif)
+| User Profile | description |
+|---|---|
+|![profile](https://github.com/Coffee-Street/Document/raw/master/assets/Image/ios/profile.gif) | call user profile api |
 
-### Voice of Customer
-![voice of customer](https://github.com/Coffee-Street/Document/raw/master/assets/Image/ios/voice-of-customer.gif)
+| Voice of Customer | description |
+|---|---|
+|![voice of customer](https://github.com/Coffee-Street/Document/raw/master/assets/Image/ios/voice-of-customer.gif) | |
 
-### Notice
-![notice](https://github.com/Coffee-Street/Document/raw/master/assets/Image/ios/notice.gif)
+| Notice | description |
+|---|---|
+|![notice](https://github.com/Coffee-Street/Document/raw/master/assets/Image/ios/notice.gif) | |
 
-### Menu
-![menu](https://github.com/Coffee-Street/Document/raw/master/assets/Image/ios/menu-control.gif)
+| Menu | description |
+|---|---|
+|![menu](https://github.com/Coffee-Street/Document/raw/master/assets/Image/ios/menu-control.gif) | |
 
-### Order
-![order-bag](https://github.com/Coffee-Street/Document/raw/master/assets/Image/ios/order-and-bag.gif)
+| Order | description |
+|---|---|
+|![order-bag](https://github.com/Coffee-Street/Document/raw/master/assets/Image/ios/order-and-bag.gif) | |
 
-### Payment
-![order-kakaopay](https://github.com/Coffee-Street/Document/raw/master/assets/Image/ios/order-and-kakaopay.gif)
+| Payment Feat. Kakao PG | description |
+|---|---|
+|![order-kakaopay](https://github.com/Coffee-Street/Document/raw/master/assets/Image/ios/order-and-kakaopay.gif) | |
