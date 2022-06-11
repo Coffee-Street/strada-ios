@@ -1,8 +1,5 @@
 # strada-ios
 
-##
-- In order to build, you need to create an info.plist file and register KAKAO_APP_KEY.
-
 ## iOS Spec.
 - SwiftUI only (not used SPM & cocoapod library)
 - iOS14 or more latest
