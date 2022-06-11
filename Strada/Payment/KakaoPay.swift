@@ -25,5 +25,14 @@ struct KakaoPayReady : Identifiable {
 struct KakaoPayApprove : Identifiable {
     let id = UUID()
     
+}
+
+struct KakaoPayFail : Identifiable {
+    let id = UUID()
+    
+}
+
+struct KakaoPayCancel : Identifiable {
+    let id = UUID()
     
 }
